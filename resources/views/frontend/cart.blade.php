@@ -328,10 +328,7 @@
             </div>
         </div>
 
-        <div class="mb-3">
-            <label for="transaction-id" class="form-label">Transaction ID/Reference</label>
-            <input type="text" class="form-control" id="transaction-id" placeholder="Enter your transaction reference" required>
-        </div>
+      
 
         <div class="mb-3">
             <label for="payment-slip" class="form-label">Upload Payment Slip</label>

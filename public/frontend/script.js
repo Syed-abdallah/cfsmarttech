@@ -904,12 +904,7 @@ async function loadAddresses() {
             <p class="mb-1 text-muted small">${address.city}, ${address.state} ${address.zip}</p>
             <p class="mb-1 text-muted small">${getCountryName(address.country)}</p>
             <p class="mb-0 text-muted small">${address.phone}</p>
-            <!-- Delivery charge indicator -->
-            <p class="mt-1 small">
-                <span class="badge ${address.state.toLowerCase() === 'punjab' ? 'bg-info' : 'bg-warning'}">
-                    Delivery: Rs. ${address.state.toLowerCase() === 'punjab' ? '300' : '400'}
-                </span>
-            </p>
+          
         </div>
         <div>
             ${address.is_default 
