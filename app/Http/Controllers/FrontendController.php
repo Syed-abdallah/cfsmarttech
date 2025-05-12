@@ -41,24 +41,28 @@ class FrontendController extends Controller
     
     public function carts()
     {
-// Get the default shipping address
+// Get default shipping address (or null if none exists)
 $shipping = CustomerAddress::where('customer_id', auth('customer')->user()->id)
                           ->where('is_default', 1)
-                          ->first(); 
+                          ->first();
 
-// Calculate shipping cost based on state
-$shippingCost = 400; // Default cost
-if ($shipping && $shipping->state == 'punjab') {
-    $shippingCost = 300;
+// Calculate shipping cost
+$shippingCost = "";
+$shippingState = "";
+
+if ($shipping) {
+    $shippingState = $shipping->state ?? "";
+    $shippingCost = (strtolower($shippingState) == 'punjab') ? 300 : 400;
 }
 
-
-$data = [
+// Prepare view data
+$viewData = [
     'shipping' => $shipping,
-    'shippingCost' => $shippingCost
+    'shippingCost' => $shippingCost,
+    'shippingState' => $shippingState
 ];
 
-return view('frontend.cart', array_merge($data, $this->getCommonData()));
+return view('frontend.cart', array_merge($viewData, $this->getCommonData()));
     }
     public function calculator()
     {
