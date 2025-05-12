@@ -139,7 +139,7 @@
         }
         
         .image-section {
-            background: url('frontend/images/p14.jpg') center/cover no-repeat;
+            background: url('/frontend/images/p14.jpg') center/cover no-repeat;
             position: relative;
             width: 100%;
             max-width: 677px;
@@ -271,7 +271,7 @@
                     <div class="text-center">
                         <img src="{{asset('frontend/images/logo1.png')}}" alt="" class="mb-3" style="width: 100px; height: 100px;">
                     
-                        <p class="text-muted">Create your admin account</p>
+                        <p class="text-muted">Create Your Account</p>
                     </div>
                     
                     @if($errors->any())
