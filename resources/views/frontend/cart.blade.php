@@ -301,10 +301,20 @@
                     <span>Subtotal:</span>
                     <span id="checkout-subtotal">$0.00</span>
                 </div>
-                <div class="d-flex justify-content-between mb-2">
+                {{-- <div class="d-flex justify-content-between mb-2">
                     <span>Shipping:</span>
-                    <span id="shipping-cost" class="delivery-charge">Select address</span>
-                </div>
+                  <span id="shipping-cost" class="delivery-charge">Select address</span> 
+                </div> --}}
+                <div class="d-flex justify-content-between mb-2">
+    <span>Shipping:</span>
+    <span id="shipping-cos" class="delivery-charge">
+        @if($shipping)
+            Rs{{ $shippingCost }}
+        @else
+            No default address selected
+        @endif
+    </span>
+</div>
                 <div class="d-flex justify-content-between mb-2">
                     <span>Tax:</span>
                     <span id="tax-amount">$0.00</span>

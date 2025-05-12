@@ -75,19 +75,12 @@ Route::post('partners/{partner}/toggle', [PartnerController::class, 'toggleStatu
 Route::get('/cfcustomer/dashboard', function () {
     return view('customer.dashboard');
 })->middleware(['auth:customer'])->name('cfcustomer.dashboard');
-// Route::get('/product_item', function () {
-    
-//     return view('frontend/item');
-// });
 
-Route::get('/add_to_cart', function () {
-    
-    return view('frontend/cart');
-});
-Route::get('/calculator', function () {
-    
-    return view('frontend/calculator');
-});
+
+Route::get('/add_to_cart', [FrontendController::class, 'carts']);
+Route::get('/calculator', [FrontendController::class, 'calculator']);
+
+
 Route::get('/message-from-management', function () {
     
     return view('frontend/ourmessage');
@@ -106,9 +99,7 @@ Route::get('/product_item/{id}', [FrontendController::class, 'show'])->name('pro
 
 
 Route::get('/', [FrontendController::class, 'index']);
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 
 require __DIR__.'/auth.php';

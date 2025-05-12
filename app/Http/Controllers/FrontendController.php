@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Marquee;
+use App\Models\CustomerAddress;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -29,15 +30,41 @@ class FrontendController extends Controller
     public function products()
     {
         $products = Product::where('product_active', 1)->where('is_sell', 1)->get();
-        return view('frontend.products', compact('products'));
-    }
+    return view('frontend.products', array_merge(compact('products'), $this->getCommonData()));
+}
 
     public function show($id) {
         $product = Product::findOrFail($id);
-        return view('frontend.item', compact('product'));
+    
+        return view('frontend.item', array_merge(compact('product'), $this->getCommonData()));
     }
     
-//     public function showMarquee()
+    public function carts()
+    {
+// Get the default shipping address
+$shipping = CustomerAddress::where('customer_id', auth('customer')->user()->id)
+                          ->where('is_default', 1)
+                          ->first(); 
+
+// Calculate shipping cost based on state
+$shippingCost = 400; // Default cost
+if ($shipping && $shipping->state == 'punjab') {
+    $shippingCost = 300;
+}
+
+
+$data = [
+    'shipping' => $shipping,
+    'shippingCost' => $shippingCost
+];
+
+return view('frontend.cart', array_merge($data, $this->getCommonData()));
+    }
+    public function calculator()
+    {
+        return view('frontend.calculator', $this->getCommonData());
+    }
+    //     public function showMarquee()
 // {
 //     $marquees = Marquee::where('is_active', 1)->get();
 //     return view('your_view_file', compact('marquees'));
