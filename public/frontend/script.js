@@ -189,9 +189,10 @@ const checkoutSubtotal = document.getElementById('checkout-subtotal');
 const checkoutTotal = document.getElementById('checkout-total');
 
 // Constants
-const DELIVERY_CHARGE = 5.99;
-const FREE_SHIPPING_THRESHOLD = 500;
-const TAX_RATE = 0.10; // 10% tax
+const DELIVERY_CHARGE = 0;
+// const FREE_SHIPPING_THRESHOLD = 500;
+// const TAX_RATE = 0.10; // 10% tax
+const TAX_RATE = 0; // 10% tax
 
 // Initialize the page when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -461,7 +462,8 @@ function updateStockDisplay() {
 // Update checkout summary
 function updateCheckoutSummary(subtotal) {
     // Calculate shipping
-    let shipping = subtotal < FREE_SHIPPING_THRESHOLD && subtotal > 0 ? DELIVERY_CHARGE : 0;
+    // let shipping = subtotal < FREE_SHIPPING_THRESHOLD && subtotal > 0 ? DELIVERY_CHARGE : 0;
+    let shipping = subtotal <  subtotal > 0 ? DELIVERY_CHARGE : 0;
     
     // Calculate tax
     const tax = subtotal * TAX_RATE;

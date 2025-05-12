@@ -11,7 +11,7 @@
                     <p class="text-muted mb-4">Please login or create an account to proceed with your order and enjoy a
                         seamless shopping experience</p>
                     <div class="d-flex justify-content-center gap-3">
-                        <a href="/login" class="btn btn-primary px-4 rounded-pill">
+                        <a href="/cfcustomer/login" class="btn btn-primary px-4 rounded-pill">
                             <i class="bi bi-box-arrow-in-right me-2"></i> Login
                         </a>
                         <a href="/cfcustomer/register" class="btn btn-outline-primary px-4 rounded-pill">
@@ -308,19 +308,20 @@
                     <span>Shipping:</span>
                   <span id="shipping-cost" class="delivery-charge">Select address</span> 
                 </div> --}}
-                    <div class="d-flex justify-content-between mb-2">
+                    <div class=" mb-2">
                         <span>Shipping:</span>
                         <span id="shipping-cos" class="delivery-charge">
-                            @if ($shipping)
+                            {{-- @if ($shipping)
                                 Rs{{ $shippingCost }}
-                            @else
-                                No default address selected
-                            @endif
-                        </span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>Tax:</span>
-                        <span id="tax-amount">$0.00</span>
+                            @else --}}
+                                <span   style="margin-left: 50px;">Depends on shipping company</span>
+                                    {{-- @endif --}}
+                                </span>
+                            </div>
+                            <div class="mb-2">
+                                <span>Tax:</span>
+                                <span  style="margin-left: 130px;">Depends on Company</span>
+                        {{-- <span id="tax-amount">$0.00</span> --}}
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between total-price mb-3">
