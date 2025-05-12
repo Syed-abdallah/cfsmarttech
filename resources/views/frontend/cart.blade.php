@@ -15,7 +15,7 @@
                     <a href="/login" class="btn btn-primary px-4 rounded-pill">
                         <i class="bi bi-box-arrow-in-right me-2"></i> Login
                     </a>
-                    <a href="/register" class="btn btn-outline-primary px-4 rounded-pill">
+                    <a href="/cfcustomer/register" class="btn btn-outline-primary px-4 rounded-pill">
                         <i class="bi bi-person-plus me-2"></i> Create Account
                     </a>
                 </div>
