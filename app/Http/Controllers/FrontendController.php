@@ -57,16 +57,16 @@ if (!$customer) {
 $shipping = CustomerAddress::where('customer_id', $customer->id)
                           ->where('is_default', 1)
                           ->first();
-
-// Calculate shipping cost
-$shippingCost = "";
-$shippingState = "";
-
-if ($shipping) {
-    $shippingState = $shipping->state ?? "";
-    $shippingCost = (strtolower($shippingState) == 'punjab') ? 300 : 400;
-}
-
+                          
+                          // Calculate shipping cost
+                          $shippingCost = "";
+                          $shippingState = "";
+                          
+                          if ($shipping) {
+                              $shippingState = $shipping->state ?? "";
+                              $shippingCost = (strtolower($shippingState) == 'punjab') ? 300 : 400;
+                            }
+                            // dd($shipping);
 return view('frontend.cart', array_merge([
     'shipping' => $shipping,
     'shippingCost' => $shippingCost,
