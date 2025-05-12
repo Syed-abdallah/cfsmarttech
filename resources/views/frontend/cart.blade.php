@@ -286,102 +286,106 @@
                     </div> --}}
 
                     <div id="payment-section" class="payment-method">
-    <h4 class="mb-4"><i class="bi bi-credit-card me-2"></i> Payment Method</h4>
+                        <h4 class="mb-4"><i class="bi bi-credit-card me-2"></i> Payment Method</h4>
 
-    <div class="payment-option " id="bank-transfer-option" onclick="showBankTransferFields()">
-        <div class="payment-icon">
-            <i class="bi bi-bank"></i>
-        </div>
-        <div>
-            <h6 class="mb-1">Bank Transfer</h6>
-            <p class="small text-muted mb-0">Direct bank transfer</p>
-        </div>
-        <div class="ms-auto">
-            <input class="form-check-input" type="radio" name="payment-method" id="bank-transfer" value="bank-transfer" >
-        </div>
-    </div>
+                        <div class="payment-option " id="bank-transfer-option" onclick="showBankTransferFields()">
+                            <div class="payment-icon">
+                                <i class="bi bi-bank"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Bank Transfer</h6>
+                                <p class="small text-muted mb-0">Direct bank transfer</p>
+                            </div>
+                            <div class="ms-auto">
+                                <input class="form-check-input" type="radio" name="payment-method" id="bank-transfer"
+                                    value="bank-transfer">
+                            </div>
+                        </div>
 
-    <!-- Bank Transfer Form (hidden by default, shows when option clicked) -->
-    <div id="bank-transfer-fields" style="display: none;">
-        <div class="card p-3 mb-3 bg-light mt-3">
-            <button id="show-bank-details" class="btn btn-outline-primary mb-2" type="button" onclick="toggleBankDetails()">
-                <i class="bi bi-eye-fill me-1"></i> Show Bank Account Details
-            </button>
+                        <!-- Bank Transfer Form (hidden by default, shows when option clicked) -->
+                        <div id="bank-transfer-fields" style="display: none;">
+                            <div class="card p-3 mb-3 bg-light mt-3">
+                                <button id="show-bank-details" class="btn btn-outline-primary mb-2" type="button"
+                                    onclick="toggleBankDetails()">
+                                    <i class="bi bi-eye-fill me-1"></i> Show Bank Account Details
+                                </button>
 
-            <div id="bank-details" style="display: none;">
-                <h6 class="mb-2">Our Bank Details:</h6>
-                <div class="mb-2">
-                    <span class="fw-bold">Bank Name:</span> ABC Bank
-                </div>
-                <div class="mb-2">
-                    <span class="fw-bold">Account Name:</span> Your Company Name
-                </div>
-                <div class="mb-2">
-                    <span class="fw-bold">Account Number:</span> 1234567890
-                </div>
-                <div class="mb-2">
-                    <span class="fw-bold">IBAN:</span> XX00XXXX00000000000000
-                </div>
-                <div>
-                    <span class="fw-bold">Branch Code:</span> 1234
-                </div>
-            </div>
-        </div>
+                                <div id="bank-details" style="display: none;">
+                                    <h6 class="mb-2">Our Bank Details:</h6>
+                                    <div class="mb-2">
+                                        <span class="fw-bold">Bank Name:</span> ABC Bank
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="fw-bold">Account Name:</span> Your Company Name
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="fw-bold">Account Number:</span> 1234567890
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="fw-bold">IBAN:</span> XX00XXXX00000000000000
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold">Branch Code:</span> 1234
+                                    </div>
+                                </div>
+                            </div>
 
-      
 
-        <div class="mb-3">
-            <label for="payment-slip" class="form-label">Upload Payment Slip</label>
-            <input class="form-control" type="file" id="payment-slip" accept="image/*,.pdf" required>
-            <div class="form-text">Upload screenshot or scanned copy of your bank transfer receipt</div>
-        </div>
-    </div>
 
-    <!-- Place Order Button -->
-    <button id="place-order-btn" class="btn btn-primary w-100 mt-3 py-3 rounded-pill" disabled>
-        <i class="bi bi-shield-lock me-2"></i> Place Order Securely
-    </button>
-<script>
-document.getElementById('payment-slip').addEventListener('change', function() {
-    const placeOrderBtn = document.getElementById('place-order-btn');
-    if (this.files.length > 0) {
-        placeOrderBtn.disabled = false;
-        placeOrderBtn.classList.remove('btn-secondary');
-        placeOrderBtn.classList.add('btn-primary');
-    } else {
-        placeOrderBtn.disabled = true;
-        placeOrderBtn.classList.remove('btn-primary');
-        placeOrderBtn.classList.add('btn-secondary');
-    }
-});
-</script>
-    {{-- <div class="text-center mt-3">
+                            <div class="mb-3">
+                                <label for="payment-slip" class="form-label">Upload Payment Slip</label>
+                                <input class="form-control" type="file" id="payment-slip" accept="image/*,.pdf"
+                                    required>
+                                <div class="form-text">Upload screenshot or scanned copy of your bank transfer receipt
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Place Order Button -->
+                        <button id="place-order-btn" class="btn btn-primary w-100 mt-3 py-3 rounded-pill" disabled>
+                            <i class="bi bi-shield-lock me-2"></i> Place Order Securely
+                        </button>
+                        <script>
+                            document.getElementById('payment-slip').addEventListener('change', function() {
+                                const placeOrderBtn = document.getElementById('place-order-btn');
+                                if (this.files.length > 0) {
+                                    placeOrderBtn.disabled = false;
+                                    placeOrderBtn.classList.remove('btn-secondary');
+                                    placeOrderBtn.classList.add('btn-primary');
+                                } else {
+                                    placeOrderBtn.disabled = true;
+                                    placeOrderBtn.classList.remove('btn-primary');
+                                    placeOrderBtn.classList.add('btn-secondary');
+                                }
+                            });
+                        </script>
+                        {{-- <div class="text-center mt-3">
         <img src="https://www.vectorlogo.zone/logos/abc-bank/abc-bank-icon.svg" alt="ABC Bank" class="me-2" height="30">
         <img src="https://www.vectorlogo.zone/logos/xyz-bank/xyz-bank-icon.svg" alt="XYZ Bank" height="30">
     </div> --}}
-</div>
+                    </div>
 
-<script>
-// Show bank transfer fields when option is clicked
-function showBankTransferFields() {
-    document.getElementById('bank-transfer-fields').style.display = 'block';
-    document.getElementById('bank-transfer').checked = true;
-}
+                    <script>
+                        // Show bank transfer fields when option is clicked
+                        function showBankTransferFields() {
+                            document.getElementById('bank-transfer-fields').style.display = 'block';
+                            document.getElementById('bank-transfer').checked = true;
+                        }
 
-// Toggle bank details visibility
-function toggleBankDetails() {
-    const bankDetails = document.getElementById('bank-details');
-    const button = document.getElementById('show-bank-details');
-    
-    if (bankDetails.style.display === 'none') {
-        bankDetails.style.display = 'block';
-        button.innerHTML = '<i class="bi bi-eye-slash-fill me-1"></i> Hide Bank Details';
-    } else {
-        bankDetails.style.display = 'none';
-        button.innerHTML = '<i class="bi bi-eye-fill me-1"></i> Show Bank Details';
-    }
-}
-</script>
+                        // Toggle bank details visibility
+                        function toggleBankDetails() {
+                            const bankDetails = document.getElementById('bank-details');
+                            const button = document.getElementById('show-bank-details');
+
+                            if (bankDetails.style.display === 'none') {
+                                bankDetails.style.display = 'block';
+                                button.innerHTML = '<i class="bi bi-eye-slash-fill me-1"></i> Hide Bank Details';
+                            } else {
+                                bankDetails.style.display = 'none';
+                                button.innerHTML = '<i class="bi bi-eye-fill me-1"></i> Show Bank Details';
+                            }
+                        }
+                    </script>
                 </div>
             </div>
 
@@ -392,7 +396,7 @@ function toggleBankDetails() {
 
                     <!-- Cart Items -->
                     <div id="checkout-items">
-                        <!-- Cart items will be dynamically inserted here -->
+
                     </div>
 
                     <hr>
@@ -412,13 +416,13 @@ function toggleBankDetails() {
                             {{-- @if ($shipping)
                                 Rs{{ $shippingCost }}
                             @else --}}
-                                <span   style="margin-left: 50px;">Depends on shipping company</span>
-                                    {{-- @endif --}}
-                                </span>
-                            </div>
-                            <div class="mb-2">
-                                <span>Tax:</span>
-                                <span  style="margin-left: 130px;">Depends on Company</span>
+                            <span style="margin-left: 50px;">Depends on shipping company</span>
+                            {{-- @endif --}}
+                        </span>
+                    </div>
+                    <div class="mb-2">
+                        <span>Tax:</span>
+                        <span style="margin-left: 130px;">Depends on Company</span>
                         {{-- <span id="tax-amount">$0.00</span> --}}
                     </div>
                     <hr>

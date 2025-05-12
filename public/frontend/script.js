@@ -195,26 +195,26 @@ const DELIVERY_CHARGE = 0;
 const TAX_RATE = 0; // 10% tax
 
 // Initialize the page when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize cart dropdown if it exists on the page
     if (document.getElementById('cart-dropdown')) {
         const cartDropdown = new bootstrap.Dropdown(document.getElementById('cart-dropdown'));
         setupCartDropdownBehavior();
     }
-    
+
     // Setup add to cart buttons if they exist
     if (document.querySelectorAll('.add-to-cart').length > 0) {
         setupAddToCartButtons();
     }
-    
+
     // Initialize stock display if it exists
     if (document.querySelector('.stock-status')) {
         updateStockDisplay();
     }
-    
+
     // Update cart display
     updateCartDisplay();
-    
+
     // Setup checkout page if it exists
     if (document.querySelector('.checkout-container')) {
         setupCheckoutPage();
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Setup all Add to Cart buttons
 function setupAddToCartButtons() {
     document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const product = {
                 id: this.dataset.id,
                 name: this.dataset.name,
@@ -237,7 +237,7 @@ function setupAddToCartButtons() {
                 stock: parseInt(this.dataset.stock),
                 quantity: 1
             };
-            
+
             addToCart(product);
         });
     });
@@ -256,49 +256,100 @@ function addToCart(product) {
     } else {
         cart[product.id] = product;
     }
-    
+
     // Update stock
     currentStock[product.id] = product.stock - cart[product.id].quantity;
     localStorage.setItem('stock', JSON.stringify(currentStock));
-    
+
     saveCart();
     showToast(`${product.name} added to cart`, 'success');
-      // Open the cart dropdown automatically
-      const cartDropdownElement = document.getElementById('cart-dropdown');
-      if (cartDropdownElement) {
-          const cartDropdown = bootstrap.Dropdown.getInstance(cartDropdownElement) || 
-                              new bootstrap.Dropdown(cartDropdownElement);
-          cartDropdown.show();
-      }
+    // Open the cart dropdown automatically
+    const cartDropdownElement = document.getElementById('cart-dropdown');
+    if (cartDropdownElement) {
+        const cartDropdown = bootstrap.Dropdown.getInstance(cartDropdownElement) ||
+            new bootstrap.Dropdown(cartDropdownElement);
+        cartDropdown.show();
+    }
 }
 
 // Save cart to localStorage and update UI
+// function saveCart() {
+//     localStorage.setItem('cart', JSON.stringify(cart));
+//     updateCartDisplay();
+
+
+//     if (document.querySelector('.stock-status')) {
+//         updateStockDisplay();
+//     }
+// }
+
+
+
+
+function logCartDetails() {
+    const cartData = JSON.parse(localStorage.getItem('cart')) || {};
+    const stockData = JSON.parse(localStorage.getItem('stock')) || {};
+
+    console.log("===== CART DETAILS =====");
+
+    // Log each product in the cart
+    Object.values(cartData).forEach(product => {
+        console.log(`Product ID: ${product.id}`);
+        console.log(`Name: ${product.name}`);
+        console.log(`Price: $${product.price.toFixed(2)}`);
+        console.log(`Quantity in Cart: ${product.quantity}`);
+        console.log(`Total for this product: $${(product.price * product.quantity).toFixed(2)}`);
+        console.log(`Original Stock: ${product.stock}`);
+        console.log(`Remaining Stock: ${stockData[product.id] || product.stock}`);
+        console.log("----------------------");
+    });
+
+    // Calculate and log totals
+    const subtotal = Object.values(cartData).reduce((sum, product) =>
+        sum + (product.price * product.quantity), 0);
+    const tax = subtotal * TAX_RATE;
+    const shipping = subtotal > 0 ? DELIVERY_CHARGE : 0;
+    const total = subtotal + tax + shipping;
+
+    console.log(`Subtotal: $${subtotal.toFixed(2)}`);
+    console.log(`Tax (${TAX_RATE * 100}%): $${tax.toFixed(2)}`);
+    console.log(`Shipping: $${shipping.toFixed(2)}`);
+    console.log(`Total: $${total.toFixed(2)}`);
+    console.log("======================");
+}
+
+// Then modify your saveCart function to call this:
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('stock', JSON.stringify(currentStock));
     updateCartDisplay();
-    
+    logCartDetails();
+
     // Update stock display if on product page
     if (document.querySelector('.stock-status')) {
         updateStockDisplay();
     }
 }
 
+
+
+
 // Update all cart-related UI elements
 function updateCartDisplay() {
     const cartItemsArray = Object.values(cart);
     const itemCount = cartItemsArray.reduce((total, item) => total + item.quantity, 0);
-    
+
     // Update cart count badge if it exists
     if (cartCount) {
         cartCount.textContent = itemCount;
         cartCount.style.display = itemCount > 0 ? 'block' : 'none';
     }
-    
+
     // Update cart summary if it exists
     if (cartSummary) {
         cartSummary.textContent = `${itemCount} ${itemCount === 1 ? 'item' : 'items'}`;
     }
-    
+
     // Update cart dropdown if it exists
     if (cartEmpty && cartItems) {
         if (itemCount === 0) {
@@ -307,22 +358,22 @@ function updateCartDisplay() {
         } else {
             cartEmpty.classList.add('d-none');
             cartItems.classList.remove('d-none');
-            
+
             // Calculate subtotal
             const subtotal = cartItemsArray.reduce((total, item) => total + (item.price * item.quantity), 0);
-            
+
             // Update cart items list
             if (cartItemsContainer) {
                 renderCartItems(cartItemsArray, cartItemsContainer, true);
             }
-            
+
             // Update cart total if it exists
             if (cartTotal) {
                 cartTotal.textContent = `$${subtotal.toFixed(2)}`;
             }
         }
     }
-    
+
     // Update checkout items if on checkout page
     if (checkoutItems) {
         const subtotal = cartItemsArray.reduce((total, item) => total + (item.price * item.quantity), 0);
@@ -334,18 +385,18 @@ function updateCartDisplay() {
 // Render cart items in specified container
 function renderCartItems(items, container, showControls) {
     container.innerHTML = '';
-    
+
     items.forEach(item => {
         const itemElement = document.createElement('div');
         itemElement.className = showControls ? 'dropdown-item py-2' : 'cart-item mb-3';
-        
+
         itemElement.innerHTML = `
             <div class="d-flex align-items-center">
                 <img src="${item.image}" alt="${item.name}" width="${showControls ? 50 : 70}" height="${showControls ? 50 : 70}" class="rounded me-3">
                 <div class="flex-grow-1">
                     <h6 class="mb-0">${item.name}</h6>
-                    ${showControls ? 
-                      `<small class="text-muted">${item.quantity} × $${item.price.toFixed(2)}</small>
+                    ${showControls ?
+                `<small class="text-muted">${item.quantity} × $${item.price.toFixed(2)}</small>
                        <div class="d-flex align-items-center mt-1">
                            <button class="btn btn-sm btn-outline-secondary decrease-quantity" data-id="${item.id}" style="padding: 0.15rem 0.5rem;">
                                <i class="bi bi-dash"></i>
@@ -355,22 +406,22 @@ function renderCartItems(items, container, showControls) {
                                <i class="bi bi-plus"></i>
                            </button>
                        </div>` :
-                      `<p class="text-muted small mb-1">Qty: ${item.quantity}</p>`
-                    }
+                `<p class="text-muted small mb-1">Qty: ${item.quantity}</p>`
+            }
                 </div>
                 <div class="text-end">
                     <strong>$${(item.price * item.quantity).toFixed(2)}</strong>
-                    ${showControls ? 
-                     `<button class="btn btn-sm btn-outline-danger remove-item d-block mt-1 w-100" data-id="${item.id}">
+                    ${showControls ?
+                `<button class="btn btn-sm btn-outline-danger remove-item d-block mt-1 w-100" data-id="${item.id}">
                           <i class="bi bi-trash"></i> Remove
                       </button>` : ''
-                    }
+            }
                 </div>
             </div>
         `;
         container.appendChild(itemElement);
     });
-    
+
     // Add event listeners if controls are shown
     if (showControls) {
         setupQuantityControls();
@@ -380,30 +431,30 @@ function renderCartItems(items, container, showControls) {
 // Setup quantity increase/decrease controls
 function setupQuantityControls() {
     document.querySelectorAll('.increase-quantity').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             const itemId = this.dataset.id;
-            
+
             // Check stock before increasing
             if (cart[itemId].quantity >= cart[itemId].stock) {
                 showToast(`Only ${cart[itemId].stock} available in stock!`, 'error');
                 return;
             }
-            
+
             cart[itemId].quantity += 1;
             currentStock[itemId] = cart[itemId].stock - cart[itemId].quantity;
             localStorage.setItem('stock', JSON.stringify(currentStock));
             saveCart();
         });
     });
-    
+
     document.querySelectorAll('.decrease-quantity').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             const itemId = this.dataset.id;
-            
+
             if (cart[itemId].quantity > 1) {
                 cart[itemId].quantity -= 1;
                 currentStock[itemId] = cart[itemId].stock - cart[itemId].quantity;
@@ -412,17 +463,17 @@ function setupQuantityControls() {
             }
         });
     });
-    
+
     document.querySelectorAll('.remove-item').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             const itemId = this.dataset.id;
-            
+
             // Return stock when removing item
             currentStock[itemId] = cart[itemId].stock;
             localStorage.setItem('stock', JSON.stringify(currentStock));
-            
+
             delete cart[itemId];
             saveCart();
             showToast('Item removed from cart', 'warning');
@@ -434,7 +485,7 @@ function setupQuantityControls() {
 function updateStockDisplay() {
     const stockStatusElement = document.querySelector('.stock-status');
     const productId = document.querySelector('.add-to-cart')?.dataset.id;
-    
+
     if (productId && stockStatusElement) {
         const addToCartBtn = document.querySelector('.add-to-cart[data-id="' + productId + '"]');
         const availableStock = currentStock[productId] !== undefined ?
@@ -463,11 +514,11 @@ function updateStockDisplay() {
 function updateCheckoutSummary(subtotal) {
     // Calculate shipping
     // let shipping = subtotal < FREE_SHIPPING_THRESHOLD && subtotal > 0 ? DELIVERY_CHARGE : 0;
-    let shipping = subtotal <  subtotal > 0 ? DELIVERY_CHARGE : 0;
-    
+    let shipping = subtotal < subtotal > 0 ? DELIVERY_CHARGE : 0;
+
     // Calculate tax
     const tax = subtotal * TAX_RATE;
-    
+
     // Update display
     if (checkoutSubtotal) checkoutSubtotal.textContent = `$${subtotal.toFixed(2)}`;
     if (document.getElementById('shipping-cost')) {
@@ -482,13 +533,13 @@ function updateCheckoutSummary(subtotal) {
 // Setup cart dropdown behavior
 function setupCartDropdownBehavior() {
     const cartDropdownMenu = document.getElementById('cart-dropdown-menu');
-    
+
     if (cartDropdownMenu) {
         // Prevent dropdown from closing when clicking inside
-        cartDropdownMenu.addEventListener('click', function(e) {
+        cartDropdownMenu.addEventListener('click', function (e) {
             e.stopPropagation();
         });
-        
+
         // Make dropdown responsive on mobile
         function handleMobileDropdown() {
             if (window.innerWidth < 992) {
@@ -521,7 +572,7 @@ function setupCartDropdownBehavior() {
 
 
 
-        
+
     }
 }
 
@@ -536,10 +587,10 @@ function setupCartDropdownBehavior() {
 // function setupCheckoutPage() {
 //     // Check if user is logged in (you would replace this with actual auth check)
 //     const isLoggedIn = true; // Change to false to test login prompt
-    
+
 //     const loginPrompt = document.getElementById('login-prompt');
 //     const addressSection = document.getElementById('address-section');
-    
+
 //     if (loginPrompt && addressSection) {
 //         if (isLoggedIn) {
 //             loginPrompt.classList.add('d-none');
@@ -550,10 +601,10 @@ function setupCartDropdownBehavior() {
 //             addressSection.classList.add('d-none');
 //         }
 //     }
-    
+
 //     // Setup payment method selection
 //     setupPaymentOptions();
-    
+
 //     // Setup address management
 //     setupAddressManagement();
 // }
@@ -564,7 +615,7 @@ function setupCheckoutPage() {
     const addressSection = document.getElementById('address-section');
 
     if (loginPrompt && addressSection) {
-        if (isLoggedIn) { 
+        if (isLoggedIn) {
             loginPrompt.classList.add('d-none');
             addressSection.classList.remove('d-none');
             loadAddresses();
@@ -591,10 +642,10 @@ function setupPaymentOptions() {
     const codRadio = document.getElementById('cod');
     const paypalRadio = document.getElementById('paypal');
     const paypalForm = document.getElementById('paypal-form');
-    
+
     if (codOption && paypalOption) {
         // COD option
-        codOption.addEventListener('click', function(e) {
+        codOption.addEventListener('click', function (e) {
             if (e.target.tagName !== 'INPUT') {
                 codRadio.checked = true;
                 if (paypalForm) paypalForm.style.display = 'none';
@@ -603,7 +654,7 @@ function setupPaymentOptions() {
         });
 
         // PayPal option
-        paypalOption.addEventListener('click', function(e) {
+        paypalOption.addEventListener('click', function (e) {
             if (e.target.tagName !== 'INPUT') {
                 paypalRadio.checked = true;
                 if (paypalForm) paypalForm.style.display = 'block';
@@ -615,7 +666,7 @@ function setupPaymentOptions() {
         if (codRadio) codRadio.addEventListener('change', updatePaymentOptionStyles);
         if (paypalRadio) paypalRadio.addEventListener('change', updatePaymentOptionStyles);
     }
-    
+
     function updatePaymentOptionStyles() {
         if (codOption && paypalOption) {
             if (document.querySelector('input[name="payment-method"]:checked').value === 'cod') {
@@ -639,26 +690,26 @@ function setupAddressManagement() {
     const addressForm = document.getElementById('address-form');
     const cancelAddressBtn = document.getElementById('cancel-address-btn');
     const placeOrderBtn = document.getElementById('place-order-btn');
-    
+
     if (addAddressBtn && newAddressForm) {
         // Show new address form
-        addAddressBtn.addEventListener('click', function() {
+        addAddressBtn.addEventListener('click', function () {
             newAddressForm.classList.remove('d-none');
             addAddressBtn.classList.add('d-none');
             resetAddressForm();
         });
 
         // Cancel adding/editing address
-        cancelAddressBtn.addEventListener('click', function() {
+        cancelAddressBtn.addEventListener('click', function () {
             newAddressForm.classList.add('d-none');
             addAddressBtn.classList.remove('d-none');
             resetAddressForm();
         });
     }
-    
+
     if (addressForm) {
         // Submit address form
-        addressForm.addEventListener('submit', function(e) {
+        addressForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             const addressData = {
@@ -683,10 +734,10 @@ function setupAddressManagement() {
             loadAddresses();
         });
     }
-    
+
     if (placeOrderBtn) {
         // Place order button click
-        placeOrderBtn.addEventListener('click', function() {
+        placeOrderBtn.addEventListener('click', function () {
             // Check if address is selected
             if (!document.querySelector('.address-card.selected')) {
                 showToast("Please select a shipping address", 'warning');
@@ -718,7 +769,7 @@ function setupAddressManagement() {
 // function loadAddresses() {
 //     const addressCards = document.getElementById('address-cards');
 //     if (!addressCards) return;
-    
+
 //     // In a real app, this would come from your backend
 //     const sampleAddresses = [
 //         {
@@ -896,7 +947,7 @@ async function loadAddresses() {
         const addressCard = document.createElement('div');
         addressCard.className = `col-12 address-card ${address.is_default ? 'selected' : ''}`;
         addressCard.dataset.id = address.id;
-     addressCard.innerHTML = `
+        addressCard.innerHTML = `
     <div class="d-flex justify-content-between align-items-start">
         <div>
             <h5 class="mb-2">${address.full_name}</h5>
@@ -907,8 +958,8 @@ async function loadAddresses() {
           
         </div>
         <div>
-            ${address.is_default 
-                ? '<span class="badge bg-success">Default</span>' 
+            ${address.is_default
+                ? '<span class="badge bg-success">Default</span>'
                 : ''}
         </div>
     </div>
@@ -916,8 +967,8 @@ async function loadAddresses() {
         <button class="btn btn-sm btn-outline-secondary edit-address" data-id="${address.id}">
             <i class="bi bi-pencil"></i> Edit
         </button>
-        ${!address.is_default 
-            ? `
+        ${!address.is_default
+                ? `
             <button class="btn btn-sm btn-outline-danger delete-address" data-id="${address.id}">
                 <i class="bi bi-trash"></i> Delete
             </button>
@@ -928,15 +979,15 @@ async function loadAddresses() {
                 </button>
             </form>
             `
-            : ''}
+                : ''}
     </div>
 `;
-    
-    
-    
+
+
+
         addressCards.appendChild(addressCard);
 
-        addressCard.addEventListener('click', function(e) {
+        addressCard.addEventListener('click', function (e) {
             if (!e.target.closest('.edit-address') && !e.target.closest('.delete-address')) {
                 document.querySelectorAll('.address-card').forEach(card => card.classList.remove('selected'));
                 this.classList.add('selected');
@@ -950,7 +1001,7 @@ async function loadAddresses() {
 
 function addButtonHandlers() {
     document.querySelectorAll('.edit-address').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.stopPropagation();
             const addressId = this.dataset.id;
             editAddress(addressId);
@@ -958,7 +1009,7 @@ function addButtonHandlers() {
     });
 
     document.querySelectorAll('.delete-address').forEach(btn => {
-        btn.addEventListener('click', async function(e) {
+        btn.addEventListener('click', async function (e) {
             e.stopPropagation();
             const addressId = this.dataset.id;
             await deleteAddress(addressId);
@@ -991,7 +1042,7 @@ function getCountryName(code) {
 
 
 
-document.getElementById('address-form').addEventListener('submit', async function(e) {
+document.getElementById('address-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const formData = new FormData(this);
@@ -1019,7 +1070,7 @@ document.querySelectorAll('.set-default').forEach(btn => {
     btn.addEventListener('click', async function (e) {
         e.stopPropagation();
         const addressId = this.dataset.id;
-        
+
         try {
             const response = await fetch(`/customer/addresses/${addressId}/toggle-default`, {
                 method: 'POST',
@@ -1031,7 +1082,7 @@ document.querySelectorAll('.set-default').forEach(btn => {
             });
 
             const result = await response.json();
-            
+
             if (result.success) {
                 showToast(result.message, 'success');
                 loadAddresses(); // Reload addresses to update UI
@@ -1071,31 +1122,141 @@ function resetAddressForm() {
 }
 
 // Process the order
-function processOrder() {
+// function processOrder() {
+//     const placeOrderBtn = document.getElementById('place-order-btn');
+//     if (!placeOrderBtn) return;
+
+//     // Show loading state
+//     placeOrderBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing...';
+//     placeOrderBtn.disabled = true;
+
+//     // Simulate API call
+//     setTimeout(() => {
+//         // Success message
+//         showToast("Order placed successfully!", 'success');
+
+//         // Clear cart
+//         cart = {};
+//         currentStock = {};
+//         localStorage.removeItem('cart');
+//         localStorage.removeItem('stock');
+//         updateCartDisplay();
+
+//         // Reset button
+//         placeOrderBtn.innerHTML = '<i class="bi bi-shield-lock me-2"></i> Place Order Securely';
+//         placeOrderBtn.disabled = false;
+//     }, 2000);
+// }
+
+
+
+
+
+
+
+
+
+
+
+async function processOrder() {
     const placeOrderBtn = document.getElementById('place-order-btn');
     if (!placeOrderBtn) return;
-    
+
+    // Validate required fields
+    const selectedAddress = document.querySelector('.address-card.selected');
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked');
+    // const paymentMethod = 'bank_transfer'; 
+    const paymentSlipInput = document.getElementById('payment-slip');
+
+    if (!selectedAddress) {
+        showToast("Please select a shipping address", 'warning');
+        return;
+    }
+
+    if (!paymentMethod) {
+        showToast("Please select a payment method", 'warning');
+        return;
+    }
+
+    if (paymentMethod.value === 'bank_transfer' && !paymentSlipInput.files[0]) {
+        showToast("Please upload payment slip for bank transfer", 'warning');
+        return;
+    }
+
     // Show loading state
     placeOrderBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing...';
     placeOrderBtn.disabled = true;
 
-    // Simulate API call
-    setTimeout(() => {
-        // Success message
-        showToast("Order placed successfully!", 'success');
+    try {
+        // Prepare form data
+        const formData = new FormData();
+        formData.append('payment_method', paymentMethod.value);
+        formData.append('shipping_address_id', selectedAddress.dataset.id);
+        formData.append('cart', JSON.stringify(Object.values(cart)));
 
-        // Clear cart
-        cart = {};
-        currentStock = {};
-        localStorage.removeItem('cart');
-        localStorage.removeItem('stock');
-        updateCartDisplay();
+        if (paymentMethod.value === 'bank_transfer' && paymentSlipInput.files[0]) {
+            formData.append('payment_slip', paymentSlipInput.files[0]);
+        }
 
-        // Reset button
+        // Submit to Laravel backend
+        const response = await fetch('/orders', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                'Accept': 'application/json',
+            },
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+            // Success message
+            showToast("Order placed successfully!", 'success');
+
+            // Clear cart
+            cart = {};
+            currentStock = {};
+            localStorage.removeItem('cart');
+            localStorage.removeItem('stock');
+            updateCartDisplay();
+
+          
+
+            setTimeout(function () {
+                window.location.reload();
+
+            }, 2000);
+        } else {
+            // Show error message from server or default message
+            showToast(result.message || "Failed to place order", 'error');
+        }
+    } catch (error) {
+        console.error('Error submitting order:', error);
+        showToast("An error occurred while placing your order", 'error');
+    } finally {
+        // Reset button state
         placeOrderBtn.innerHTML = '<i class="bi bi-shield-lock me-2"></i> Place Order Securely';
         placeOrderBtn.disabled = false;
-    }, 2000);
+    }
 }
+
+// Update your place order button event listener to use this function
+document.getElementById('place-order-btn')?.addEventListener('click', processOrder);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Show toast notification
 function showToast(message, type = 'success') {
@@ -1105,7 +1266,7 @@ function showToast(message, type = 'success') {
         warning: '#ffc107',
         info: '#17a2b8'
     };
-    
+
     Toastify({
         text: message,
         duration: 3000,
@@ -1121,6 +1282,77 @@ function showToast(message, type = 'success') {
 
 
 
+
+document.getElementById('place-order-btn').addEventListener('click', async function () {
+
+
+    console.log('Place Order button clicked');
+
+    const placeOrderBtn = this;
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+    const paymentSlipInput = document.getElementById('payment-slip');
+    const addressId = document.querySelector('.address-card.selected')?.dataset.id;
+
+    // Validate
+    if (!addressId) {
+        showToast("Please select a shipping address", 'warning');
+        return;
+    }
+
+    if (paymentMethod === 'bank_transfer' && !paymentSlipInput.files[0]) {
+        showToast("Please upload payment slip for bank transfer", 'warning');
+        return;
+    }
+
+    // Prepare form data
+    const formData = new FormData();
+    formData.append('payment_method', paymentMethod);
+    formData.append('shipping_address_id', addressId);
+    formData.append('cart', JSON.stringify(Object.values(cart)));
+
+    if (paymentMethod === 'bank_transfer' && paymentSlipInput.files[0]) {
+        formData.append('payment_slip', paymentSlipInput.files[0]);
+    }
+
+    // Show loading
+    placeOrderBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing...';
+    placeOrderBtn.disabled = true;
+
+    try {
+        const response = await fetch('/orders', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                'Accept': 'application/json',
+            },
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            showToast("Order placed successfully!", 'success');
+
+            // Clear cart
+            cart = {};
+            currentStock = {};
+            localStorage.removeItem('cart');
+            localStorage.removeItem('stock');
+            updateCartDisplay();
+
+            // Redirect to order confirmation page
+            window.location.href = `/orders/${result.order_id}`;
+        } else {
+            showToast("Failed to place order: " + (result.message || 'Unknown error'), 'error');
+        }
+    } catch (error) {
+        showToast("An error occurred while placing order", 'error');
+        console.error('Error:', error);
+    } finally {
+        placeOrderBtn.innerHTML = '<i class="bi bi-shield-lock me-2"></i> Place Order Securely';
+        placeOrderBtn.disabled = false;
+    }
+});
 
 
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerAddressController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PartnerController;
 
 
@@ -30,8 +31,9 @@ Route::get('/cfadmin/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('cfadmin.dashboard');
 
 
-
-
+Route::middleware(['auth:customer'])->group(function () {
+    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+});
 
 Route::group(['middleware' => ['auth'], 'prefix'=>'cfadmin', 'as'=>'cfadmin.'],function(){
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
