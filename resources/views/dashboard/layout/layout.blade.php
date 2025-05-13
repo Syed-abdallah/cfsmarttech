@@ -68,6 +68,11 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- basic table -->
+                <div id="loading-indicator" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); z-index:9999;">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
                @yield('content')
                 <!-- multi-column ordering -->
          
@@ -118,6 +123,101 @@
     <script src="{{asset('dashboard/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('dashboard/assets/extra-libs/datatables.net-bs4/js/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('dashboard/dist/js/pages/datatable/datatable-basic.init.js')}}"></script>
+
+
+{{-- <script>
+$(document).ready(function() {
+    console.log('Document is ready');
+    $('.status-dropdown').change(function() {
+        const orderId = $(this).data('order-id');
+        const newStatus = $(this).val();
+        const badge = $(this).siblings('.status-badge');
+        
+        $.ajax({
+            url: "{{ route('cfadmin.orders.update-status') }}", // Updated route name
+            method: 'POST',
+            data: {
+                order_id: orderId,
+                status: newStatus,
+                _token: "{{ csrf_token() }}"
+            },
+            beforeSend: function() {
+                $('#loading-indicator').show(); // Show loading spinner
+            },
+            success: function(response) {
+                if(response.success) {
+                    // Update the badge
+                    badge.text(newStatus.charAt(0).toUpperCase() + newStatus.slice(1));
+                    
+                    // Update badge color
+                    let badgeClass = 'warning';
+                    if(newStatus === 'completed') badgeClass = 'success';
+                    if(newStatus === 'cancelled') badgeClass = 'danger';
+                    
+                    badge.removeClass('bg-success bg-warning bg-danger').addClass('bg-' + badgeClass);
+                    
+                    // Optional: Show a success message
+                    toastr.success('Order status updated successfully');
+                } else {
+                    toastr.error('Failed to update order status');
+                }
+            },
+            error: function() {
+                toastr.error('An error occurred while updating status');
+                // Revert the dropdown to original value if needed
+            }
+        });
+    });
+});
+</script> --}}
+
+
+<script>
+$(document).ready(function() {
+    console.log('Document is ready');
+    $('.status-dropdown').change(function() {
+        const orderId = $(this).data('order-id');
+        const newStatus = $(this).val();
+        const badge = $(this).siblings('.status-badge');
+
+        $('#loading-indicator').show(); // Show immediately
+
+        // Always hide after 2 seconds
+        setTimeout(function() {
+            $('#loading-indicator').fadeOut();
+        }, 900);
+
+        $.ajax({
+            url: "{{ route('cfadmin.orders.update-status') }}",
+            method: 'POST',
+            data: {
+                order_id: orderId,
+                status: newStatus,
+                _token: "{{ csrf_token() }}"
+            },
+            success: function(response) {
+                if(response.success) {
+                    badge.text(newStatus.charAt(0).toUpperCase() + newStatus.slice(1));
+
+                    let badgeClass = 'warning';
+                    if(newStatus === 'completed') badgeClass = 'success';
+                    if(newStatus === 'cancelled') badgeClass = 'danger';
+
+                    badge.removeClass('bg-success bg-warning bg-danger').addClass('bg-' + badgeClass);
+
+                    toastr.success('Order status updated successfully');
+                } else {
+                    toastr.error('Failed to update order status');
+                }
+            },
+            error: function() {
+                toastr.error('An error occurred while updating status');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 
 </html>

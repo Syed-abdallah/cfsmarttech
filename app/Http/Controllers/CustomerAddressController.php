@@ -18,13 +18,20 @@ class CustomerAddressController extends Controller
 // }
 
 
-  public function index()
+  public function showaddress()
     {
         $customer = Auth::guard('customer')->user();
         $addresses = $customer->addresses()->latest()->get();
         
         return view('customer.dashboard.address.index', compact('addresses'));
     }
+public function index()
+{
+    $customer = Auth::guard('customer')->user();
+    $addresses = $customer->addresses()->latest()->get();
+    
+    return response()->json($addresses);
+}
  public function create()
     {
         return view('customer.dashboard.address.create');

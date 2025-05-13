@@ -60,4 +60,30 @@ class AdminOrderController extends Controller
         return view('admin.orders.show', compact('order', 'shippingAddress'));
     }
 
+
+public function updateStatus(Request $request)
+{
+    try {
+        $validated = $request->validate([
+            'order_id' => 'required|exists:orders,id',
+            'status' => 'required|in:pending,processing,shipped,completed,cancelled'
+        ]);
+
+        $order = Order::findOrFail($validated['order_id']);
+        $order->status = $validated['status'];
+        $order->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Status updated successfully'
+        ]);
+
+    } catch (\Exception $e) {
+        \Log::error('Order status update failed: ' . $e->getMessage());
+        return response()->json([
+            'success' => false,
+            'message' => 'Error updating status: ' . $e->getMessage()
+        ], 500);
+    }
+}
 }

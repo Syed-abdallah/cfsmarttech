@@ -11,6 +11,7 @@ use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerDashboardController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\AdminOrderController;
 
@@ -43,12 +44,17 @@ Route::group(['middleware' => ['auth:customer'], 'prefix'=>'cfcustomer', 'as'=>'
     Route::get('/orders/{order_number}/invoice', [OrderController::class, 'invoice'])->name('customer.orders.invoice');
     
 });
-Route::get('/cfcustomer/dashboard', function () {
-    return view('customer.dashboard');
-})->middleware(['auth:customer'])->name('cfcustomer.dashboard');
+// Route::get('/cfcustomer/dashboard', function () {
+//     return view('customer.dashboard');
+// })->middleware(['auth:customer'])->name('cfcustomer.dashboard');
+
+Route::get('/cfcustomer/dashboard', [CustomerDashboardController::class, 'index'])->name('cfcustomer.dashboard');
+
 Route::middleware(['auth:customer'])->prefix('customer')->name('customer.')->group(function () {
     // Route::get('/form', [OrderController::class, 'create'])->name('customer.orders.index');
     Route::resource('addresses', CustomerAddressController::class)->except(['show']);
+    Route::get('/showaddress', [CustomerAddressController::class, 'showaddress'])->name('cfcustomer.show');
+
     Route::post('addresses/{address}/set-default', [CustomerAddressController::class, 'setDefault'])
     ->name('addresses.set-default');
 
@@ -61,7 +67,12 @@ Route::get('/cfadmin/dashboard', function () {
 
 Route::group(['middleware' => ['auth:web'], 'prefix'=>'cfadmin', 'as'=>'cfadmin.'],function(){
 
+    Route::post('/orders/update-status', [AdminOrderController::class, 'updateStatus'])
+        ->name('orders.update-status');
     Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
+
+
+
 
      Route::get('/orders/{order_number}', [AdminOrderController::class, 'adminshow'])->name('admin.orders.show');
     Route::get('/orders/{order_number}/invoice', [AdminOrderController::class, 'invoice'])->name('admin.orders.invoice');

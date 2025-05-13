@@ -11,10 +11,9 @@
 
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    
-    <link rel="stylesheet" href="{{ asset('frontend/style.css')}}">
+
+
+    <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
 </head>
 
 <body>
@@ -27,63 +26,59 @@
     @yield('content')
 
 
-   @include('frontend.layout.footer')
+    @include('frontend.layout.footer')
 
 
-   <script>
-    const isLoggedIn = {{ Auth::guard('customer')->check() ? 'true' : 'false' }};
-    setupCheckoutPage();
-</script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  
-   
-   
-   <script>
-       AOS.init({
-           once: false // ✅ this must be *inside* the object
+    <script>
+        const isLoggedIn = {{ Auth::guard('customer')->check() ? 'true' : 'false' }};
+        setupCheckoutPage();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script src="{{ asset('frontend/script.js') }}"></script>
+
+
+    <script>
+        AOS.init({
+            once: false // ✅ this must be *inside* the object
         });
-        </script>
-        <script src="{{ asset('frontend/script.js')}}"></script>
-        <script>
-          
+    </script>
+    <script>
+        const cards = document.querySelectorAll('.product-card');
+        let current = 3;
 
+        function activate(idx) {
+            // Toggle active class
+            cards.forEach(c => c.classList.remove('active'));
+            const card = cards[idx];
+            card.classList.add('active');
 
-const cards = document.querySelectorAll('.product-card');
-let current = 3;
+            // Update hero image & text from data-attributes
+            const heroImg = document.getElementById('hero-img');
+            const heroText = document.getElementById('hero-text');
+            heroImg.src = card.getAttribute('data-hero-img');
+            heroText.textContent = card.getAttribute('data-hero-text');
+        }
 
-function activate(idx) {
-  // Toggle active class
-  cards.forEach(c => c.classList.remove('active'));
-  const card = cards[idx];
-  card.classList.add('active');
+        // Auto-rotate
+        setInterval(() => {
+            current = (current + 1) % cards.length;
+            activate(current);
+        }, 6500);
 
-  // Update hero image & text from data-attributes
-  const heroImg = document.getElementById('hero-img');
-  const heroText = document.getElementById('hero-text');
-  heroImg.src = card.getAttribute('data-hero-img');
-  heroText.textContent = card.getAttribute('data-hero-text');
-}
+        // Hover to select
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                current = +card.dataset.index;
+                activate(current);
+            });
+        });
 
-// Auto-rotate
-setInterval(() => {
-  current = (current + 1) % cards.length;
-  activate(current);
-}, 6500);
-
-// Hover to select
-cards.forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    current = +card.dataset.index;
-    activate(current);
-  });
-});
-
-// Initialize on load
-activate(current);
-
-        </script>
+        // Initialize on load
+        activate(current);
+    </script>
 
 </body>
 
