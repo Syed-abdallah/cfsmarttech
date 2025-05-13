@@ -1,182 +1,178 @@
-
-
-
 @extends('frontend.layout.layout')
 @section('content')
+    <style>
+        /* PRODUCT CAROUSEL */
+        .product-carousel {
+            display: flex;
+            overflow: hidden;
+            height: 170px;
+            justify-content: space-between;
+            /* Space out the cards */
+        }
 
-<style>
-      /* PRODUCT CAROUSEL */
-      .product-carousel {
-      display: flex;
-      overflow: hidden;
-      height: 170px;
-      justify-content: space-between;
-      /* Space out the cards */
-    }
+        .product-card {
+            flex: 1;
+            position: relative;
+            text-align: center;
+            padding: 1rem;
+            transition: flex 0.6s ease, background-color 0.6s ease;
+            cursor: pointer;
+            min-width: 200px;
+            /* Minimum width to handle small screens */
+            margin: 0 5px;
+            /* Add a small gap between the cards */
+            opacity: 1;
+            /* Default opacity for desktop */
+            display: block;
+            /* Ensure all cards are visible on larger screens */
+        }
 
-    .product-card {
-      flex: 1;
-      position: relative;
-      text-align: center;
-      padding: 1rem;
-      transition: flex 0.6s ease, background-color 0.6s ease;
-      cursor: pointer;
-      min-width: 200px;
-      /* Minimum width to handle small screens */
-      margin: 0 5px;
-      /* Add a small gap between the cards */
-      opacity: 1;
-      /* Default opacity for desktop */
-      display: block;
-      /* Ensure all cards are visible on larger screens */
-    }
+        .product-card:not(.active):hover {
+            background-color: #f8f9fa;
+        }
 
-    .product-card:not(.active):hover {
-      background-color: #f8f9fa;
-    }
+        .product-card.active {
+            flex: 3;
+            background-color: rgba(255, 235, 59, 0.1);
+        }
 
-    .product-card.active {
-      flex: 3;
-      background-color: rgba(255, 235, 59, 0.1);
-    }
+        .product-card .icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
 
-    .product-card .icon img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-    }
+        .product-card .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
 
-    .product-card .title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      margin-top: 0.5rem;
-      font-weight: 500;
-    }
+        .product-card .title i {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
-    .product-card .title i {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+        .product-card .extra,
+        .product-card .extrahide {
+            opacity: 0;
+            transition: opacity 0.5s ease 0.3s;
+            margin-top: 1rem;
+        }
 
-    .product-card .extra,
-    .product-card .extrahide {
-      opacity: 0;
-      transition: opacity 0.5s ease 0.3s;
-      margin-top: 1rem;
-    }
+        .product-card.active .extra,
+        .product-card.active .extrahide {
+            opacity: 1;
+        }
 
-    .product-card.active .extra,
-    .product-card.active .extrahide {
-      opacity: 1;
-    }
+        .product-card .indicator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #eeff00;
+            transform-origin: left center;
+            opacity: 0;
+        }
 
-    .product-card .indicator {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: #eeff00;
-      transform-origin: left center;
-      opacity: 0;
-    }
+        .product-card.active .indicator {
+            animation: slideAndHide 6s linear infinite;
+            animation-delay: 0.6s;
+        }
 
-    .product-card.active .indicator {
-      animation: slideAndHide 6s linear infinite;
-      animation-delay: 0.6s;
-    }
+        @keyframes slideAndHide {
+            0% {
+                transform: scaleX(0);
+                opacity: 1;
+            }
 
-    @keyframes slideAndHide {
-      0% {
-        transform: scaleX(0);
-        opacity: 1;
-      }
+            80% {
+                transform: scaleX(1);
+                opacity: 1;
+            }
 
-      80% {
-        transform: scaleX(1);
-        opacity: 1;
-      }
+            80.01% {
+                transform: scaleX(1);
+                opacity: 0;
+            }
 
-      80.01% {
-        transform: scaleX(1);
-        opacity: 0;
-      }
+            100% {
+                transform: scaleX(1);
+                opacity: 0;
+            }
+        }
 
-      100% {
-        transform: scaleX(1);
-        opacity: 0;
-      }
-    }
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
+            /* Adjust hero panel for mobile */
+            .hero-text {
+                font-size: 1.5rem;
+            }
 
-      /* Adjust hero panel for mobile */
-      .hero-text {
-        font-size: 1.5rem;
-      }
+            /* Display only the active card on mobile */
+            .product-carousel {
+                /* display: flex; */
+                overflow: hidden;
+                /* padding: 0 1rem; */
+            }
 
-      /* Display only the active card on mobile */
-      .product-carousel {
-        /* display: flex; */
-        overflow: hidden;
-        /* padding: 0 1rem; */
-      }
+            .product-card {
+                display: none;
+                /* Hide all cards by default */
+            }
 
-      .product-card {
-        display: none;
-        /* Hide all cards by default */
-      }
+            .product-card.active {
+                display: block;
+                /* Show only the active card */
+            }
 
-      .product-card.active {
-        display: block;
-        /* Show only the active card */
-      }
+            .product-card.active {
+                background-color: rgba(255, 235, 59, 0.1);
+                flex: none;
+                min-width: 100%;
+                /* Make the active card full width on mobile */
+            }
 
-      .product-card.active {
-        background-color: rgba(255, 235, 59, 0.1);
-        flex: none;
-        min-width: 100%;
-        /* Make the active card full width on mobile */
-      }
+            .product-card .indicator {
+                height: 3px;
+                /* Smaller indicator height */
+            }
 
-      .product-card .indicator {
-        height: 3px;
-        /* Smaller indicator height */
-      }
+            /* Modify icon size on smaller screens */
+            .product-card .icon img {
+                width: 35px;
+                height: 35px;
+            }
+        }
 
-      /* Modify icon size on smaller screens */
-      .product-card .icon img {
-        width: 35px;
-        height: 35px;
-      }
-    }
+        @media (max-width: 480px) {
 
-    @media (max-width: 480px) {
+            /* Further adjustments for very small screens */
+            .hero-text {
+                font-size: 1.25rem;
+            }
 
-      /* Further adjustments for very small screens */
-      .hero-text {
-        font-size: 1.25rem;
-      }
+            .product-card .title {
+                font-size: 0.9rem;
+                /* Smaller font for mobile */
+            }
 
-      .product-card .title {
-        font-size: 0.9rem;
-        /* Smaller font for mobile */
-      }
-
-      .product-card .extra,
-      .product-card .extrahide {
-        font-size: 0.9rem;
-        /* Smaller text for extra description */
-      }
-    }
-</style>
+            .product-card .extra,
+            .product-card .extrahide {
+                font-size: 0.9rem;
+                /* Smaller text for extra description */
+            }
+        }
+    </style>
     <!-- Carousel -->
-    <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500"
+    {{-- <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500"
         data-bs-wrap="true">
         <!-- Dots -->
         <div class="carousel-indicators">
@@ -220,10 +216,46 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
+    </div> --}}
+
+    <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500"
+        data-bs-wrap="true">
+        <!-- Dots -->
+        <div class="carousel-indicators">
+            @foreach ($slides as $key => $slide)
+                <button type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="{{ $key }}"
+                    class="{{ $key == 0 ? 'active' : '' }}" aria-current="{{ $key == 0 ? 'true' : 'false' }}"
+                    aria-label="Slide {{ $key + 1 }}"></button>
+            @endforeach
+        </div>
+
+        <!-- Carousel Inner -->
+        <div class="carousel-inner">
+            @foreach ($slides as $key => $slide)
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                    <img src="{{ asset('storage/sliders/' . $slide->image) }}" class="d-block w-100"
+                        alt="{{ $slide->heading }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>{{ $slide->heading }}</h1>
+                        <p>{{ $slide->paragraph }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 
     <!-- Content -->
-    <div class="container-fluid py-5 position-relative">
+    {{-- <div class="container-fluid py-5 position-relative">
         <div class="row">
             <div class="col-lg-2 d-flex align-items-center justify-content-center">
                 <h5 class="text-center mb-4">Trusted by<br>renowned brands</h5>
@@ -248,99 +280,119 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
-
-
-
-
-    <section id="products" style="margin-botton: 150px;">
-        <div class="container-fluid">
-          <!-- HERO PANEL -->
-          <div id="hero" class="hero-image">
-            <img id="hero-img" src="https://via.placeholder.com/800x300?text=Smart+Dimmer" alt="Featured product" width="100%" height="600px">
-            {{-- <div id="hero-text" class="hero-text">Smart Dimmer</div> --}}
-          </div>
-  
-          <!-- PRODUCT CAROUSEL -->
-          <div class="product-carousel">
-            <!-- Card 1 -->
-            <div class="product-card" data-index="0" data-hero-img="{{asset('frontend/images/product1.png')}}" data-hero-text="MHub" >
-              {{-- <div class="icon">
-                <img src="https://via.placeholder.com/40?text=MH" alt="MHub">
-              </div> --}}
-              <div class="title">MHub <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
-              <div class="extra">
-                <p class="mb-2">Central brain of your smart home, connecting all devices seamlessly.</p>
-              </div>
-              <div class="indicator"></div>
+    <div class="container-fluid py-5 position-relative">
+        <div class="row">
+            <div class="col-lg-2 d-flex align-items-center justify-content-center">
+                <h5 class="text-center mb-4">Trusted by<br>renowned brands</h5>
             </div>
-  
-            <!-- Card 2 -->
-            <div class="product-card" data-index="1" data-hero-img="{{asset('frontend/images/product2.jpeg')}}" data-hero-text="Touch Panel">
-              {{-- <div class="icon">
-                <img src="https://via.placeholder.com/40?text=TP" alt="Touch Panel">
-              </div> --}}
-              <div class="title">Touch Panel <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
-              <div class="extra">
-                <p class="mb-2">Sleek in-wall interface for lights, blinds and scenes with haptic feedback.</p>
-              </div>
-              <div class="indicator"></div>
+            <div class="col-lg-10">
+                <div class="logo-carousel">
+                    <div class="logo-track">
+                        @foreach ($partners as $partner)
+                            <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}">
+                        @endforeach
+                        <!-- Duplicates for seamless loop -->
+                        @foreach ($partners as $partner)
+                            <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}">
+                        @endforeach
+                    </div>
+                </div>
             </div>
-  
-            <!-- Card 3 -->
-            <div class="product-card" data-index="2" data-hero-img="{{asset('frontend/images/product3.jpeg')}}"
-              data-hero-text="Motion & Light Sensor">
-              {{-- <div class="icon">
-                <img src="https://via.placeholder.com/40?text=ML" alt="Motion & Light Sensor">
-              </div> --}}
-              <div class="title">Motion & Light Sensor <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
-              <div class="extra">
-                <p class="mb-2">Automate lighting based on occupancy and ambient daylight level.</p>
-              </div>
-              <div class="indicator"></div>
-            </div>
-  
-            <!-- Card 4 (active by default) -->
-            <div class="product-card active" data-index="3" data-hero-img="{{asset('frontend/images/product4.png')}}"
-              data-hero-text="Smart Dimmer">
-              {{-- <div class="icon">
-                <img src="https://via.placeholder.com/40?text=SD" alt="Smart Dimmer">
-              </div> --}}
-              <div class="title">Smart Dimmer <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
-              <div class="extra">
-                <p class="mb-2">Create the perfect ambiance. Adjust lighting or fan speed to match your mood.</p>
-              </div>
-              <div class="indicator"></div>
-            </div>
-  
-            <!-- Card 5 -->
-            <div class="product-card" data-index="4" data-hero-img="{{asset('frontend/images/product5.png')}}" data-hero-text="Power Panel">
-              {{-- <div class="icon">
-                <img src="https://via.placeholder.com/40?text=PP" alt="Power Panel">
-              </div> --}}
-              <div class="title">Power Panel <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
-              <div class="extra">
-                <p class="mb-2">High-capacity power distribution with smart metering and overload protection.</p>
-              </div>
-              <div class="indicator"></div>
-            </div>
-  
-         <!-- Card 6 -->
-<a href="/products" class="product-card-link">
-    <div class="product-car" data-index="5" data-hero-img="https://via.placeholder.com/800x300?text=All+Products"
-      data-hero-text="All Products">
-      <div class="icon" style="margin-top: 40px;">
-        <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/icons/arrow-right.svg" alt="View All">
-      </div>
-      <div class="title">View All Products</div>
-      <div class="indicator"></div>
-    </div>
-  </a>
-          </div>
         </div>
-      </section>
+    </div>
+
+
+
+
+     <section id="products" style="margin-botton: 150px;">
+        <div class="container-fluid">
+            <!-- HERO PANEL -->
+            <div id="hero" class="hero-image">
+                <img id="hero-img" src="https://via.placeholder.com/800x300?text=Smart+Dimmer" alt="Featured product"
+                    width="100%" height="600px">
+              
+            </div>
+
+            <!-- PRODUCT CAROUSEL -->
+            <div class="product-carousel">
+                <!-- Card 1 -->
+                <div class="product-card" data-index="0" data-hero-img="{{ asset('frontend/images/product1.png') }}"
+                    data-hero-text="MHub">
+                  
+                    <div class="title">MHub <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
+                    <div class="extra">
+                        <p class="mb-2">Central brain of your smart home, connecting all devices seamlessly.</p>
+                    </div>
+                    <div class="indicator"></div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="product-card" data-index="1" data-hero-img="{{ asset('frontend/images/product2.jpeg') }}"
+                    data-hero-text="Touch Panel">
+                
+                    <div class="title">Touch Panel <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
+                    <div class="extra">
+                        <p class="mb-2">Sleek in-wall interface for lights, blinds and scenes with haptic feedback.</p>
+                    </div>
+                    <div class="indicator"></div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="product-card" data-index="2" data-hero-img="{{ asset('frontend/images/product3.jpeg') }}"
+                    data-hero-text="Motion & Light Sensor">
+              
+                    <div class="title">Motion & Light Sensor <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
+                    <div class="extra">
+                        <p class="mb-2">Automate lighting based on occupancy and ambient daylight level.</p>
+                    </div>
+                    <div class="indicator"></div>
+                </div>
+
+                <!-- Card 4 (active by default) -->
+                <div class="product-card active" data-index="3" data-hero-img="{{ asset('frontend/images/product4.png') }}"
+                    data-hero-text="Smart Dimmer">
+              
+                    <div class="title">Smart Dimmer <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
+                    <div class="extra">
+                        <p class="mb-2">Create the perfect ambiance. Adjust lighting or fan speed to match your mood.</p>
+                    </div>
+                    <div class="indicator"></div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="product-card" data-index="4" data-hero-img="{{ asset('frontend/images/product5.png') }}"
+                    data-hero-text="Power Panel">
+             
+                    <div class="title">Power Panel <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
+                    <div class="extra">
+                        <p class="mb-2">High-capacity power distribution with smart metering and overload protection.</p>
+                    </div>
+                    <div class="indicator"></div>
+                </div>
+
+                <!-- Card 6 -->
+                <a href="/products" class="product-card-link">
+                    <div class="product-car" data-index="5"
+                        data-hero-img="https://via.placeholder.com/800x300?text=All+Products"
+                        data-hero-text="All Products">
+                        <div class="icon" style="margin-top: 40px;">
+                            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/icons/arrow-right.svg"
+                                alt="View All">
+                        </div>
+                        <div class="title">View All Products</div>
+                        <div class="indicator"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section> 
+
+
+
+
 
     
 
@@ -364,8 +416,8 @@
 
 
 
-    
-    
+
+
 
 
 
@@ -620,8 +672,8 @@
             <div class="col-md-4">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <!-- <div class="bg-purple bg-opacity-10 rounded-circle p-3 mb-3" style="width: fit-content;">
-                            <i class="bi bi-robot fs-2 text-purple"></i>
-                        </div> -->
+                                <i class="bi bi-robot fs-2 text-purple"></i>
+                            </div> -->
                     <div class="bg-info bg-opacity-10 rounded-circle p-3 mb-3" style="width: fit-content;">
                         <i class="bi bi-shield-lock-fill fs-2 text-info"></i>
                     </div>
@@ -652,8 +704,8 @@
 
 
 
-    
-    <section id="as" >
+
+    <section id="as">
 
         <div class="bg-light">
             <div class="container-fluid" style="background-color: #dbe2e0;padding:60px;">
@@ -760,5 +812,4 @@
         </div>
 
     </section>
-
 @endsection

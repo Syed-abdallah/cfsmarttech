@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 // use Spatie\Permission\Traits\HasRoles;
+
+use Illuminate\Database\Eloquent\Relations\HasMany;
 class Customer extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -48,5 +50,8 @@ class Customer extends Authenticatable
 {
     return $this->hasMany(CustomerAddress::class);
 }
-
+   public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
 }

@@ -3,20 +3,32 @@ namespace App\Http\Controllers;
 
 use App\Models\CustomerAddress;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class CustomerAddressController extends Controller
 {
   
-public function index(Request $request)
-{
-    $customer = auth('customer')->user();
+// public function index(Request $request)
+// {
+//     $customer = auth('customer')->user();
 
-    // Fetch addresses that match the logged-in customer's ID
-    $addresses = CustomerAddress::where('customer_id', $customer->id)->get();
+//     // Fetch addresses that match the logged-in customer's ID
+//     $addresses = CustomerAddress::where('customer_id', $customer->id)->get();
 
-    return response()->json($addresses);
-}
+//     return response()->json($addresses);
+// }
 
+
+  public function index()
+    {
+        $customer = Auth::guard('customer')->user();
+        $addresses = $customer->addresses()->latest()->get();
+        
+        return view('customer.dashboard.address.index', compact('addresses'));
+    }
+ public function create()
+    {
+        return view('customer.dashboard.address.create');
+    }
 public function store(Request $request)
 {
     $customer = auth('customer')->user();

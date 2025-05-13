@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\AdminOrderController;
 
 
 /*
@@ -26,16 +27,47 @@ use App\Http\Controllers\PartnerController;
 */
 
 
-Route::get('/cfadmin/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('cfadmin.dashboard');
+
 
 
 Route::middleware(['auth:customer'])->group(function () {
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 });
 
-Route::group(['middleware' => ['auth'], 'prefix'=>'cfadmin', 'as'=>'cfadmin.'],function(){
+Route::group(['middleware' => ['auth:customer'], 'prefix'=>'cfcustomer', 'as'=>'cfcustomer.'],function(){
+    
+    Route::get('/orders', [OrderController::class, 'index'])->name('customer.orders.index');
+    Route::get('/orders/{order_number}', [OrderController::class, 'show'])->name('customer.orders.show');
+    Route::post('/orders/{order_number}/cancel', [OrderController::class, 'cancel'])->name('customer.orders.cancel');
+    Route::get('/orders/{order_number}/track', [OrderController::class, 'track'])->name('customer.orders.track');
+    Route::get('/orders/{order_number}/invoice', [OrderController::class, 'invoice'])->name('customer.orders.invoice');
+    
+});
+Route::get('/cfcustomer/dashboard', function () {
+    return view('customer.dashboard');
+})->middleware(['auth:customer'])->name('cfcustomer.dashboard');
+Route::middleware(['auth:customer'])->prefix('customer')->name('customer.')->group(function () {
+    // Route::get('/form', [OrderController::class, 'create'])->name('customer.orders.index');
+    Route::resource('addresses', CustomerAddressController::class)->except(['show']);
+    Route::post('addresses/{address}/set-default', [CustomerAddressController::class, 'setDefault'])
+    ->name('addresses.set-default');
+
+});
+
+
+Route::get('/cfadmin/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('cfadmin.dashboard');
+
+Route::group(['middleware' => ['auth:web'], 'prefix'=>'cfadmin', 'as'=>'cfadmin.'],function(){
+
+    Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
+
+     Route::get('/orders/{order_number}', [AdminOrderController::class, 'adminshow'])->name('admin.orders.show');
+    Route::get('/orders/{order_number}/invoice', [AdminOrderController::class, 'invoice'])->name('admin.orders.invoice');
+
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -74,26 +106,14 @@ Route::post('partners/{partner}/toggle', [PartnerController::class, 'toggleStatu
 });
 
 
-Route::get('/cfcustomer/dashboard', function () {
-    return view('customer.dashboard');
-})->middleware(['auth:customer'])->name('cfcustomer.dashboard');
 
 
 Route::get('/add_to_cart', [FrontendController::class, 'carts']);
 Route::get('/calculator', [FrontendController::class, 'calculator']);
+Route::get('/message-from-management', [FrontendController::class, 'messageFromManagement']);
 
 
-Route::get('/message-from-management', function () {
-    
-    return view('frontend/ourmessage');
-});
 
-Route::middleware(['auth:customer'])->prefix('customer')->name('customer.')->group(function () {
-    Route::resource('addresses', CustomerAddressController::class)->except(['show']);
-    Route::post('addresses/{address}/set-default', [CustomerAddressController::class, 'setDefault'])
-    ->name('addresses.set-default');
-
-});
 
 Route::get('/products', [FrontendController::class, 'products']);
 Route::get('/product_item/{id}', [FrontendController::class, 'show'])->name('product.show');

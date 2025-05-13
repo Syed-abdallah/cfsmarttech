@@ -9,9 +9,36 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
+
+
+
 
 class OrderController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth:customer');
+    }
+
+    public function index()
+{
+    $customer_id = Auth::guard('customer')->id();
+    $orders = Order::where('user_id', $customer_id)
+                ->withCount('items')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+
+    return view('customer.dashboard.orders.index', compact('orders'));
+}
+
+//   public function show($id)
+//     {
+     
+//         $order = Order::with(['user', 'items.product'])->findOrFail($id);
+// dd($order);
+//         return view('cfcustomer.customer.orders.show', compact('order'));
+//     }
     public function store(Request $request)
     {
         
@@ -69,11 +96,69 @@ class OrderController extends Controller
 
         // Clear cart
         $request->session()->forget('cart');
-// return redirect()->route('frontend.carts');
+
         return response()->json([
             'success' => true,
             'order_id' => $order->id,
             'message' => 'Order placed successfully!'
         ]);
+    }
+
+   
+    /**
+     * Cancel an order (if allowed)
+     */
+    public function cancel($order_number)
+    {
+        $order = Auth::guard('customer')->user()->orders()
+                    ->where('order_number', $order_number)
+                    ->whereIn('status', ['pending', 'processing'])
+                    ->firstOrFail();
+
+        $order->update(['status' => 'cancelled']);
+
+        return redirect()->back()->with('success', 'Order has been cancelled successfully');
+    }
+
+    /**
+     * Track order status
+     */
+    public function track($order_number)
+    {
+        $order = Auth::guard('customer')->user()->orders()
+                    ->where('order_number', $order_number)
+                    ->firstOrFail();
+
+        return view('customer.dashboard.orders.track', compact('order'));
+    }
+
+    /**
+     * Download invoice
+     */
+ public function invoice($order_number)
+    {
+        $order = Auth::guard('customer')->user()->orders()
+                    ->where('order_number', $order_number)
+                    ->firstOrFail();
+
+        $pdf = $this->generateInvoice($order);
+        return $pdf->download("invoice-{$order->order_number}.pdf");
+    }
+
+    private function generateInvoice($order)
+    {
+        return Pdf::loadView('customer.dashboard.orders.invoice', compact('order'));
+    }
+       public function show($order_number)
+    {
+    
+        
+        $order = Order::with(['items', 'customer'])
+                    ->where('order_number', $order_number)
+                    ->firstOrFail();
+        
+        $shippingAddress = json_decode($order->shipping_address, true);
+        
+        return view('admin.orders.show', compact('order', 'shippingAddress'));
     }
 }

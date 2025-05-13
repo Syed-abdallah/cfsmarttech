@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\Partner;
 use App\Models\Marquee;
+use App\Models\Slider;
 use App\Models\CustomerAddress;
 use Illuminate\Http\Request;
 
@@ -25,14 +27,26 @@ class FrontendController extends Controller
 
     public function index()
     {
-        return view('welcome', $this->getCommonData());
+          $products = Product::where('product_active', 1)
+                          ->where('is_sell', 1)
+                          ->orderBy('created_at', 'desc')
+                          ->take(5) // Get 5 active products
+                          ->get();
+        $slides = Slider::where('is_active', 1)->get();
+        $partners = Partner::where('is_active', 1)->get();
+
+        
+        return view('welcome', array_merge(compact('slides', 'partners','products'), $this->getCommonData()));
     }
     public function products()
     {
         $products = Product::where('product_active', 1)->where('is_sell', 1)->get();
     return view('frontend.products', array_merge(compact('products'), $this->getCommonData()));
 }
-
+public function messageFromManagement(){
+      
+    return view('frontend.ourmessage', $this->getCommonData());
+}
     public function show($id) {
         $product = Product::findOrFail($id);
     
@@ -77,6 +91,13 @@ return view('frontend.cart', array_merge([
     {
         return view('frontend.calculator', $this->getCommonData());
     }
+
+
+
+
+
+
+
     //     public function showMarquee()
 // {
 //     $marquees = Marquee::where('is_active', 1)->get();
