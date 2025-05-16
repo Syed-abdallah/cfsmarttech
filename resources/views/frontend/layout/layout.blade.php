@@ -38,6 +38,7 @@
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <script src="{{ asset('frontend/script.js') }}"></script>
+    <script src="{{ asset('frontend/calscript.js') }}"></script>
 
 
     <script>

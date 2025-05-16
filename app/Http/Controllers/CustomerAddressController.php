@@ -105,8 +105,8 @@ public function store(Request $request)
         }
 
         $address->delete();
-
-        return response()->json(['message' => 'Address deleted successfully.']);
+return redirect()->back()->with();
+        // return response()->json(['message' => 'Address deleted successfully.']);
     }
 
     public function setDefault(CustomerAddress $address)
