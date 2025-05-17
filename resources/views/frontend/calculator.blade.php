@@ -1,7 +1,6 @@
 @extends('frontend.layout.layout')
 @section('content')
     <style>
-      
         .form-step {
             display: none;
         }
@@ -16,7 +15,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -32,60 +30,43 @@
         .option-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 80px;
+            gap: 20px;
             margin: 30px 0;
         }
 
         .option {
-            /* background: #1e1e1e; */
             border: none;
-            /* Remove border */
             border-radius: 0;
-            /* Remove border radius */
-            padding: 30px 8px;
-            /* Adjust padding */
+            padding: 20px 8px;
             text-align: left;
             cursor: pointer;
             transition: all 0.3s ease;
-            /* padding: 25px;
-             */
-            width: 200px;
+            width: 100%;
             color: #06101a;
             position: relative;
-            /* For underline positioning */
         }
 
         .option:hover {
             transform: translateY(-3px);
         }
 
-        /* .option.selected {
+        .option.selected {
+            position: relative;
             background: linear-gradient(170deg, rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0.9));
-          
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        } */
+            padding-left: 25px;
+        }
 
-.option.selected {
-    position: relative; /* Needed for absolute positioning of the tick */
-    background: linear-gradient(170deg, rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0.9));
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding-left: 25px; /* Make space for the tick */
-}
+        .option.selected::before {
+            content: "✓";
+            position: absolute;
+            right: 10px;
+            top: 4px;
+            font-size: 22px;
+            color: #15ce1b;
+            font-weight: bold;
+        }
 
-.option.selected::before {
-    content: "✓"; /* Checkmark symbol */
-    position: absolute;
-    right: 10px;
-    top: 4px;
-    font-size: 22px;
-    color: #15ce1b; /* Green color for the tick */
-    font-weight: bold;
-}
-
-
-
-
-        /* Underline effect */
         .option::after {
             content: "";
             position: absolute;
@@ -132,28 +113,34 @@
         .button-group {
             display: flex;
             justify-content: space-between;
-
             margin-top: 30px;
+            flex-wrap: wrap;
         }
 
         @media (min-width: 768px) {
-            .button-group {
-                display: flex;
-                justify-content: space-between;
+            .option-grid {
+                gap: 80px;
             }
-
+            
+            .option {
+                padding: 30px 8px;
+                width: 200px;
+            }
+            
+            .button-group {
+                flex-wrap: nowrap;
+            }
+            
             #back-btn {
                 margin-left: 260px;
             }
 
             #next-btn {
                 margin-right: 260px;
-                /* Margin for the "Next" button */
             }
 
             #calculate-btn {
                 margin-right: 260px;
-                /* Margin for the "Hisab Karain" button */
             }
         }
 
@@ -169,61 +156,48 @@
         .next-btn,
         .back-btn {
             border-radius: 30px;
-            /* Adds rounded corners */
             background-color: transparent;
-            /* Removes background color */
-            padding: 15px 45px;
-            /* Adds padding around the button */
+            padding: 12px 25px;
             border: 2px solid #3498db;
-            /* Adds a border to make the buttons visible */
             color: #3498db;
-            /* Makes the text blue for visibility */
             cursor: pointer;
-            /* Changes the cursor to a pointer on hover */
+            margin: 5px 0;
+            width: 100%;
         }
 
         .back-btn {
             border-color: #e0e0e0;
-            /* Light gray border for the back button */
             color: #333;
-            /* Dark text for the back button */
         }
 
         .next-btn:hover,
         .back-btn:hover {
             opacity: 0.8;
-            /* Adds a hover effect to make buttons slightly transparent */
         }
 
-
-        /* .progress-container {
-      width: 100%;
-      height: 8px;
-      background-color: #e0e0e0;
-      border-radius: 4px;
-      margin-bottom: 30px;
-    }
-
-    .progress-bar {
-      height: 100%;
-      background-color: #3498db;
-      border-radius: 4px;
-      transition: width 0.5s ease;
-    } */
-
-
         .progress-container {
-            width: 50%;
-            /* Set width to 45% */
+            width: 90%;
             height: 18px;
             background-color: #eceaea;
             border-radius: 4px;
             margin-bottom: 18px;
             border-radius: 100px;
             margin-top: 18px;
-            margin-left: 25%;
-     
-            /* Center the progress bar horizontally */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .progress-container {
+                width: 50%;
+                margin-left: 25%;
+            }
+            
+            .next-btn,
+            .back-btn {
+                padding: 15px 45px;
+                width: auto;
+            }
         }
 
         .progress-bar {
@@ -240,27 +214,10 @@
         .progress-percentage {
             text-align: center;
             font-size: 14px;
-
             color: white;
             font-weight: bold;
             pointer-events: none;
-            font-weight: bold;
         }
-
-        /* Example of progress bar animation on page load */
-        /* window.onload = function() {
-      const progressBar = document.getElementById("progress-bar");
-      progressBar.style.width = "70%";
-      // Color transition animation
-      progressBar.style.background = "linear-gradient(90deg, #ff6347, #ff1493)";
-    }; */
-
-        /*
-    window.onload = function() {
-      document.getElementById("progress-bar").style.width = "70%";
-    }; */
-
-
 
         .hidden {
             display: none;
@@ -270,7 +227,6 @@
             text-align: center;
             margin-top: 30px;
             padding: 20px;
-            /* background-color: #888787; */
             border-radius: 8px;
         }
 
@@ -280,45 +236,52 @@
             margin-bottom: 15px;
         }
 
-        /* .result-value {
-      font-size: 32px;
-      font-weight: bold;
-      color: #3498db;
-      margin-bottom: 20px;
-    } */
-
         .cost-display {
             font-family: Arial, sans-serif;
-            /* margin: 10px; */
         }
 
         .cost-label {
             font-size: 14px;
             color: #333;
-            /* margin-bottom: 5px; */
         }
 
         .cost-value {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
             color: #000000;
+            margin: 10px 0;
         }
-
-
-
 
         .price-range {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 10px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .price-box {
-            padding: 10px 20px;
+            padding: 8px 15px;
             background-color: #e8f4fc;
             border-radius: 5px;
             font-weight: 500;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .price-range {
+                gap: 20px;
+            }
+            
+            .price-box {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+            
+            .cost-value {
+                font-size: 32px;
+            }
         }
 
         .room-control {
@@ -327,7 +290,6 @@
             justify-content: space-between;
             margin: 15px 0;
             padding: 15px;
-            /* background-color: #f8f9fa; */
             border-radius: 8px;
         }
 
@@ -342,8 +304,8 @@
         }
 
         .counter-btn {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: #3460db;
             color: white;
@@ -352,12 +314,19 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            margin: 10px;
+            margin: 5px;
             justify-content: center;
         }
 
+        @media (min-width: 768px) {
+            .counter-btn {
+                width: 50px;
+                height: 50px;
+                margin: 10px;
+            }
+        }
+
         .counter-value {
-            /* margin: 0 10px; */
             min-width: 30px;
             text-align: center;
             font-weight: 1200;
@@ -367,20 +336,32 @@
             margin-top: 30px;
         }
 
-
         .yes-no-options {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 10px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
 
         .yes-no-btn {
-            padding: 12px 30px;
+            padding: 10px 20px;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
+            margin: 5px;
+        }
+
+        @media (min-width: 768px) {
+            .yes-no-options {
+                gap: 20px;
+            }
+            
+            .yes-no-btn {
+                padding: 12px 30px;
+                margin: 0;
+            }
         }
 
         .yes-no-btn:hover {
@@ -401,8 +382,8 @@
         }
 
         .geyser-counter-btn {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: #3498db;
             color: white;
@@ -412,7 +393,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 10px;
+            margin: 0 5px;
+        }
+
+        @media (min-width: 768px) {
+            .geyser-counter-btn {
+                width: 50px;
+                height: 50px;
+                margin: 0 10px;
+            }
         }
 
         .geyser-counter-value {
@@ -422,121 +411,104 @@
             text-align: center;
         }
 
-
-
-
-
-        /* Add this to your existing styles */
         .form-container {
             max-width: 1200px;
-            /* Adjust this value as needed */
             margin: 0 auto;
-            /* This centers the container */
-            padding: 0 40px;
-
+            padding: 0 20px;
         }
 
         .form-step {
             max-width: 600px;
-            /* Adjust this value as needed */
             margin: 0 auto;
-            /* This centers the step content */
         }
 
-        /* For the option grids in these specific steps */
         #step0 .option-grid,
         #step1 .option-grid,
         #step11 .option-grid {
             max-width: 400px;
-            /* Adjust this value as needed */
             margin: 0 auto;
-            /* Center the grid */
         }
 
-        /* For the h2 headings in these steps */
         #step0 h2,
         #step1 h2,
         #step11 h2 {
             text-align: center;
-
         }
 
         @media (max-width: 768px) {
-
             #step0 .option-grid,
             #step1 .option-grid,
             #step11 .option-grid {
                 grid-template-columns: 1fr;
-                /* Single column on small screens */
+            }
+            
+            .container {
+                margin-top: 100px !important;
             }
         }
 
-
         #calculate-btn {
             display: none !important;
+        }
+        
+        /* Image styling for options */
+        .option img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        
+        /* Modal styling */
+        .modal-body {
+            padding: 20px;
+        }
+        
+        /* Reset button styling */
+        #reset-btn, #reset-btn-commercial {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            margin-bottom: 20px;
         }
     </style>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-
                 <div class="modal-body">
                     <div id="selection-slugs" class="slug-container"></div>
-
                 </div>
-
             </div>
         </div>
     </div>
 
-
     <div class="container" style="margin-top: 200px">
-
-
-
-        <!-- Button trigger modal -->
-
-
-        <!-- Modal -->
-
         <div class="form-container">
-
             <div class="progress-container">
                 <div class="progress-bar" id="progress-bar">
                     <div class="progress-percentage" id="progress-percentage">0%</div>
                 </div>
-
-
             </div>
 
             <form id="constructionForm">
-
+                <!-- Your form steps remain exactly the same -->
                 <div id="step0" class="form-step active">
-                    {{-- <h2>Start</h2> --}}
                     <div class="option-grid">
-                        {{-- <div class="option" data-value="residential">
+                        <div class="option" data-value="residential">
+                            <img src="/frontend/images/residance.png" alt="House" width="150" height="150" style="margin-bottom:12px">
                             <strong>Residential</strong>
                             <span>Home, apartment, studio, etc</span>
                         </div>
                         <div class="option" data-value="commercial">
+                            <img src="/frontend/images/commercial.png" alt="Office" width="150" height="150" style="margin-bottom:12px">
                             <strong>Commercial</strong>
                             <span>Office, shop, restaurant, etc</span>
-                        </div> --}}
-                        <div class="option" data-value="residential">
-    <img src="/frontend/images/residance.png" alt="House" width="150" height="150" style="margin-bottom:12px" >
-    <strong>Residential</strong>
-    <span>Home, apartment, studio, etc</span>
-</div>
-<div class="option" data-value="commercial">
-    <img src="/frontend/images/commercial.png" alt="Office" width="150" height="150" style="margin-bottom:12px">
-    <strong>Commercial</strong>
-    <span>Office, shop, restaurant, etc</span>
-</div>
+                        </div>
                     </div>
                 </div>
 
-
+                <!-- All other steps (1-14) remain exactly the same as in your original code -->
                 <div id="step1" class="form-step">
                     <h2>Construction Type </h2>
                     <div class="option-grid">
@@ -544,7 +516,6 @@
                             <strong>Construction</strong>
                         </div>
                         <div class="option" data-value="under-construction">
-
                             <strong> Under Construction</strong>
                         </div>
                     </div>
@@ -558,12 +529,10 @@
                         <div class="option" data-value="gujranwala">Gujranwala</div>
                         <div class="option" data-value="islamabad">Islamabad</div>
                         <div class="option" data-value="karachi">Karachi</div>
-                        {{-- <div class="option" data-value="multan">Multan</div> --}}
                         <div class="option" data-value="faisalabad">Faisalabad</div>
                         <div class="option" data-value="other" id="other-city">Other</div>
                     </div>
-                    <input type="text" class="other-input" id="other-city-input"
-                        placeholder="Apna shehar ka naam likhain">
+                    <input type="text" class="other-input" id="other-city-input" placeholder="Apna shehar ka naam likhain">
                 </div>
 
                 <!-- Step 3: Property Size -->
@@ -577,8 +546,7 @@
                         <div class="option" data-value="5kanal">5 Kanal</div>
                         <div class="option" data-value="other" id="other-size">Other</div>
                     </div>
-                    <input type="text" class="other-input" id="other-size-input"
-                        placeholder="Apna size marla mein likhain">
+                    <input type="text" class="other-input" id="other-size-input" placeholder="Apna size marla mein likhain">
                 </div>
 
                 <!-- Step 4: Package Selection (only for <6 Marla) -->
@@ -607,7 +575,6 @@
                 <div id="step6" class="form-step">
                     <h2>Specify no. of Rooms to Automate</h2>
                     <div class="result-container">
-                        {{-- <div class="result-value" id="room-estimated-cost">Rs. 0</div> --}}
                         <div class="cost-display">
                             <div class="cost-label">Estimated Cost</div>
                             <div class="cost-value" id="room-estimated-cost">PKR 0</div>
@@ -660,16 +627,13 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
 
                 <!-- Step 7: Electric Geyser -->
                 <div id="step7" class="form-step">
                     <h2>Electric Geyser</h2>
                     <div class="result-container">
-                        {{-- <div class="result-value " id="geyser-estimated-cost">Rs. 0</div> --}}
-                        <div class=" cost-value" id="geyser-estimated-cost">Rs. 0</div>
+                        <div class="cost-value" id="geyser-estimated-cost">Rs. 0</div>
                     </div>
 
                     <div class="geyser-counter">
@@ -687,8 +651,7 @@
                         <div class="cost-value" id="pump-estimated-cost">Rs. 0</div>
                     </div>
 
-                    <p style="text-align: center; margin-bottom: 20px;">Do you want to include a water pump? (Rs. 35,000)
-                    </p>
+                    <p style="text-align: center; margin-bottom: 20px;">Do you want to include a water pump? (Rs. 35,000)</p>
 
                     <div class="yes-no-options">
                         <div class="yes-no-btn" data-choice="yes">Yes</div>
@@ -703,9 +666,7 @@
                         <div class="cost-value" id="setup-estimated-cost">Rs. 0</div>
                     </div>
 
-                    <p style="text-align: center; margin-bottom: 20px;">Do you want professional installation and setup?
-                        (Rs.
-                        50,000)</p>
+                    <p style="text-align: center; margin-bottom: 20px;">Do you want professional installation and setup? (Rs. 50,000)</p>
 
                     <div class="yes-no-options">
                         <div class="yes-no-btn" data-choice="yes">Yes</div>
@@ -715,11 +676,9 @@
 
                 <!-- Step 10: Final Results -->
                 <div id="step10" class="form-step">
-                    <!-- reset everything -->
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <button id="reset-btn" type="button">Reset</button>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            style="text-decoration: none;">Result</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">Result</a>
                     </div>
                     <div class="result-container">
                         <h2>Estimated Budget</h2>
@@ -730,8 +689,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
                 <!-- Step 11: Commercial Type -->
                 <div id="step11" class="form-step">
@@ -750,12 +707,10 @@
                         <div class="option" data-value="gujranwala">Gujranwala</div>
                         <div class="option" data-value="islamabad">Islamabad</div>
                         <div class="option" data-value="karachi">Karachi</div>
-                     
                         <div class="option" data-value="faisalabad">Faisalabad</div>
                         <div class="option" data-value="other" id="other-commercial-city">Other</div>
                     </div>
-                    <input type="text" class="other-input" id="other-commercial-city-input"
-                        placeholder="Enter your city name">
+                    <input type="text" class="other-input" id="other-commercial-city-input" placeholder="Enter your city name">
                 </div>
 
                 <!-- Step 13: Commercial Property Size -->
@@ -768,16 +723,14 @@
                         <div class="option" data-value="3000">3000 Sq.ft</div>
                         <div class="option" data-value="other" id="other-commercial-size">Other</div>
                     </div>
-                    <input type="text" class="other-input" id="other-commercial-size-input"
-                        placeholder="Enter your property size">
+                    <input type="text" class="other-input" id="other-commercial-size-input" placeholder="Enter your property size">
                 </div>
 
                 <!-- Step 14: Commercial Results -->
                 <div id="step14" class="form-step">
                     <div class="result-container">
                         <button id="reset-btn-commercial" type="button">Reset</button>
-                          <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            style="text-decoration: none;">Result</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">Result</a>
                         <h2>Total Commercial Property Estimate</h2>
                         <div class="cost-value" id="commercial-estimated-cost">Rs. 0</div>
                         <div class="price-range">
@@ -787,14 +740,10 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="button-group mb-5">
                     <button type="button" class="back-btn hidden" id="back-btn">Back</button>
                     <button type="button" class="next-btn hidden" id="next-btn">Next</button>
                     <button type="button" class="next-btn hidden" id="calculate-btn">Hisab Karain</button>
-
                 </div>
             </form>
         </div>
