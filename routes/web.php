@@ -15,6 +15,8 @@ use App\Http\Controllers\CustomerDashboardController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\AdminOrderController;
 
+use App\Http\Controllers\PriceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -123,7 +125,7 @@ Route::get('/add_to_cart', [FrontendController::class, 'carts']);
 Route::get('/calculator', [FrontendController::class, 'calculator']);
 Route::get('/message-from-management', [FrontendController::class, 'messageFromManagement']);
 
-
+Route::get('/prices', [PriceController::class, 'getAllPrices']);
 
 
 Route::get('/products', [FrontendController::class, 'products']);

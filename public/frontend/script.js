@@ -1356,3 +1356,44 @@ document.getElementById('place-order-btn').addEventListener('click', async funct
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     const formState = {
+//         commercialPrices: {},
+//            roomPrices: {},
+    
+//         updatePrices(newPrices) {
+//             this.commercialPrices = { ...this.commercialPrices, ...newPrices };
+//                 this.roomPrices = { ...data.roomPrices };
+         
+//         }
+//     };
+
+//     // AJAX Call using jQuery
+//     $.ajax({
+//         url: '/prices', // Make sure this route returns JSON
+//         method: 'GET',
+//         success: function (data) {
+//             formState.updatePrices(data);
+//         },
+//         error: function (xhr, status, error) {
+//             console.error('Error fetching prices:', error);
+//         }
+//     });
+// });

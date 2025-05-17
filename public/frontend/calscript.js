@@ -12,12 +12,36 @@
         commercialType: '',
         commercialCity: '',
         commercialSize: '',
-        commercialPrices: {
-          '1200': 5000000,
-          '1800': 7500000,
-          '2200': 9000000,
-          '3000': 12000000
-        },
+        // commercialPrices: {
+        //   '1200': 5000000,
+        //   '1800': 7500000,
+        //   '2200': 9000000,
+        //   '3000': 12000000
+        // },
+        roomPrices: {
+    bedroom: 0,
+    bathroom: 0,
+    drawing: 0,
+    kitchen: 0,
+    laundry: 0
+},
+         commercialPrices: {},
+           roomPrices: {},
+    
+     updatePrices(newPrices) {
+    // Update commercial prices
+    this.commercialPrices = newPrices.commercialPrices || {};
+    
+    // Update room prices (ensure it's an object, not array)
+    this.roomPrices = newPrices.roomPrices || {};
+    
+    // Update other prices if needed
+    this.packagePrices = newPrices.packagePrices || this.packagePrices;
+    this.additionalCosts = {
+        ...this.additionalCosts,
+        ...(newPrices.additionalCosts || {})
+    };
+},
         roomCounts: {
           bedroom: 0,
           bathroom: 0,
@@ -25,33 +49,41 @@
           kitchen: 0,
           laundry: 0
         },
-        roomPrices: {
-          bedroom: 50000,
-          bathroom: 30000,
-          drawing: 80000,
-          kitchen: 60000,
-          laundry: 20000
-        },
-        packagePrices: {
-          basic: 2500000,
-          standard: 3000000,
-          premium: 3500000
-        },
+        // roomPrices: {
+        //   bedroom: 50000,
+        //   bathroom: 30000,
+        //   drawing: 80000,
+        //   kitchen: 60000,
+        //   laundry: 20000
+        // },
+        // packagePrices: {
+        //   basic: 2500000,
+        //   standard: 3000000,
+        //   premium: 3500000
+        // },
         sizeBasePrices: {
           '7-10marla': 0,
           '12-14marla': 0,
           '1-2kanal': 0,
           '5kanal': 0
         },
-        additionalCosts: {
-          geyser: 25000,
-          geyserCount: 0,
-          waterPump: 35000,
-          hasWaterPump: false,
-          installation: 50000,
-          hasInstallation: false
-        },
+        // additionalCosts: {
+        //   geyser: 25000,
+        //   geyserCount: 0,
+        //   waterPump: 35000,
+        //   hasWaterPump: false,
+        //   installation: 50000,
+        //   hasInstallation: false
+        // },
 
+          additionalCosts : {
+            geyser: 0,
+            geyserCount: 0,
+            waterPump: 0,
+            hasWaterPump: false,
+            installation: 0,
+            hasInstallation: false
+          },
         currentEstimate: 0,
 
         init() {
@@ -141,14 +173,14 @@
           this.roomCounts = { bedroom: 0, bathroom: 0, drawing: 0, kitchen: 0, laundry: 0 };
 
           // Reset additional costs
-          this.additionalCosts = {
-            geyser: 25000,
-            geyserCount: 0,
-            waterPump: 35000,
-            hasWaterPump: false,
-            installation: 50000,
-            hasInstallation: false
-          };
+        //   this.additionalCosts = {
+        //     geyser: 25000,
+        //     geyserCount: 0,
+        //     waterPump: 35000,
+        //     hasWaterPump: false,
+        //     installation: 50000,
+        //     hasInstallation: false
+        //   };
 
           this.currentEstimate = 0;
 
@@ -643,27 +675,28 @@
           }
         },
 
-        calculateRoomEstimate() {
-          let total = 0;
+calculateRoomEstimate() {
+    let total = 0;
 
-          // Calculate based on room counts
-          for (const room in this.roomCounts) {
-            // total += this.roomCounts[room] * this.roomPrices[room] * 1000; // Convert to actual rupees
-            total += this.roomCounts[room] * this.roomPrices[room] ; // Convert to actual rupees
-          }
+    // Calculate based on room counts
+    for (const room in this.roomCounts) {
+        const roomPrice = this.roomPrices[room] || 0; // Default to 0 if price not found
+        const roomCount = this.roomCounts[room] || 0;
+        total += roomCount * roomPrice;
+    }
 
-          // Add base price based on property size
-          if (this.propertySize in this.sizeBasePrices) {
-            total += this.sizeBasePrices[this.propertySize];
-          }
+    // Add base price based on property size
+    if (this.propertySize in this.sizeBasePrices) {
+        total += this.sizeBasePrices[this.propertySize] || 0;
+    }
 
-          this.currentEstimate = total;
+    this.currentEstimate = total;
 
-          // Update the display
-          if (this.currentStep === 6) {
-            document.getElementById('room-estimated-cost').textContent = `Rs. ${total.toLocaleString()}`;
-          }
-        },
+    // Update the display
+    if (this.currentStep === 6) {
+        document.getElementById('room-estimated-cost').textContent = `Rs. ${total.toLocaleString()}`;
+    }
+},
 
         updateRoomCount(room, change) {
           let newValue = this.roomCounts[room] + change;
@@ -723,6 +756,30 @@
         }
       };
 
+$.ajax({
+    url: '/prices',
+    method: 'GET',
+    success: function (data) {
+        if (data) {
+            formState.updatePrices(data);
+            // Recalculate estimates if needed
+            if (formState.currentStep > 0) {
+                formState.calculateEstimate();
+                formState.calculateRoomEstimate();
+            }
+        }
+    },
+    error: function (xhr, status, error) {
+        console.error('Error fetching prices:', error);
+        // Fallback to default prices if API fails
+        formState.updatePrices({
+            commercialPrices: {},
+            roomPrices: {},
+            packagePrices: {},
+            additionalCosts: {}
+        });
+    }
+});
 
       // after init, wire up the Reset button
       document.getElementById('reset-btn').addEventListener('click', () => {
