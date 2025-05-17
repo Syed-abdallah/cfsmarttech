@@ -15,8 +15,11 @@ return new class extends Migration
     {
       Schema::create('commercial_prices', function (Blueprint $table) {
     $table->id();
-    $table->string('size'); // e.g., '1200', '1800'
+    // $table->string('size'); // e.g., '1200', '1800'
+            $table->string('size')->nullable(); // Allows NULL values
+
     $table->unsignedBigInteger('price');
+    //  $table->decimal('price', 10, 2);
     $table->timestamps();
 });
 

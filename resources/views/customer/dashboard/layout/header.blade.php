@@ -131,7 +131,7 @@
                         aria-haspopup="true" aria-expanded="false">
                         <img src="{{ asset('dashboard/assets/images/users/profile-pic.jpg') }}" alt="user" class="rounded-circle" width="40">
                         <span class="ms-2 d-none d-lg-inline-block"><span>Hello,</span> 
-                            <span class="text-dark">{{ auth()->user()->name }}</span> 
+                            <span class="text-dark">{{ auth('customer')->user()->name }}</span> 
                             <i data-feather="chevron-down" class="svg-icon"></i>
                         </span>
                     </a>

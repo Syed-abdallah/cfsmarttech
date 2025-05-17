@@ -69,6 +69,14 @@ Route::get('/cfadmin/dashboard', function () {
 
 Route::group(['middleware' => ['auth:web'], 'prefix'=>'cfadmin', 'as'=>'cfadmin.'],function(){
 
+
+
+Route::resource('/commercial', \App\Http\Controllers\CommercialPriceController::class)->except(['show', 'create', 'edit']);
+
+
+
+
+
     Route::post('/orders/update-status', [AdminOrderController::class, 'updateStatus'])
         ->name('orders.update-status');
     Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');

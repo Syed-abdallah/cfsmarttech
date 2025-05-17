@@ -89,6 +89,29 @@
                         </li>
                     </ul>
                 </li>
+              {{-- Commercial --}}
+@php
+$commercialRoutes = [
+    'cfadmin.commercial.index', 
+    'cfadmin.commercial.edit', 
+    'cfadmin.commercial.update', 
+    'cfadmin.commercial.delete'
+];
+$commercialSectionActive = request()->routeIs($commercialRoutes);
+@endphp
+<li class="sidebar-item {{ $commercialSectionActive ? 'active' : '' }}">
+    <a class="sidebar-link has-arrow {{ $commercialSectionActive ? '' : 'collapsed' }}" href="javascript:void(0)">
+        <i data-feather="dollar-sign" class="feather-icon"></i>
+        <span class="hide-menu">Pricing</span>
+    </a>
+    <ul aria-expanded="{{ $commercialSectionActive ? 'true' : 'false' }}" class="collapse first-level base-level-line {{ $commercialSectionActive ? 'show' : '' }}">
+        <li class="sidebar-item">
+            <a href="{{ route('cfadmin.commercial.index') }}" class="sidebar-link {{ request()->routeIs('cfadmin.commercial.index') ? 'active' : '' }}">
+                <span class="hide-menu">All Commercial</span>
+            </a>
+        </li>
+    </ul>
+</li>
 
                 {{-- Marquee --}}
                 <li class="sidebar-item {{ request()->is('cfadmin/marquees*') ? 'active' : '' }}">

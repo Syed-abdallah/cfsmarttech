@@ -48,6 +48,8 @@
     <li class="breadcrumb-item active" aria-current="page">Partners</li> <!-- Fixed typo "Partners" -->
 @elseif(request()->routeIs('cfadmin.profile.*'))
     <li class="breadcrumb-item active" aria-current="page">Profile</li>
+@elseif(request()->routeIs('cfadmin.commercial.*'))
+    <li class="breadcrumb-item active" aria-current="page">Commercial</li>
 @endif
                     </ol>
                 </nav>
