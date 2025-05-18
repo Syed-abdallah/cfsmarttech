@@ -72,6 +72,14 @@ Route::group(['middleware' => ['auth:web'], 'prefix'=>'cfadmin', 'as'=>'cfadmin.
 
 
 Route::resource('/commercial', \App\Http\Controllers\CommercialPriceController::class)->except(['show', 'create', 'edit']);
+Route::resource('/additional-cost', \App\Http\Controllers\AdditionalCostController::class)->except(['show', 'create', 'edit']);
+Route::resource('/roomtype', \App\Http\Controllers\RoomTypeController::class)->except(['show', 'create', 'edit']);
+
+
+
+
+
+
 
 
 

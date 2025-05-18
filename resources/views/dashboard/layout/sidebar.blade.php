@@ -13,9 +13,9 @@
 
                 <li class="nav-small-cap mt-4"><span class="hide-menu">Applications</span></li>
 
-   {{-- Orders --}}
+                {{-- Orders --}}
                 @php
-                $orderRoutes = ['cfadmin.admin.orders.index', 'cfadmin.admin.orders.show'];
+                    $orderRoutes = ['cfadmin.admin.orders.index', 'cfadmin.admin.orders.show'];
                 @endphp
                 <li class="sidebar-item {{ request()->routeIs($orderRoutes) ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('cfadmin.admin.orders.index') }}">
@@ -28,24 +28,25 @@
 
                 {{-- Products --}}
                 @php
-                $productRoutes = ['cfadmin.products.index', 'cfadmin.products.create', 'cfadmin.products.edit'];
+                    $productRoutes = ['cfadmin.products.index', 'cfadmin.products.create', 'cfadmin.products.edit'];
                 @endphp
-                
+
                 <li class="sidebar-item {{ request()->routeIs($productRoutes) ? 'active' : '' }}">
-                    <a class="sidebar-link has-arrow {{ request()->routeIs($productRoutes) ? '' : 'collapsed' }}" href="javascript:void(0)">
+                    <a class="sidebar-link has-arrow {{ request()->routeIs($productRoutes) ? '' : 'collapsed' }}"
+                        href="javascript:void(0)">
                         <i data-feather="box" class="feather-icon"></i>
                         <span class="hide-menu">Products</span>
                     </a>
                     <ul aria-expanded="{{ request()->routeIs($productRoutes) ? 'true' : 'false' }}"
                         class="collapse first-level base-level-line {{ request()->routeIs($productRoutes) ? 'show' : '' }}">
-                
+
                         <li class="sidebar-item">
                             <a href="{{ route('cfadmin.products.index') }}"
                                 class="sidebar-link {{ request()->routeIs('cfadmin.products.index') ? 'active' : '' }}">
                                 <span class="hide-menu">All Products</span>
                             </a>
                         </li>
-                
+
                         <li class="sidebar-item">
                             <a href="{{ route('cfadmin.products.create') }}"
                                 class="sidebar-link {{ request()->routeIs('cfadmin.products.create') ? 'active' : '' }}">
@@ -54,7 +55,7 @@
                         </li>
                     </ul>
                 </li>
-                
+
                 {{-- Permissions --}}
                 <li class="sidebar-item {{ request()->is('cfadmin/permissions*') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('cfadmin.permissions.index') }}">
@@ -73,45 +74,120 @@
 
                 {{-- Users --}}
                 @php
-                $userRoutes = ['cfadmin.admin.index', 'cfadmin.admin.edit', 'cfadmin.admin.update', 'cfadmin.admin.delete'];
-                $userSectionActive = request()->routeIs($userRoutes);
+                    $userRoutes = [
+                        'cfadmin.admin.index',
+                        'cfadmin.admin.edit',
+                        'cfadmin.admin.update',
+                        'cfadmin.admin.delete',
+                    ];
+                    $userSectionActive = request()->routeIs($userRoutes);
                 @endphp
                 <li class="sidebar-item {{ $userSectionActive ? 'active' : '' }}">
-                    <a class="sidebar-link has-arrow {{ $userSectionActive ? '' : 'collapsed' }}" href="javascript:void(0)">
+                    <a class="sidebar-link has-arrow {{ $userSectionActive ? '' : 'collapsed' }}"
+                        href="javascript:void(0)">
                         <i data-feather="users" class="feather-icon"></i>
                         <span class="hide-menu">Users</span>
                     </a>
-                    <ul aria-expanded="{{ $userSectionActive ? 'true' : 'false' }}" class="collapse first-level base-level-line {{ $userSectionActive ? 'show' : '' }}">
+                    <ul aria-expanded="{{ $userSectionActive ? 'true' : 'false' }}"
+                        class="collapse first-level base-level-line {{ $userSectionActive ? 'show' : '' }}">
                         <li class="sidebar-item">
-                            <a href="{{ route('cfadmin.admin.index') }}" class="sidebar-link {{ request()->routeIs('cfadmin.admin.index') ? 'active' : '' }}">
+                            <a href="{{ route('cfadmin.admin.index') }}"
+                                class="sidebar-link {{ request()->routeIs('cfadmin.admin.index') ? 'active' : '' }}">
                                 <span class="hide-menu">All Users</span>
                             </a>
                         </li>
                     </ul>
                 </li>
-              {{-- Commercial --}}
+                {{-- Commercial --}}
+                {{-- @php
+                    $commercialRoutes = [
+                        'cfadmin.commercial.index',
+                        'cfadmin.commercial.edit',
+                        'cfadmin.commercial.update',
+                        // 'cfadmin.commercial.delete',
+                    ];
+                    $commercialSectionActive = request()->routeIs($commercialRoutes);
+                @endphp
+                <li class="sidebar-item {{ $commercialSectionActive ? 'active' : '' }}">
+                    <a class="sidebar-link has-arrow {{ $commercialSectionActive ? '' : 'collapsed' }}"
+                        href="javascript:void(0)">
+                        <i data-feather="dollar-sign" class="feather-icon"></i>
+                        <span class="hide-menu">Pricing</span>
+                    </a>
+                    <ul aria-expanded="{{ $commercialSectionActive ? 'true' : 'false' }}"
+                        class="collapse first-level base-level-line {{ $commercialSectionActive ? 'show' : '' }}">
+                        <li class="sidebar-item">
+                            <a href="{{ route('cfadmin.commercial.index') }}"
+                                class="sidebar-link {{ request()->routeIs('cfadmin.commercial.index') ? 'active' : '' }}">
+                                <span class="hide-menu">All Commercial</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li> --}}
+
+
 @php
-$commercialRoutes = [
-    'cfadmin.commercial.index', 
-    'cfadmin.commercial.edit', 
-    'cfadmin.commercial.update', 
-    'cfadmin.commercial.delete'
-];
-$commercialSectionActive = request()->routeIs($commercialRoutes);
+    $commercialRoutes = [
+        'cfadmin.commercial.index',
+        'cfadmin.commercial.edit',
+        'cfadmin.commercial.update',
+        // 'cfadmin.commercial.delete',
+    ];
+    $commercialSectionActive = request()->routeIs($commercialRoutes);
+
+    $additionalCostRoutes = [
+        'additionalcost.index',
+        'additionalcost.edit',
+        'additionalcost.update',
+        'additionalcost.destroy',
+    ];
+    $additionalCostSectionActive = request()->routeIs($additionalCostRoutes);
+
+    $roomTypeRoutes = [
+        'roomtype.index',
+        'roomtype.edit',
+        'roomtype.update',
+        'roomtype.destroy',
+    ];
+    $roomTypeSectionActive = request()->routeIs($roomTypeRoutes);
 @endphp
+
+<!-- Pricing Section -->
 <li class="sidebar-item {{ $commercialSectionActive ? 'active' : '' }}">
-    <a class="sidebar-link has-arrow {{ $commercialSectionActive ? '' : 'collapsed' }}" href="javascript:void(0)">
+    <a class="sidebar-link has-arrow {{ $commercialSectionActive ? '' : 'collapsed' }}"
+        href="javascript:void(0)">
         <i data-feather="dollar-sign" class="feather-icon"></i>
         <span class="hide-menu">Pricing</span>
     </a>
-    <ul aria-expanded="{{ $commercialSectionActive ? 'true' : 'false' }}" class="collapse first-level base-level-line {{ $commercialSectionActive ? 'show' : '' }}">
-        <li class="sidebar-item">
-            <a href="{{ route('cfadmin.commercial.index') }}" class="sidebar-link {{ request()->routeIs('cfadmin.commercial.index') ? 'active' : '' }}">
-                <span class="hide-menu">All Commercial</span>
-            </a>
-        </li>
+    <ul aria-expanded="{{ $commercialSectionActive ? 'true' : 'false' }}"
+        class="collapse first-level base-level-line {{ $commercialSectionActive ? 'show' : '' }}">
+       <li class="sidebar-item">
+    <a href="{{ route('cfadmin.commercial.index') }}"
+        class="sidebar-link {{ request()->routeIs('cfadmin.commercial.index') ? 'active' : '' }}">
+        <i data-feather="dollar-sign" class="feather-icon"></i>
+        <span class="hide-menu">Commercial Pricing</span>
+    </a>
+</li>
+<li class="sidebar-item">
+    <a href="{{ route('cfadmin.additional-cost.index') }}"
+        class="sidebar-link {{ request()->routeIs('additionalcost.index') ? 'active' : '' }}">
+        <i data-feather="plus-circle" class="feather-icon"></i>
+        <span class="hide-menu">Additional Costs</span>
+    </a>
+</li>
+        <li class="sidebar-item {{ $roomTypeSectionActive ? 'active' : '' }}">
+    <a class="sidebar-link" href="{{ route('cfadmin.roomtype.index') }}">
+        <i data-feather="home" class="feather-icon"></i>
+        <span class="hide-menu">Room Types</span>
+    </a>
+</li>
     </ul>
 </li>
+
+<!-- Room Types Section -->
+
+
+
 
                 {{-- Marquee --}}
                 <li class="sidebar-item {{ request()->is('cfadmin/marquees*') ? 'active' : '' }}">
@@ -142,7 +218,7 @@ $commercialSectionActive = request()->routeIs($commercialRoutes);
 
                 {{-- Profile --}}
                 @php
-                $profileRoutes = ['cfadmin.profile.edit', 'cfadmin.profile.update', 'cfadmin.profile.destroy'];
+                    $profileRoutes = ['cfadmin.profile.edit', 'cfadmin.profile.update', 'cfadmin.profile.destroy'];
                 @endphp
                 <li class="sidebar-item {{ request()->routeIs($profileRoutes) ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('cfadmin.profile.edit') }}">
@@ -155,7 +231,8 @@ $commercialSectionActive = request()->routeIs($commercialRoutes);
                 <li class="sidebar-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a class="sidebar-link" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                        <a class="sidebar-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); this.closest('form').submit();">
                             <i data-feather="log-out" class="feather-icon"></i>
                             <span class="hide-menu">Logout</span>
                         </a>

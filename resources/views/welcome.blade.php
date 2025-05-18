@@ -426,10 +426,10 @@
             <div class="row g-4 align-items-stretch">
 
                 <div class="col-12 col-md-6 h-100">
-                    <div class="card border-0 shadow-lg p-4 h-100">
+                    <div class="  p-4 h-100">
                         <div class="position-relative" style="z-index:1">
                             <div class="d-flex align-items-center mb-3">
-                                <div class="bg-warning bg-opacity-10 rounded-circle p-3 me-3">
+                                <div class=" p-3 me-3">
                                     <i class="bi bi-house-heart-fill fs-2 text-warning"></i>
 
 
@@ -459,7 +459,7 @@
 
                 <!-- Right panel - Energy Saving -->
                 <div class="col-12 col-md-6 h-100">
-                    <div class="card border-0 shadow-lg p-4 h-100 position-relative overflow-hidden">
+                    <div class=" p-4 h-100 position-relative overflow-hidden">
                         <!-- Blurred Background -->
                         <div class="position-absolute top-0 start-0 w-100 h-100"
                             style="
@@ -473,7 +473,7 @@
                         <!-- Content with relative positioning -->
                         <div class="position-relative z-1 h-100 d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
-                                <div class="bg-success bg-opacity-10 rounded-circle p-3 me-3">
+                                <div class=" p-3 me-3">
                                     <i class="bi bi-lightning-charge-fill fs-2 text-success"></i>
                                 </div>
                                 <h6 class="mb-0 text-success fw-bold">ENERGY EFFICIENCY</h6>
@@ -520,7 +520,7 @@
         <div class="parallax-section" style="background-image: url('frontend/images/smart2.webp');">
             <div class="parallax-overlay"></div>
             <div class="parallax-content">
-                <h2 class="display-4 fw-bold mb-4">Transform Your Living Space</h2>
+                <h2 class="display-4 fw-bold mb-4 ">Transform Your Living Space</h2>
                 <p class="lead mb-5">Experience the perfect blend of technology and comfort with our smart home
                     solutions</p>
                 <a href="#" class="btn btn-primary btn-lg px-4 py-2">Get Started Today</a>
@@ -657,7 +657,7 @@
 
 
 
-        <div class="row mt-5 g-4">
+        {{-- <div class="row mt-5 g-4">
             <div class="col-md-4">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <div class="bg-info bg-opacity-10 rounded-circle p-3 mb-3" style="width: fit-content;">
@@ -692,16 +692,445 @@
                     <a href="#" class="btn btn-link text-danger ps-0">Download app →</a>
                 </div>
             </div>
+        </div> --}}
+
+{{-- 
+        <div class="row mt-5 g-4">
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow p-4 rounded-4">
+            <div class="bg-info bg-opacity-10 rounded-circle p-3 mb-4 mx-auto" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-shield-lock-fill fs-1 text-info"></i>
+            </div>
+            <h4 class="fw-bold text-center mb-3">Smart Security</h4>
+            <p class="text-muted text-center">Enjoy 24/7 monitoring with intelligent alerts and automated responses to keep your home safe while you're away.</p>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-info rounded-pill px-4">Learn More</a>
+            </div>
         </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow p-4 rounded-4">
+            <div class="bg-primary bg-opacity-10 rounded-circle p-3 mb-4 mx-auto" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-mic-fill fs-1 text-primary"></i>
+            </div>
+            <h4 class="fw-bold text-center mb-3">Voice Control</h4>
+            <p class="text-muted text-center">Control your devices effortlessly with Alexa, Google Assistant, and Siri integration for a seamless smart home experience.</p>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary rounded-pill px-4">See Compatibility</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow p-4 rounded-4">
+            <div class="bg-danger bg-opacity-10 rounded-circle p-3 mb-4 mx-auto" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-phone-fill fs-1 text-danger"></i>
+            </div>
+            <h4 class="fw-bold text-center mb-3">Remote Access</h4>
+            <p class="text-muted text-center">Monitor and control your home anytime, anywhere using our secure and user-friendly mobile app.</p>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-danger rounded-pill px-4">Download App</a>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+
+{{-- 
+
+<div class="row mt-5 g-4">
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow p-4 rounded-4 text-center transition hover-shadow">
+            <div class="bg-info bg-opacity-10 rounded-circle p-4 mb-4 mx-auto d-flex align-items-center justify-content-center animate-icon" 
+                 style="width: 100px; height: 100px;">
+                <i class="bi bi-shield-lock-fill fs-1 text-info"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Smart Security</h4>
+            <p class="text-muted">24/7 intelligent monitoring with real-time alerts and automated security responses while you're away.</p>
+            <a href="#" class="btn btn-info text-white rounded-pill px-4 py-2 mt-3 shadow-sm transition">Learn More</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow p-4 rounded-4 text-center transition hover-shadow">
+            <div class="bg-primary bg-opacity-10 rounded-circle p-4 mb-4 mx-auto d-flex align-items-center justify-content-center animate-icon" 
+                 style="width: 100px; height: 100px;">
+                <i class="bi bi-mic-fill fs-1 text-primary"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Voice Control</h4>
+            <p class="text-muted">Hands-free control with seamless Alexa, Google Assistant, and Siri integration for a smarter home.</p>
+            <a href="#" class="btn btn-primary text-white rounded-pill px-4 py-2 mt-3 shadow-sm transition">See Compatibility</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow p-4 rounded-4 text-center transition hover-shadow">
+            <div class="bg-danger bg-opacity-10 rounded-circle p-4 mb-4 mx-auto d-flex align-items-center justify-content-center animate-icon" 
+                 style="width: 100px; height: 100px;">
+                <i class="bi bi-phone-fill fs-1 text-danger"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Remote Access</h4>
+            <p class="text-muted">Stay connected from anywhere with our secure mobile app and take full control of your home’s security.</p>
+            <a href="#" class="btn btn-danger text-white rounded-pill px-4 py-2 mt-3 shadow-sm transition">Download App</a>
+        </div>
+    </div>
+</div>
+
+<!-- Add this CSS to your stylesheet or <style> tag -->
+<style>
+    .hover-shadow:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .transition {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .animate-icon:hover i {
+        transform: scale(1.2) rotate(5deg);
+        transition: transform 0.3s ease-in-out;
+    }
+</style> --}}
+
+
+
+{{-- 
+
+<div class="row mt-5 g-4">
+    <!-- Smart Security Card -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-lg p-4 rounded-4 text-center transition hover-shadow">
+            <div class="icon-wrapper bg-info bg-opacity-10 mb-4 mx-auto">
+                <i class="bi bi-shield-lock-fill fs-1 text-info animated-icon"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Smart Security</h4>
+            <p class="text-muted">24/7 intelligent monitoring with real-time alerts and automated security responses while you're away.</p>
+            <a href="#" class="btn btn-info text-white rounded-pill px-4 py-2 mt-3 shadow-sm transition">Learn More</a>
+        </div>
+    </div>
+
+    <!-- Voice Control Card -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-lg p-4 rounded-4 text-center transition hover-shadow">
+            <div class="icon-wrapper bg-primary bg-opacity-10 mb-4 mx-auto">
+                <i class="bi bi-mic-fill fs-1 text-primary animated-icon"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Voice Control</h4>
+            <p class="text-muted">Hands-free control with seamless Alexa, Google Assistant, and Siri integration for a smarter home.</p>
+            <a href="#" class="btn btn-primary text-white rounded-pill px-4 py-2 mt-3 shadow-sm transition">See Compatibility</a>
+        </div>
+    </div>
+
+    <!-- Remote Access Card -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-lg p-4 rounded-4 text-center transition hover-shadow">
+            <div class="icon-wrapper bg-danger bg-opacity-10 mb-4 mx-auto">
+                <i class="bi bi-phone-fill fs-1 text-danger animated-icon"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Remote Access</h4>
+            <p class="text-muted">Stay connected from anywhere with our secure mobile app and take full control of your home’s security.</p>
+            <a href="#" class="btn btn-danger text-white rounded-pill px-4 py-2 mt-3 shadow-sm transition">Download App</a>
+        </div>
+    </div>
+</div>
+
+<!-- CSS for Animations and Styles -->
+<style>
+    .hover-shadow:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s ease;
+    }
+
+    .transition {
+        transition: all 0.4s ease;
+    }
+
+    .icon-wrapper {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* Icon Animation */
+    .animated-icon {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    /* Additional Hover Effect on Icon */
+    .icon-wrapper:hover .animated-icon {
+        animation: bounce 0.6s;
+    }
+
+    @keyframes bounce {
+        0%   { transform: translateY(0); }
+        30%  { transform: translateY(-15px); }
+        50%  { transform: translateY(0); }
+        70%  { transform: translateY(-7px); }
+        100% { transform: translateY(0); }
+    }
+</style> --}}
+
+
+
+
+
+<div class="row mt-5 g-4">
+    <!-- Smart Security Card -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 p-0 rounded-4 text-center transition hover-shadow" style="overflow: hidden;">
+            <div class="card-glass-bg bg-info bg-opacity-10"></div>
+            <div class="card-content p-4 position-relative">
+                <div class="icon-wrapper bg-info bg-opacity-10 mb-4 mx-auto">
+                    <i class="bi bi-shield-lock-fill fs-1 text-info animated-icon"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Smart Security</h4>
+                <p class="text-muted">24/7 intelligent monitoring with real-time alerts and automated security responses while you're away.</p>
+                <a href="#" class="btn btn-info text-white rounded-pill px-4 py-2 mt-3 shadow-sm transition">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Control Card -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 p-0 rounded-4 text-center transition hover-shadow" style="overflow: hidden;">
+            <div class="card-glass-bg bg-primary bg-opacity-10"></div>
+            <div class="card-content p-4 position-relative">
+                <div class="icon-wrapper bg-primary bg-opacity-10 mb-4 mx-auto">
+                    <i class="bi bi-mic-fill fs-1 text-primary animated-icon"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Voice Control</h4>
+                <p class="text-muted">Hands-free control with seamless Alexa, Google Assistant, and Siri integration for a smarter home.</p>
+                <a href="#" class="btn btn-primary text-white rounded-pill px-4 py-2 mt-3 shadow-sm transition">See Compatibility</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Remote Access Card -->
+    <div class="col-md-4">
+        <div class="card h-100 border-0 p-0 rounded-4 text-center transition hover-shadow" style="overflow: hidden;">
+            <div class="card-glass-bg bg-danger bg-opacity-10"></div>
+            <div class="card-content p-4 position-relative">
+                <div class="icon-wrapper bg-danger bg-opacity-10 mb-4 mx-auto">
+                    <i class="bi bi-phone-fill fs-1 text-danger animated-icon"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Remote Access</h4>
+                <p class="text-muted">Stay connected from anywhere with our secure mobile app and take full control of your home's security.</p>
+                <a href="#" class="btn btn-danger text-white rounded-pill px-4 py-2 mt-3 shadow-sm transition">Download App</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS for Animations and Styles -->
+<style>
+    .card-glass-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        opacity: 0.7;
+        z-index: 0;
+    }
+    
+    .card-content {
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.8);
+        height: 100%;
+    }
+    
+    .hover-shadow:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s ease;
+    }
+
+    .transition {
+        transition: all 0.4s ease;
+    }
+
+    .icon-wrapper {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* Icon Animation */
+    .animated-icon {
+        animation: pulsing 2s infinite;
+    }
+
+    @keyframes pulsing {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    /* Additional Hover Effect on Icon */
+    .icon-wrapper:hover .animated-icon {
+        animation: bounce 0.6s;
+    }
+
+    @keyframes bounce {
+        0%   { transform: translateY(0); }
+        30%  { transform: translateY(-15px); }
+        50%  { transform: translateY(0); }
+        70%  { transform: translateY(-7px); }
+        100% { transform: translateY(0); }
+    }
+</style>
     </div>
 
 
 
 
+{{--     
+
+<div class="container">
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="feature-box">
+                <img src="menu-icon.png" alt="Menu Variations" class="feature-icon">
+                <h5 class="fw-bold">Menu variations</h5>
+                <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error</p>
+                <a href="#" class="learn-more">Learn More &rarr;</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-box">
+                <img src="cooking-icon.png" alt="Cooking Warm" class="feature-icon">
+                <h5 class="fw-bold">Cooking warm</h5>
+                <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error</p>
+                <a href="#" class="learn-more">Learn More &rarr;</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-box">
+                <img src="chef-icon.png" alt="Best Chef" class="feature-icon">
+                <h5 class="fw-bold">Best chef</h5>
+                <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error</p>
+                <a href="#" class="learn-more">Learn More &rarr;</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="feature-box">
+                <img src="fastfood-icon.png" alt="Fast Food" class="feature-icon">
+                <h5 class="fw-bold">Fast food</h5>
+                <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error</p>
+                <a href="#" class="learn-more">Learn More &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div> --}}
 
 
 
 
+<section class="py-6 py-lg-7 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Video Column with Accent Decoration -->
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative pe-lg-4">
+        <!-- Decorative Accent Box -->
+<div class="position-absolute top-0 start-0 bg-warning opacity-10" 
+     style="width: 93%; height: 98%; z-index: 1; transform: translate(-14px, 30px); border-radius: 12px;">
+</div>
+        <!-- Video Container with Shadow and Border -->
+        <div class="position-relative rounded-3 overflow-hidden shadow-lg" style="z-index: 1; border: 8px solid white;">
+          <video id="promoVideo" class="w-100" poster="https://placehold.co/600x400?text=Solar+Solutions" style="display: block;">
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
+          <!-- Play Button with Pulse Animation -->
+          <button 
+            class="btn btn-warning rounded-circle position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center shadow"
+            style="width: 80px; height: 80px; z-index: 3; border: none;"
+            onclick="document.getElementById('promoVideo').play(); this.style.display='none';"
+          >
+            <i class="bi bi-play-fill fs-3 text-white" style="margin-left: 4px;"></i>
+            <span class="position-absolute top-0 start-0 w-100 h-100 rounded-circle bg-warning opacity-75 animate-pulse" style="z-index: -1;"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Column -->
+      <div class="col-lg-6 ps-lg-5 mt-5 mb-5">
+        <h3 class="fw-bold  mb-3">Leading the Renewable Energy Revolution</h3>
+        <div class="pe-lg-5">
+          <p class="text-muted mb-4 fs-lg">
+            As a top-tier solar energy provider, we deliver cutting-edge renewable solutions tailored to your needs. 
+            Our certified team combines industry expertise with sustainable innovation to maximize your energy efficiency 
+            and reduce environmental impact.
+          </p>
+          <div class="d-flex align-items-center mb-4">
+            <div class="me-4">
+              <div class="d-flex align-items-center justify-content-center bg-warning bg-opacity-10 rounded-circle" style="width: 50px; height: 50px;">
+                <i class="bi bi-award-fill text-warning fs-4"></i>
+              </div>
+            </div>
+            <div>
+              <h6 class="mb-1">Certified Excellence</h6>
+              <p class="text-muted mb-0 fs-sm">NABCEP certified professionals with 10+ years experience</p>
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-5">
+            <div class="me-4">
+              <div class="d-flex align-items-center justify-content-center bg-warning bg-opacity-10 rounded-circle" style="width: 50px; height: 50px;">
+                <i class="bi bi-lightning-charge-fill text-warning fs-4"></i>
+              </div>
+            </div>
+            <div>
+              <h6 class="mb-1">Sustainable Results</h6>
+              <p class="text-muted mb-0 fs-sm">5,000+ successful installations with 98% customer satisfaction</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#" class="btn btn-warning px-4 py-3 fw-semibold rounded-pill">Explore Our Solutions</a>
+          <a href="#" class="btn btn-outline-secondary px-4 py-3 fw-semibold rounded-pill">
+            <i class="bi bi-telephone me-2"></i> Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap Icons -->
+{{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet"> --}}
+
+<!-- Custom CSS for animation -->
+<style>
+  .animate-pulse {
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.75; }
+    70% { transform: scale(1.3); opacity: 0; }
+    100% { transform: scale(0.95); opacity: 0; }
+  }
+</style>
 
 
 
