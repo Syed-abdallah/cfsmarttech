@@ -730,7 +730,7 @@ font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     bottom: 20px;
     right: 20px;
     z-index: 9999;
-    animation: pulse 2s infinite;
+    animation: pulsess 2s infinite;
 }
 
 .card-float {
@@ -741,7 +741,7 @@ font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
 
 }
 
-@keyframes pulse {
+@keyframes pulsess {
 
     0%,
     100% {
@@ -834,11 +834,7 @@ font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     margin-top: 10px;
 }
 
-/* optional: give them a little lift on hover */
-/* .card-hover:hover .card-title,
-.card-hover:hover .card-text {
-    transform: scale(1.05);
-} */
+
 
 
 .card-hover img {
@@ -959,66 +955,7 @@ animation: pulse 1.5s infinite ease-in-out;
 }
 
 
-/* single product  show in page with descriotion*/
 
-
-/* .device-circle {
-  width: 450px;
-  height: 450px;
-  border-radius: 50%;
-  background-color: #f8f9fa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  position: relative;
-  box-shadow: 1px 44px 35px rgba(51, 54, 99, 0.1);
-} */
-
-/* Temperature display */
-/* .temperature-display {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 3.5rem;
-  font-weight: bold;
-  color: #3629ad;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 8px 10px rgba(0,0,0,0.1);
-  width: 600px; 
-  text-align: center; 
-} */
-
-/* .temperature-label {
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-} */
-
-/* rotate hint styling */
-/* .rotate-hint i {
-  font-size: 1.5rem;
-  vertical-align: middle;
-  color: #2575fc;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.rotate-hint {
-  margin-top: 20px;
-} */
 
 
 
