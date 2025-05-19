@@ -9,7 +9,7 @@ class PropertySizeSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('property_sizes')->insert([
+        DB::table('commercial_prices')->insert([
             [
                 'size' => 1200,
                 'price' => 15,
