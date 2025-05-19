@@ -73,8 +73,13 @@ public function update(Request $request, $id) // Accept the ID as parameter
     $RoomPrice->update([
         'price' => $validated['price']
     ]);
-
-    return redirect()->route('cfadmin.roomtype.index')->with('success', 'Price updated successfully');
+  session()->flash('toast', [
+            'type'    => 'success', //        
+            'message' => 'Price update successfully',
+            'timer'   => 3000,                
+            'bar'     => true,                 
+        ]);
+    return redirect()->route('cfadmin.roomtype.index');
 }
 
     /**

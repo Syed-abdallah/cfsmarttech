@@ -471,6 +471,27 @@
             padding: 10px 20px;
             margin-bottom: 20px;
         }
+        .result-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1;
+}
+.budget-disclaimer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: #64748b;
+    background: #f8fafc;
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.budget-disclaimer svg {
+    flex-shrink: 0;
+    color: #94a3b8;
+}
     </style>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -550,12 +571,12 @@
                 </div>
 
                 <!-- Step 4: Package Selection (only for <6 Marla) -->
-                <div id="step4" class="form-step">
-                    <h2>Select Your Favourite Package</h2>
+                <div id="step4" class="form-step mt-5 mb-5">
+                    <h2 >Select Your Favourite Package</h2>
                     <div class="option-grid">
-                        <div class="option" data-value="basic">Basic Package<br>(Rs. 2,500,000)</div>
-                        <div class="option" data-value="standard">Standard Package<br>(Rs. 3,000,000)</div>
-                        <div class="option" data-value="premium">Premium Package<br>(Rs. 3,500,000)</div>
+                        <div class="option" data-value="basic">Basic Package<br></div>
+                        <div class="option" data-value="standard">Standard Package<br></div>
+                        <div class="option" data-value="premium">Premium Package<br></div>
                     </div>
                 </div>
 
@@ -565,8 +586,8 @@
                         <h2>Total Estimated Cost</h2>
                         <div class="result-value" id="estimated-cost">Rs. 0</div>
                         <div class="price-range">
-                            <div class="price-box">Rs. <span id="lower-range">0</span> (50k less)</div>
-                            <div class="price-box">Rs. <span id="higher-range">0</span> (50k more)</div>
+                            <div class="price-box">Rs. <span id="lower-range">0</span> </div>
+                            <div class="price-box">Rs. <span id="higher-range">0</span> </div>
                         </div>
                     </div>
                 </div>
@@ -638,7 +659,7 @@
 
                     <div class="geyser-counter">
                         <button class="geyser-counter-btn minus" id="remove-geyser">-</button>
-                        <span class="geyser-counter-value" id="geyser-count">0</span>
+                        <span class="geyser-counter-value" id="geyser-count"></span>
                         <button class="geyser-counter-btn plus" id="add-geyser">+</button>
                     </div>
                     <p style="text-align: center; margin-top: 20px; color: #666;">(Rs. 25,000 each)</p>
@@ -684,9 +705,19 @@
                         <h2>Estimated Budget</h2>
                         <div class="result-value" id="final-cost">Rs. 0</div>
                         <div class="price-range">
-                            <div class="price-box">Rs. <span id="final-lower-range">0</span> (50k less)</div>
-                            <div class="price-box">Rs. <span id="final-higher-range">0</span> (50k more)</div>
+                            <div class="price-box">Rs. <span id="final-lower-range">0</span></div>
+                            <div class="price-box">Rs. <span id="final-higher-range">0</span> </div>
                         </div>
+
+                           <!-- Disclaimer note -->
+    <div class="budget-disclaimer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span>Final price may vary based on specific requirements</span>
+    </div>
                     </div>
                 </div>
 
@@ -734,8 +765,8 @@
                         <h2>Total Commercial Property Estimate</h2>
                         <div class="cost-value" id="commercial-estimated-cost">Rs. 0</div>
                         <div class="price-range">
-                            <div class="price-box">Rs. <span id="commercial-lower-range">0</span> (50k less)</div>
-                            <div class="price-box">Rs. <span id="commercial-higher-range">0</span> (50k more)</div>
+                            <div class="price-box">Rs. <span id="commercial-lower-range">0</span> </div>
+                            <div class="price-box">Rs. <span id="commercial-higher-range">0</span></div>
                         </div>
                     </div>
                 </div>

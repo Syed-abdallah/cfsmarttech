@@ -74,7 +74,14 @@ public function update(Request $request, $id) // Accept the ID as parameter
         'price' => $validated['price']
     ]);
 
-    return redirect()->route('cfadmin.additional-cost.index')->with('success', 'Price updated successfully');
+   session()->flash('toast', [
+            'type'    => 'success', //        
+            'message' => 'Price update successfully',
+            'timer'   => 3000,                
+            'bar'     => true,                 
+        ]);
+
+    return redirect()->route('cfadmin.additional-cost.index');
 }
 
     /**
