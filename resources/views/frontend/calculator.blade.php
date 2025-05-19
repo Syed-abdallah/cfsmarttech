@@ -678,19 +678,29 @@
     <p style="text-align: center; margin: 20px 0; color: #666; font-size: 15px;">
         <span style="color: #e74c3c; font-weight: bold;">LIMITED TIME OFFER:</span> 
     </p>
-    <div style="background: linear-gradient(to right, #f9f9f9, #fff); padding: 12px; border-left: 4px solid #3498db; margin: 15px 0;">
-        <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">Why Choose Our Geysers?</div>
-        <ul style="margin: 0; padding-left: 20px; color: #555; font-size: 14px;">
-            <li style="margin-bottom: 3px;">⚡ Energy-efficient technology saves 25% on electricity</li>
-            <li style="margin-bottom: 3px;">🔒 5-year warranty for complete peace of mind</li>
-        </ul>
+    <p style="text-align: center; margin: 15px 0; color: #666; font-size: 14px;">
+        Our team will install smart controls for your geyser(s)
+    </p>
+    <div style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; margin-top: 10px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #27ae60; font-size: 18px;">✓</span>
+            <span style="font-size: 13px;">Automated temperature control</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
+            <span style="color: #27ae60; font-size: 18px;">✓</span>
+            <span style="font-size: 13px;">Scheduled on/off functionality</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
+            <span style="color: #27ae60; font-size: 18px;">✓</span>
+            <span style="font-size: 13px;">Remote control via mobile app</span>
+        </div>
     </div>
     <div style="text-align: center; background-color: #f8f9fa; padding: 8px; border-radius: 4px; margin-top: 10px;">
         <span style="font-size: 12px; color: #7f8c8d;">✔️ 1000+ happy customers this month</span>
     </div>
 </div>
                 <!-- Step 8: Water Pump -->
-                <div id="step8" class="form-step">
+                {{-- <div id="step8" class="form-step">
                     <h2>Water Pump</h2>
                     <div class="result-container">
                         <div class="cost-value" id="pump-estimated-cost">Rs. 0</div>
@@ -702,10 +712,41 @@
                         <div class="yes-no-btn" data-choice="yes">Yes</div>
                         <div class="yes-no-btn" data-choice="no">No</div>
                     </div>
-                </div>
+                </div> --}}
+
+                <div id="step8" class="form-step">
+    <h2 style="margin-bottom: 15px;">Water Pump Automation</h2>
+    <div class="result-container">
+        <div class="cost-value" id="pump-estimated-cost">Rs. 0</div>
+    </div>
+
+    <p style="text-align: center; margin: 15px 0 20px; color: #555; font-size: 14px;">
+        Enable smart control for your water pump?
+    </p>
+
+    <div class="yes-no-options">
+        <div class="yes-no-btn" data-choice="yes">Yes</div>
+        <div class="yes-no-btn" data-choice="no">No</div>
+    </div>
+
+    <div style="background-color: #f8f9fa; padding: 12px; border-radius: 6px; margin-top: 20px;">
+        <div style="display: flex; align-items: flex-start; margin-bottom: 8px;">
+            <span style="color: #2980b9; margin-right: 8px;">•</span>
+            <span style="font-size: 13px;">Automated water level sensing</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; margin-bottom: 8px;">
+            <span style="color: #2980b9; margin-right: 8px;">•</span>
+            <span style="font-size: 13px;">Schedule operation times</span>
+        </div>
+        <div style="display: flex; align-items: flex-start;">
+            <span style="color: #2980b9; margin-right: 8px;">•</span>
+            <span style="font-size: 13px;">Leakage protection system</span>
+        </div>
+    </div>
+</div>
 
                 <!-- Step 9: Install and Setup -->
-                <div id="step9" class="form-step">
+                {{-- <div id="step9" class="form-step">
                     <h2>Install and Setup</h2>
                     <div class="result-container">
                         <div class="cost-value" id="setup-estimated-cost">Rs. 0</div>
@@ -717,7 +758,42 @@
                         <div class="yes-no-btn" data-choice="yes">Yes</div>
                         <div class="yes-no-btn" data-choice="no">No</div>
                     </div>
-                </div>
+                </div> --}}
+
+<div id="step9" class="form-step">
+    <h2 style="margin-bottom: 15px;">Professional Automation Setup</h2>
+    <div class="result-container">
+        <div class="cost-value" id="setup-estimated-cost">Rs. 0</div>
+    </div>
+
+    <p style="text-align: center; margin: 15px 0 20px; color: #555; font-size: 14px;">
+        Include expert installation and configuration?
+    </p>
+
+    <div class="yes-no-options">
+        <div class="yes-no-btn" data-choice="yes">Yes</div>
+        <div class="yes-no-btn" data-choice="no">No</div>
+    </div>
+
+    <div style="background-color: #f5f7fa; padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #3498db;">
+        <div style="display: flex; margin-bottom: 10px; align-items: center;">
+            <div style="background-color: #3498db; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">1</div>
+            <span style="font-size: 13px;">Complete system testing and calibration</span>
+        </div>
+        <div style="display: flex; margin-bottom: 10px; align-items: center;">
+            <div style="background-color: #3498db; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">2</div>
+            <span style="font-size: 13px;">Mobile app setup and personalization</span>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <div style="background-color: #3498db; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">3</div>
+            <span style="font-size: 13px;">Full demonstration and user training</span>
+        </div>
+    </div>
+
+    <p style="text-align: center; margin-top: 15px; font-size: 12px; color: #7f8c8d;">
+        Recommended for optimal system performance and safety
+    </p>
+</div>
 
                 <!-- Step 10: Final Results -->
                 <div id="step10" class="form-step">
