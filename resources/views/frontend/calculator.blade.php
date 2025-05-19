@@ -662,7 +662,7 @@
                         <span class="geyser-counter-value" id="geyser-count"></span>
                         <button class="geyser-counter-btn plus" id="add-geyser">+</button>
                     </div>
-                    <p style="text-align: center; margin-top: 20px; color: #666;">(Rs. 25,000 each)</p>
+                    <p style="text-align: center; margin-top: 20px; color: #666;"></p>
                 </div>
 
                 <!-- Step 8: Water Pump -->
@@ -672,7 +672,7 @@
                         <div class="cost-value" id="pump-estimated-cost">Rs. 0</div>
                     </div>
 
-                    <p style="text-align: center; margin-bottom: 20px;">Do you want to include a water pump? (Rs. 35,000)</p>
+                    <p style="text-align: center; margin-bottom: 20px;">Do you want to include a water pump? </p>
 
                     <div class="yes-no-options">
                         <div class="yes-no-btn" data-choice="yes">Yes</div>
@@ -687,7 +687,7 @@
                         <div class="cost-value" id="setup-estimated-cost">Rs. 0</div>
                     </div>
 
-                    <p style="text-align: center; margin-bottom: 20px;">Do you want professional installation and setup? (Rs. 50,000)</p>
+                    <p style="text-align: center; margin-bottom: 20px;">Do you want professional installation and setup? </p>
 
                     <div class="yes-no-options">
                         <div class="yes-no-btn" data-choice="yes">Yes</div>
