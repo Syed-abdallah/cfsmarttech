@@ -738,9 +738,7 @@
             <span style="color: #2980b9; margin-right: 8px;">•</span>
             <span style="font-size: 13px;">Schedule operation times</span>
         </div>
-        <div style="display: flex; align-items: flex-start;">
-            <span style="color: #2980b9; margin-right: 8px;">•</span>
-        </div>
+    
     </div>
 </div>
 
