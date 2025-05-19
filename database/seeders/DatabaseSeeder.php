@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // PackageTypeSeeder::class,
             //    AdditionalCostSeeder::class,
-                        PropertySizeSeeder::class,
+                        // PropertySizeSeeder::class,
+                        RoomTypeSeeder::class,
 
         ]);
     }
