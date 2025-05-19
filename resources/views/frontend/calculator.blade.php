@@ -651,7 +651,7 @@
                 </div>
 
                 <!-- Step 7: Electric Geyser -->
-                <div id="step7" class="form-step">
+                {{-- <div id="step7" class="form-step">
                     <h2>Electric Geyser</h2>
                     <div class="result-container">
                         <div class="cost-value" id="geyser-estimated-cost">Rs. 0</div>
@@ -663,8 +663,32 @@
                         <button class="geyser-counter-btn plus" id="add-geyser">+</button>
                     </div>
                     <p style="text-align: center; margin-top: 20px; color: #666;"></p>
-                </div>
+                </div> --}}
+<div id="step7" class="form-step">
+    <h2 style="color: #2c3e50; margin-bottom: 15px;">Premium Electric Geysers</h2>
+    <div class="result-container">
+        <div class="cost-value" id="geyser-estimated-cost">Rs. 0</div>
+    </div>
 
+    <div class="geyser-counter">
+        <button class="geyser-counter-btn minus" id="remove-geyser">-</button>
+        <span class="geyser-counter-value" id="geyser-count"></span>
+        <button class="geyser-counter-btn plus" id="add-geyser">+</button>
+    </div>
+    <p style="text-align: center; margin: 20px 0; color: #666; font-size: 15px;">
+        <span style="color: #e74c3c; font-weight: bold;">LIMITED TIME OFFER:</span> 
+    </p>
+    <div style="background: linear-gradient(to right, #f9f9f9, #fff); padding: 12px; border-left: 4px solid #3498db; margin: 15px 0;">
+        <div style="font-weight: bold; color: #2c3e50; margin-bottom: 5px;">Why Choose Our Geysers?</div>
+        <ul style="margin: 0; padding-left: 20px; color: #555; font-size: 14px;">
+            <li style="margin-bottom: 3px;">⚡ Energy-efficient technology saves 25% on electricity</li>
+            <li style="margin-bottom: 3px;">🔒 5-year warranty for complete peace of mind</li>
+        </ul>
+    </div>
+    <div style="text-align: center; background-color: #f8f9fa; padding: 8px; border-radius: 4px; margin-top: 10px;">
+        <span style="font-size: 12px; color: #7f8c8d;">✔️ 1000+ happy customers this month</span>
+    </div>
+</div>
                 <!-- Step 8: Water Pump -->
                 <div id="step8" class="form-step">
                     <h2>Water Pump</h2>
