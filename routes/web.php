@@ -14,6 +14,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerDashboardController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\ReguserController;
 
 use App\Http\Controllers\PriceController;
 
@@ -78,6 +79,10 @@ Route::resource('/roomtype', \App\Http\Controllers\RoomTypeController::class)->e
 
 
 
+
+    Route::get('/userregister', [ReguserController::class, 'index'])->name('newuser.register');
+    Route::post('/register', [ReguserController::class, 'registeruser'])->name('register.user');
+    
 
 
 
