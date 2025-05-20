@@ -33,7 +33,7 @@
                 <tbody>
                     @foreach($products as $index => $product)
                     <tr>
-                        <td>{{ $product->index +1 }}</td>
+                        <td>{{ $index + 1 }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->quantity }}</td>
                         <td>{{ $product->price }}</td>

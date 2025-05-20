@@ -5,9 +5,10 @@
         .product-carousel {
             display: flex;
             overflow: hidden;
-            height: 170px;
+            height: 160px;
             justify-content: space-between;
             /* Space out the cards */
+            
         }
 
         .product-card {
@@ -19,22 +20,30 @@
             cursor: pointer;
             min-width: 200px;
             /* Minimum width to handle small screens */
-            margin: 0 5px;
+            margin: 0 0;
             /* Add a small gap between the cards */
-            opacity: 1;
+            opacity: 23px;
             /* Default opacity for desktop */
             display: block;
             /* Ensure all cards are visible on larger screens */
+
+                /* Add blur + transparency */
+    background-color: rgba(255, 255, 255, 0.2); /* Light translucent background */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); /* For Safari */
         }
 
         .product-card:not(.active):hover {
             background-color: #f8f9fa;
+            
         }
 
-        .product-card.active {
-            flex: 3;
-            background-color: rgba(255, 235, 59, 0.1);
-        }
+      .product-card.active {
+    flex: 3;
+    background-color: rgba(255, 235, 59, 0.1);
+    backdrop-filter: blur(7px); /* <-- NEW line for blur effect */
+    -webkit-backdrop-filter: blur(7px); /* Safari support */
+}
 
         .product-card .icon img {
             width: 40px;
@@ -61,13 +70,13 @@
         .product-card .extra,
         .product-card .extrahide {
             opacity: 0;
-            transition: opacity 0.5s ease 0.3s;
+            transition: opacity 2s ease 0.3s;
             margin-top: 1rem;
         }
 
         .product-card.active .extra,
         .product-card.active .extrahide {
-            opacity: 1;
+            opacity: 4;
         }
 
         .product-card .indicator {
@@ -76,7 +85,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: #eeff00;
+            background: #eeff06;
             transform-origin: left center;
             opacity: 0;
         }
@@ -171,52 +180,7 @@
             }
         }
     </style>
-    <!-- Carousel -->
-    {{-- <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500"
-        data-bs-wrap="true">
-        <!-- Dots -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="0" class="active" aria-current="true"
-                aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleRide" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-
-        <!-- Carousel Inner -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ asset('frontend/images/smart5.jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Welcome to the Future of Living</h1>
-                    <p>Control your entire home with just one tap - lights, security, temperature and more</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('frontend/images/smart7.jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Voice-Activated Comfort</h1>
-                    <p>"Hey Google, good morning!" - Start your day with automated routines</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('frontend/images/smart1.jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>Intelligent Security 24/7</h1>
-                    <p>Smart cameras, motion sensors and automated locks keep your home safe</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div> --}}
+ 
 
     <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500"
         data-bs-wrap="true">
@@ -233,7 +197,7 @@
         <div class="carousel-inner">
             @foreach ($slides as $key => $slide)
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                    <img src="{{ asset('storage/sliders/' . $slide->image) }}" class="d-block w-100"
+                    <img src="{{ asset('Uploads/sliders/' . $slide->image) }}" class="d-block w-100"
                         alt="{{ $slide->heading }}">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>{{ $slide->heading }}</h1>
@@ -254,33 +218,7 @@
         </button>
     </div>
 
-    <!-- Content -->
-    {{-- <div class="container-fluid py-5 position-relative">
-        <div class="row">
-            <div class="col-lg-2 d-flex align-items-center justify-content-center">
-                <h5 class="text-center mb-4">Trusted by<br>renowned brands</h5>
-            </div>
-            <div class="col-lg-10">
-                <div class="logo-carousel">
-                    <div class="logo-track">
-                        <img src="" alt="Logo 1">
-                        <img src="{{ asset('frontend/images/p1.png') }}" alt="Logo 2">
-                        <img src="{{ asset('frontend/images/p2.png') }}" alt="Logo 3">
-                        <img src="{{ asset('frontend/images/p3.png') }}" alt="Logo 4">
-                        <img src="{{ asset('frontend/images/p4.png') }}" alt="Logo 5">
-                        <img src="{{ asset('frontend/images/p5.png') }}" alt="Logo 6">
-                        <!-- duplicates for seamless loop -->
-                        <img src="{{ asset('frontend/images/p6.png') }}" alt="Logo 1">
-                        <img src="{{ asset('frontend/images/p7.png') }}" alt="Logo 2">
-                        <img src="{{ asset('frontend/images/p2.png') }}" alt="Logo 3">
-                        <img src="{{ asset('frontend/images/p6.png') }}" alt="Logo 4">
-                        <img src="{{ asset('frontend/images/p2.png') }}" alt="Logo 5">
-                        <img src="{{ asset('frontend/images/p4.png') }}" alt="Logo 6">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
+
 
 
     <div class="container-fluid py-5 position-relative">
@@ -292,11 +230,12 @@
                 <div class="logo-carousel">
                     <div class="logo-track">
                         @foreach ($partners as $partner)
-                            <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}">
+                            {{-- <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"> --}}
+                            <img src="{{ asset('uploads/partners/' . $partner->image) }}" alt="Current Image">
                         @endforeach
                         <!-- Duplicates for seamless loop -->
                         @foreach ($partners as $partner)
-                            <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}">
+                            <img src="{{ asset('uploads/partners/' . $partner->image) }}" alt="{{ $partner->image }}">
                         @endforeach
                     </div>
                 </div>
@@ -307,90 +246,75 @@
 
 
 
-    <section id="products" style="margin-botton: 150px;">
-        <div class="container-fluid">
-            <!-- HERO PANEL -->
-            <div id="hero" class="hero-image">
-                <img id="hero-img" src="https://via.placeholder.com/800x300?text=Smart+Dimmer" alt="Featured product"
-                    width="100%" height="600px">
 
-            </div>
+    <section id="products" style="margin-bottom: 10px; position: relative;">
+    <div class="container-fluid" style="position: relative;">
+        <!-- PRODUCT CAROUSEL (MOVED ABOVE HERO IMAGE) -->
+        <div class="product-carousel" style="position: absolute; top: 450px; left: 0; right: 0; z-index: 10;">
+            @foreach ($products as $index => $product)
+                <div class="product-card {{ $index === 0 ? 'active' : '' }}" 
+                     data-index="{{ $index }}"
+                     data-hero-img="{{ asset('uploads/products/' . $product->image) }}" 
+                    >
 
-            <!-- PRODUCT CAROUSEL -->
-            <div class="product-carousel">
-                <!-- Card 1 -->
-                <div class="product-card" data-index="0" data-hero-img="{{ asset('frontend/images/product1.png') }}"
-                    data-hero-text="MHub">
+                   <a href="{{ route('product.show', $product->id) }}" class="title-link" style="text-decoration: none; color: inherit;">
+    <div class="title">
+        {{ $product->name }} <i class="bi bi-arrow-right-circle fs-3 extrahide"></i>
+    </div>
+</a>
 
-                    <div class="title">MHub <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
+<style>
+.title-link:hover .title {
+    text-decoration: underline; /* Optional hover effect */
+}
+</style>
                     <div class="extra">
-                        <p class="mb-2">Central brain of your smart home, connecting all devices seamlessly.</p>
+                        <p class="mb-2">{{ $product->description }}</p>
                     </div>
                     <div class="indicator"></div>
                 </div>
+            @endforeach
 
-                <!-- Card 2 -->
-                <div class="product-card" data-index="1" data-hero-img="{{ asset('frontend/images/product2.jpeg') }}"
-                    data-hero-text="Touch Panel">
-
-                    <div class="title">Touch Panel <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
-                    <div class="extra">
-                        <p class="mb-2">Sleek in-wall interface for lights, blinds and scenes with haptic feedback.</p>
+            {{-- <!-- View All Card -->
+            <a href="/products" >
+                <div class="product-card" 
+                    <div class="icon" style="margin-top: 84px;">
+                
                     </div>
+                    <div class="title">View All Products</div>
                     <div class="indicator"></div>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="product-card" data-index="2" data-hero-img="{{ asset('frontend/images/product3.jpeg') }}"
-                    data-hero-text="Motion & Light Sensor">
-
-                    <div class="title">Motion & Light Sensor <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
-                    <div class="extra">
-                        <p class="mb-2">Automate lighting based on occupancy and ambient daylight level.</p>
-                    </div>
-                    <div class="indicator"></div>
-                </div>
-
-                <!-- Card 4 (active by default) -->
-                <div class="product-card active" data-index="3" data-hero-img="{{ asset('frontend/images/product4.png') }}"
-                    data-hero-text="Smart Dimmer">
-
-                    <div class="title">Smart Dimmer <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
-                    <div class="extra">
-                        <p class="mb-2">Create the perfect ambiance. Adjust lighting or fan speed to match your mood.</p>
-                    </div>
-                    <div class="indicator"></div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="product-card" data-index="4" data-hero-img="{{ asset('frontend/images/product5.png') }}"
-                    data-hero-text="Power Panel">
-
-                    <div class="title">Power Panel <i class="bi bi-arrow-right-circle fs-3 extrahide"></i></div>
-                    <div class="extra">
-                        <p class="mb-2">High-capacity power distribution with smart metering and overload protection.</p>
-                    </div>
-                    <div class="indicator"></div>
-                </div>
-
-                <!-- Card 6 -->
-                <a href="/products" class="product-card-link">
-                    <div class="product-car" data-index="5"
-                        data-hero-img="https://via.placeholder.com/800x300?text=All+Products"
-                        data-hero-text="All Products">
-                        <div class="icon" style="margin-top: 40px;">
-                            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/icons/arrow-right.svg"
-                                alt="View All">
-                        </div>
-                        <div class="title">View All Products</div>
-                        <div class="indicator"></div>
-                    </div>
-                </a>
-            </div>
+            </a> --}}
         </div>
-    </section>
 
+        <!-- HERO PANEL (MOVED BELOW CAROUSEL) -->
+        <div id="hero" class="hero-image" style="position: relative; z-index: 1;">
+            <img id="hero-img" src="{{ count($products) > 0 ? asset('uploads/products/' . $products[0]->image) : 'https://via.placeholder.com/800x300?text=No+Products' }}" 
+                 alt="Featured product" width="100%" height="600px" style="filter: blur(0px); transition: filter 0.3s ease;">
+            <h1 id="hero-text" style="position: absolute; bottom: 20px; left: 20px; color: white; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                {{ count($products) > 0 ? $products[0]->name : 'No Products' }}
+            </h1>
+        </div>
+    </div>
+</section>
 
+<style>
+    /* Add blur effect when hovering over carousel */
+    .product-carousel:hover ~ #hero img {
+        filter: blur(5px);
+    }
+    
+    /* Individual card hover effects */
+    .product-card:hover {
+        transform: scale(1.05);
+        z-index: 20;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .product-carousel {
+        transition: all 0.3s ease;
+    }
+</style>
 
 
 
@@ -459,7 +383,7 @@
 
 
 
-                
+
                 <!-- Right panel - Energy Saving -->
                 <div class="col-12 col-md-6 h-100">
                     <div class=" p-4 h-100 position-relative overflow-hidden">
@@ -574,7 +498,7 @@
                             class="img-fluid phone-img">
                     </div>
 
-             
+
                     <div class="col-md-4">
                         <div class="feature" data-aos="fade-down" data-aos-delay="100">
                             <div class="feature-icon mx-auto">
@@ -629,7 +553,10 @@
                     <div class="card-glass-bg bg-info bg-opacity-10"></div>
                     <div class="card-content p-4 position-relative">
                         <div class="icon-wrapper bg-info bg-opacity-10 mb-4 mx-auto">
-                            <i class="bi bi-shield-lock-fill fs-1 text-info animated-icon"></i>
+                            {{-- <i class="bi bi-shield-lock-fill fs-1 text-info animated-icon"></i> --}}
+                            <img src="/frontend/images/green-shield.png" alt="" srcset="" width="60px"
+                                height="60px" class="animated-icon">
+
                         </div>
                         <h4 class="fw-bold mb-3">Smart Security</h4>
                         <p class="text-muted">24/7 intelligent monitoring with real-time alerts and automated security
@@ -647,7 +574,9 @@
                     <div class="card-glass-bg bg-primary bg-opacity-10"></div>
                     <div class="card-content p-4 position-relative">
                         <div class="icon-wrapper bg-primary bg-opacity-10 mb-4 mx-auto">
-                            <i class="bi bi-mic-fill fs-1 text-primary animated-icon"></i>
+                            {{-- <i class="bi bi-mic-fill fs-1 text-primary animated-icon"></i> --}}
+                            <img src="/frontend/images/microphone.gif" alt="" srcset="" width="60px"
+                                height="60px" class="animated-icon">
                         </div>
                         <h4 class="fw-bold mb-3">Voice Control</h4>
                         <p class="text-muted">Hands-free control with seamless Alexa, Google Assistant, and Siri
@@ -666,7 +595,10 @@
                     <div class="card-glass-bg bg-danger bg-opacity-10"></div>
                     <div class="card-content p-4 position-relative">
                         <div class="icon-wrapper bg-danger bg-opacity-10 mb-4 mx-auto">
-                            <i class="bi bi-phone-fill fs-1 text-danger animated-icon"></i>
+                            {{-- <i class="bi bi-phone-fill fs-1 text-danger animated-icon"></i> --}}
+                            <img src="/frontend/images/mo.png" alt="" srcset="" width="60px"
+                                height="60px" class="animated-icon">
+
                         </div>
                         <h4 class="fw-bold mb-3">Remote Access</h4>
                         <p class="text-muted">Stay connected from anywhere with our secure mobile app and take full control
@@ -768,7 +700,7 @@
     </div>
 
 
-  {{-- <section id="asi">
+    {{-- <section id="asi">
 
 
 
@@ -793,216 +725,229 @@
 
 
 
-<section id="smart-living-transform" class="position-relative overflow-hidden py-6 py-lg-8">
-    <!-- Glass Morphism Overlay -->
-    <div class="glass-overlay position-absolute w-100 h-100 top-0 start-0"></div>
-    
-    <!-- Diagonal Background Split -->
-    <div class="diagonal-background position-absolute w-100 h-100 top-0 start-0">
-        <div class="image-half" style="background-image: url('frontend/images/p16.jpg');"></div>
-        <div class="color-half bg-dark"></div>
-    </div>
+    <section id="smart-living-transform" class="position-relative overflow-hidden py-6 py-lg-8">
+        <!-- Glass Morphism Overlay -->
+        <div class="glass-overlay position-absolute w-100 h-100 top-0 start-0"></div>
 
-    <!-- Content Container -->
-    <div class="container position-relative" style="z-index: 10;">
-        <div class="row min-vh-80 align-items-center g-5">
-            <!-- Text Content -->
-            <div class="col-lg-6 pe-lg-5" data-aos="fade-right">
-                <div class="text-white">
-                    <span class="d-inline-block bg-primary bg-opacity-10 px-3 py-2 rounded-pill mb-3 text-uppercase small fw-bold">
-                        Future Living
-                    </span>
-                    <h1 class="display-3 fw-bold mb-4 text-gradient">Reimagine<br>Your Living Space</h1>
-                    <p class="lead mb-4 text-light opacity-75" style="font-size: 1.25rem;">
-                        Where cutting-edge technology meets effortless living in perfect harmony.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3 mt-5">
-                        <a href="#" class="btn btn-primary btn-lg px-4 py-3 rounded-pill glow-on-hover">
-                            <i class="bi bi-lightning-charge-fill me-2"></i> Smart Upgrade
-                        </a>
-                        <a href="#" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">
-                            <i class="bi bi-collection-play me-2"></i> View Showcase
-                        </a>
+        <!-- Diagonal Background Split -->
+        <div class="diagonal-background position-absolute w-100 h-100 top-0 start-0">
+            <div class="image-half" style="background-image: url('frontend/images/p16.jpg');"></div>
+            <div class="color-half bg-dark"></div>
+        </div>
+
+        <!-- Content Container -->
+        <div class="container position-relative" style="z-index: 10;">
+            <div class="row min-vh-80 align-items-center g-5">
+                <!-- Text Content -->
+                <div class="col-lg-6 pe-lg-5" data-aos="fade-right">
+                    <div class="text-white">
+                        <span
+                            class="d-inline-block bg-primary bg-opacity-10 px-3 py-2 rounded-pill mb-3 text-uppercase small fw-bold">
+                            Future Living
+                        </span>
+                        <h1 class="display-3 fw-bold mb-4 text-gradient">Reimagine<br>Your Living Space</h1>
+                        <p class="lead mb-4 text-light opacity-75" style="font-size: 1.25rem;">
+                            Where cutting-edge technology meets effortless living in perfect harmony.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 mt-5">
+                            <a href="#" class="btn btn-primary btn-lg px-4 py-3 rounded-pill glow-on-hover">
+                                <i class="bi bi-lightning-charge-fill me-2"></i> Smart Upgrade
+                            </a>
+                            <a href="#" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">
+                                <i class="bi bi-collection-play me-2"></i> View Showcase
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Working Device Mockup -->
-            <div class="col-lg-6" data-aos="fade-left">
-                <div class="position-relative" style="max-width: 300px; margin: 0 auto;">
-                    <div class="iphone-mockup">
-                        <div class="screen">
-                            <div class="screen-content" style="background-image: url('frontend/images/mobile.jpg');"></div>
+                <!-- Working Device Mockup -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="position-relative" style="max-width: 300px; margin: 0 auto;">
+                        <div class="iphone-mockup">
+                            <div class="screen">
+                                <div class="screen-content" style="background-image: url('frontend/images/mobile.jpg');">
+                                </div>
+                            </div>
+                            <div class="home-button"></div>
                         </div>
-                        <div class="home-button"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Floating Smart Devices -->
-    <div class="floating-devices">
-        <div class="device bulb" style="--delay: 0s;"></div>
-        <div class="device thermostat" style="--delay: 1s;"></div>
-        <div class="device camera" style="--delay: 2s;"></div>
-    </div>
-</section>
+        <!-- Floating Smart Devices -->
+        <div class="floating-devices">
+            <div class="device bulb" style="--delay: 0s;"></div>
+            <div class="device thermostat" style="--delay: 1s;"></div>
+            <div class="device camera" style="--delay: 2s;"></div>
+        </div>
+    </section>
 
-<style>
-    /* Section Base Styling */
-    #smart-living-transform {
-        min-height: 90vh;
-        background-color: #0f172a;
-    }
-    
-    /* Diagonal Split Background */
-    .diagonal-background {
-        clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
-    }
-    .diagonal-background .image-half {
-        position: absolute;
-        width: 60%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-    }
-    .diagonal-background .color-half {
-        position: absolute;
-        width: 40%;
-        height: 100%;
-        left: 60%;
-    }
-    
-    /* Glass Morphism Effect */
-    .glass-overlay {
-        background: rgba(15, 23, 42, 0.7);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-    
-    /* Text Gradient */
-    .text-gradient {
-        background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.8) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    
-    /* iPhone Mockup */
-    .iphone-mockup {
-        position: relative;
-        width: 100%;
-        padding-bottom: 200%;
-        background: #f1f1f1;
-        border-radius: 40px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        border: 10px solid #1e293b;
-    }
-    .iphone-mockup .screen {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 50px;
-        border-radius: 30px;
-        overflow: hidden;
-        background: #000;
-    }
-    .iphone-mockup .screen-content {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-    }
-    .iphone-mockup .home-button {
-        position: absolute;
-        bottom: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 5px;
-        background: #1e293b;
-        border-radius: 5px;
-    }
-    
-    /* Floating Devices Animation */
-    .floating-devices {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 5;
-    }
-    .device {
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        animation: float 8s infinite ease-in-out;
-        animation-delay: var(--delay);
-        opacity: 0.8;
-        filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
-    }
-    /* .bulb { 
-        background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659898.png'); 
-        top: 20%; 
-        left: 10%; 
-    }
-    .thermostat { 
-        background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659899.png'); 
-        top: 60%; 
-        left: 15%; 
-    }
-    .camera { 
-        background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659904.png'); 
-        top: 30%; 
-        right: 10%; 
-    }
-    
-    @keyframes float {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(5deg); }
-    }
-     */
-    /* Button Glow Effect */
-    .glow-on-hover {
-        transition: all 0.3s ease;
-    }
-    .glow-on-hover:hover {
-        box-shadow: 0 0 15px rgba(13, 110, 253, 0.7);
-    }
-    
-    /* Responsive Adjustments */
-    @media (max-width: 992px) {
+    <style>
+        /* Section Base Styling */
+        #smart-living-transform {
+            min-height: 90vh;
+            background-color: #0f172a;
+        }
+
+        /* Diagonal Split Background */
         .diagonal-background {
-            clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 100%);
+            clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
         }
+
         .diagonal-background .image-half {
-            width: 100%;
-            height: 60%;
+            position: absolute;
+            width: 60%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
         }
+
         .diagonal-background .color-half {
-            width: 100%;
-            height: 40%;
-            top: 60%;
-            left: 0;
+            position: absolute;
+            width: 40%;
+            height: 100%;
+            left: 60%;
         }
+
+        /* Glass Morphism Effect */
+        .glass-overlay {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* iPhone Mockup */
         .iphone-mockup {
-            max-width: 250px;
-            margin-top: 3rem;
+            position: relative;
+            width: 100%;
+            padding-bottom: 200%;
+            background: #f1f1f1;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 10px solid #1e293b;
         }
-    }
-</style>
+
+        .iphone-mockup .screen {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 50px;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .iphone-mockup .screen-content {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .iphone-mockup .home-button {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: #1e293b;
+            border-radius: 5px;
+        }
+
+        /* Floating Devices Animation */
+        .floating-devices {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .device {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: float 8s infinite ease-in-out;
+            animation-delay: var(--delay);
+            opacity: 0.8;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+        }
+
+        /* .bulb {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659898.png');
+            top: 20%;
+            left: 10%;
+        }
+        .thermostat {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659899.png');
+            top: 60%;
+            left: 15%;
+        }
+        .camera {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659904.png');
+            top: 30%;
+            right: 10%;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+         */
+        /* Button Glow Effect */
+        .glow-on-hover {
+            transition: all 0.3s ease;
+        }
+
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px rgba(13, 110, 253, 0.7);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .diagonal-background {
+                clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 100%);
+            }
+
+            .diagonal-background .image-half {
+                width: 100%;
+                height: 60%;
+            }
+
+            .diagonal-background .color-half {
+                width: 100%;
+                height: 40%;
+                top: 60%;
+                left: 0;
+            }
+
+            .iphone-mockup {
+                max-width: 250px;
+                margin-top: 3rem;
+            }
+        }
+    </style>
 
 
 
 
 
-    
+
     <section class="py-6 py-lg-7 bg-light">
         <div class="container">
             <div class="row align-items-center">
@@ -1113,7 +1058,7 @@
 
 
 
-  
+
 
 
     {{-- <section id="as">
@@ -1151,51 +1096,56 @@
 
     </section> --}}
 
-<section id="smart-home" class="py-6 py-lg-8 mt-5 mt-lg-5" style="background: linear-gradient(135deg, #f5f7fa 0%, #dbe2e0 100%);">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Left Column - Text Content -->
-            <div class="col-lg-6 mb-5 mb-lg-0">
-                <div class="pe-lg-4">
-                    <h1 class="display-4 fw-bold mb-4 mt-5" data-aos="fade-up" data-aos-delay="100">
-                        Intelligent Living <br>
-                        <span class="text-primary position-relative">
-                            <span class="position-relative z-index-2">Designed for</span>
-                            {{-- <span class="position-absolute bottom-0 start-0 z-index-1 bg-primary" style="height: 12px; width: 100%; opacity: 0.15;"></span> --}}
-                        </span>
-                        <span class="text-primary">Modern Lifestyles</span>
-                    </h1>
-                    
-                    <p class="lead text-muted mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="250">
-                        Experience seamless automation that adapts to your routine, <br class="d-none d-lg-block">
-                        putting your comfort at the forefront of every innovation.
-                    </p>
-                    
-                    <div class="mt-4 mb-4" data-aos="fade-up" data-aos-delay="400">
-                        <a href="#contact" class="btn btn-primary btn-lg px-4 me-3 mb-3 mb-sm-0">Get Started</a>
-                        <a href="#features" class="btn btn-outline-primary btn-lg px-4">Learn More</a>
+    <section id="smart-home" class="py-6 py-lg-8 mt-5 mt-lg-5"
+        style="background: linear-gradient(135deg, #f5f7fa 0%, #dbe2e0 100%);">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Column - Text Content -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="pe-lg-4">
+                        <h1 class="display-4 fw-bold mb-4 mt-5" data-aos="fade-up" data-aos-delay="100">
+                            Intelligent Living <br>
+                            <span class="text-primary position-relative">
+                                <span class="position-relative z-index-2">Designed for</span>
+                                {{-- <span class="position-absolute bottom-0 start-0 z-index-1 bg-primary" style="height: 12px; width: 100%; opacity: 0.15;"></span> --}}
+                            </span>
+                            <span class="text-primary">Modern Lifestyles</span>
+                        </h1>
+
+                        <p class="lead text-muted mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="250">
+                            Experience seamless automation that adapts to your routine, <br class="d-none d-lg-block">
+                            putting your comfort at the forefront of every innovation.
+                        </p>
+
+                        <div class="mt-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                            <a href="#contact" class="btn btn-primary btn-lg px-4 me-3 mb-3 mb-sm-0">Get Started</a>
+                            <a href="#features" class="btn btn-outline-primary btn-lg px-4">Learn More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Right Column - Image -->
-            <div class="col-lg-6" >
-                <div class="position-relative ps-lg-5 mt-4 mt-lg-0" data-aos="fade-right" data-aos-delay="500" >
-                    <div class="position-absolute top-0 start-0 bg-success rounded-circle" style="width: 120px; height: 120px; transform: translate(-10%, -40%); opacity: 0.1;"></div>
-                    <div class="position-absolute bottom-0 end-0 bg-primary rounded-circle" style="width: 80px; height: 80px; transform: translate(30%, 30%); opacity: 0.1;"></div>
-                    <div class="position-relative rounded-4 overflow-hidden shadow-lg" style="border: 10px solid white;">
-                        <img src="{{ asset('frontend/images/automation.gif') }}" alt="Smart Home Automation" class="img-fluid" style="object-fit: cover; width: 100%;">
+
+                <!-- Right Column - Image -->
+                <div class="col-lg-6">
+                    <div class="position-relative ps-lg-5 mt-4 mt-lg-0" data-aos="fade-right" data-aos-delay="500">
+                        <div class="position-absolute top-0 start-0 bg-success rounded-circle"
+                            style="width: 120px; height: 120px; transform: translate(-10%, -40%); opacity: 0.1;"></div>
+                        <div class="position-absolute bottom-0 end-0 bg-primary rounded-circle"
+                            style="width: 80px; height: 80px; transform: translate(30%, 30%); opacity: 0.1;"></div>
+                        <div class="position-relative rounded-4 overflow-hidden shadow-lg"
+                            style="border: 10px solid white;">
+                            <img src="{{ asset('frontend/images/automation.gif') }}" alt="Smart Home Automation"
+                                class="img-fluid" style="object-fit: cover; width: 100%;">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
 
-    <section id="plans">
+    {{-- <section id="plans">
 
         <div class="bg-light">
             <div class="container py-5">
@@ -1264,5 +1214,5 @@
             </div>
         </div>
 
-    </section>
+    </section> --}}
 @endsection

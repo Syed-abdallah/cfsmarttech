@@ -5,9 +5,15 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4 class="card-title">Partners</h4>
+            @can('create partners')
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPartnerModal">
                 <i class="mdi mdi-plus"></i> Add Partner
             </button>
+            @else
+            <button class="btn btn-primary disabled" title="You don't have permission to add partners">
+                <i class="mdi mdi-plus"></i> Add Partner
+            </button>
+            @endcan
         </div>
 
         @if(session('success'))
@@ -33,23 +39,44 @@
                             <img src="{{ asset('uploads/partners/'.$partner->image) }}" alt="Partner Logo" style="max-width: 100px;">
                         </td>
                         <td>
+                            @can('toggle partner')
                             <form action="{{ route('cfadmin.partners.toggle', $partner->id) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-{{ $partner->is_active ? 'success' : 'secondary' }}">
                                     {{ $partner->is_active ? 'Active' : 'Inactive' }}
                                 </button>
                             </form>
+                            @else
+                            <span class="badge bg-{{ $partner->is_active ? 'success' : 'secondary' }}">
+                                {{ $partner->is_active ? 'Active' : 'Inactive' }}
+                            </span>
+                            <small class="text-muted d-block">(No permission to change)</small>
+                            @endcan
                         </td>
                         <td>{{ $partner->created_at->format('d M Y') }}</td>
                         <td>
+                            @can('edit partner')
                             <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#editPartnerModal{{ $partner->id }}">
                                 <i class="icon-pencil"></i>
                             </button>
+                            @else
+                            <button class="btn btn-sm btn-info disabled" title="You don't have permission to edit">
+                                <i class="icon-pencil"></i>
+                            </button>
+                            @endcan
+
+                            @can('delete partner')
                             <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deletePartnerModal{{ $partner->id }}">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
+                            @else
+                            <button class="btn btn-sm btn-danger disabled" title="You don't have permission to delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            @endcan
                             
-                            <!-- Edit Modal -->
+                            <!-- Edit Modal - Only rendered if user has permission -->
+                            @can('edit partner')
                             <div class="modal fade" id="editPartnerModal{{ $partner->id }}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -91,8 +118,10 @@
                                     </div>
                                 </div>
                             </div>
+                            @endcan
                             
-                            <!-- Delete Modal -->
+                            <!-- Delete Modal - Only rendered if user has permission -->
+                            @can('delete partner')
                             <div class="modal fade" id="deletePartnerModal{{ $partner->id }}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -114,6 +143,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endcan
                         </td>
                     </tr>
                     @endforeach
@@ -123,7 +153,8 @@
     </div>
 </div>
 
-<!-- Add Partner Modal -->
+<!-- Add Partner Modal - Only rendered if user has permission -->
+@can('create partner')
 <div class="modal fade" id="addPartnerModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -159,5 +190,6 @@
         </div>
     </div>
 </div>
+@endcan
 
 @endsection

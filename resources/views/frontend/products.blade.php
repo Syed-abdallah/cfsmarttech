@@ -46,7 +46,7 @@
                   <p class="card-text">{{ $product->description }}</p>
                   <h5 class="card-title">{{ $product->name }}</h5>
               </div>
-              <img src="{{ asset('storage/' . $product->image) }}" 
+              <img src="{{ asset('uploads/products/' . $product->image) }}" 
                    class="img-fluid" 
                    alt="{{ $product->name }}" 
                    aos="fade-up" 

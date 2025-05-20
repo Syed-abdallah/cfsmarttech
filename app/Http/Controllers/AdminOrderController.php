@@ -11,7 +11,17 @@ use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 class AdminOrderController extends Controller
 {
- 
+   public function __construct()
+    {
+        $this->middleware('permission:create order')->only('create');
+        $this->middleware('permission:view order')->only('index');
+        $this->middleware('permission:show order')->only('show');
+        $this->middleware('permission:edit order')->only('edit');
+        $this->middleware('permission:update order')->only('update');
+        $this->middleware('permission:view order invoice')->only('invoice');
+        $this->middleware('permission:update order status')->only('updateStatus');
+  
+    }
 
     public function index()
     {

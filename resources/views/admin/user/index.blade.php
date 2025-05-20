@@ -43,20 +43,34 @@
                                 </td>
                                 <td>
                                     <div class="d-flex">
-                                        {{-- @can('edit user') --}}
+                                        @can('edit user')
                                            <a href="{{ route('cfadmin.admin.edit', $user->id) }}"
                                                class="btn btn-sm btn-primary me-2">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
-                                        {{-- @endcan --}}
+                                            
+                                            @else
+                                         <a href="#" class="btn btn-sm btn-primary me-2" disabled>
+    <i class="fas fa-edit me-1"></i> Edit
+</a>
+
+
+                                        @endcan
                                         
-                                        {{-- @can('delete user') --}}
+                                        @can('delete user')
                                             <button type="button" class="btn btn-sm btn-danger" 
                                                     data-bs-toggle="modal" 
                                                     data-bs-target="#deleteModal{{ $user->id }}">
                                                 <i class="fas fa-trash-alt"> &nbsp;Delete</i>
                                             </button>
-                                            
+                                            @else 
+                                            <button type="button" class="btn btn-sm btn-danger" 
+                                                  disabled>
+                                                <i class="fas fa-trash-alt"> &nbsp;Delete</i>
+                                            </button>
+
+
+                                                 @endcan
                                             <!-- Delete Modal -->
                                             <div class="modal fade" id="deleteModal{{ $user->id }}" tabindex="-1" 
                                                  aria-hidden="true">
@@ -86,7 +100,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        {{-- @endcan --}}
+                                   
                                     </div>
                                 </td>
                             </tr>

@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class CommercialPriceController extends Controller
 {
+
+        public function __construct()
+    {
+       
+        $this->middleware('permission:view commercial')->only('index');
+        $this->middleware('permission:edit commercial')->only('edit');
+        $this->middleware('permission:update commercial')->only('update');
+
+  
+    }
+
     /**
      * Display a listing of the resource.
      */

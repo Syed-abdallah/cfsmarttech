@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class MarqueeController extends Controller
 {
+
+   public function __construct()
+    {
+        $this->middleware('permission:create marquee')->only('create');
+        $this->middleware('permission:view marquee')->only('index');
+        $this->middleware('permission:show marquee')->only('show');
+        $this->middleware('permission:edit marquee')->only('edit');
+        $this->middleware('permission:update marquee')->only('update');
+        $this->middleware('permission:view marquee invoice')->only('invoice');
+        $this->middleware('permission:update marquee status')->only('updateStatus');
+  
+    }
+    
     public function index()
     {
         
@@ -33,22 +46,6 @@ class MarqueeController extends Controller
     }
     
 
-    // public function update(Request $request, Marquee $marquee)
-    // {
-    //     dd($request->all());
-    //     $request->validate([
-    //         'content' => 'required|string|max:500',
-    //         'is_active' => 'sometimes|boolean'
-    //     ]);
-
-    //     $marquee->update([
-    //         'content' => $request->content,
-    //         'is_active' => $request->boolean('is_active')
-    //     ]);
-
-    //     return redirect()->route('cfadmin.marquees.index')
-    //         ->with('success', 'Marquee announcement updated successfully.');
-    // }
 
     public function update(Request $request, Marquee $marquee)
 {
@@ -73,11 +70,11 @@ class MarqueeController extends Controller
             ->with('success', 'Marquee announcement deleted successfully.');
     }
 
-    // public function toggleStatus(Marquee $marquee)
-    // {
-    //     $marquee->update(['is_active' => !$marquee->is_active]);
+    public function toggleStatus(Marquee $marquee)
+    {
+        $marquee->update(['is_active' => !$marquee->is_active]);
 
-    //     return back()->with('success', 'Marquee status updated successfully.');
-    // }
+        return back()->with('success', 'Marquee status updated successfully.');
+    }
 
 }

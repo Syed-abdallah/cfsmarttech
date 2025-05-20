@@ -8,6 +8,18 @@ use Illuminate\Support\Facades\File;
 
 class PartnerController extends Controller
 {
+
+   public function __construct()
+    {
+        $this->middleware('permission:create partner')->only('create');
+        $this->middleware('permission:view partner')->only('index');
+        $this->middleware('permission:show partner')->only('show');
+        $this->middleware('permission:edit partner')->only('edit');
+        $this->middleware('permission:update partner')->only('update');
+        $this->middleware('permission:toggle partner')->only('toggleStatus');
+  
+    }
+
     private function uploadImage($file)
     {
         $uploadPath = public_path('uploads/partners');

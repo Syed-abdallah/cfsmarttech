@@ -9,13 +9,13 @@ use Spatie\Permission\Models\Permission;
 use Illuminate\Routing\Controller;
 class RoleController extends Controller 
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('permission:view roles')->only('index');
-    //     $this->middleware('permission:edit roles')->only('edit');
-    //     $this->middleware('permission:update roles')->only('update');
-    //     $this->middleware('permission:delete roles')->only('destroy');
-    // }
+    public function __construct()
+    {
+        $this->middleware('permission:view role')->only('index');
+        $this->middleware('permission:edit role')->only('edit');
+        $this->middleware('permission:update role')->only('update');
+        $this->middleware('permission:delete role')->only('destroy');
+    }
 
     public function index()
     {

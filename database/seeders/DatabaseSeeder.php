@@ -19,8 +19,9 @@ class DatabaseSeeder extends Seeder
             // PackageTypeSeeder::class,
             //    AdditionalCostSeeder::class,
                         // PropertySizeSeeder::class,
-                        RoomTypeSeeder::class,
-
+                        // RoomTypeSeeder::class,
+        PermissionSeeder::class,
         ]);
+     
     }
 }

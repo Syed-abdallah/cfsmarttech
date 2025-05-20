@@ -5,9 +5,11 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4 class="card-title">Sliders</h4>
+            @can('create slider')
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSliderModal">
                 <i class="mdi mdi-plus"></i> Add Slider
             </button>
+            @endcan
         </div>
 
         @if(session('success'))
@@ -32,27 +34,48 @@
                     @foreach($sliders as $slider)
                     <tr>
                         <td>
-                            <img src="{{ asset('sliders/'.$slider->image) }}" alt="{{ $slider->heading }}" style="max-width: 100px;">
+                            <img src="{{ asset('Uploads/sliders/'.$slider->image) }}" alt="{{ $slider->heading }}" style="max-width: 100px;">
                         </td>
                         <td>{{ $slider->heading }}</td>
                         <td>{{ Str::limit($slider->paragraph, 50) }}</td>
                         <td>
+
+                            @can('toggle slider')
                             <form action="{{ route('cfadmin.sliders.toggle', $slider->id) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-{{ $slider->is_active ? 'success' : 'secondary' }}">
                                     {{ $slider->is_active ? 'Active' : 'Inactive' }}
                                 </button>
                             </form>
+                            @else
+no permission 
+                            @endcan
                         </td>
                         <td>{{ $slider->created_at->format('d M Y') }}</td>
                         <td>
+                            @can('edit slider')
                             <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#editSliderModal{{ $slider->id }}">
                                 <i class="icon-pencil"></i>
                             </button>
+                            @else
+    <button type="button" class="btn btn-sm btn-info " disabled>
+                                <i class="icon-pencil"></i>
+                            </button>
+
+                            @endcan 
+                               @can('delete slider')
                             <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSliderModal{{ $slider->id }}">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
-                            
+                                @else
+       <button type="button" class="btn btn-sm btn-danger" disabled>
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+
+                            @endcan 
+
+
+
                             <!-- Edit Modal -->
                             <div class="modal fade" id="editSliderModal{{ $slider->id }}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
@@ -96,7 +119,7 @@
                                                     @enderror
                                                     <small class="text-muted">Current image: {{ $slider->image }}</small>
                                                     <div class="mt-2">
-                                                        <img src="{{ asset('sliders/'.$slider->image) }}" alt="Current Image" style="max-width: 50%;height: 200px;">
+                                                        <img src="{{ asset('Uploads/sliders/'.$slider->image) }}" alt="Current Image" style="max-width: 40%;height: 150px;">
                                                     </div>
                                                 </div>
                                                 <div class="form-check form-switch">

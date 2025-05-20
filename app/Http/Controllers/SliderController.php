@@ -9,6 +9,18 @@ use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
+
+       public function __construct()
+    {
+        $this->middleware('permission:create slider')->only('create');
+        $this->middleware('permission:view slider')->only('index');
+        $this->middleware('permission:show slider')->only('show');
+        $this->middleware('permission:edit slider')->only('edit');
+        $this->middleware('permission:update slider')->only('update');
+
+        $this->middleware('permission:update slider status')->only('updateStatus');
+  
+    }
     public function index()
     {
         $sliders = Slider::latest()->get();
@@ -24,7 +36,7 @@ class SliderController extends Controller
         ]);
 
         $imageName = time().'.'.$request->image->extension();  
-        $request->image->move(public_path('sliders'), $imageName);
+        $request->image->move(public_path('uploads/sliders'), $imageName);
 
         Slider::create([
             'heading' => $request->heading,
@@ -52,14 +64,14 @@ class SliderController extends Controller
 
         if ($request->hasFile('image')) {
             // Delete old image
-            $oldImagePath = public_path('uploads/products/'.$slider->image);
+            $oldImagePath = public_path('uploads/sliders/'.$slider->image);
             if (File::exists($oldImagePath)) {
                 File::delete($oldImagePath);
             }
 
             // Upload new image
             $imageName = time().'.'.$request->image->extension();  
-            $request->image->move(public_path('uploads/products'), $imageName);
+            $request->image->move(public_path('uploads/sliders'), $imageName);
             $data['image'] = $imageName;
         }
 
@@ -71,7 +83,7 @@ class SliderController extends Controller
     public function destroy(Slider $slider)
     {
         // Delete image file
-        $imagePath = public_path('uploads/products/'.$slider->image);
+        $imagePath = public_path('uploads/sliders/'.$slider->image);
         if (File::exists($imagePath)) {
             File::delete($imagePath);
         }

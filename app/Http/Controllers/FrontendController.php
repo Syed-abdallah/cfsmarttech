@@ -30,7 +30,7 @@ class FrontendController extends Controller
           $products = Product::where('product_active', 1)
                           ->where('is_sell', 1)
                           ->orderBy('created_at', 'desc')
-                          ->take(5) // Get 5 active products
+                          ->take(6) // Get 5 active products
                           ->get();
         $slides = Slider::where('is_active', 1)->get();
         $partners = Partner::where('is_active', 1)->get();

@@ -5,7 +5,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="card-title">Roles</h4>
-               <a href="/cfadmin/roles/create" class="btn btn-success"> <i class="icon-plus"></i> Add Role</a>
+               <a href="/photography/roles/create" class="btn btn-success"> <i class="icon-plus"></i> Add Role</a>
                    
               
             </div>
@@ -32,23 +32,35 @@
                                 <td>{{ $role->name }}</td>
                                 <td>
                                     @if ($role->permissions->count() > 0)
+                                 
+                                    <div class="d-flex flex-wrap gap-2 mb-3">
                                         @foreach ($role->permissions as $permission)
-                                            <span class="badge bg-primary me-1 mb-1">{{ $permission->name }}</span>
+                                            <span class="badge bg-primary-soft text-primary rounded-pill d-flex align-items-center py-2 px-3">
+                                                <i class="fas fa-shield-alt me-2 small"></i>
+                                                <span class="text-truncate" style="max-width: 150px;" title="{{ $permission->name }}">
+                                                    {{ Str::title(str_replace('-', ' ', $permission->name)) }}
+                                                </span>
+                                            </span>
                                         @endforeach
+                                    </div>
                                     @else
                                         <span class="text-muted">No permissions assigned</span>
                                     @endif
                                 </td>
                                 <td>{{ $role->created_at->format('d M Y') }}</td>
                                 <td>
+                                    @can('edit role')
+                                        
                                     <a href="{{ route('cfadmin.roles.edit', $role->id) }}" class="btn btn-sm btn-primary me-2">
                                         <i class="fas fa-edit"></i> Edit
                                     </a>
-                                    {{-- <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                    @endcan
+                                    @can('delete role')
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#deleteModal{{ $role->id }}">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button> --}}
-
+                                        <i class="fas fa-trash-alt"> Delete</i>
+                                    </button>
+@endcan
                                     <!-- Edit Modal -->
                                     <div class="modal fade" id="editRoleModal{{ $role->id }}" tabindex="-1"
                                         aria-hidden="true">

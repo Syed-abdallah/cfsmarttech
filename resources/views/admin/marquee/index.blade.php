@@ -5,9 +5,15 @@
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4 class="card-title">Announcements</h4>
+            @can('create marquee')
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMarqueeModal">
                 <i class="mdi mdi-plus"></i> Add Announcement
             </button>
+            @else
+            <button class="btn btn-primary disabled" title="You don't have permission to create marquee">
+                <i class="mdi mdi-plus"></i> Add Announcement
+            </button>
+            @endcan
         </div>
 
         @if(session('success'))
@@ -28,28 +34,47 @@
                 </thead>
                 <tbody>
                     @foreach($marquees as $marquee)
-                  
                     <tr>
-
                         <td>{{ $marquee->content }}</td>
                         <td>
+                            @can('toggle marquee')
                             <form action="{{ route('cfadmin.marquees.toggle', $marquee->id) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-{{ $marquee->is_active ? 'success' : 'secondary' }}">
                                     {{ $marquee->is_active ? 'Active' : 'Inactive' }}
                                 </button>
                             </form>
+                            @else
+                            <span class="badge bg-{{ $marquee->is_active ? 'success' : 'secondary' }}">
+                                {{ $marquee->is_active ? 'Active' : 'Inactive' }}
+                            </span>
+                            <small class="text-muted d-block">(No permission to change)</small>
+                            @endcan
                         </td>
                         <td>{{ $marquee->created_at->format('d M Y') }}</td>
                         <td>
+                            @can('edit marquee')
                             <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#editMarqueeModal{{ $marquee->id }}">
                                 <i class="icon-pencil"></i>
                             </button>
+                            @else
+                            <button class="btn btn-sm btn-info disabled" title="You don't have permission to edit">
+                                <i class="icon-pencil"></i>
+                            </button>
+                            @endcan
+
+                            @can('delete marquee')
                             <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMarqueeModal{{ $marquee->id }}">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
+                            @else
+                            <button class="btn btn-sm btn-danger disabled" title="You don't have permission to delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            @endcan
                             
-                            <!-- Edit Modal -->
+                            <!-- Edit Modal - Only rendered if user has permission -->
+                            @can('edit marquee')
                             <div class="modal fade" id="editMarqueeModal{{ $marquee->id }}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -87,8 +112,10 @@
                                     </div>
                                 </div>
                             </div>
+                            @endcan
                             
-                            <!-- Delete Modal -->
+                            <!-- Delete Modal - Only rendered if user has permission -->
+                            @can('delete marquee')
                             <div class="modal fade" id="deleteMarqueeModal{{ $marquee->id }}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -110,6 +137,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endcan
                         </td>
                     </tr>
                     @endforeach
@@ -119,7 +147,8 @@
     </div>
 </div>
 
-<!-- Add Marquee Modal -->
+<!-- Add Marquee Modal - Only rendered if user has permission -->
+@can('create marquee')
 <div class="modal fade" id="addMarqueeModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -155,5 +184,6 @@
         </div>
     </div>
 </div>
+@endcan
 
 @endsection

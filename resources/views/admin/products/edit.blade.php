@@ -54,11 +54,8 @@
                 <input type="file" class="form-control" id="image" name="image">
                 @if($product->image)
                     <div class="mt-2">
-                        <img src="{{ asset('storage/' . $product->image) }}" alt="Current Image" style="max-height: 100px;">
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="checkbox" name="remove_image" id="remove_image" value="1">
-                            <label class="form-check-label" for="remove_image">Remove current image</label>
-                        </div>
+                        <img src="{{ asset('uploads/products/' . $product->image) }}" alt="Current Image" style="max-height: 100px;">
+                     
                     </div>
                 @endif
             </div>
@@ -68,11 +65,8 @@
                 <input type="file" class="form-control" id="image1" name="image1">
                 @if($product->image1)
                     <div class="mt-2">
-                        <img src="{{ asset('storage/' . $product->image1) }}" alt="Current Image 1" style="max-height: 100px;">
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="checkbox" name="remove_image1" id="remove_image1" value="1">
-                            <label class="form-check-label" for="remove_image1">Remove current image</label>
-                        </div>
+                        <img src="{{ asset('uploads/products/' . $product->image1) }}" alt="Current Image 1" style="max-height: 100px;">
+                     
                     </div>
                 @endif
             </div>
@@ -82,7 +76,7 @@
                 <input type="file" class="form-control" id="image2" name="image2">
                 @if($product->image2)
                     <div class="mt-2">
-                        <img src="{{ asset('storage/' . $product->image2) }}" alt="Current Image 2" style="max-height: 100px;">
+                        <img src="{{ asset('uploads/products/' . $product->image2) }}" alt="Current Image 2" style="max-height: 100px;">
                         <div class="form-check mt-2">
                             <input class="form-check-input" type="checkbox" name="remove_image2" id="remove_image2" value="1">
                             <label class="form-check-label" for="remove_image2">Remove current image</label>

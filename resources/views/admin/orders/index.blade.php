@@ -32,6 +32,7 @@
                                     {{ ucfirst($order->status) }}
                                 </span>
                             </td> --}}
+                            @can('update order status')
                              <td>
                                 <select class="form-select form-select-sm status-dropdown" data-order-id="{{ $order->id }}" style="width: auto; display: inline-block;">
                                     <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Pending</option>
@@ -44,13 +45,18 @@
                                     {{ ucfirst($order->status) }}
                                 </span>
                             </td>
+                            @endcan
                             <td>
+                                @can('show order')
                                 <a href="{{ route('cfadmin.admin.orders.show', $order->order_number) }}" class="btn btn-sm btn-primary">
                                 View
                                 </a>
+                                @endcan
+                                @can('view order invoice')
                                 <a href="{{ route('cfadmin.admin.orders.invoice', $order->order_number) }}" class="btn btn-sm btn-secondary">
                                     Track
                                 </a>
+                                 @endcan
                             </td>
                         </tr>
                         @endforeach

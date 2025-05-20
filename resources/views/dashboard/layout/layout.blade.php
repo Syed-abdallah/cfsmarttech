@@ -19,7 +19,8 @@
     <!-- Custom CSS -->
     <link href="{{asset('dashboard/dist/css/style.min.css')}}" rel="stylesheet">
 
-
+<!-- Summernote CSS -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -154,52 +155,31 @@
     <script src="{{asset('dashboard/assets/extra-libs/datatables.net-bs4/js/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('dashboard/dist/js/pages/datatable/datatable-basic.init.js')}}"></script>
 
+<!-- Summernote JS -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-{{-- <script>
+<!-- If you want to support image uploads, you'll need to initialize with custom settings -->
+<script>
 $(document).ready(function() {
-    console.log('Document is ready');
-    $('.status-dropdown').change(function() {
-        const orderId = $(this).data('order-id');
-        const newStatus = $(this).val();
-        const badge = $(this).siblings('.status-badge');
-        
-        $.ajax({
-            url: "{{ route('cfadmin.orders.update-status') }}", // Updated route name
-            method: 'POST',
-            data: {
-                order_id: orderId,
-                status: newStatus,
-                _token: "{{ csrf_token() }}"
-            },
-            beforeSend: function() {
-                $('#loading-indicator').show(); // Show loading spinner
-            },
-            success: function(response) {
-                if(response.success) {
-                    // Update the badge
-                    badge.text(newStatus.charAt(0).toUpperCase() + newStatus.slice(1));
-                    
-                    // Update badge color
-                    let badgeClass = 'warning';
-                    if(newStatus === 'completed') badgeClass = 'success';
-                    if(newStatus === 'cancelled') badgeClass = 'danger';
-                    
-                    badge.removeClass('bg-success bg-warning bg-danger').addClass('bg-' + badgeClass);
-                    
-                    // Optional: Show a success message
-                    toastr.success('Order status updated successfully');
-                } else {
-                    toastr.error('Failed to update order status');
-                }
-            },
-            error: function() {
-                toastr.error('An error occurred while updating status');
-                // Revert the dropdown to original value if needed
-            }
-        });
+    $('#text').summernote({
+        height: 300,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ],
+     
     });
+
+
 });
-</script> --}}
+</script>
+
 
 
 <script>

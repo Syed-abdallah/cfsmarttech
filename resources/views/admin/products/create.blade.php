@@ -42,10 +42,15 @@
                 <textarea class="form-control" id="description" name="description">{{ old('description') }}</textarea>
             </div>
             
-            <div class="form-group mb-3">
+            {{-- <div class="form-group mb-3">
                 <label for="text">Detailed Content</label>
                 <textarea class="form-control" id="text" name="text" rows="5">{{ old('text') }}</textarea>
-            </div>
+            </div> --}}
+
+            <div class="form-group mb-3">
+    <label for="text">Detailed Content</label>
+    <textarea class="form-control" id="text" name="text">{{ old('text') }}</textarea>
+</div>
             
             <div class="form-group mb-3">
                 <label for="image">Main Image</label>

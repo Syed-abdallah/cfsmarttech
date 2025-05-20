@@ -10,13 +10,13 @@ use Illuminate\Routing\Controller;
 
 class UserController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('permission:view user')->only('index');
-    //     $this->middleware('permission:edit user')->only('edit');
-    //     $this->middleware('permission:update user')->only('update');
-    //     $this->middleware('permission:delete user')->only('destroy');
-    // }
+    public function __construct()
+    {
+        $this->middleware('permission:view user')->only('index');
+        $this->middleware('permission:edit user')->only('edit');
+        $this->middleware('permission:update user')->only('update');
+        $this->middleware('permission:delete user')->only('destroy');
+    }
 
     public function index()
     {

@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 
-
-
 class OrderController extends Controller
 {
+
+
+
+
      public function __construct()
     {
         $this->middleware('auth:customer');

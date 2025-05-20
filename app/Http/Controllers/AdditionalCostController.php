@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 
 class AdditionalCostController extends Controller
 {
+
+
+    public function __construct()
+    {
+       
+        $this->middleware('permission:view additional-cost')->only('index');
+        $this->middleware('permission:edit additional-cost')->only('edit');
+        $this->middleware('permission:update additional-cost')->only('update');
+
+  
+    }
+
     /**
      * Display a listing of the resource.
      */
