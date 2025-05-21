@@ -15,7 +15,8 @@
         <div class="modal fade" id="confirmUserDeletion" tabindex="-1" aria-labelledby="confirmUserDeletionLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form method="post" action="{{ route('cfadmin.profile.destroy') }}">
+                    {{-- <form method="post" action="{{ route('cfadmin.profile.destroy') }}"> --}}
+                    <form method="post" action="#">
                         @csrf
                         @method('delete')
                         <div class="modal-header">
