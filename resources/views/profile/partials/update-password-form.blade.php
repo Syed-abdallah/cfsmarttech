@@ -6,8 +6,8 @@
         </p>
     </div>
     <div class="card-body">
-        <form method="post" action="{{ route('cfadmin.password.update') }}">
-        {{-- <form method="post" action="#"> --}}
+        {{-- <form method="post" action="{{ route('cfadmin.password.update') }}"> --}}
+        <form method="post" action="#">
             @csrf
             @method('put')
 
