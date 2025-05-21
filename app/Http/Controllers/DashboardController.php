@@ -79,7 +79,7 @@ class DashboardController extends Controller
         //     ->get();
          $topProducts  = [];
             
-        $maxProductSales = $topProducts->max('total_sold') ?? 1;
+        // $maxProductSales = $topProducts->max('total_sold') ?? 1;
         
         // Recent activities (you would need an Activity model for this)
         $recentActivities = []; // Replace with actual activity query
