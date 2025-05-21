@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            // PackageTypeSeeder::class,
-            //    AdditionalCostSeeder::class,
-                        // PropertySizeSeeder::class,
-                        // RoomTypeSeeder::class,
+            PackageTypeSeeder::class,
+               AdditionalCostSeeder::class,
+                        PropertySizeSeeder::class,
+                        RoomTypeSeeder::class,
         PermissionSeeder::class,
         ]);
      
