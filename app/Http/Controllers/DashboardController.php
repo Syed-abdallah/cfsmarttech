@@ -94,7 +94,7 @@ class DashboardController extends Controller
             'paymentMethodData',
             'orderStatusData',
             'topProducts',
-            'maxProductSales',
+            // 'maxProductSales',
             'recentActivities',
             'processingOrders',
             'shippedOrders',
