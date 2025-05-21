@@ -68,15 +68,16 @@ class DashboardController extends Controller
         $codPayments = Order::where('payment_method', 'cod')->where('status', '!=', 'cancelled')->sum('total');
         
         // Top selling products
-        $topProducts = OrderItem::select('product_id', 'product_name')
-            ->selectRaw('SUM(quantity) as total_sold')
-            ->with(['product' => function($query) {
-                $query->select('id', 'image_url');
-            }])
-            ->groupBy('product_id', 'product_name')
-            ->orderByDesc('total_sold')
-            ->take(5)
-            ->get();
+        // $topProducts = OrderItem::select('product_id', 'product_name')
+        //     ->selectRaw('SUM(quantity) as total_sold')
+        //     ->with(['product' => function($query) {
+        //         $query->select('id', 'image_url');
+        //     }])
+        //     ->groupBy('product_id', 'product_name')
+        //     ->orderByDesc('total_sold')
+        //     ->take(5)
+        //     ->get();
+         $topProducts  = [];
             
         $maxProductSales = $topProducts->max('total_sold') ?? 1;
         
