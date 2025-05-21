@@ -171,7 +171,7 @@ font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     letter-spacing: 1px;
 }
 
-.navbar-custom .navbar-brand span {
+.navbar-custom .navbar-brand  {
     /* color: var(--accent-color); */
     color: blue;
 }

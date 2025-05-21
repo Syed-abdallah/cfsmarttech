@@ -1,12 +1,19 @@
 
 <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-custom">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="{{asset('frontend/images/logo1.png')}}" alt="" srcset="" width="50px"
-            height="50px"></a>
+        <a class="navbar-brand" href="#">
+            @if($settings->logo_path)
+            <img src="{{ $settings->logo_path }}" alt="" srcset="" width="60px"
+            height="60px">
+            @endif
+        </a>
             {{-- <a class="navbar-brand" href="#"><span>CF Smart Technologies</span></a> --}}
+            
             <a class="navbar-brand d-none d-sm-inline-block" href="#">
-                <span>CF Smart Technologies</span>
-              </a>
+            <span style="color: {{ $settings->name_color }};">
+          {{ $settings->website_name }}</span>
+          </a>
+  
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

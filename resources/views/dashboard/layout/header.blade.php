@@ -7,12 +7,12 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <div class="navbar-brand">
-                <!-- Logo icon -->
-                <a href="index.html">
-                    <img src="{{asset('dashboard/assets/images/freedashDark.svg')}}" alt="" class="img-fluid">
-                </a>
-            </div>
+         <div class="navbar-brand">
+    {{-- @if($settings->logo_path)
+        <img src="{{ $settings->logo_path }}" alt="Logo" height="60" width="90" class="me-2" style="margin-left: 30px">
+    @endif --}}
+
+</div>
             <!-- ============================================================== -->
             <!-- End Logo -->
             <!-- ============================================================== -->

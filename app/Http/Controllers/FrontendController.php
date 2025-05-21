@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Partner;
 use App\Models\Marquee;
 use App\Models\Slider;
+use App\Models\SiteSettings;
 use App\Models\CustomerAddress;
 use Illuminate\Http\Request;
 
@@ -17,12 +18,12 @@ class FrontendController extends Controller
        // Fetch all news items
 
         // $pages = Page::all()->groupBy('district');
-
+  $settings = SiteSettings::firstOrNew();
 
         // $settings = Setting::first(); 
         // $banner = Banner::where('frontpg', 1)->limit(10)->get();
         // return array_merge(['newsItems' => $newsItems, 'settings' => $settings, 'banner' => $banner, 'pages'=>$pages], $additionalData);
-        return array_merge(['marquees' => $marquees], $additionalData);
+        return array_merge(['marquees' => $marquees , 'settings'=> $settings], $additionalData);
     }
 
     public function index()

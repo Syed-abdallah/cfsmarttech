@@ -16,6 +16,7 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\ReguserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SiteSettingsController;
 
 use App\Http\Controllers\PriceController;
 
@@ -107,6 +108,9 @@ Route::resource('/roomtype', \App\Http\Controllers\RoomTypeController::class)->e
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/settings', [SiteSettingsController::class, 'edit'])->name('settings.edit');
+ Route::put('/site-settings', [SiteSettingsController::class, 'update'])->name('settings.update');
+
     
 Route::resource('products', ProductController::class);
 Route::resource('permissions', PermissionController::class);
