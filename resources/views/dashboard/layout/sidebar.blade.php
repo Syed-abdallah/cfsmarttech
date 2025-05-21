@@ -208,6 +208,18 @@
                 <li class="list-divider"></li>
                 <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
 
+
+      <!-- Register -->
+                @can('create register')
+                <li class="sidebar-item">
+                    <a class="sidebar-link {{ request()->is('photography/userregister') ? 'active' : '' }}" 
+                       href="{{ route('cfadmin.newuser.register') }}" aria-expanded="false">
+                        <i data-feather="lock" class="feather-icon"></i>
+                        <span class="hide-menu">Register</span>
+                    </a>
+                </li>
+                @endcan
+
                 {{-- Profile --}}
                 @php
                     $profileRoutes = ['cfadmin.profile.edit', 'cfadmin.profile.update', 'cfadmin.profile.destroy'];

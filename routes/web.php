@@ -15,6 +15,7 @@ use App\Http\Controllers\CustomerDashboardController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\ReguserController;
+use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\PriceController;
 
@@ -64,9 +65,11 @@ Route::middleware(['auth:customer'])->prefix('customer')->name('customer.')->gro
 });
 
 
-Route::get('/cfadmin/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('cfadmin.dashboard');
+// Route::get('/cfadmin/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('cfadmin.dashboard');
+
+    Route::get('/cfadmin/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('cfadmin.dashboard');
 
 Route::group(['middleware' => ['auth:web'], 'prefix'=>'cfadmin', 'as'=>'cfadmin.'],function(){
 

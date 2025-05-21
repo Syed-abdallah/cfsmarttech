@@ -1,493 +1,467 @@
-{{-- <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('dashboard.layout.layout')
+@section('content')
+    <!-- Page Title and Breadcrumb -->
+    <div class="page-titles">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Analytics</a></li>
+        </ol>
+    </div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+    <!-- Summary Cards -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary text-white rounded p-3 me-3">
+                            <i data-feather="dollar-sign" class="feather-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="mb-1">${{ number_format($totalRevenue, 2) }}</h3>
+                            <h6 class="text-muted mb-0">Total Revenue</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-info text-white rounded p-3 me-3">
+                            <i data-feather="shopping-cart" class="feather-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="mb-1">{{ $newOrdersCount }}</h3>
+                            <h6 class="text-muted mb-0">New Orders</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-warning text-white rounded p-3 me-3">
+                            <i data-feather="calendar" class="feather-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="mb-1">${{ number_format($monthlyRevenue, 2) }}</h3>
+                            <h6 class="text-muted mb-0">Monthly Revenue</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-success text-white rounded p-3 me-3">
+                            <i data-feather="package" class="feather-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="mb-1">{{ $productsSold }}</h3>
+                            <h6 class="text-muted mb-0">Products Sold</h6>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout> --}}
 
-@extends('dashboard.layout.layout')
-@section('content')
-    <!-- *************************************************************** -->
-    <!-- Start First Cards -->
-    <!-- *************************************************************** -->
-    {{-- <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card border-end">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <div class="d-inline-flex align-items-center">
-                                            <h2 class="text-dark mb-1 font-weight-medium">236</h2>
-                                            <span
-                                                class="badge bg-primary font-12 text-white font-weight-medium rounded-pill ms-2 d-lg-block d-md-none">+18.33%</span>
-                                        </div>
-                                        <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">New Clients
-                                        </h6>
-                                    </div>
-                                    <div class="ms-auto mt-md-3 mt-lg-0">
-                                        <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- Analytics Section -->
+    <div class="row">
+        <!-- Sales Chart -->
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Sales Analytics</h4>
+                    <div class="dropdown ms-auto">
+                        <a href="#" class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                            Last 30 Days <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Today</a>
+                            <a class="dropdown-item" href="#">Last Week</a>
+                            <a class="dropdown-item" href="#">Last Month</a>
+                            <a class="dropdown-item" href="#">Custom Range</a>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card border-end ">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
-                                                class="set-doller">$</sup>18,306</h2>
-                                        <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Earnings of
-                                            Month
-                                        </h6>
-                                    </div>
-                                    <div class="ms-auto mt-md-3 mt-lg-0">
-                                        <span class="opacity-7 text-muted"><i data-feather="dollar-sign"></i></span>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" class="form-control form-control-sm">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">End Date</label>
+                            <input type="date" class="form-control form-control-sm">
+                        </div>
+                        <div class="col-md-4 d-flex align-items-end">
+                            <button class="btn btn-primary btn-sm">Apply</button>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card border-end ">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <div class="d-inline-flex align-items-center">
-                                            <h2 class="text-dark mb-1 font-weight-medium">1538</h2>
-                                            <span
-                                                class="badge bg-danger font-12 text-white font-weight-medium rounded-pill ms-2 d-md-none d-lg-block">-18.33%</span>
-                                        </div>
-                                        <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">New Projects
-                                        </h6>
-                                    </div>
-                                    <div class="ms-auto mt-md-3 mt-lg-0">
-                                        <span class="opacity-7 text-muted"><i data-feather="file-plus"></i></span>
-                                    </div>
-                                </div>
+                    <div id="sales-chart" style="min-height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Sources -->
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Revenue Sources</h4>
+                </div>
+                <div class="card-body">
+                    <div id="revenue-sources" style="min-height: 250px;"></div>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-primary me-2">&nbsp;</span>
+                                <span>Online Payments</span>
                             </div>
+                            <span class="fw-bold">${{ number_format($onlinePayments, 2) }}</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-danger me-2">&nbsp;</span>
+                                <span>Bank Transfers</span>
+                            </div>
+                            <span class="fw-bold">${{ number_format($bankTransfers, 2) }}</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-success me-2">&nbsp;</span>
+                                <span>Cash on Delivery</span>
+                            </div>
+                            <span class="fw-bold">${{ number_format($codPayments, 2) }}</span>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card ">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <h2 class="text-dark mb-1 font-weight-medium">864</h2>
-                                        <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Projects</h6>
-                                    </div>
-                                    <div class="ms-auto mt-md-3 mt-lg-0">
-                                        <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Orders -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Recent Orders</h4>
+                    <div class="dropdown ms-auto">
+                        <a href="#" class="btn btn-outline-light btn-sm" data-bs-toggle="dropdown">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">View All</a>
+                            <a class="dropdown-item" href="#">Export</a>
                         </div>
                     </div>
-                </div> --}}
-    <!-- *************************************************************** -->
-    <!-- End First Cards -->
-    <!-- *************************************************************** -->
-    <!-- *************************************************************** -->
-    <!-- Start Sales Charts Section -->
-    <!-- *************************************************************** -->
-    {{-- <div class="row">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Total Sales</h4>
-                                <div id="campaign-v2" class="mt-2" style="height:283px; width:100%;"></div>
-                                <ul class="list-style-none mb-0">
-                                    <li>
-                                        <i class="fas fa-circle text-primary font-10 me-2"></i>
-                                        <span class="text-muted">Direct Sales</span>
-                                        <span class="text-dark float-end font-weight-medium">$2346</span>
-                                    </li>
-                                    <li class="mt-3">
-                                        <i class="fas fa-circle text-danger font-10 me-2"></i>
-                                        <span class="text-muted">Referral Sales</span>
-                                        <span class="text-dark float-end font-weight-medium">$2108</span>
-                                    </li>
-                                    <li class="mt-3">
-                                        <i class="fas fa-circle text-cyan font-10 me-2"></i>
-                                        <span class="text-muted">Affiliate Sales</span>
-                                        <span class="text-dark float-end font-weight-medium">$1204</span>
-                                    </li>
-                                </ul>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Order #</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Payment</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($recentOrders as $order)
+                                <tr>
+                                    <td>{{ $order->order_number }}</td>
+                                    <td>{{ json_decode($order->shipping_address)->full_name }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($order->created_at)->format('M d, Y') }}</td>
+                                    <td>${{ number_format($order->total, 2) }}</td>
+                                    <td>{{ ucfirst(str_replace('-', ' ', $order->payment_method)) }}</td>
+                                    <td>
+                                        <span class="badge bg-{{ 
+                                            $order->status == 'completed' ? 'success' : 
+                                            ($order->status == 'processing' ? 'primary' : 
+                                            ($order->status == 'shipped' ? 'info' : 
+                                            ($order->status == 'cancelled' ? 'danger' : 'warning'))) 
+                                        }} rounded-pill">
+                                            {{ ucfirst($order->status) }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('cfadmin.admin.orders.show', $order->order_number) }}" 
+                                           class="btn btn-sm btn-outline-primary" title="View Details">
+                                            <i data-feather="eye" class="feather-sm"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="row">
+        <!-- Top Products -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Top Selling Products</h4>
+                </div>
+                <div class="card-body">
+                    @foreach($topProducts as $product)
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="flex-shrink-0 me-3">
+                            <img src="{{ $product->image_url }}" alt="{{ $product->product_name }}" 
+                                 class="rounded" width="60">
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1">{{ $product->product_name }}</h6>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-primary" style="width: {{ ($product->total_sold / $maxProductSales) * 100 }}%"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Net Income</h4>
-                                <div class="net-income mt-4 position-relative" style="height:294px;"></div>
-                                <ul class="list-inline text-center mt-5 mb-2">
-                                    <li class="list-inline-item text-muted fst-italic">Sales for this month</li>
-                                </ul>
-                            </div>
+                        <div class="flex-shrink-0 ms-3 text-end">
+                            <h6 class="mb-1">{{ $product->total_sold }}</h6>
+                            <small class="text-muted">Sold</small>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title mb-4">Earning by Location</h4>
-                                <div class="" style="height:180px">
-                                    <div id="visitbylocate" style="height:100%"></div>
-                                </div>
-                                <div class="row mb-3 align-items-center mt-1 mt-5">
-                                    <div class="col-4 text-end">
-                                        <span class="text-muted font-14">India</span>
-                                    </div>
-                                    <div class="col-5">
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">28%</span>
-                                    </div>
-                                </div>
-                                <div class="row mb-3 align-items-center">
-                                    <div class="col-4 text-end">
-                                        <span class="text-muted font-14">UK</span>
-                                    </div>
-                                    <div class="col-5">
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 74%"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">21%</span>
-                                    </div>
-                                </div>
-                                <div class="row mb-3 align-items-center">
-                                    <div class="col-4 text-end">
-                                        <span class="text-muted font-14">USA</span>
-                                    </div>
-                                    <div class="col-5">
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-cyan" role="progressbar" style="width: 60%"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">18%</span>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-4 text-end">
-                                        <span class="text-muted font-14">China</span>
-                                    </div>
-                                    <div class="col-5">
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">12%</span>
-                                    </div>
-                                </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Status -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Order Status</h4>
+                </div>
+                <div class="card-body">
+                    <div id="order-status-chart" style="min-height: 250px;"></div>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-primary me-2">&nbsp;</span>
+                                <span>Processing</span>
                             </div>
+                            <span class="fw-bold">{{ $processingOrders }}</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-info me-2">&nbsp;</span>
+                                <span>Shipped</span>
+                            </div>
+                            <span class="fw-bold">{{ $shippedOrders }}</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-success me-2">&nbsp;</span>
+                                <span>Completed</span>
+                            </div>
+                            <span class="fw-bold">{{ $completedOrders }}</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-danger me-2">&nbsp;</span>
+                                <span>Cancelled</span>
+                            </div>
+                            <span class="fw-bold">{{ $cancelledOrders }}</span>
                         </div>
                     </div>
-                </div> --}}
-    <!-- *************************************************************** -->
-    <!-- End Sales Charts Section -->
-    <!-- *************************************************************** -->
-    <!-- *************************************************************** -->
-    <!-- Start Location and Earnings Charts Section -->
-    <!-- *************************************************************** -->
-    {{-- <div class="row">
-                    <div class="col-md-6 col-lg-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-start">
-                                    <h4 class="card-title mb-0">Earning Statistics</h4>
-                                    <div class="ms-auto">
-                                        <div class="dropdown sub-dropdown">
-                                            <button class="btn btn-link text-muted dropdown-toggle" type="button"
-                                                id="dd1" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                                <i data-feather="more-vertical"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dd1">
-                                                <a class="dropdown-item" href="#">Insert</a>
-                                                <a class="dropdown-item" href="#">Update</a>
-                                                <a class="dropdown-item" href="#">Delete</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pl-4 mb-5">
-                                    <div class="stats ct-charts position-relative" style="height: 315px;"></div>
-                                </div>
-                                <ul class="list-inline text-center mt-4 mb-0">
-                                    <li class="list-inline-item text-muted fst-italic">Earnings for this month</li>
-                                </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="col-lg-4 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Recent Activity</h4>
+                </div>
+                <div class="card-body activity-scroll" style="max-height: 400px; overflow-y: auto;">
+                    @foreach($recentActivities as $activity)
+                    <div class="d-flex mb-4">
+                        <div class="flex-shrink-0 me-3">
+                            <div class="avatar-xs">
+                                <span class="avatar-title rounded-circle bg-{{ 
+                                    $activity->type == 'order' ? 'info' : 
+                                    ($activity->type == 'payment' ? 'success' : 
+                                    ($activity->type == 'shipment' ? 'primary' : 'warning')) 
+                                }}-subtle text-{{ 
+                                    $activity->type == 'order' ? 'info' : 
+                                    ($activity->type == 'payment' ? 'success' : 
+                                    ($activity->type == 'shipment' ? 'primary' : 'warning')) 
+                                }} font-size-16">
+                                    <i class="{{ 
+                                        $activity->type == 'order' ? 'fas fa-shopping-cart' : 
+                                        ($activity->type == 'payment' ? 'fas fa-dollar-sign' : 
+                                        ($activity->type == 'shipment' ? 'fas fa-truck' : 'fas fa-exclamation-circle')) 
+                                    }}"></i>
+                                </span>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Recent Activity</h4>
-                                <div class="mt-4 activity">
-                                    <div class="d-flex align-items-start border-left-line pb-3">
-                                        <div>
-                                            <a href="javascript:void(0)" class="btn btn-info btn-circle mb-2 btn-item">
-                                                <i data-feather="shopping-cart"></i>
-                                            </a>
-                                        </div>
-                                        <div class="ms-3 mt-2">
-                                            <h5 class="text-dark font-weight-medium mb-2">New Product Sold!</h5>
-                                            <p class="font-14 mb-2 text-muted">John Musa just purchased <br> Cannon 5M
-                                                Camera.
-                                            </p>
-                                            <span class="font-weight-light font-14 text-muted">10 Minutes Ago</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-start border-left-line pb-3">
-                                        <div>
-                                            <a href="javascript:void(0)"
-                                                class="btn btn-danger btn-circle mb-2 btn-item">
-                                                <i data-feather="message-square"></i>
-                                            </a>
-                                        </div>
-                                        <div class="ms-3 mt-2">
-                                            <h5 class="text-dark font-weight-medium mb-2">New Support Ticket</h5>
-                                            <p class="font-14 mb-2 text-muted">Richardson just create support <br>
-                                                ticket</p>
-                                            <span class="font-weight-light font-14 text-muted">25 Minutes Ago</span>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-start border-left-line">
-                                        <div>
-                                            <a href="javascript:void(0)" class="btn btn-cyan btn-circle mb-2 btn-item">
-                                                <i data-feather="bell"></i>
-                                            </a>
-                                        </div>
-                                        <div class="ms-3 mt-2">
-                                            <h5 class="text-dark font-weight-medium mb-2">Notification Pending Order!
-                                            </h5>
-                                            <p class="font-14 mb-2 text-muted">One Pending order from Ryne <br> Doe</p>
-                                            <span class="font-weight-light font-14 mb-1 d-block text-muted">2 Hours
-                                                Ago</span>
-                                            <a href="javascript:void(0)"
-                                                class="font-14 border-bottom pb-1 border-info">Load More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1">{{ $activity->title }}</h6>
+                            <p class="text-muted mb-1">{{ $activity->description }}</p>
+                            <small class="text-muted">
+                                {{ \Carbon\Carbon::parse($activity->created_at)->diffForHumans() }}
+                            </small>
                         </div>
                     </div>
-                </div> --}}
-    <!-- *************************************************************** -->
-    <!-- End Location and Earnings Charts Section -->
-    <!-- *************************************************************** -->
-    <!-- *************************************************************** -->
-    <!-- Start Top Leader Table -->
-    <!-- *************************************************************** -->
-    {{-- <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-4">
-                                    <h4 class="card-title">Top Leaders</h4>
-                                    <div class="ms-auto">
-                                        <div class="dropdown sub-dropdown">
-                                            <button class="btn btn-link text-muted dropdown-toggle" type="button"
-                                                id="dd1" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                                <i data-feather="more-vertical"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd1">
-                                                <a class="dropdown-item" href="#">Insert</a>
-                                                <a class="dropdown-item" href="#">Update</a>
-                                                <a class="dropdown-item" href="#">Delete</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table no-wrap v-middle mb-0">
-                                        <thead>
-                                            <tr class="border-0">
-                                                <th class="border-0 font-14 font-weight-medium text-muted">Team Lead
-                                                </th>
-                                                <th class="border-0 font-14 font-weight-medium text-muted px-2">Project
-                                                </th>
-                                                <th class="border-0 font-14 font-weight-medium text-muted">Team</th>
-                                                <th class="border-0 font-14 font-weight-medium text-muted text-center">
-                                                    Status
-                                                </th>
-                                                <th class="border-0 font-14 font-weight-medium text-muted text-center">
-                                                    Weeks
-                                                </th>
-                                                <th class="border-0 font-14 font-weight-medium text-muted">Budget</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="border-top-0 px-2 py-4">
-                                                    <div class="d-flex no-block align-items-center">
-                                                        <div class="me-3"><img
-                                                                src="{{asset('dashboard/assets/images/users/widget-table-pic1.jpg"
-                                                                alt="user" class="rounded-circle" width="45"
-                                                                height="45" /></div>
-                                                        <div class="">
-                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Hanna
-                                                                Gover</h5>
-                                                            <span class="text-muted font-14">hgover@gmail.com</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="border-top-0 text-muted px-2 py-4 font-14">Elite Admin</td>
-                                                <td class="border-top-0 px-2 py-4">
-                                                    <div class="popover-icon">
-                                                        <a class="btn btn-primary rounded-circle btn-circle font-12"
-                                                            href="javascript:void(0)">DS</a>
-                                                        <a class="btn btn-danger rounded-circle btn-circle font-12 popover-item"
-                                                            href="javascript:void(0)">SS</a>
-                                                        <a class="btn btn-cyan rounded-circle btn-circle font-12 popover-item"
-                                                            href="javascript:void(0)">RP</a>
-                                                        <a class="btn btn-success text-white rounded-circle btn-circle font-20"
-                                                            href="javascript:void(0)">+</a>
-                                                    </div>
-                                                </td>
-                                                <td class="border-top-0 text-center px-2 py-4"><i
-                                                        class="fa fa-circle text-primary font-12"
-                                                        data-bs-toggle="tooltip" data-placement="top"
-                                                        title="In Testing"></i></td>
-                                                <td
-                                                    class="border-top-0 text-center font-weight-medium text-muted px-2 py-4">
-                                                    35
-                                                </td>
-                                                <td class="font-weight-medium text-dark border-top-0 px-2 py-4">$96K
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-2 py-4">
-                                                    <div class="d-flex no-block align-items-center">
-                                                        <div class="me-3"><img
-                                                                src="{{asset('dashboard/assets/images/users/widget-table-pic2.jpg"
-                                                                alt="user" class="rounded-circle" width="45"
-                                                                height="45" /></div>
-                                                        <div class="">
-                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Daniel
-                                                                Kristeen
-                                                            </h5>
-                                                            <span class="text-muted font-14">Kristeen@gmail.com</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-muted px-2 py-4 font-14">Real Homes WP Theme</td>
-                                                <td class="px-2 py-4">
-                                                    <div class="popover-icon">
-                                                        <a class="btn btn-primary rounded-circle btn-circle font-12"
-                                                            href="javascript:void(0)">DS</a>
-                                                        <a class="btn btn-danger rounded-circle btn-circle font-12 popover-item"
-                                                            href="javascript:void(0)">SS</a>
-                                                        <a class="btn btn-success text-white rounded-circle btn-circle font-20"
-                                                            href="javascript:void(0)">+</a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center px-2 py-4"><i
-                                                        class="fa fa-circle text-success font-12"
-                                                        data-bs-toggle="tooltip" data-placement="top" title="Done"></i>
-                                                </td>
-                                                <td class="text-center text-muted font-weight-medium px-2 py-4">32</td>
-                                                <td class="font-weight-medium text-dark px-2 py-4">$85K</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-2 py-4">
-                                                    <div class="d-flex no-block align-items-center">
-                                                        <div class="me-3"><img
-                                                                src="{{asset('dashboard/assets/images/users/widget-table-pic3.jpg"
-                                                                alt="user" class="rounded-circle" width="45"
-                                                                height="45" /></div>
-                                                        <div class="">
-                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Julian
-                                                                Josephs
-                                                            </h5>
-                                                            <span class="text-muted font-14">Josephs@gmail.com</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-muted px-2 py-4 font-14">MedicalPro WP Theme</td>
-                                                <td class="px-2 py-4">
-                                                    <div class="popover-icon">
-                                                        <a class="btn btn-primary rounded-circle btn-circle font-12"
-                                                            href="javascript:void(0)">DS</a>
-                                                        <a class="btn btn-danger rounded-circle btn-circle font-12 popover-item"
-                                                            href="javascript:void(0)">SS</a>
-                                                        <a class="btn btn-cyan rounded-circle btn-circle font-12 popover-item"
-                                                            href="javascript:void(0)">RP</a>
-                                                        <a class="btn btn-success text-white rounded-circle btn-circle font-20"
-                                                            href="javascript:void(0)">+</a>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center px-2 py-4"><i
-                                                        class="fa fa-circle text-primary font-12"
-                                                        data-bs-toggle="tooltip" data-placement="top" title="Done"></i>
-                                                </td>
-                                                <td class="text-center text-muted font-weight-medium px-2 py-4">29</td>
-                                                <td class="font-weight-medium text-dark px-2 py-4">$81K</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-bottom-0 px-2 py-4">
-                                                    <div class="d-flex no-block align-items-center">
-                                                        <div class="me-3"><img
-                                                                src="{{asset('dashboard/assets/images/users/widget-table-pic4.jpg"
-                                                                alt="user" class="rounded-circle" width="45"
-                                                                height="45" /></div>
-                                                        <div class="">
-                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Jan
-                                                                Petrovic
-                                                            </h5>
-                                                            <span class="text-muted font-14">hgover@gmail.com</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="border-bottom-0 text-muted px-2 py-4 font-14">Hosting Press
-                                                    HTML</td>
-                                                <td class="border-bottom-0 px-2 py-4">
-                                                    <div class="popover-icon">
-                                                        <a class="btn btn-primary rounded-circle btn-circle font-12"
-                                                            href="javascript:void(0)">DS</a>
-                                                        <a class="btn btn-success text-white font-20 rounded-circle btn-circle"
-                                                            href="javascript:void(0)">+</a>
-                                                    </div>
-                                                </td>
-                                                <td class="border-bottom-0 text-center px-2 py-4"><i
-                                                        class="fa fa-circle text-danger font-12"
-                                                        data-bs-toggle="tooltip" data-placement="top"
-                                                        title="In Progress"></i></td>
-                                                <td
-                                                    class="border-bottom-0 text-center text-muted font-weight-medium px-2 py-4">
-                                                    23</td>
-                                                <td class="border-bottom-0 font-weight-medium text-dark px-2 py-4">$80K
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        // Sales Chart
+        var salesChart = new ApexCharts(document.querySelector("#sales-chart"), {
+            series: [{
+                name: 'Sales',
+                data: @json(array_values($dailySales))
+            }],
+            chart: {
+                type: 'area',
+                height: 300,
+                toolbar: { show: false },
+                zoom: { enabled: false }
+            },
+            colors: ['#5D87FF'],
+            dataLabels: { enabled: false },
+            stroke: { curve: 'smooth', width: 2 },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.3,
+                }
+            },
+            xaxis: {
+                categories: @json(array_keys($dailySales)),
+                axisBorder: { show: false },
+                axisTicks: { show: false }
+            },
+            yaxis: { show: false },
+            grid: { borderColor: '#f1f1f1' },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return "$" + val
+                    }
+                }
+            }
+        });
+        salesChart.render();
+
+        // Revenue Sources Chart
+        var revenueChart = new ApexCharts(document.querySelector("#revenue-sources"), {
+            series: @json(array_values($paymentMethodData)),
+            chart: {
+                type: 'donut',
+                height: 250,
+            },
+            labels: @json(array_keys($paymentMethodData)),
+            colors: ['#5D87FF', '#FA896B', '#6FD943'],
+            legend: { show: false },
+            plotOptions: {
+                pie: {
+                    donut: {
+                        size: '70%',
+                        labels: {
+                            show: true,
+                            total: {
+                                show: true,
+                                label: 'Total',
+                                formatter: function (w) {
+                                    return '$' + w.globals.seriesTotals.reduce((a, b) => a + b, 0).toFixed(2)
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: { chart: { width: 200 } }
+            }]
+        });
+        revenueChart.render();
+
+        // Order Status Chart
+        var statusChart = new ApexCharts(document.querySelector("#order-status-chart"), {
+            series: @json(array_values($orderStatusData)),
+            chart: {
+                type: 'radialBar',
+                height: 250,
+            },
+            plotOptions: {
+                radialBar: {
+                    hollow: { size: '50%' },
+                    dataLabels: {
+                        name: { fontSize: '14px' },
+                        value: { fontSize: '16px' },
+                        total: {
+                            show: true,
+                            label: 'Total',
+                            formatter: function (w) {
+                                return {{ array_sum(array_values($orderStatusData)) }}
+                            }
+                        }
+                    }
+                }
+            },
+            labels: @json(array_keys($orderStatusData)),
+            colors: ['#5D87FF', '#49BEFF', '#6FD943', '#FF5E5E'],
+        });
+        statusChart.render();
+    });
+</script>
+@endpush
+
+@push('styles')
+<style>
+    .card {
+        border: none;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        margin-bottom: 24px;
+    }
+    .card-header {
+        background-color: #fff;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding: 1.25rem 1.5rem;
+    }
+    .progress-sm {
+        height: 6px;
+    }
+    .activity-scroll::-webkit-scrollbar {
+        width: 5px;
+    }
+    .activity-scroll::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    .activity-scroll::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+    .avatar-xs {
+        height: 36px;
+        width: 36px;
+    }
+</style>
+@endpush
