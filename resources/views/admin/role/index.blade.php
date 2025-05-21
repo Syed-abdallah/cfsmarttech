@@ -5,7 +5,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="card-title">Roles</h4>
-               <a href="/photography/roles/create" class="btn btn-success"> <i class="icon-plus"></i> Add Role</a>
+               <a href="/cfadmin/roles/create" class="btn btn-success"> <i class="icon-plus"></i> Add Role</a>
                    
               
             </div>
