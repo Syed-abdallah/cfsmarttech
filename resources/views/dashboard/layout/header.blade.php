@@ -33,7 +33,7 @@
             <!-- ============================================================== -->
             <ul class="navbar-nav float-left me-auto ms-3 ps-1">
                 <!-- Notification -->
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle pl-md-3 position-relative" href="javascript:void(0)"
                         id="bell" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
@@ -106,7 +106,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
                 <!-- End Notification -->
                 <!-- ============================================================== -->
                 <!-- create new -->
