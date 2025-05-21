@@ -10,8 +10,7 @@
             @csrf
         </form>
 
-        {{-- <form method="post" action="{{ route('cfadmin.profile.update') }}"> --}}
-        <form method="post" action="#">
+        <form method="post" action="{{ route('cfadmin.profile.update') }}">
             @csrf
             @method('patch')
 
