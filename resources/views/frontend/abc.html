@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Energy-Load Steps (BS5.3) with Animation</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+  <style>
+    .step-item {
+      position: relative;
+      margin-bottom: 1rem;
+      padding: 1rem 1rem 1rem 4rem;
+      border-radius: 0.5rem;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease-out forwards;
+    }
+
+    /* staggered delays */
+    .step1-bg { animation-delay: 0.1s; }
+    .step2-bg { animation-delay: 0.2s; }
+    .step3-bg { animation-delay: 0.3s; }
+    .step4-bg { animation-delay: 0.4s; }
+    .step5-bg { animation-delay: 0.5s; }
+    .step6-bg { animation-delay: 0.6s; }
+    .step7-bg { animation-delay: 0.7s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .step-circle {
+      position: absolute;
+      top: 50%;
+      left: -1.5rem;
+      transform: translateY(-50%);
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #000;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .step1-bg { background-color: #8bc540; }
+    .step2-bg { background-color: #4b4f6f; }
+    .step3-bg { background-color: #00cfe8; }
+    .step4-bg { background-color: #ffb92d; }
+    .step5-bg { background-color: #fb6467; }
+    .step6-bg { background-color: #ffc107; }
+    .step7-bg { background-color: #00a7af; }
+    
+    /* Icon animation */
+    .step-item i {
+      transition: all 0.3s ease;
+    }
+    
+    .step1-bg i { animation: iconMove 1s ease 0.8s infinite alternate; }
+    .step2-bg i { animation: iconMove 1s ease 0.9s infinite alternate; }
+    .step3-bg i { animation: iconMove 1s ease 1.0s infinite alternate; }
+    .step4-bg i { animation: iconMove 1s ease 1.1s infinite alternate; }
+    .step5-bg i { animation: iconMove 1s ease 1.2s infinite alternate; }
+    .step6-bg i { animation: iconMove 1s ease 1.3s infinite alternate; }
+    .step7-bg i { animation: iconMove 1s ease 1.4s infinite alternate; }
+    
+    @keyframes iconMove {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateX(-2px) rotate(4deg);
+      }
+      50% {
+        transform: translateY(2px) rotate(-5deg);
+      }
+      100% {
+        transform: translateX(-2px) rotate(3deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+
+        <div class="step-item step1-bg">
+          <div class="step-circle">01</div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-collection fs-2 me-3"></i>
+            <div class="fw-bold text-uppercase">Data Collection and Break Up</div>
+          </div>
+        </div>
+
+        <div class="step-item step2-bg">
+          <div class="step-circle">02</div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-clipboard-check fs-2 me-3"></i>
+            <div class="fw-bold text-uppercase">Each Load Health Inspection</div>
+          </div>
+        </div>
+
+        <div class="step-item step3-bg">
+          <div class="step-circle">03</div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-speedometer2 fs-2 me-3"></i>
+            <div class="fw-bold text-uppercase">Efficiency Report Through AI per Load</div>
+          </div>
+        </div>
+
+        <div class="step-item step4-bg">
+          <div class="step-circle">04</div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-search fs-2 me-3"></i>
+            <div class="fw-bold text-uppercase">Trace Root Cause of Energy Loads</div>
+          </div>
+        </div>
+
+        <div class="step-item step5-bg">
+          <div class="step-circle">05</div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-tools fs-2 me-3"></i>
+            <div class="fw-bold text-uppercase">Perform the Corrective Action</div>
+          </div>
+        </div>
+
+        <div class="step-item step6-bg">
+          <div class="step-circle">06</div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-graph-up fs-2 me-3"></i>
+            <div class="fw-bold text-uppercase">Control and Analyse Load Data Through AI</div>
+          </div>
+        </div>
+
+        <div class="step-item step7-bg">
+          <div class="step-circle">07</div>
+          <div class="d-flex align-items-center">
+            <i class="bi bi-cash-stack fs-2 me-3"></i>
+            <div class="fw-bold text-uppercase">20% to 75% Reduction in Bills</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3 JS bundle (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

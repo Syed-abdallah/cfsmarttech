@@ -95,7 +95,18 @@ return view('frontend.cart', array_merge([
 
 
 
-
+public function history(){
+        return view('frontend.history', $this->getCommonData());
+}
+public function goal(){
+        return view('frontend.goal', $this->getCommonData());
+}
+public function offering(){
+        return view('frontend.offering', $this->getCommonData());
+}
+public function audit(){
+        return view('frontend.audit', $this->getCommonData());
+}
 
 
 

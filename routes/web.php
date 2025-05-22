@@ -33,7 +33,10 @@ use App\Http\Controllers\PriceController;
 */
 
 
-
+Route::get('/history', [FrontendController::class, 'history']);
+Route::get('/goal', [FrontendController::class, 'goal']);
+Route::get('/offering', [FrontendController::class, 'offering']);
+Route::get('/audit', [FrontendController::class, 'audit']);
 
 
 Route::middleware(['auth:customer'])->group(function () {
