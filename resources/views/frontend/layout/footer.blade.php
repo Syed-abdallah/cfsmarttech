@@ -105,7 +105,7 @@
                         </a>
                     </li>
                     <li class="mb-3">
-                        <a href="/cfadmin/login" class="footer-link text-white text-decoration-none position-relative">
+                        <a href="/login" class="footer-link text-white text-decoration-none position-relative">
                             <span class="link-text">Admin Login</span>
                             <span class="link-hover"></span>
                         </a>
