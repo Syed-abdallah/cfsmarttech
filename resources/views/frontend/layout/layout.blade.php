@@ -88,6 +88,27 @@
         activate(current);
     </script>
 
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const card = document.getElementById("small-card");
+        const closeBtn = document.querySelector(".small-card-close");
+
+        // Check if it was previously dismissed
+        const dismissed = localStorage.getItem("cardDismissed");
+
+        if (dismissed === "true") {
+            card.style.display = "none";
+        }
+
+        closeBtn.addEventListener("click", function () {
+            card.style.display = "none";
+            localStorage.setItem("cardDismissed", "true");
+        });
+    });
+</script>
+
 </body>
 
 </html>

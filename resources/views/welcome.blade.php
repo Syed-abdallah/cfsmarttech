@@ -8,7 +8,7 @@
             height: 160px;
             justify-content: space-between;
             /* Space out the cards */
-            
+
         }
 
         .product-card {
@@ -27,23 +27,27 @@
             display: block;
             /* Ensure all cards are visible on larger screens */
 
-                /* Add blur + transparency */
-    background-color: rgba(255, 255, 255, 0.2); /* Light translucent background */
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px); /* For Safari */
+            /* Add blur + transparency */
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Light translucent background */
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            /* For Safari */
         }
 
         .product-card:not(.active):hover {
             background-color: #f8f9fa;
-            
+
         }
 
-      .product-card.active {
-    flex: 3;
-    background-color: rgba(255, 235, 59, 0.1);
-    backdrop-filter: blur(7px); /* <-- NEW line for blur effect */
-    -webkit-backdrop-filter: blur(7px); /* Safari support */
-}
+        .product-card.active {
+            flex: 3;
+            background-color: rgba(255, 235, 59, 0.1);
+            backdrop-filter: blur(7px);
+            /* <-- NEW line for blur effect */
+            -webkit-backdrop-filter: blur(7px);
+            /* Safari support */
+        }
 
         .product-card .icon img {
             width: 40px;
@@ -180,7 +184,7 @@
             }
         }
     </style>
- 
+
 
     <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500"
         data-bs-wrap="true">
@@ -222,7 +226,8 @@
 
 
 
-<h5 style="
+    <h5
+        style="
     text-transform: uppercase;
     font-weight: 1000;
     margin: 3rem 0 10px 40px;
@@ -231,16 +236,13 @@
     font-size: 1.5em;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 ">
-  One Stop Solution
-</h5>
+        One Stop Solution
+    </h5>
 
-<img src="{{ asset('frontend/images/cir.png') }}"
-     alt="decoration"
-     
-     style="position: relative; z-index: 1; ">
+    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; ">
 
-             <img src="{{ asset('frontend/images/picture34.png') }}" alt="audit"
-            style="
+    <img src="{{ asset('frontend/images/picture34.png') }}" alt="audit"
+        style="
             position: absolute;
             right: 0;
             top: 670px;
@@ -250,33 +252,31 @@
             pointer-events: none;
          ">
 
-<div style="padding: 2rem; border-radius: 0.5rem;">
-  <blockquote style="margin: 0; text-align: center;">
-    <p style="margin: 0; font-size: 5.5rem; font-style: italic; color: #031e47; display: inline-block; position: relative;">
-     
-      "THE COMPLETE<br>
-      SOLUTION"
-     
-    </p>
-  </blockquote>
-</div>
+    <div style="padding: 2rem; border-radius: 0.5rem;">
+        <blockquote style="margin: 0; text-align: center;">
+            <p
+                style="margin: 0; font-size: 5.5rem; font-style: italic; color: #031e47; display: inline-block; position: relative;">
+
+                "THE COMPLETE<br>
+                SOLUTION"
+
+            </p>
+        </blockquote>
+    </div>
 
 
 
 
 
-<section
-  id="smart-living-transform"
-  class="position-relative overflow-hidden py-6 py-lg-8"
-  style="
+    <section id="smart-living-transform" class="position-relative overflow-hidden py-6 py-lg-8"
+        style="
     background: url('frontend/images/picture33.png') no-repeat center center;
     background-size: cover;
-  "
->
+  ">
 
-</section>
+    </section>
 
-   <div class="video-section ">
+    <div class="video-section ">
         <video autoplay muted loop playsinline>
             <source src="frontend/images/video3.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -333,31 +333,33 @@
      
      style="position: relative; z-index: 1;  opacity: 0.1; "> --}}
 
-             <img src="{{ asset('frontend/images/gear.png') }}" alt="audit"
-            style="
+    <img src="{{ asset('frontend/images/gear.png') }}" alt="audit"
+        style="
             position: absolute;
             right: 0;
             top: 2550px;
-            height: 450px;
+            height: 500px;
             opacity: 0.1;
             z-index: 1;
             pointer-events: none;
          ">
 
 
-<section style="padding: 50px 0; background: #ffffff;">
-  <div class="container">
-    <div class="row align-items-center">
-      
-      <!-- Left Side (FAQ List) -->
-      <div class="col-md-6">
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-          <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="FAQ" style="width: 50px; margin-right: 10px;">
-          <h5 style="margin: 0; font-weight: bold;">FAQ</h5>
-        </div>
+    <section style="padding: 50px 0; background: #ffffff;">
+        <div class="container">
+            <div class="row align-items-center">
 
-        <div style="margin-bottom: 15px; display: flex;">
-    <span style="
+                <!-- Left Side (FAQ List) -->
+                <div class="col-md-6">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="FAQ"
+                            style="width: 50px; margin-right: 10px;">
+                        <h5 style="margin: 0; font-weight: bold;">FAQ</h5>
+                    </div>
+
+                    <div style="margin-bottom: 15px; display: flex;">
+                        <span
+                            style="
   color: #ff2e8a;
   font-weight: bold;
   font-size: 35px;
@@ -368,14 +370,16 @@
   transition: transform 0.3s ease;
 ">→</span>
 
-     <p class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
-  Are you concerned about high energy bills even after solar deployment. we come after it.
-</p>
+                        <p class="zoom-scroll"
+                            style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            Are you concerned about high energy bills even after solar deployment. we come after it.
+                        </p>
 
-        </div>
+                    </div>
 
-        <div style="margin-bottom: 15px; display: flex;">
-<span style="
+                    <div style="margin-bottom: 15px; display: flex;">
+                        <span
+                            style="
   color: #ff2e8a;
   font-weight: bold;
   font-size: 35px;
@@ -385,13 +389,16 @@
   text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
 ">→</span>
-          <p  class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
-            Have you perform in energy audit and give you the complete health scorecard of the load with artificial intelligence tool.
-          </p>
-        </div>
+                        <p class="zoom-scroll"
+                            style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            Have you perform in energy audit and give you the complete health scorecard of the load with
+                            artificial intelligence tool.
+                        </p>
+                    </div>
 
-        <div style="margin-bottom: 15px; display: flex;">
-<span style="
+                    <div style="margin-bottom: 15px; display: flex;">
+                        <span
+                            style="
   color: #ff2e8a;
   font-weight: bold;
   font-size: 35px;
@@ -401,13 +408,15 @@
   text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
 ">→</span>
-          <p class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
-            Do you want to be notified if the current month bill has exceeded the previous month.
-          </p>
-        </div>
+                        <p class="zoom-scroll"
+                            style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            Do you want to be notified if the current month bill has exceeded the previous month.
+                        </p>
+                    </div>
 
-        <div style="display: flex;">
-<span style="
+                    <div style="display: flex;">
+                        <span
+                            style="
   color: #ff2e8a;
   font-weight: bold;
   font-size: 35px;
@@ -417,39 +426,70 @@
   text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
 ">→</span>
-          <p  class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
-            Do you want to be notified if your load has gone faulty and consuming much energy
-          </p>
-        </div>
-      </div>
+                        <p class="zoom-scroll"
+                            style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            Do you want to be notified if your load has gone faulty and consuming much energy
+                        </p>
+                    </div>
+                </div>
 
-      <!-- Right Side (Text with Animation) -->
-      <div class="col-md-6 text-center">
-        <div style="
+                <!-- Right Side (Text with Animation) -->
+                <div class="col-md-6 text-center">
+                    <div
+                        style="
           background: linear-gradient(to right, #ffffff, #e0e0e0);
           padding: 40px 20px;
           border-radius: 10px;
           animation: floatUpDown 3s ease-in-out infinite alternate;
         ">
-          <h2 class="zoom-scroll" style="margin: 0; font-weight: 600; font-style: italic; font-size: 28px; color: #2c3e50; line-height: 1.5;">
-            DON'T WORRY<br>
-            WE GOT YOU<br>
-            COVERED
-          </h2>
+                        <h2 class="zoom-scroll"
+                            style="margin: 0; font-weight: 600; font-style: italic; font-size: 28px; color: #2c3e50; line-height: 1.5;">
+                            DON'T WORRY<br>
+                            WE GOT YOU<br>
+                            COVERED
+                        </h2>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
 
-    </div>
-  </div>
+        <!-- Inline Animation Keyframes -->
+        <style>
+            @keyframes floatUpDown {
+                0% {
+                    transform: translateY(0px);
+                }
 
-  <!-- Inline Animation Keyframes -->
-  <style>
-    @keyframes floatUpDown {
-      0%   { transform: translateY(0px); }
-      100% { transform: translateY(-10px); }
-    }
-  </style>
-</section>
+                100% {
+                    transform: translateY(-10px);
+                }
+            }
+        </style>
+    </section>
+
+
+
+
+
+
+
+
+    <h5
+        style="
+    text-transform: uppercase;
+    font-weight: 1000;
+    margin: 3rem 0 10px 20px;
+    position: relative;
+    z-index: 2;
+    font-size: 1.5em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+">
+        OUR PRODUCTS
+    </h5>
+
+    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; ">
+
 
 
 
@@ -459,34 +499,34 @@
 
 
     <section id="products" style="margin-bottom: 10px; position: relative;">
-    <div class="container-fluid" style="position: relative;">
-        <!-- PRODUCT CAROUSEL (MOVED ABOVE HERO IMAGE) -->
-        <div class="product-carousel" style="position: absolute; top: 450px; left: 0; right: 0; z-index: 10;">
-            @foreach ($products as $index => $product)
-                <div class="product-card {{ $index === 0 ? 'active' : '' }}" 
-                     data-index="{{ $index }}"
-                     data-hero-img="{{ asset('uploads/products/' . $product->image) }}" 
-                    >
+        <div class="container-fluid" style="position: relative;">
+            <!-- PRODUCT CAROUSEL (MOVED ABOVE HERO IMAGE) -->
+            <div class="product-carousel" style="position: absolute; top: 450px; left: 0; right: 0; z-index: 10;">
+                @foreach ($products as $index => $product)
+                    <div class="product-card {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}"
+                        data-hero-img="{{ asset('uploads/products/' . $product->image) }}">
 
-                   <a href="{{ route('product.show', $product->id) }}" class="title-link" style="text-decoration: none; color: inherit;">
-    <div class="title">
-        {{ $product->name }} <i class="bi bi-arrow-right-circle fs-3 extrahide"></i>
-    </div>
-</a>
+                        <a href="{{ route('product.show', $product->id) }}" class="title-link"
+                            style="text-decoration: none; color: inherit;">
+                            <div class="title">
+                                {{ $product->name }} <i class="bi bi-arrow-right-circle fs-3 extrahide"></i>
+                            </div>
+                        </a>
 
-<style>
-.title-link:hover .title {
-    text-decoration: underline; /* Optional hover effect */
-}
-</style>
-                    <div class="extra">
-                        <p class="mb-2">{{ $product->description }}</p>
+                        <style>
+                            .title-link:hover .title {
+                                text-decoration: underline;
+                                /* Optional hover effect */
+                            }
+                        </style>
+                        <div class="extra">
+                            <p class="mb-2">{{ $product->description }}</p>
+                        </div>
+                        <div class="indicator"></div>
                     </div>
-                    <div class="indicator"></div>
-                </div>
-            @endforeach
+                @endforeach
 
-            {{-- <!-- View All Card -->
+                {{-- <!-- View All Card -->
             <a href="/products" >
                 <div class="product-card" 
                     <div class="icon" style="margin-top: 84px;">
@@ -496,36 +536,124 @@
                     <div class="indicator"></div>
                 </div>
             </a> --}}
-        </div>
+            </div>
 
-        <!-- HERO PANEL (MOVED BELOW CAROUSEL) -->
-        <div id="hero" class="hero-image" style="position: relative; z-index: 1;">
-            <img id="hero-img" src="{{ count($products) > 0 ? asset('uploads/products/' . $products[0]->image) : 'https://via.placeholder.com/800x300?text=No+Products' }}" 
-                 alt="Featured product" width="100%" height="600px" style="filter: blur(0px); transition: filter 0.3s ease;">
-            <h1 id="hero-text" style="position: absolute; bottom: 20px; left: 20px; color: white; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-                {{ count($products) > 0 ? $products[0]->name : 'No Products' }}
-            </h1>
+            <!-- HERO PANEL (MOVED BELOW CAROUSEL) -->
+            <div id="hero" class="hero-image" style="position: relative; z-index: 1;">
+                <img id="hero-img"
+                    src="{{ count($products) > 0 ? asset('uploads/products/' . $products[0]->image) : 'https://via.placeholder.com/800x300?text=No+Products' }}"
+                    alt="Featured product" width="100%" height="600px"
+                    style="filter: blur(0px); transition: filter 0.3s ease;">
+                <h1 id="hero-text"
+                    style="position: absolute; bottom: 20px; left: 20px; color: white; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    {{ count($products) > 0 ? $products[0]->name : 'No Products' }}
+                </h1>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-    /* Add blur effect when hovering over carousel */
-    .product-carousel:hover ~ #hero img {
-        filter: blur(5px);
-    }
-    
-    /* Individual card hover effects */
-    .product-card:hover {
-        transform: scale(1.05);
-        z-index: 20;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-    
-    .product-carousel {
-        transition: all 0.3s ease;
-    }
-</style>
+    <style>
+        /* Add blur effect when hovering over carousel */
+        .product-carousel:hover~#hero img {
+            filter: blur(5px);
+        }
+
+        /* Individual card hover effects */
+        .product-card:hover {
+            transform: scale(1.05);
+            z-index: 20;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-carousel {
+            transition: all 0.3s ease;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5
+        style="
+    text-transform: uppercase;
+    font-weight: 1000;
+    margin: 5rem 0 10px 40px;
+    position: relative;
+    z-index: 2;
+    font-size: 1.5em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+">
+        SCHEMATICS </h5>
+
+    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; ">
+
+
+
+
+
+{{-- 
+      <img src="{{ asset('frontend/images/global.png') }}" alt="audit"
+        style="
+            position: absolute;
+            right: 0;
+            top: 3850px;
+            height: 600px;
+            opacity: 0.1;
+            z-index: 1;
+            pointer-events: none;
+         "> --}}
+    <section class="container my-5">
+        <div class="row ">
+            <div class="col-md-12 col-lg-6">
+                <div class="card"
+                    style="border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/p1.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 100%; height: auto; display: block;">
+                    {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
+          <p class="text-muted mb-0" style="font-size: 0.9rem; font-style: italic;">Energy consumption notification message</p>
+        </div> --}}
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <div class="card"
+                    style="border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 25px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/picture36.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 100%; height: auto; display: block;">
+                    {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
+          <p class="text-muted mb-0" style="font-size: 0.9rem; font-style: italic;">Energy consumption notification message</p>
+        </div> --}}
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="container my-5">
+        <div class="row ">
+            <div class="col-md-12 col-lg-12">
+                <div class="card"
+                    style="border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 48px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/picture37.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 100%; height: auto; display: block;">
+                    {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
+          <p class="text-muted mb-0" style="font-size: 0.9rem; font-style: italic;">Energy consumption notification message</p>
+        </div> --}}
+                </div>
+            </div>
+          
+
+        </div>
+    </section>
+
 
 
 
@@ -558,7 +686,7 @@
 
 
 
- 
+
 
 
 
@@ -672,7 +800,7 @@
 
 
 
-{{-- 
+        {{-- 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -1211,26 +1339,26 @@
         }
 
         /* .bulb {
-            background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659898.png');
-            top: 20%;
-            left: 10%;
-        }
-        .thermostat {
-            background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659899.png');
-            top: 60%;
-            left: 15%;
-        }
-        .camera {
-            background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659904.png');
-            top: 30%;
-            right: 10%;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-         */
+                    background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659898.png');
+                    top: 20%;
+                    left: 10%;
+                }
+                .thermostat {
+                    background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659899.png');
+                    top: 60%;
+                    left: 15%;
+                }
+                .camera {
+                    background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659904.png');
+                    top: 30%;
+                    right: 10%;
+                }
+                
+                @keyframes float {
+                    0%, 100% { transform: translateY(0) rotate(0deg); }
+                    50% { transform: translateY(-20px) rotate(5deg); }
+                }
+                 */
         /* Button Glow Effect */
         .glow-on-hover {
             transition: all 0.3s ease;
@@ -1541,14 +1669,14 @@
 
 
     <script>
-          /* Scroll observer */
-  window.addEventListener('scroll', function () {
-    document.querySelectorAll('.zoom-scroll').forEach(function (el) {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        el.classList.add('visible');
-      }
-    });
-  });
+        /* Scroll observer */
+        window.addEventListener('scroll', function() {
+            document.querySelectorAll('.zoom-scroll').forEach(function(el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        });
     </script>
 @endsection

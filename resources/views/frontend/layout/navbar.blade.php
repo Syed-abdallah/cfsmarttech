@@ -58,7 +58,7 @@
                 </div>
 
                 <!-- Column 3 -->
-                <div class="col-lg-4">
+                {{-- <div class="col-lg-4">
                     <div class="bg-soft-danger rounded-4 p-3 h-100 d-flex flex-column justify-content-between">
                         <div>
                             <h6 class="fw-bold text-danger mb-3 border-bottom pb-2"><i class="bi bi-star-fill me-2"></i>Special Offer</h6>
@@ -66,7 +66,7 @@
                         </div>
                         <a href="/promo" class="btn btn-gradient btn-sm mt-auto w-100 text-center">Claim Now</a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

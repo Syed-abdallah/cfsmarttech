@@ -177,7 +177,7 @@
     </div>
     <a href="https://wa.me/923000000000" target="_blank" class="position-fixed bottom-0 end-1 m-4 whatsapp-float"
         style="width:100px; height:100px;">
-        <img src="{{ asset('frontend/images/whatsapp.png')}}" alt="WhatsApp" class="img-fluid">
+        <img src="{{ asset('frontend/images/whatsapp.png') }}" alt="WhatsApp" class="img-fluid">
         <div class="whatsapp-popup">Chat with us!</div>
     </a>
 
@@ -187,101 +187,85 @@
             <!-- close button -->
             <button type="button" class="btn-close small-card-close position-absolute top-0 end-0 m-4 text-dark"
                 aria-label="Close"></button>
-            <!-- card content -->
-            <!-- <h5 class="card-title mb-2">Need Help?</h5>   -->
+
             <p class="card-text mb-0 mt-5">
                 If you want to calculate how much your cost will be, click the button below.
             </p>
-            <!-- <a href="starter-page.html" class="btn btn-sm btn-primary mt-2">Calculate it</a> -->
 
 
-            {{-- <button class="button">
+            <a href="/calculator" class="button"
+                style="display: inline-flex; align-items: center; text-decoration: none;">
                 Calculate it
                 <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path fill-rule="evenodd"
                         d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                        clip-rule="evenodd"></path>
+                        clip-rule="evenodd" />
                 </svg>
-            </button> --}}
-
-            {{-- <button class="button mt-4">
-                Calculate it
-                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path fill-rule="evenodd"
-                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </button> --}}
+            </a>
 
 
-            <button class="button">
-                Calculate it
-                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path fill-rule="evenodd"
-                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </button>
-            
             <style>
-            .button {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.5rem;
-                padding: 0.75rem 1.5rem;
-                font-size: 1rem;
-                font-weight: 600;
-                color: white;
-                background: linear-gradient(135deg, #3b82f6, #6366f1);
-                border: none;
-                border-radius: 0.5rem;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-                cursor: pointer;
-                transition: all 0.3s ease;
-                position: relative;
-                overflow: hidden;
-                margin-top: 20px;
-            }
-            
-            .button:hover {
-                background: linear-gradient(135deg, #2563eb, #4f46e5);
-                transform: translateY(-1px);
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            }
-            
-            .button:active {
-                transform: translateY(0);
-                box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
-            }
-            
-            .button::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-                transition: 0.5s;
-            }
-            
-            .button:hover::before {
-                left: 100%;
-            }
-            
-            .icon {
-                width: 1.25rem;
-                height: 1.25rem;
-                transition: transform 0.3s ease;
-            }
-            
-            .button:hover .icon {
-                transform: translateX(3px);
-            }
+                .button {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    padding: 0.75rem 1.5rem;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: white;
+                    background: linear-gradient(135deg, #3b82f6, #6366f1);
+                    border: none;
+                    border-radius: 0.5rem;
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                    margin-top: 20px;
+                }
+
+                .button:hover {
+                    background: linear-gradient(135deg, #2563eb, #4f46e5);
+                    transform: translateY(-1px);
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                }
+
+                .button:active {
+                    transform: translateY(0);
+                    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+                }
+
+                .button::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                    transition: 0.5s;
+                }
+
+                .button:hover::before {
+                    left: 100%;
+                }
+
+                .icon {
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    transition: transform 0.3s ease;
+                }
+
+                .button:hover .icon {
+                    transform: translateX(3px);
+                }
             </style>
 
 
         </div>
     </div>
+  
+
+ 
 </footer>
