@@ -51,7 +51,7 @@
                         <h6 class="fw-bold text-success mb-3 border-bottom pb-2"><i class="bi bi-briefcase me-2"></i>Advisory</h6>
                         <ul class="list-unstyled">
                             <li><a href="/offering" class="dropdown-item-adv"><i class="bi bi-handshake me-2"></i>Offering</a></li>
-                            <li><a href="#" class="dropdown-item-adv"><i class="bi bi-mortarboard me-2"></i>Training</a></li>
+                            <li><a href="/case-study" class="dropdown-item-adv"><i class="bi bi-mortarboard me-2"></i>Case Study</a></li>
                             <li><a href="#" class="dropdown-item-adv"><i class="bi bi-life-preserver me-2"></i>Support</a></li>
                         </ul>
                     </div>

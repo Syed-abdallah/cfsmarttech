@@ -107,6 +107,9 @@ public function offering(){
 public function audit(){
         return view('frontend.audit', $this->getCommonData());
 }
+public function case(){
+        return view('frontend.casestudy', $this->getCommonData());
+}
 
 
 
