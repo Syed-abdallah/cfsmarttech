@@ -488,7 +488,7 @@
         OUR PRODUCTS
     </h5>
 
-    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; ">
+    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; margin-bottom:50px ">
 
 
 
@@ -614,7 +614,7 @@
         <div class="row ">
             <div class="col-md-12 col-lg-6">
                 <div class="card"
-                    style="border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden;">
+                    style="border: none;  border-radius: 12px; overflow: hidden;">
                     <img src="{{ asset('frontend/images/p1.png') }}" alt="Energy consumption notification content"
                         class="img-fluid" style="width: 100%; height: auto; display: block;">
                     {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
@@ -624,7 +624,7 @@
             </div>
             <div class="col-md-12 col-lg-6">
                 <div class="card"
-                    style="border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 25px; overflow: hidden;">
+                    style="border: none; border-radius: 25px; overflow: hidden;">
                     <img src="{{ asset('frontend/images/picture36.png') }}" alt="Energy consumption notification content"
                         class="img-fluid" style="width: 100%; height: auto; display: block;">
                     {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
@@ -641,8 +641,132 @@
         <div class="row ">
             <div class="col-md-12 col-lg-12">
                 <div class="card"
-                    style="border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 48px; overflow: hidden;">
+                    style="border: none;  border-radius: 48px; overflow: hidden;">
                     <img src="{{ asset('frontend/images/picture37.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 100%; height: auto; display: block;">
+                    {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
+          <p class="text-muted mb-0" style="font-size: 0.9rem; font-style: italic;">Energy consumption notification message</p>
+        </div> --}}
+                </div>
+            </div>
+          
+
+        </div>
+    </section>
+
+
+
+ <h5
+        style="
+    text-transform: uppercase;
+    font-weight: 1000;
+    margin: 3rem 0 10px 40px;
+    padding-top :20px;
+    position: relative;
+    z-index: 2;
+    font-size: 1.3em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+">
+        HOW EMS IS BETTER THEN SOLAR </h5>
+
+    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width:500px;   padding-bottom :80px; ">
+
+
+
+
+
+    <section class="container  border rounded shadow">
+  <div class="row">
+    <div class="col-2 d-flex flex-column align-items-center justify-content-center bg-primary text-white fw-bold text-center" style="writing-mode: vertical-lr; padding: 10px; font-size: 0.9rem;">
+      MAIN FEATURE<br>COMPARISON
+    </div>
+    <div class="col-5 bg-info text-white fw-bold text-center py-3 position-relative">
+      EMS
+      {{-- <img src="ems-logo.png" alt="EMS Logo" class="position-absolute top-0 start-0 m-2" style="width: 40px;"> --}}
+    </div>
+    <div class="col-5 bg-success text-white fw-bold text-center py-3 position-relative ">
+      SOLAR
+      {{-- <img src="solar-logo.png" alt="Solar Logo" class="position-absolute top-0 start-0 m-2" style="width: 40px;"> --}}
+    </div>
+  </div>
+
+  <!-- Row 1 -->
+  <div class="row border border-top-0">
+    <div class="col-2 fw-bold text-center py-2 bg-light">INITIAL INVESTMENT</div>
+    <div class="col-5 py-2 blue">Has a very limited cost upfront</div>
+    <div class="col-5 py-2 red">Initial investment cost is 5 times more.</div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="row border">
+    <div class="col-2 fw-bold text-center py-2 bg-light">KEY FEATURES</div>
+    <div class="col-5 py-2 blue">Is not a part of generation.</div>
+    <div class="col-5 py-2 red">Is the most cost-effective energy generation source.</div>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="row border">
+    <div class="col-2 fw-bold text-center py-2 bg-light">CONTROL</div>
+    <div class="col-5 py-2 blue">Turning on and off the load to control the loads which can reduce the overall bill.</div>
+    <div class="col-5 py-2 red">Does not have a control feature which can reduce the overall bill.</div>
+  </div>
+
+  <!-- Row 4 -->
+  <div class="row border">
+    <div class="col-2 fw-bold text-center py-2 bg-light">TRACKING HIGH LOADS</div>
+    <div class="col-5 py-2 blue">Warns the user on faulty or high consumption load.</div>
+    <div class="col-5 py-2 red">Cannot trace the fault.</div>
+  </div>
+
+  <!-- Row 5 -->
+  <div class="row border">
+    <div class="col-2 fw-bold text-center py-2 bg-light">MONITOR BILLS</div>
+    <div class="col-5 py-2 blue">Customised per unit rate tariff and the complete projected bills analysis compared to the previous month.</div>
+    <div class="col-5 py-2 red">Gives an insight of the ongoing energy consumption however cannot forecast.</div>
+  </div>
+
+  <!-- Row 6 -->
+  <div class="row border">
+    <div class="col-2 fw-bold text-center py-2 bg-light">USER FRIENDLY DASHBOARD</div>
+    <div class="col-5 py-2 blue">User customized app with built-in tariff rates to calculate the projected energy bills.</div>
+    <div class="col-5 py-2 red">Default standard app without tariff customised tariff rates.</div>
+  </div>
+
+  <!-- Row 7 -->
+  <div class="row border">
+    <div class="col-2 fw-bold text-center py-2 bg-light">DEPENDENCY ON WEATHER</div>
+    <div class="col-5 py-2 blue">No dependency on weather and added advantage if integrated with solar to predict weather forecasts and expected output.</div>
+    <div class="col-5 py-2 red">Depends on weather for greater benefits.</div>
+  </div>
+
+  <!-- Row 8 -->
+  <div class="row border">
+    <div class="col-2 fw-bold text-center py-2 bg-light">AI BASED PREDICTION</div>
+    <div class="col-5 py-2 blue">Predictive analysis of each load health score.</div>
+    <div class="col-5 py-2 red">No Predictive analysis of each load.</div>
+  </div>
+</section>
+<style>
+    .blue{
+
+        background-color: rgb(113, 113, 247)
+    }
+    .red{
+background-color: rgb(252, 96, 96)
+    }
+</style>
+
+
+
+
+
+
+    <section class="container my-5">
+        <div class="row ">
+            <div class="col-md-12 col-lg-12">
+                <div class="card"
+                    style="border: none;  border-radius: 48px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/picture38.png') }}" alt="Energy consumption notification content"
                         class="img-fluid" style="width: 100%; height: auto; display: block;">
                     {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
           <p class="text-muted mb-0" style="font-size: 0.9rem; font-style: italic;">Energy consumption notification message</p>
@@ -658,6 +782,10 @@
 
 
 
+
+
+
+    
 
 
 
