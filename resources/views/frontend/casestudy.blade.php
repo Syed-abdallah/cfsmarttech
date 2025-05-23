@@ -32,7 +32,7 @@
     
     <!-- Decorative background images -->
     <img src="{{ asset('frontend/images/bgimage1.png') }}" 
-         alt="Decorative Background" 
+         alt="Decorative Background2" 
          style="
             position: absolute;
             left: 0;
@@ -44,7 +44,7 @@
          " data-aos="fade-right" data-aos-delay="100">
 
     <img src="{{ asset('frontend/images/dotted.png') }}" 
-         alt="Decorative Background" 
+         alt="Decorative Background3" 
          style="
             position: absolute;
             left: 0;
@@ -56,7 +56,7 @@
             " data-aos="fade-left" data-aos-delay="200">
 
 <img src="{{ asset('frontend/images/giff.gif') }}" 
-alt="Decorative Background" 
+alt="Decorative Background1" 
 style="
             position: absolute;
             right: 25px;

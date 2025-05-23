@@ -38,6 +38,7 @@ Route::get('/goal', [FrontendController::class, 'goal']);
 Route::get('/offering', [FrontendController::class, 'offering']);
 Route::get('/audit', [FrontendController::class, 'audit']);
 Route::get('/case-study', [FrontendController::class, 'case']);
+Route::get('/whyems', [FrontendController::class, 'whyems']);
 
 
 Route::middleware(['auth:customer'])->group(function () {

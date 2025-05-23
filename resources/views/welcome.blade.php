@@ -221,27 +221,238 @@
 
 
 
-    <div class="container-fluid py-5 position-relative">
-        <div class="row">
-            <div class="col-lg-2 d-flex align-items-center justify-content-center">
-                <h5 class="text-center mb-4">Trusted by<br>renowned brands</h5>
-            </div>
-            <div class="col-lg-10">
-                <div class="logo-carousel">
-                    <div class="logo-track">
-                        @foreach ($partners as $partner)
-                            {{-- <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"> --}}
-                            <img src="{{ asset('uploads/partners/' . $partner->image) }}" alt="Current Image">
-                        @endforeach
-                        <!-- Duplicates for seamless loop -->
-                        @foreach ($partners as $partner)
-                            <img src="{{ asset('uploads/partners/' . $partner->image) }}" alt="{{ $partner->image }}">
-                        @endforeach
-                    </div>
-                </div>
-            </div>
+
+<h5 style="
+    text-transform: uppercase;
+    font-weight: 1000;
+    margin: 3rem 0 10px 40px;
+    position: relative;
+    z-index: 2;
+    font-size: 1.5em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+">
+  One Stop Solution
+</h5>
+
+<img src="{{ asset('frontend/images/cir.png') }}"
+     alt="decoration"
+     
+     style="position: relative; z-index: 1; ">
+
+             <img src="{{ asset('frontend/images/picture34.png') }}" alt="audit"
+            style="
+            position: absolute;
+            right: 0;
+            top: 670px;
+            height: 150px;
+            /* opacity: 0.1; */
+            z-index: 1;
+            pointer-events: none;
+         ">
+
+<div style="padding: 2rem; border-radius: 0.5rem;">
+  <blockquote style="margin: 0; text-align: center;">
+    <p style="margin: 0; font-size: 5.5rem; font-style: italic; color: #031e47; display: inline-block; position: relative;">
+     
+      "THE COMPLETE<br>
+      SOLUTION"
+     
+    </p>
+  </blockquote>
+</div>
+
+
+
+
+
+<section
+  id="smart-living-transform"
+  class="position-relative overflow-hidden py-6 py-lg-8"
+  style="
+    background: url('frontend/images/picture33.png') no-repeat center center;
+    background-size: cover;
+  "
+>
+
+</section>
+
+   <div class="video-section ">
+        <video autoplay muted loop playsinline>
+            <source src="frontend/images/video3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-container container-fluid">
+
         </div>
     </div>
+
+
+
+    <section
+        style="background-color: #f9fbfd; height: 65vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+        <!-- Static title -->
+        <h1 class="display-4 text-dark mb-1 mt-3">WHAT WE ARE OFFERING</h1>
+
+        <!-- Carousel for only the sub-headings -->
+        <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="carousel-inner text-center">
+                <div class="carousel-item active">
+                    <h4 class="display-4 text-dark">METERING</h4>
+                </div>
+                <div class="carousel-item">
+                    <h4 class="display-4 text-dark">MEASUREMENT</h4>
+                </div>
+                <div class="carousel-item">
+                    <h4 class="display-4 text-dark">SIGNALLING</h4>
+                </div>
+                <div class="carousel-item">
+                    <h4 class="display-4 text-dark">CONTROL</h4>
+                </div>
+                <div class="carousel-item">
+                    <h4 class="display-4 text-dark">SUPERVISION</h4>
+                </div>
+            </div>
+
+            <!-- Optional controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+
+
+    {{-- <img src="{{ asset('frontend/images/cir.png') }}"
+     alt="decoration"
+     
+     style="position: relative; z-index: 1;  opacity: 0.1; "> --}}
+
+             <img src="{{ asset('frontend/images/gear.png') }}" alt="audit"
+            style="
+            position: absolute;
+            right: 0;
+            top: 2550px;
+            height: 450px;
+            opacity: 0.1;
+            z-index: 1;
+            pointer-events: none;
+         ">
+
+
+<section style="padding: 50px 0; background: #ffffff;">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left Side (FAQ List) -->
+      <div class="col-md-6">
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="FAQ" style="width: 50px; margin-right: 10px;">
+          <h5 style="margin: 0; font-weight: bold;">FAQ</h5>
+        </div>
+
+        <div style="margin-bottom: 15px; display: flex;">
+    <span style="
+  color: #ff2e8a;
+  font-weight: bold;
+  font-size: 35px;
+  margin-right: 12px;
+  display: inline-block;
+  transform: rotate(-15deg);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+">→</span>
+
+     <p class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
+  Are you concerned about high energy bills even after solar deployment. we come after it.
+</p>
+
+        </div>
+
+        <div style="margin-bottom: 15px; display: flex;">
+<span style="
+  color: #ff2e8a;
+  font-weight: bold;
+  font-size: 35px;
+  margin-right: 12px;
+  display: inline-block;
+  transform: rotate(-15deg);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+">→</span>
+          <p  class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
+            Have you perform in energy audit and give you the complete health scorecard of the load with artificial intelligence tool.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 15px; display: flex;">
+<span style="
+  color: #ff2e8a;
+  font-weight: bold;
+  font-size: 35px;
+  margin-right: 12px;
+  display: inline-block;
+  transform: rotate(-15deg);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+">→</span>
+          <p class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
+            Do you want to be notified if the current month bill has exceeded the previous month.
+          </p>
+        </div>
+
+        <div style="display: flex;">
+<span style="
+  color: #ff2e8a;
+  font-weight: bold;
+  font-size: 35px;
+  margin-right: 12px;
+  display: inline-block;
+  transform: rotate(-15deg);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+">→</span>
+          <p  class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
+            Do you want to be notified if your load has gone faulty and consuming much energy
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Side (Text with Animation) -->
+      <div class="col-md-6 text-center">
+        <div style="
+          background: linear-gradient(to right, #ffffff, #e0e0e0);
+          padding: 40px 20px;
+          border-radius: 10px;
+          animation: floatUpDown 3s ease-in-out infinite alternate;
+        ">
+          <h2 class="zoom-scroll" style="margin: 0; font-weight: 600; font-style: italic; font-size: 28px; color: #2c3e50; line-height: 1.5;">
+            DON'T WORRY<br>
+            WE GOT YOU<br>
+            COVERED
+          </h2>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Inline Animation Keyframes -->
+  <style>
+    @keyframes floatUpDown {
+      0%   { transform: translateY(0px); }
+      100% { transform: translateY(-10px); }
+    }
+  </style>
+</section>
+
+
+
 
 
 
@@ -320,16 +531,34 @@
 
 
 
-    <div class="video-section mt-2">
-        <video autoplay muted loop playsinline>
-            <source src="frontend/images/video3.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-container container-fluid">
 
+
+
+    <div class="container-fluid py-5 position-relative">
+        <div class="row">
+            <div class="col-lg-2 d-flex align-items-center justify-content-center">
+                <h5 class="text-center mb-4">Trusted by<br>renowned brands</h5>
+            </div>
+            <div class="col-lg-10">
+                <div class="logo-carousel">
+                    <div class="logo-track">
+                        @foreach ($partners as $partner)
+                            {{-- <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"> --}}
+                            <img src="{{ asset('uploads/partners/' . $partner->image) }}" alt="Current Image">
+                        @endforeach
+                        <!-- Duplicates for seamless loop -->
+                        @foreach ($partners as $partner)
+                            <img src="{{ asset('uploads/partners/' . $partner->image) }}" alt="{{ $partner->image }}">
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+
+
+ 
 
 
 
@@ -439,6 +668,99 @@
                 </div>
             </div>
         </div>
+
+
+
+
+{{-- 
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+             
+                <div class="hub-wrapper">
+                    <div class="hub-container">
+                        <div class="hub-content">
+
+                            <!-- center circle now uses CSS background for the icon -->
+                            <div class="hub-center">
+                                <!-- img is no longer needed -->
+                            </div>
+
+                            <!-- eight icons around -->
+                            <div class="hub-icon icon-top">
+                                <div class="icon-circle">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png"
+                                        alt="Cost Reduction">
+                                </div>
+                                <div>Cost Reduction</div>
+                            </div>
+                            <div class="hub-icon icon-top-right">
+                                <div class="icon-circle">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132733.png"
+                                        alt="Projections">
+                                </div>
+                                <div>Projections</div>
+                            </div>
+                            <div class="hub-icon icon-right">
+                                <div class="icon-circle">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132699.png" alt="Control">
+                                </div>
+                                <div>Control</div>
+                            </div>
+                            <div class="hub-icon icon-bot-right">
+                                <div class="icon-circle">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132703.png" alt="Inspection">
+                                </div>
+                                <div>Inspection</div>
+                            </div>
+                            <div class="hub-icon icon-bot">
+                                <div class="icon-circle">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132697.png" alt="Analysis">
+                                </div>
+                                <div>Analysis</div>
+                            </div>
+                            <div class="hub-icon icon-bot-left">
+                                <div class="icon-circle">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132709.png"
+                                        alt="Calibration">
+                                </div>
+                                <div>Calibration</div>
+                            </div>
+                            <div class="hub-icon icon-left">
+                                <div class="icon-circle">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132695.png" alt="Metering">
+                                </div>
+                                <div>Metering</div>
+                            </div>
+                            <div class="hub-icon icon-top-left">
+                                <div class="icon-circle">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132707.png" alt="Automation">
+                                </div>
+                                <div>Automation</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <button class="btn btn-primary btn-lg px-4">Get Started</button>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <!-- empty or your other content -->
+            </div>
+        </div>
+    </div> --}}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1215,4 +1537,18 @@
         </div>
 
     </section> --}}
+
+
+
+    <script>
+          /* Scroll observer */
+  window.addEventListener('scroll', function () {
+    document.querySelectorAll('.zoom-scroll').forEach(function (el) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  });
+    </script>
 @endsection

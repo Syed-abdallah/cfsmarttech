@@ -110,6 +110,9 @@ public function audit(){
 public function case(){
         return view('frontend.casestudy', $this->getCommonData());
 }
+public function whyems(){
+        return view('frontend.whyems', $this->getCommonData());
+}
 
 
 

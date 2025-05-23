@@ -191,10 +191,10 @@
         style="background-color: #f9fbfd; padding: 50px 10%; display: flex; flex-direction: column; gap: 60px; position: relative;">
 
          <img src="{{ asset('frontend/images/bgimage1.png') }}" 
-         alt="Decorative Background" 
+         alt="Decorative Background1" 
          style="position: absolute; left: 0; bottom: 0; height: 220px; opacity: 0.1; z-index: 1; pointer-events: none;" data-aos="fade-right">
 
-        <img src="{{ asset('frontend/images/picture26.png') }}" alt="Decorative Background"
+        <img src="{{ asset('frontend/images/picture26.png') }}" alt="audit"
             style="
             position: absolute;
             left: 10;
@@ -205,7 +205,7 @@
             pointer-events: none;
          "
             data-aos="fade-right" data-aos-delay="200">
-        <img src="{{ asset('frontend/images/gear.png') }}" alt="Decorative Background"
+        <img src="{{ asset('frontend/images/gear.png') }}" alt="Decorative Background3"
             style="
             position: absolute;
             right: 0;
