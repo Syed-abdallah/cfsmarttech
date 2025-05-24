@@ -352,9 +352,9 @@
                 <!-- Left Side (FAQ List) -->
                 <div class="col-md-6">
                     <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                        <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="FAQ"
-                            style="width: 50px; margin-right: 10px;">
-                        <h5 style="margin: 0; font-weight: bold;">FAQ</h5>
+                        <img src="{{asset('frontend/images/faq.png')}}" alt="FAQ"
+                            style="width: 150px; margin-right: 10px;">
+               
                     </div>
 
                     <div style="margin-bottom: 15px; display: flex;">
@@ -488,7 +488,8 @@
         OUR PRODUCTS
     </h5>
 
-    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; margin-bottom:50px ">
+    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration"
+        style="position: relative; z-index: 1; margin-bottom:50px ">
 
 
 
@@ -599,7 +600,7 @@
 
 
 
-{{-- 
+    {{-- 
       <img src="{{ asset('frontend/images/global.png') }}" alt="audit"
         style="
             position: absolute;
@@ -613,8 +614,7 @@
     <section class="container my-5">
         <div class="row ">
             <div class="col-md-12 col-lg-6">
-                <div class="card"
-                    style="border: none;  border-radius: 12px; overflow: hidden;">
+                <div class="card" style="border: none;  border-radius: 12px; overflow: hidden;">
                     <img src="{{ asset('frontend/images/p1.png') }}" alt="Energy consumption notification content"
                         class="img-fluid" style="width: 100%; height: auto; display: block;">
                     {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
@@ -623,8 +623,7 @@
                 </div>
             </div>
             <div class="col-md-12 col-lg-6">
-                <div class="card"
-                    style="border: none; border-radius: 25px; overflow: hidden;">
+                <div class="card" style="border: none; border-radius: 25px; overflow: hidden;">
                     <img src="{{ asset('frontend/images/picture36.png') }}" alt="Energy consumption notification content"
                         class="img-fluid" style="width: 100%; height: auto; display: block;">
                     {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
@@ -640,8 +639,7 @@
     <section class="container my-5">
         <div class="row ">
             <div class="col-md-12 col-lg-12">
-                <div class="card"
-                    style="border: none;  border-radius: 48px; overflow: hidden;">
+                <div class="card" style="border: none;  border-radius: 48px; overflow: hidden;">
                     <img src="{{ asset('frontend/images/picture37.png') }}" alt="Energy consumption notification content"
                         class="img-fluid" style="width: 100%; height: auto; display: block;">
                     {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
@@ -649,14 +647,14 @@
         </div> --}}
                 </div>
             </div>
-          
+
 
         </div>
     </section>
 
 
 
- <h5
+    <h5
         style="
     text-transform: uppercase;
     font-weight: 1000;
@@ -669,92 +667,99 @@
 ">
         HOW EMS IS BETTER THEN SOLAR </h5>
 
-    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width:500px;   padding-bottom :80px; ">
+    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration"
+        style="position: relative; z-index: 1; width:500px;   padding-bottom :80px; ">
 
 
 
 
 
     <section class="container  border rounded shadow">
-  <div class="row">
-    <div class="col-2 d-flex flex-column align-items-center justify-content-center bg-primary text-white fw-bold text-center" style="writing-mode: vertical-lr; padding: 10px; font-size: 0.9rem;">
-      MAIN FEATURE<br>COMPARISON
-    </div>
-    <div class="col-5 bg-info text-white fw-bold text-center py-3 position-relative">
-      EMS
-      {{-- <img src="ems-logo.png" alt="EMS Logo" class="position-absolute top-0 start-0 m-2" style="width: 40px;"> --}}
-    </div>
-    <div class="col-5 bg-success text-white fw-bold text-center py-3 position-relative ">
-      SOLAR
-      {{-- <img src="solar-logo.png" alt="Solar Logo" class="position-absolute top-0 start-0 m-2" style="width: 40px;"> --}}
-    </div>
-  </div>
+        <div class="row">
+            <div class="col-2 d-flex flex-column align-items-center justify-content-center bg-primary text-white fw-bold text-center"
+                style="writing-mode: vertical-lr; padding: 10px; font-size: 0.9rem;">
+                MAIN FEATURE<br>COMPARISON
+            </div>
+            <div class="col-5 bg-info text-white fw-bold text-center py-3 position-relative">
+                EMS
+                {{-- <img src="ems-logo.png" alt="EMS Logo" class="position-absolute top-0 start-0 m-2" style="width: 40px;"> --}}
+            </div>
+            <div class="col-5 bg-success text-white fw-bold text-center py-3 position-relative ">
+                SOLAR
+                {{-- <img src="solar-logo.png" alt="Solar Logo" class="position-absolute top-0 start-0 m-2" style="width: 40px;"> --}}
+            </div>
+        </div>
 
-  <!-- Row 1 -->
-  <div class="row border border-top-0">
-    <div class="col-2 fw-bold text-center py-2 bg-light">INITIAL INVESTMENT</div>
-    <div class="col-5 py-2 blue">Has a very limited cost upfront</div>
-    <div class="col-5 py-2 red">Initial investment cost is 5 times more.</div>
-  </div>
+        <!-- Row 1 -->
+        <div class="row border border-top-0">
+            <div class="col-2 fw-bold text-center py-2 bg-light">INITIAL INVESTMENT</div>
+            <div class="col-5 py-2 blue">Has a very limited cost upfront</div>
+            <div class="col-5 py-2 red">Initial investment cost is 5 times more.</div>
+        </div>
 
-  <!-- Row 2 -->
-  <div class="row border">
-    <div class="col-2 fw-bold text-center py-2 bg-light">KEY FEATURES</div>
-    <div class="col-5 py-2 blue">Is not a part of generation.</div>
-    <div class="col-5 py-2 red">Is the most cost-effective energy generation source.</div>
-  </div>
+        <!-- Row 2 -->
+        <div class="row border">
+            <div class="col-2 fw-bold text-center py-2 bg-light">KEY FEATURES</div>
+            <div class="col-5 py-2 blue">Is not a part of generation.</div>
+            <div class="col-5 py-2 red">Is the most cost-effective energy generation source.</div>
+        </div>
 
-  <!-- Row 3 -->
-  <div class="row border">
-    <div class="col-2 fw-bold text-center py-2 bg-light">CONTROL</div>
-    <div class="col-5 py-2 blue">Turning on and off the load to control the loads which can reduce the overall bill.</div>
-    <div class="col-5 py-2 red">Does not have a control feature which can reduce the overall bill.</div>
-  </div>
+        <!-- Row 3 -->
+        <div class="row border">
+            <div class="col-2 fw-bold text-center py-2 bg-light">CONTROL</div>
+            <div class="col-5 py-2 blue">Turning on and off the load to control the loads which can reduce the overall
+                bill.</div>
+            <div class="col-5 py-2 red">Does not have a control feature which can reduce the overall bill.</div>
+        </div>
 
-  <!-- Row 4 -->
-  <div class="row border">
-    <div class="col-2 fw-bold text-center py-2 bg-light">TRACKING HIGH LOADS</div>
-    <div class="col-5 py-2 blue">Warns the user on faulty or high consumption load.</div>
-    <div class="col-5 py-2 red">Cannot trace the fault.</div>
-  </div>
+        <!-- Row 4 -->
+        <div class="row border">
+            <div class="col-2 fw-bold text-center py-2 bg-light">TRACKING HIGH LOADS</div>
+            <div class="col-5 py-2 blue">Warns the user on faulty or high consumption load.</div>
+            <div class="col-5 py-2 red">Cannot trace the fault.</div>
+        </div>
 
-  <!-- Row 5 -->
-  <div class="row border">
-    <div class="col-2 fw-bold text-center py-2 bg-light">MONITOR BILLS</div>
-    <div class="col-5 py-2 blue">Customised per unit rate tariff and the complete projected bills analysis compared to the previous month.</div>
-    <div class="col-5 py-2 red">Gives an insight of the ongoing energy consumption however cannot forecast.</div>
-  </div>
+        <!-- Row 5 -->
+        <div class="row border">
+            <div class="col-2 fw-bold text-center py-2 bg-light">MONITOR BILLS</div>
+            <div class="col-5 py-2 blue">Customised per unit rate tariff and the complete projected bills analysis compared
+                to the previous month.</div>
+            <div class="col-5 py-2 red">Gives an insight of the ongoing energy consumption however cannot forecast.</div>
+        </div>
 
-  <!-- Row 6 -->
-  <div class="row border">
-    <div class="col-2 fw-bold text-center py-2 bg-light">USER FRIENDLY DASHBOARD</div>
-    <div class="col-5 py-2 blue">User customized app with built-in tariff rates to calculate the projected energy bills.</div>
-    <div class="col-5 py-2 red">Default standard app without tariff customised tariff rates.</div>
-  </div>
+        <!-- Row 6 -->
+        <div class="row border">
+            <div class="col-2 fw-bold text-center py-2 bg-light">USER FRIENDLY DASHBOARD</div>
+            <div class="col-5 py-2 blue">User customized app with built-in tariff rates to calculate the projected energy
+                bills.</div>
+            <div class="col-5 py-2 red">Default standard app without tariff customised tariff rates.</div>
+        </div>
 
-  <!-- Row 7 -->
-  <div class="row border">
-    <div class="col-2 fw-bold text-center py-2 bg-light">DEPENDENCY ON WEATHER</div>
-    <div class="col-5 py-2 blue">No dependency on weather and added advantage if integrated with solar to predict weather forecasts and expected output.</div>
-    <div class="col-5 py-2 red">Depends on weather for greater benefits.</div>
-  </div>
+        <!-- Row 7 -->
+        <div class="row border">
+            <div class="col-2 fw-bold text-center py-2 bg-light">DEPENDENCY ON WEATHER</div>
+            <div class="col-5 py-2 blue">No dependency on weather and added advantage if integrated with solar to predict
+                weather forecasts and expected output.</div>
+            <div class="col-5 py-2 red">Depends on weather for greater benefits.</div>
+        </div>
 
-  <!-- Row 8 -->
-  <div class="row border">
-    <div class="col-2 fw-bold text-center py-2 bg-light">AI BASED PREDICTION</div>
-    <div class="col-5 py-2 blue">Predictive analysis of each load health score.</div>
-    <div class="col-5 py-2 red">No Predictive analysis of each load.</div>
-  </div>
-</section>
-<style>
-    .blue{
+        <!-- Row 8 -->
+        <div class="row border">
+            <div class="col-2 fw-bold text-center py-2 bg-light">AI BASED PREDICTION</div>
+            <div class="col-5 py-2 blue">Predictive analysis of each load health score.</div>
+            <div class="col-5 py-2 red">No Predictive analysis of each load.</div>
+        </div>
+    </section>
+    <style>
+        .blue {
 
-        background-color: rgb(113, 113, 247)
-    }
-    .red{
-background-color: rgb(252, 96, 96)
-    }
-</style>
+            background-color: rgb(113, 113, 247)
+        }
+
+        .red {
+            background-color: rgb(252, 96, 96)
+        }
+    </style>
 
 
 
@@ -764,8 +769,7 @@ background-color: rgb(252, 96, 96)
     <section class="container my-5">
         <div class="row ">
             <div class="col-md-12 col-lg-12">
-                <div class="card"
-                    style="border: none;  border-radius: 48px; overflow: hidden;">
+                <div class="card" style="border: none;  border-radius: 48px; overflow: hidden;">
                     <img src="{{ asset('frontend/images/picture38.png') }}" alt="Energy consumption notification content"
                         class="img-fluid" style="width: 100%; height: auto; display: block;">
                     {{-- <div class="card-body p-4" style="background-color: #f8f9fa;">
@@ -773,8 +777,194 @@ background-color: rgb(252, 96, 96)
         </div> --}}
                 </div>
             </div>
-          
 
+
+        </div>
+    </section>
+
+
+
+  <h5
+        style="
+    text-transform: uppercase;
+    font-weight: 1000;
+    margin: 1rem 0 10px 10px;
+    padding-top :20px;
+    position: relative;
+    z-index: 2;
+    font-size: 2.3em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+">
+        AI IN EMS </h5>
+
+    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration"
+        style="position: relative; z-index: 1; width:500px;   padding-bottom :20px; ">
+
+
+
+    <section class=" bg-white">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <section data-aos="fade-up"
+                        style=" padding: 10px 10%; display: flex; flex-direction: column; gap: 60px; position: relative;">
+
+                        <!-- Decorative background images -->
+                        <img src="{{ asset('frontend/images/bgimage1.png') }}" alt="Decorative Background2"
+                            style="
+                                    position: absolute;
+                                    left: 0;
+                                    bottom: 0;
+                                    height: 200px;
+                                    opacity: 0.1;
+                                    z-index: 1;
+                                    pointer-events: none;
+                                "
+                            data-aos="fade-right" data-aos-delay="100">
+
+                        <img src="{{ asset('frontend/images/dotted.png') }}" alt="Decorative Background3"
+                            style="
+                                    position: absolute;
+                                    left: 0;
+                                    bottom: 1060px;
+                                    height: 220px;
+                                    opacity: 0.1;
+                                    z-index: 1;
+                                    pointer-events: none;
+                                    "
+                            data-aos="fade-left" data-aos-delay="200">
+
+                        <img src="{{ asset('frontend/images/giff.gif') }}" alt="Decorative Background1"
+                            style="
+                                    position: absolute;
+                                    right: 25px;
+                                    bottom: 0px;
+                                    width: 550px;
+                                    opacity: 0.2;
+                                    height: 380px;
+                                    z-index: 1;
+                                    pointer-events: none;
+                                "
+                            data-aos="zoom-in" data-aos-delay="300">
+
+                        <!-- About / Vision / Mission Blocks -->
+                        <div class="mt-5" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
+                            data-aos="fade-right" data-aos-delay="100">
+
+                            <!-- Text -->
+                            <div style="flex: 1; min-width: 250px; padding: 0 10px; max-width: 900px;">
+
+                                <p>
+                                    Artificial Intelligence (AI) plays a transformative role in Energy Management Systems
+                                    (EMS), enhancing efficiency, reliability, and sustainability. Here are some key ways AI
+                                    is utilized in EMS in CF app
+                            </div>
+                        </div>
+
+                        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
+                            data-aos="fade-left" data-aos-delay="200">
+                            <div style="flex: 0 0 auto;">
+                                <img src="{{ asset('frontend/images/Picture40.png') }}" alt="Icon"
+                                    style="width: 50px;">
+                            </div>
+                            <div style="flex: 1; min-width: 250px; ">
+                                <h4 style="font-weight: bold;">Predictive Maintenance</h4>
+                                <p>
+                                    AI algorithms analyze data from various sensors
+                                    and equipment to predict potential failures before they occur. This helps in scheduling maintenance activities proactively, reducing downtime and extending the lifespan of equipment.
+
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
+                            data-aos="fade-left" data-aos-delay="200">
+                            <div style="flex: 0 0 auto;">
+                                <img src="{{ asset('frontend/images/Picture45.png') }}" alt="Icon"
+                                    style="width: 50px;">
+                            </div>
+                            <div style="flex: 1; min-width: 250px; ">
+                                <h4 style="font-weight: bold;">Load Forecasting:</h4>
+                                <p>
+                                    AI models predict future energy demand based on historical data, weather conditions, and other factors. Accurate load forecasting helps in better planning and resource allocation.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
+                            data-aos="fade-left" data-aos-delay="200">
+                            <div style="flex: 0 0 auto;">
+                                <img src="{{ asset('frontend/images/Picture44.png') }}" alt="Icon"
+                                    style="width: 50px;">
+                            </div>
+                            <div style="flex: 1; min-width: 250px; ">
+                                <h4 style="font-weight: bold;">Fault Detection and Diagnostics:</h4>
+                                <p>
+AI systems can detect anomalies in the energy system and diagnose issues quickly. This improves response times and minimizes the impact of faults on the overall system.                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
+                            data-aos="fade-left" data-aos-delay="200">
+                            <div style="flex: 0 0 auto;">
+                                <img src="{{ asset('frontend/images/Picture43.png') }}" alt="Icon"
+                                    style="width: 50px;">
+                            </div>
+                            <div style="flex: 1; min-width: 250px; ">
+                                <h4 style="font-weight: bold;">Integration of Renewable Energy:</h4>
+                                <p>
+AI helps in managing the variability of renewable energy sources like solar and wind. By predicting generation patterns and optimizing storage, AI ensures a stable and reliable energy supply.                            </div>
+                        </div>
+                        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
+                            data-aos="fade-left" data-aos-delay="200">
+                            <div style="flex: 0 0 auto;">
+                                <img src="{{ asset('frontend/images/Picture42.png') }}" alt="Icon"
+                                    style="width: 50px;">
+                            </div>
+                            <div style="flex: 1; min-width: 250px; ">
+                                <h4 style="font-weight: bold;">Enhanced Decision-Making:</h4>
+                                <p>
+AI provides decision-makers with actionable insights and recommendations based on data analysis. This leads to more informed and effective decisions regarding energy management.                            </div>
+                        </div>
+                        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
+                            data-aos="fade-left" data-aos-delay="200">
+                            <div style="flex: 0 0 auto;">
+                                <img src="{{ asset('frontend/images/Picture41.png') }}" alt="Icon"
+                                    style="width: 50px;">
+                            </div>
+                            <div style="flex: 1; min-width: 250px; ">
+                                <h4 style="font-weight: bold;">Customer Engagement:</h4>
+                                <p>
+AI-driven apps and dashboards provide users with real-time information about their energy usage, encouraging energy-saving behaviors and promoting sustainability.                            </div>
+                        </div>
+
+                       
+
+
+
+                    </section>
+                </div>
+                <!-- Image Column -->
+                <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="row">
+                        <div class="col-lg-12 mb-4">   <img src="{{ asset('frontend/images/picture46.png') }}" alt="AI Human"
+                           
+                            style="z-index: 2;width:400px;height:220px"></div>
+                        <div class="col-lg-12">      <div class="position-relative rounded-circle shadow"
+                        style="width: 350px; height: 350px; background: radial-gradient(circle at center, #fff 35%, rgba(255,255,255,0) 70%); border: 8px solid rgba(200, 200, 200, 0.3);">
+
+                        <!-- Circular Image -->
+                        <img src="{{ asset('frontend/images/picture39.png') }}" alt="AI Human"
+                            class="img-fluid rounded-circle w-100 h-100 object-fit-cover position-relative"
+                            style="z-index: 2;">
+
+                        <!-- Overlay Effect -->
+                        <div class="position-absolute top-0 start-0 w-100 h-100 rounded-circle"
+                            style="z-index: 1; background: radial-gradient(ellipse at right, rgba(173, 216, 230, 0.3), transparent 70%);">
+                        </div>
+                    </div></div>
+                    </div>
+              
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -783,9 +973,6 @@ background-color: rgb(252, 96, 96)
 
 
 
-
-
-    
 
 
 
@@ -1467,26 +1654,26 @@ background-color: rgb(252, 96, 96)
         }
 
         /* .bulb {
-                    background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659898.png');
-                    top: 20%;
-                    left: 10%;
-                }
-                .thermostat {
-                    background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659899.png');
-                    top: 60%;
-                    left: 15%;
-                }
-                .camera {
-                    background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659904.png');
-                    top: 30%;
-                    right: 10%;
-                }
-                
-                @keyframes float {
-                    0%, 100% { transform: translateY(0) rotate(0deg); }
-                    50% { transform: translateY(-20px) rotate(5deg); }
-                }
-                 */
+                        background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659898.png');
+                        top: 20%;
+                        left: 10%;
+                    }
+                    .thermostat {
+                        background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659899.png');
+                        top: 60%;
+                        left: 15%;
+                    }
+                    .camera {
+                        background-image: url('https://cdn-icons-png.flaticon.com/512/3659/3659904.png');
+                        top: 30%;
+                        right: 10%;
+                    }
+                    
+                    @keyframes float {
+                        0%, 100% { transform: translateY(0) rotate(0deg); }
+                        50% { transform: translateY(-20px) rotate(5deg); }
+                    }
+                     */
         /* Button Glow Effect */
         .glow-on-hover {
             transition: all 0.3s ease;

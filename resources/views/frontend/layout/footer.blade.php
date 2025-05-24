@@ -182,7 +182,7 @@
     </a>
 
     <!-- delayed small card -->
-    <div id="small-card" class="small-card position-fixed bottom-0 start-1 m-4 card-float">
+    {{-- <div id="small-card" class="small-card position-fixed bottom-0 start-1 m-4 card-float">
         <div class="card p-3 position-relative">
             <!-- close button -->
             <button type="button" class="btn-close small-card-close position-absolute top-0 end-0 m-4 text-dark"
@@ -264,7 +264,7 @@
 
 
         </div>
-    </div>
+    </div> --}}
   
 
  

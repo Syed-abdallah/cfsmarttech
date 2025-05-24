@@ -1262,10 +1262,10 @@ animation: pulse 1.5s infinite ease-in-out;
   }
 
   .cart-badge {
-      animation: pulse 2s infinite;
+      animation: pulseq 2s infinite;
   }
 
-  @keyframes pulse {
+  @keyframes pulseq {
       0% {
           transform: scale(1);
       }
