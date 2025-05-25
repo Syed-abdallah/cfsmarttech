@@ -28,7 +28,7 @@ return new class extends Migration
 
         // Insert default record
         DB::table('site_settings')->insert([
-            'website_name' => config('app.name'),
+            'website_name' => null,
             'name_color' => '#000000',
             'facebook_url' => null,
             'twitter_url' => null,

@@ -11,6 +11,7 @@ class ProfileSettingsController extends Controller
 {
     public function updateSettings(Request $request)
     {
+      
         $request->validate([
             'website_name' => 'nullable|string|max:50',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

@@ -116,7 +116,7 @@ Route::resource('/roomtype', \App\Http\Controllers\RoomTypeController::class)->e
 
 
 
-     Route::get('/orders/{order_number}', [AdminOrderController::class, 'adminshow'])->name('orders.show');
+     Route::get('/orders/{order_number}', [AdminOrderController::class, 'adminshow'])->name('admin.orders.show');
     Route::get('/orders/{order_number}/invoice', [AdminOrderController::class, 'invoice'])->name('orders.invoice');
 
 
