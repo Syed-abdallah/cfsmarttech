@@ -8,7 +8,32 @@
             <!-- Logo -->
             <!-- ============================================================== -->
          <div class="navbar-brand">
-    {{-- @if($settings->logo_path)
+
+   @php
+    // Fetch logo data directly from database
+    $siteSettings = DB::table('site_settings')->first();
+    $logoPath = $siteSettings->logo_path ?? null;
+    
+    // Check if logo exists
+    if ($logoPath && file_exists(public_path($logoPath))) {
+        $logoUrl = asset($logoPath);
+        $altText = $siteSettings->website_name ?? config('app.name');
+@endphp
+
+        <img src="{{ $logoUrl }}" 
+             alt="{{ $altText }} Logo"
+             height="60" 
+             width="90" 
+             class="me-2" 
+             style="margin-left: 30px">
+
+@php
+    } else {
+        // Optional: Show a placeholder if logo doesn't exist
+        echo '<div style="height:60px; width:90px; margin-left:30px;" class="me-2 bg-light d-inline-block"></div>';
+    }
+@endphp
+    {{-- @if($setting->logo_path)
         <img src="{{ $settings->logo_path }}" alt="Logo" height="60" width="90" class="me-2" style="margin-left: 30px">
     @endif --}}
 
@@ -128,34 +153,28 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="{{asset('dashboard/assets/images/users/profile-pic.jpg')}}" alt="user" class="rounded-circle"
-                            width="40">
+                        {{-- <img src="{{asset('dashboard/assets/images/users/profile-pic.jpg')}}" alt="user" class="rounded-circle"
+                            width="40"> --}}
                         <span class="ms-2 d-none d-lg-inline-block"><span>Hello,</span> <span
                                 class="text-dark">{{ auth()->user()->name }}</span> <i data-feather="chevron-down"
                                 class="svg-icon"></i></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-right user-dd animated flipInY">
-                        <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
-                                class="svg-icon me-2 ms-1"></i>
-                            My Profile</a>
-                        <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
-                                class="svg-icon me-2 ms-1"></i>
-                            My Balance</a>
-                        <a class="dropdown-item" href="javascript:void(0)"><i data-feather="mail"
-                                class="svg-icon me-2 ms-1"></i>
-                            Inbox</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
-                                class="svg-icon me-2 ms-1"></i>
-                            Account Setting</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
-                                class="svg-icon me-2 ms-1"></i>
-                            Logout</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">View
-                                Profile</a></div>
-                    </div>
+                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-right user-dd animated flipInY">
+    <a href="/cfadmin/profile" class="dropdown-item">
+        <i data-feather="settings" class="svg-icon me-2 ms-1"></i>
+        Account Setting
+    </a>
+    <div class="dropdown-divider"></div>
+    <form method="POST" action="{{ route('logout') }}" class="dropdown-item">
+        @csrf
+        <a class="d-flex align-items-center text-decoration-none" href="{{ route('logout') }}"
+           onclick="event.preventDefault(); this.closest('form').submit();">
+            <i data-feather="log-out" class="feather-icon me-2 ms-1"></i>
+            <span>Logout</span>
+        </a>
+    </form>
+  
+</div>
                 </li>
                 <!-- ============================================================== -->
                 <!-- User profile and search -->

@@ -52,7 +52,8 @@
                                 View
                                 </a>
                                 @endcan
-                                @can('view order invoice')
+                                {{-- @can('view order invoice') --}}
+                                @can('show order')
                                 <a href="{{ route('cfadmin.admin.orders.invoice', $order->order_number) }}" class="btn btn-sm btn-secondary">
                                     Track
                                 </a>

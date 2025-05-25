@@ -18,6 +18,7 @@ use App\Http\Controllers\ReguserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SiteSettingsController;
 
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\PriceController;
 
 
@@ -39,6 +40,7 @@ Route::get('/offering', [FrontendController::class, 'offering']);
 Route::get('/audit', [FrontendController::class, 'audit']);
 Route::get('/case-study', [FrontendController::class, 'case']);
 Route::get('/whyems', [FrontendController::class, 'whyems']);
+Route::get('/faqs', [FrontendController::class, 'faqs']);
 
 
 Route::middleware(['auth:customer'])->group(function () {
@@ -58,7 +60,7 @@ Route::group(['middleware' => ['auth:customer'], 'prefix'=>'cfcustomer', 'as'=>'
 //     return view('customer.dashboard');
 // })->middleware(['auth:customer'])->name('cfcustomer.dashboard');
 
-Route::get('/cfcustomer/dashboard', [CustomerDashboardController::class, 'index'])->name('cfcustomer.dashboard');
+Route::get('/cfcustomer/dashboard', [CustomerDashboardController::class, 'index'])->name('cfcustomer.dashboard')->middleware('auth:customer');
 
 Route::middleware(['auth:customer'])->prefix('customer')->name('customer.')->group(function () {
     // Route::get('/form', [OrderController::class, 'create'])->name('customer.orders.index');
@@ -78,6 +80,15 @@ Route::middleware(['auth:customer'])->prefix('customer')->name('customer.')->gro
     Route::get('/cfadmin/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('cfadmin.dashboard');
 
 Route::group(['middleware' => ['auth:web'], 'prefix'=>'cfadmin', 'as'=>'cfadmin.'],function(){
+
+
+
+
+    Route::resource('faqs', FAQController::class);
+
+
+
+
 
 
 Route::resource('/commercial', \App\Http\Controllers\CommercialPriceController::class)->except(['show', 'create', 'edit']);

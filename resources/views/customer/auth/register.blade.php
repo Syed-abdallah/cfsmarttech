@@ -333,7 +333,7 @@
                         <button type="submit" class="btn btn-primary btn-register w-100 mb-3">Register</button>
                         
                         <p class="text-center mt-3">Already have an account? 
-                            <a href="{{ url('login') }}" class="text-decoration-none fw-bold text-primary">Sign in</a>
+                            <a href="{{ url('cfcustomer/login') }}" class="text-decoration-none fw-bold text-primary">Sign in</a>
                         </p>
                     </form>
                 </div>

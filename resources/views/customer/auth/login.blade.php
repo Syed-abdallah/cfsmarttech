@@ -139,7 +139,7 @@
         }
         
         .image-section {
-    background: url('frontend/images/p14.jpg') center/cover no-repeat;
+    background: url('/frontend/images/p14.jpg') center/cover no-repeat;
     position: relative;
     width: 100%;
     max-width: 677px; /* Maximum width */
@@ -346,7 +346,7 @@
                         @endif
                         </div>
                         <button type="submit" class="btn btn-primary btn-login w-100 mb-3">Sign In</button>
-                        <p class="text-center mt-3">Don't have an account? <a href="/register" class="text-decoration-none fw-bold text-primary">Sign up</a></p>
+                        <p class="text-center mt-3">Don't have an account? <a href="/cfcustomer/register" class="text-decoration-none fw-bold text-primary">Sign up</a></p>
                     </form>
                     <div class="social-login text-center mb-4">
                         <button class="btn">

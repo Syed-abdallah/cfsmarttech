@@ -17,6 +17,7 @@ class ProfileController extends Controller
      */
    public function edit(Request $request): View
 {
+ 
     $settings = SiteSettings::firstOrNew();
     $user = $request->user();
     

@@ -150,7 +150,7 @@
                             <i data-feather="settings" class="svg-icon me-2 ms-1"></i> Account Setting
                         </a> --}}
                         <div class="dropdown-divider"></div>
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('cfcustomer.logout') }}">
                             @csrf
                             <button type="submit" class="dropdown-item">
                                 <i data-feather="power" class="svg-icon me-2 ms-1"></i> Logout

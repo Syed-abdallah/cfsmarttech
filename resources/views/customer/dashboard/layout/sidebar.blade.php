@@ -66,13 +66,13 @@
                 </li> --}}
                 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('logout') }}" 
+                    <a class="sidebar-link" href="{{ route('cfcustomer.logout') }}" 
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                        aria-expanded="false">
                         <i data-feather="log-out" class="feather-icon"></i>
                         <span class="hide-menu">Logout</span>
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('cfcustomer.logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 </li>

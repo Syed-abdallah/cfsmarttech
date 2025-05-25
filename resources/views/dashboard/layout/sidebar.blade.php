@@ -194,6 +194,14 @@
                     </a>
                 </li>
                 @endcan
+           @can('view faq')
+<li class="sidebar-item {{ request()->is('cfadmin/faqs*') ? 'active' : '' }}">
+    <a class="sidebar-link" href="{{ route('cfadmin.faqs.index') }}">
+        <i class="fas fa-question-circle"></i>
+        <span class="hide-menu">FAQs</span>
+    </a>
+</li>
+@endcan
 
                 {{-- Partners --}}
                 @can('view partner')

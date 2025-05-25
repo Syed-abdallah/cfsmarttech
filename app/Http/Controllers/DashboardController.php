@@ -9,36 +9,61 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Total revenue calculation
-        $totalRevenue = Order::where('status', '!=', 'cancelled')->sum('total');
+        // Date filtering
+        $startDate = $request->input('start_date') 
+            ? Carbon::parse($request->input('start_date'))->startOfDay() 
+            : Carbon::now()->subDays(30);
+            
+        $endDate = $request->input('end_date') 
+            ? Carbon::parse($request->input('end_date'))->endOfDay() 
+            : Carbon::now();
+
+        // Base query for orders
+        $orderQuery = Order::query()
+            ->whereBetween('created_at', [$startDate, $endDate]);
+
+        // Total revenue calculation (excluding cancelled orders)
+        $totalRevenue = (clone $orderQuery)
+            ->where('status', '!=', 'cancelled')
+            ->sum('total');
         
-        // New orders (last 7 days)
-        $newOrdersCount = Order::where('created_at', '>=', Carbon::now()->subDays(7))->count();
+        // New orders count (last 7 days)
+        $newOrdersCount = Order::where('created_at', '>=', Carbon::now()->subDays(7))
+            ->count();
         
-        // Monthly revenue
+        // Monthly revenue (current month)
         $monthlyRevenue = Order::where('status', '!=', 'cancelled')
             ->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
             ->sum('total');
             
-        // Products sold
-        $productsSold = OrderItem::has('order')->sum('quantity');
+        // Products sold (only from completed orders)
+        $productsSold = OrderItem::whereHas('order', function($query) {
+                $query->where('status', 'completed');
+            })->sum('quantity');
         
-        // Recent orders
-        $recentOrders = Order::with('items')->latest()->take(10)->get();
+        // Recent orders (filtered by date range if specified)
+        $recentOrders = (clone $orderQuery)
+            ->with('items')
+            ->latest()
+            ->take(10)
+            ->get();
         
-        // Daily sales for chart (last 30 days)
+        // Daily sales for chart (based on filtered date range)
         $dailySales = [];
-        for ($i = 29; $i >= 0; $i--) {
-            $date = Carbon::now()->subDays($i)->format('Y-m-d');
-            $dailySales[$date] = Order::whereDate('created_at', $date)
+        $dateRange = Carbon::parse($startDate)->daysUntil($endDate);
+        
+        foreach ($dateRange as $date) {
+            $formattedDate = $date->format('Y-m-d');
+            $dailySales[$formattedDate] = Order::whereDate('created_at', $formattedDate)
                 ->where('status', '!=', 'cancelled')
                 ->sum('total');
         }
         
         // Payment method breakdown
-        $paymentMethods = Order::select('payment_method')
+        $paymentMethods = (clone $orderQuery)
+            ->select('payment_method')
             ->selectRaw('SUM(total) as total')
             ->where('status', '!=', 'cancelled')
             ->groupBy('payment_method')
@@ -50,10 +75,16 @@ class DashboardController extends Controller
         }
         
         // Order status counts
-        $processingOrders = Order::where('status', 'processing')->count();
-        $shippedOrders = Order::where('status', 'shipped')->count();
-        $completedOrders = Order::where('status', 'completed')->count();
-        $cancelledOrders = Order::where('status', 'cancelled')->count();
+        $statusCounts = (clone $orderQuery)
+            ->select('status')
+            ->selectRaw('COUNT(*) as count')
+            ->groupBy('status')
+            ->pluck('count', 'status');
+            
+        $processingOrders = $statusCounts['processing'] ?? 0;
+        $shippedOrders = $statusCounts['shipped'] ?? 0;
+        $completedOrders = $statusCounts['completed'] ?? 0;
+        $cancelledOrders = $statusCounts['cancelled'] ?? 0;
         
         $orderStatusData = [
             'Processing' => $processingOrders,
@@ -63,26 +94,20 @@ class DashboardController extends Controller
         ];
         
         // Payment method totals
-        $onlinePayments = Order::where('payment_method', 'online')->where('status', '!=', 'cancelled')->sum('total');
-        $bankTransfers = Order::where('payment_method', 'bank-transfer')->where('status', '!=', 'cancelled')->sum('total');
-        $codPayments = Order::where('payment_method', 'cod')->where('status', '!=', 'cancelled')->sum('total');
-        
-        // Top selling products
-        // $topProducts = OrderItem::select('product_id', 'product_name')
-        //     ->selectRaw('SUM(quantity) as total_sold')
-        //     ->with(['product' => function($query) {
-        //         $query->select('id', 'image_url');
-        //     }])
-        //     ->groupBy('product_id', 'product_name')
-        //     ->orderByDesc('total_sold')
-        //     ->take(5)
-        //     ->get();
-         $topProducts  = [];
+        $onlinePayments = (clone $orderQuery)
+            ->where('payment_method', 'online')
+            ->where('status', '!=', 'cancelled')
+            ->sum('total');
             
-        // $maxProductSales = $topProducts->max('total_sold') ?? 1;
-        
-        // Recent activities (you would need an Activity model for this)
-        $recentActivities = []; // Replace with actual activity query
+        $bankTransfers = (clone $orderQuery)
+            ->where('payment_method', 'bank-transfer')
+            ->where('status', '!=', 'cancelled')
+            ->sum('total');
+            
+        $codPayments = (clone $orderQuery)
+            ->where('payment_method', 'cod')
+            ->where('status', '!=', 'cancelled')
+            ->sum('total');
         
         return view('dashboard', compact(
             'totalRevenue',
@@ -93,16 +118,15 @@ class DashboardController extends Controller
             'dailySales',
             'paymentMethodData',
             'orderStatusData',
-            'topProducts',
-            // 'maxProductSales',
-            'recentActivities',
             'processingOrders',
             'shippedOrders',
             'completedOrders',
             'cancelledOrders',
             'onlinePayments',
             'bankTransfers',
-            'codPayments'
+            'codPayments',
+            'startDate',
+            'endDate'
         ));
     }
 }

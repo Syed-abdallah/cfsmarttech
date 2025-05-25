@@ -1128,7 +1128,7 @@ break up of load
                             Where cutting-edge technology meets effortless living in perfect harmony.
                         </p>
                         <div class="d-flex flex-wrap gap-3 mt-5">
-                            <a href="#" class="btn btn-primary btn-lg px-4 py-3 rounded-pill glow-on-hover">
+                            <a href="/calculator" class="btn btn-primary btn-lg px-4 py-3 rounded-pill glow-on-hover">
                                 <i class="bi bi-lightning-charge-fill me-2"></i> Smart Upgrade
                             </a>
                             <a href="#" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">
@@ -1305,88 +1305,151 @@ margin-top: 32px;
 
 
 
-
-    <section class="py-6 py-lg-7 bg-light">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Video Column with Accent Decoration -->
-                <div class="col-lg-6 mb-5 mb-lg-0 position-relative pe-lg-4">
-                    <!-- Decorative Accent Box -->
-                    <div class="position-absolute top-0 start-0 bg-warning opacity-10"
-                        style="width: 93%; height: 98%; z-index: 1; transform: translate(-14px, 30px); border-radius: 12px;">
-                    </div>
-                    <!-- Video Container with Shadow and Border -->
-                    <div class="position-relative rounded-3 overflow-hidden shadow-lg"
-                        style="z-index: 1; border: 8px solid white;">
-                        <video id="promoVideo" class="w-100"
-                            poster="https://placehold.co/600x400?text=CF+Smart+Technology" style="display: block;">
-                            <source src="your-video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-
-                        <!-- Play Button with Pulse Animation -->
-                        <button
-                            class="btn btn-warning rounded-circle position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center shadow"
-                            style="width: 80px; height: 80px; z-index: 3; border: none;"
-                            onclick="document.getElementById('promoVideo').play(); this.style.display='none';">
-                            <i class="bi bi-play-fill fs-3 text-white" style="margin-left: 4px;"></i>
-                            <span
-                                class="position-absolute top-0 start-0 w-100 h-100 rounded-circle bg-warning opacity-75 animate-pulse"
-                                style="z-index: -1;"></span>
-                        </button>
-                    </div>
+<section class="py-6 py-lg-7  mb-5 mt-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Video Column with Accent Decoration -->
+            <div class="col-lg-6 mb-5 mb-lg-0 position-relative pe-lg-4">
+                <!-- Decorative Accent Box -->
+                <div class="position-absolute top-0 start-0 bg-warning opacity-10"
+                    style="width: 93%; height: 98%; z-index: 1; transform: translate(-14px, 30px); border-radius: 12px;">
                 </div>
+                <!-- Video Container with Shadow and Border -->
+                <div class="position-relative rounded-3 overflow-hidden shadow-lg"
+                    style="z-index: 1; border: 8px solid white;">
+                    <video id="promoVideo" class="w-100"
+                        poster="https://placehold.co/600x400?text=CF+Smart+Technology" style="display: block;">
+                        <source src="{{asset('frontend/images/landscape.mp4')}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
 
-                <!-- Content Column -->
-                <div class="col-lg-6 ps-lg-5 mt-5 mb-5">
-                    <h3 class="fw-bold  mb-3">Leading the Renewable Energy Revolution</h3>
-                    <div class="pe-lg-5">
-                        <p class="text-muted mb-4 fs-lg">
-                            CF offers a comprehensive range of products and services designed to tackle the energy crisis
-                            head-on:
-                            Energy Management: Optimize energy consumption with our advanced energy management systems that
-                            provide real-time monitoring, analytics, and control.
-                            Sustainable Development: Partner with us to develop sustainable infrastructure projects that
-                            balance economic growth with environmental stewardship.
-
-                        </p>
-
-                    </div>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="#" class="btn btn-warning px-4 py-3 fw-semibold rounded-pill">Explore Our
-                            Solutions</a>
-                        <a href="#" class="btn btn-outline-secondary px-4 py-3 fw-semibold rounded-pill">
-                            <i class="bi bi-telephone me-2"></i> Contact Us
-                        </a>
-                    </div>
+                    <!-- Play Button with Pulse Animation -->
+                    <button
+                        class="btn btn-warning rounded-circle position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center shadow"
+                        style="width: 80px; height: 80px; z-index: 3; border: none;"
+                        onclick="showVideoModal()">
+                        <i class="bi bi-play-fill fs-3 text-white" style="margin-left: 4px;"></i>
+                        <span
+                            class="position-absolute top-0 start-0 w-100 h-100 rounded-circle bg-warning opacity-75 animate-pulse"
+                            style="z-index: -1;"></span>
+                    </button>
                 </div>
             </div>
+
+            <!-- Content Column -->
+            <div class="col-lg-6 ps-lg-5 mt-5 mb-5">
+                <h3 class="fw-bold mb-3">Leading the Renewable Energy Revolution</h3>
+                <div class="pe-lg-5">
+                    <p class="text-muted mb-4 fs-lg">
+                        CF offers a comprehensive range of products and services designed to tackle the energy crisis
+                        head-on:
+                        Energy Management: Optimize energy consumption with our advanced energy management systems that
+                        provide real-time monitoring, analytics, and control.
+                        Sustainable Development: Partner with us to develop sustainable infrastructure projects that
+                        balance economic growth with environmental stewardship.
+                    </p>
+                </div>
+           
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <style>
-        .animate-pulse {
-            animation: pulse 2s infinite;
+<!-- Video Modal -->
+{{-- <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close btn-close-white" onclick="closeVideoModal()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <video id="modalVideo" class="w-100" controls autoplay>
+                    <source src="{{asset('frontend/images/landscape.mp4')}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+</div> --}}
+<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close btn-close-white" onclick="closeVideoModal()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                @if(isset($settings) && $settings->video_url)
+                    @if(str_contains($settings->video_url, 'youtube.com') || str_contains($settings->video_url, 'youtu.be'))
+                        <!-- YouTube Embed -->
+                        <div class="ratio ratio-16x9">
+                            <iframe src="{{ $settings->video_url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    @else
+                        <!-- Regular Video -->
+                        <video id="modalVideo" class="w-100" controls autoplay>
+                            <source src="{{ $settings->video_url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    @endif
+                @else
+                    <div class="alert alert-info">No video URL has been set in settings.</div>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .animate-pulse {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            opacity: 0.75;
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                opacity: 0.75;
-            }
-
-            70% {
-                transform: scale(1.3);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(0.95);
-                opacity: 0;
-            }
+        70% {
+            transform: scale(1.3);
+            opacity: 0;
         }
-    </style>
 
+        100% {
+            transform: scale(0.95);
+            opacity: 0;
+        }
+    }
+    
+    /* Custom modal styling */
+    .modal-content {
+        background: transparent;
+    }
+    
+    .btn-close-white {
+        filter: invert(1) grayscale(90%) brightness(200%);
+    }
+</style>
+
+<script>
+    function showVideoModal() {
+        const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+        modal.show();
+        document.getElementById('modalVideo').play();
+    }
+    
+    function closeVideoModal() {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('videoModal'));
+        document.getElementById('modalVideo').pause();
+        modal.hide();
+    }
+    
+    // Close modal when clicking outside the video
+    document.getElementById('videoModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeVideoModal();
+        }
+    });
+</script>
 
 
 

@@ -7,6 +7,7 @@ use App\Models\Marquee;
 use App\Models\Slider;
 use App\Models\SiteSettings;
 use App\Models\CustomerAddress;
+use App\Models\Faq;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -114,6 +115,11 @@ public function whyems(){
         return view('frontend.whyems', $this->getCommonData());
 }
 
+  public function faqs()
+    {
+        $faqs = Faq::all(); // Fetch disc golf data
+        return view('Frontend.faq', $this->getCommonData(['faqs' => $faqs]));
+    }
 
 
     //     public function showMarquee()
