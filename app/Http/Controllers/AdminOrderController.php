@@ -43,9 +43,8 @@ class AdminOrderController extends Controller
     }
     public function invoice($order_number)
     {
-        $order = Auth::guard('customer')->user()->orders()
-                    ->where('order_number', $order_number)
-                    ->firstOrFail();
+        $order = \App\Models\Order::where('order_number', $order_number)->firstOrFail();
+
 
         $pdf = $this->generateInvoice($order);
         return $pdf->download("invoice-{$order->order_number}.pdf");

@@ -130,7 +130,7 @@ class OrderController extends Controller
         $order = Auth::guard('customer')->user()->orders()
                     ->where('order_number', $order_number)
                     ->firstOrFail();
-
+// dd($order);
         return view('customer.dashboard.orders.track', compact('order'));
     }
 
@@ -158,9 +158,9 @@ class OrderController extends Controller
         $order = Order::with(['items', 'customer'])
                     ->where('order_number', $order_number)
                     ->firstOrFail();
+                    $shippingAddress = json_decode($order->shipping_address, true);
+            
         
-        $shippingAddress = json_decode($order->shipping_address, true);
-        
-        return view('admin.orders.show', compact('order', 'shippingAddress'));
+        return view('customer.dashboard.orders.show', compact('order', 'shippingAddress'));
     }
 }

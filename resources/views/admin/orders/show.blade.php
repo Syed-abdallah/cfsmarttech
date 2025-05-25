@@ -5,10 +5,10 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Order #{{ $order->order_number }}</h2>
         <div>
-            <a href="{{ route('cfcustomer.customer.orders.index') }}" class="btn btn-outline-secondary me-2">
+            <a href="{{ route('cfadmin.orders.index') }}" class="btn btn-outline-secondary me-2">
                 Back to Orders
             </a>
-            <a href="{{ route('cfcustomer.customer.orders.invoice', $order->order_number) }}" class="btn btn-primary">
+            <a href="{{ route('cfadmin.orders.invoice', $order->order_number) }}" class="btn btn-primary">
                 Download Invoice
             </a>
         </div>

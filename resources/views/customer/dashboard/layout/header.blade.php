@@ -8,11 +8,31 @@
             <!-- Logo -->
             <!-- ============================================================== -->
             <div class="navbar-brand">
-                <!-- Logo icon -->
-                <a href="index.html">
-                    <img src="{{asset('dashboard/assets/images/gallery/chair.jpg')}}" alt="" class="img-fluid" width="50" height="50">
-                    
-                </a>
+               
+   @php
+    // Fetch logo data directly from database
+    $siteSettings = DB::table('site_settings')->first();
+    $logoPath = $siteSettings->logo_path ?? null;
+    
+    // Check if logo exists
+    if ($logoPath && file_exists(public_path($logoPath))) {
+        $logoUrl = asset($logoPath);
+        $altText = $siteSettings->website_name ?? config('app.name');
+@endphp
+
+        <img src="{{ $logoUrl }}" 
+             alt="{{ $altText }} Logo"
+             height="60" 
+             width="90" 
+             class="me-2" 
+             style="margin-left: 30px">
+
+@php
+    } else {
+        // Optional: Show a placeholder if logo doesn't exist
+        echo '<div style="height:60px; width:90px; margin-left:30px;" class="me-2 bg-light d-inline-block"></div>';
+    }
+@endphp
             </div>
             <!-- ============================================================== -->
             <!-- End Logo -->
@@ -129,7 +149,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ asset('dashboard/assets/images/users/profile-pic.jpg') }}" alt="user" class="rounded-circle" width="40">
+                        {{-- <img src="{{ asset('dashboard/assets/images/users/profile-pic.jpg') }}" alt="user" class="rounded-circle" width="40"> --}}
                         <span class="ms-2 d-none d-lg-inline-block"><span>Hello,</span> 
                             <span class="text-dark">{{ auth('customer')->user()->name }}</span> 
                             <i data-feather="chevron-down" class="svg-icon"></i>

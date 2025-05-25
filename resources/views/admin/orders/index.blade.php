@@ -48,16 +48,11 @@
                             @endcan
                             <td>
                                 @can('show order')
-                                <a href="{{ route('cfadmin.admin.orders.show', $order->order_number) }}" class="btn btn-sm btn-primary">
+                                <a href="{{ route('cfadmin.orders.show', $order->order_number) }}" class="btn btn-sm btn-primary">
                                 View
                                 </a>
                                 @endcan
-                                {{-- @can('view order invoice') --}}
-                                @can('show order')
-                                <a href="{{ route('cfadmin.admin.orders.invoice', $order->order_number) }}" class="btn btn-sm btn-secondary">
-                                    Track
-                                </a>
-                                 @endcan
+                          
                             </td>
                         </tr>
                         @endforeach

@@ -17,11 +17,11 @@
 
                 {{-- Orders --}}
                 @php
-                    $orderRoutes = ['cfadmin.admin.orders.index', 'cfadmin.admin.orders.show'];
+                    $orderRoutes = ['cfadmin.orders.index', 'cfadmin.orders.show'];
                 @endphp
                 @can('view order')
                 <li class="sidebar-item {{ request()->routeIs($orderRoutes) ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('cfadmin.admin.orders.index') }}">
+                    <a class="sidebar-link" href="{{ route('cfadmin.orders.index') }}">
                         <i data-feather="shopping-bag" class="feather-icon"></i>
                         <span class="hide-menu">Orders</span>
                     </a>

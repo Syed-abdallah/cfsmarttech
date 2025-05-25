@@ -50,7 +50,7 @@ Route::middleware(['auth:customer'])->group(function () {
 Route::group(['middleware' => ['auth:customer'], 'prefix'=>'cfcustomer', 'as'=>'cfcustomer.'],function(){
     
     Route::get('/orders', [OrderController::class, 'index'])->name('customer.orders.index');
-    Route::get('/orders/{order_number}', [OrderController::class, 'show'])->name('customer.orders.show');
+    Route::get('/orders/{order_number}/show', [OrderController::class, 'show'])->name('customer.orders.show');
     Route::post('/orders/{order_number}/cancel', [OrderController::class, 'cancel'])->name('customer.orders.cancel');
     Route::get('/orders/{order_number}/track', [OrderController::class, 'track'])->name('customer.orders.track');
     Route::get('/orders/{order_number}/invoice', [OrderController::class, 'invoice'])->name('customer.orders.invoice');
@@ -111,13 +111,13 @@ Route::resource('/roomtype', \App\Http\Controllers\RoomTypeController::class)->e
 
     Route::post('/orders/update-status', [AdminOrderController::class, 'updateStatus'])
         ->name('orders.update-status');
-    Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
+    Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
 
 
 
 
-     Route::get('/orders/{order_number}', [AdminOrderController::class, 'adminshow'])->name('admin.orders.show');
-    Route::get('/orders/{order_number}/invoice', [AdminOrderController::class, 'invoice'])->name('admin.orders.invoice');
+     Route::get('/orders/{order_number}', [AdminOrderController::class, 'adminshow'])->name('orders.show');
+    Route::get('/orders/{order_number}/invoice', [AdminOrderController::class, 'invoice'])->name('orders.invoice');
 
 
 
