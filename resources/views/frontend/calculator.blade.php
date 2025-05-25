@@ -795,8 +795,16 @@
                 <!-- Step 10: Final Results -->
                 <div id="step10" class="form-step">
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <button id="reset-btn" type="button">Reset</button>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">Result</a>
+                        {{-- <button id="reset-btn" type="button">Reset</button>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">Result</a> --}}
+                        <div class="d-flex gap-2 align-items-center">  <!-- Added align-items-center -->
+    <button id="reset-btn" type="button" class="btn btn-light border rounded-pill px-3 py-2">  <!-- Changed to py-2 -->
+        <i class="bi bi-arrow-repeat me-1"></i> Reset
+    </button>
+    <a href="#" id="result-btn" class="btn btn-primary rounded-pill px-3 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: -25px">  <!-- Changed to py-2 -->
+        <i class="bi bi-bar-chart-line me-1"></i> Result
+    </a>
+</div>
                     </div>
                     <div class="result-container">
                         <h2>Estimated Budget</h2>
@@ -857,8 +865,20 @@
                 <!-- Step 14: Commercial Results -->
                 <div id="step14" class="form-step">
                     <div class="result-container">
-                        <button id="reset-btn-commercial" type="button">Reset</button>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">Result</a>
+                        {{-- <button id="reset-btn-commercial" type="button">Reset</button>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="text-decoration: none;">Result</a> --}}
+                        
+
+
+    <button id="reset-btn-commercial" type="button" class="btn btn-light border rounded-pill px-3 py-2">  <!-- Changed to py-2 -->
+        <i class="bi bi-arrow-repeat me-1"></i> Reset
+    </button>
+    <a href="#" id="result-btn" class="btn btn-primary rounded-pill px-3 py-2" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: -25px">  <!-- Changed to py-2 -->
+        <i class="bi bi-bar-chart-line me-1"></i> Result
+    </a>
+
+
+
                         <h2>Total Commercial Property Estimate</h2>
                         <div class="cost-value" id="commercial-estimated-cost">Rs. 0</div>
                         <div class="price-range">

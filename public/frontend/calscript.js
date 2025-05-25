@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         } else {
           if (this.currentStep >= 5) {
-            this.calculateEstimate();
+            // this.calculateEstimate();
           }
           if (this.currentStep >= 6) {
             this.calculateRoomEstimate();
@@ -536,7 +536,17 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // Show current step
-      document.getElementById(`step${this.currentStep}`).classList.add('active');
+      // document.getElementById(`step${this.currentStep}`).classList.add('active');
+      const stepEl = document.getElementById(`step${this.currentStep}`);
+if (stepEl) {
+  stepEl.classList.add('active');
+} else {
+  console.warn('Step element not found. Resetting to step 0.');
+  this.currentStep = 0;
+  this.updateForm();
+  return;
+}
+
 
       // Navigation buttons logic
       const isCommercialStep = this.currentStep >= 11 && this.currentStep <= 14;
@@ -719,6 +729,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 calculateEstimate() {
   // Helper function for dynamic range calculation
+if (!this.packagePrices || Object.keys(this.packagePrices).length === 0) {
+  console.warn('Package prices not yet loaded. Skipping estimate.');
+  return;
+}
+
+
   const calculateDynamicRange = (price) => {
     const onePercent = price * 0.01;
     return onePercent < 5000 
@@ -869,6 +885,14 @@ calculateEstimate() {
       if (data) {
         formState.updatePrices(data);
         // Recalculate estimates if needed
+  if (formState.currentStep >= 5) {
+      formState.calculateEstimate();
+    }
+    if (formState.currentStep >= 6) {
+      formState.calculateRoomEstimate();
+    }
+
+
         if (formState.currentStep > 0) {
           formState.calculateEstimate();
           formState.calculateRoomEstimate();
