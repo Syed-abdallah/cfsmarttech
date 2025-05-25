@@ -830,7 +830,7 @@
                                     "
                             data-aos="fade-left" data-aos-delay="200">
 
-                        <img src="{{ asset('frontend/images/giff.gif') }}" alt="Decorative Background1"
+                        {{-- <img src="{{ asset('frontend/images/giff.gif') }}" alt="Decorative Background1"
                             style="
                                     position: absolute;
                                     right: 25px;
@@ -841,7 +841,7 @@
                                     z-index: 1;
                                     pointer-events: none;
                                 "
-                            data-aos="zoom-in" data-aos-delay="300">
+                            data-aos="zoom-in" data-aos-delay="300"> --}}
 
                         <!-- About / Vision / Mission Blocks -->
                         <div class="mt-5" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
@@ -980,37 +980,91 @@
 
 
 
+
     <section class="container my-5">
-        <div class="row">
-            <div class="col-md-12 col-lg-4">
-                <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                    <img src="{{ asset('frontend/images/capture.png') }}" alt="Energy consumption notification content"
-                        class="img-fluid" style="width: 73%; height: 480px; display: block;">
-                    <div class="text-center mt-2">
-                        <h5>Energy Consumption Overview</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-4">
-                <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                    <img src="{{ asset('frontend/images/capture1.png') }}" alt="Energy consumption notification content"
-                        class="img-fluid" style="width: 73%; height: 480px; display: block;">
-                    <div class="text-center mt-2">
-                        <h5>Detailed Usage Analysis</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-4">
-                <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                    <img src="{{ asset('frontend/images/capture3.png') }}" alt="Energy consumption notification content"
-                        class="img-fluid" style="width: 73%; height: 480px; display: block;">
-                    <div class="text-center mt-2">
-                        <h5>Savings Recommendations</h5>
+    <div class="row">
+        <div class="col-md-12 col-lg-4 mb-4">
+            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                <img src="{{ asset('frontend/images/capture.png') }}" alt="Energy consumption notification content"
+                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                <div class="text-center mt-3 px-3">
+                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #0d6efd;">
+                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #0d6efd;"></i>All Load Dashboard</h5>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="col-md-12 col-lg-4 mb-4">
+            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                <img src="{{ asset('frontend/images/capture1.png') }}" alt="Energy consumption notification content"
+                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                <div class="text-center mt-3 px-3">
+                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #fd7e14;">
+                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #fd7e14;"></i>Live Dashboard</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4 mb-4">
+            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                <img src="{{ asset('frontend/images/capture3.png') }}" alt="Energy consumption notification content"
+                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                <div class="text-center mt-3 px-3">
+                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #20c997;">
+                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #20c997;"></i>Detailed Data (One Load)</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+   <section class="container my-5">
+    <div class="row">
+        <div class="col-md-12 col-lg-4 mb-4">
+            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                <img src="{{ asset('frontend/images/capture4.png') }}" alt="Energy consumption notification content"
+                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                <div class="text-center mt-3 px-3">
+                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #0d6efd;">
+                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #0d6efd;"></i>Control The Load</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4 mb-4">
+            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                <img src="{{ asset('frontend/images/capture5.png') }}" alt="Energy consumption notification content"
+                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                <div class="text-center mt-3 px-3">
+                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #fd7e14;">
+                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #fd7e14;"></i>Edit Values To Switch Off Load Automatically</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4 mb-4">
+            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                <img src="{{ asset('frontend/images/capture6.png') }}" alt="Energy consumption notification content"
+                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                <div class="text-center mt-3 px-3">
+                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #20c997;">
+                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #20c997;"></i> 
+break up of load
+</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
 
 
 
@@ -1089,7 +1143,7 @@
                     <div class="position-relative" style="max-width: 300px; margin: 0 auto;">
                         <div class="iphone-mockup">
                             <div class="screen">
-                                <div class="screen-content" style="background-image: url('frontend/images/mobile.jpg');">
+                                <div class="screen-content" style="background-image: url('frontend/images/mobiles.png');">
                                 </div>
                             </div>
                             <div class="home-button"></div>
@@ -1152,23 +1206,24 @@
         /* iPhone Mockup */
         .iphone-mockup {
             position: relative;
-            width: 100%;
+margin-top: 32px;
+            width: 90%;
             padding-bottom: 200%;
-            background: #f1f1f1;
+            /* background: #f1f1f1;
             border-radius: 40px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 10px solid #1e293b;
+            border: 10px solid #1e293b; */
         }
 
         .iphone-mockup .screen {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 15px;
+            left: 15px;
             right: 10px;
             bottom: 50px;
             border-radius: 30px;
             overflow: hidden;
-            background: #000;
+            /* background: #000; */
         }
 
         .iphone-mockup .screen-content {
@@ -1177,7 +1232,7 @@
             background-size: cover;
             background-position: center;
         }
-
+/* 
         .iphone-mockup .home-button {
             position: absolute;
             bottom: 15px;
@@ -1187,7 +1242,7 @@
             height: 5px;
             background: #1e293b;
             border-radius: 5px;
-        }
+        } */
 
         /* Floating Devices Animation */
         .floating-devices {

@@ -1270,12 +1270,16 @@ function showToast(message, type = 'success') {
     Toastify({
         text: message,
         duration: 3000,
-        close: true,
+        // close: true,
         gravity: "top",
         position: "right",
         backgroundColor: colors[type],
         stopOnFocus: true,
-        className: "toast-animated"
+        className: "toast-animated",
+           style: {
+            borderRadius: '12px', // Larger border radius
+            marginTop: '30px'    // Note: camelCase for CSS properties in JS
+        },
     }).showToast();
 }
 
