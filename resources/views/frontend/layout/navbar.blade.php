@@ -1,17 +1,14 @@
-
 <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-custom">
     <div class="container">
         <a class="navbar-brand" href="#">
             @if($settings->logo_path)
-            <img src="{{ $settings->logo_path }}" alt="" srcset="" width="60px"
-            height="60px">
+            <img src="{{ $settings->logo_path }}" alt="" srcset="" width="60px" height="60px">
             @endif
         </a>
             
-            <a class="navbar-brand d-none d-sm-inline-block" href="#">
-            <span style="color: {{ $settings->name_color }};">
-          {{ $settings->website_name }}</span>
-          </a>
+        <a class="navbar-brand d-none d-sm-inline-block" href="#">
+            <span style="color: {{ $settings->name_color }};">{{ $settings->website_name }}</span>
+        </a>
   
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,60 +17,47 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link " href="/">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
            
                 <li class="nav-item">
                     <a class="nav-link" href="/products">Products</a>
                 </li>
-<li class="nav-item dropdown mega-dropdown position-static">
-    <a class="nav-link dropdown-toggle" href="#" id="megaMenu" role="button">
-        Services
-    </a>
-    <div class="dropdown-menu mega-menu shadow-lg border-0 p-0" aria-labelledby="megaMenu">
-        <div class="container py-4">
-            <div class="row g-4">
-                <!-- Column 1 -->
-                <div class="col-lg-4">
-                    <div class="bg-soft-primary rounded-4 p-3 h-100">
-                        <h6 class="fw-bold text-primary mb-3 border-bottom pb-2"><i class="bi bi-code-slash me-2"></i>Solutions</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="/history" class="dropdown-item-adv"><i class="bi bi-clock-history me-2"></i>Our History</a></li>
-                            <li><a href="/goal" class="dropdown-item-adv"><i class="bi bi-bullseye me-2"></i>Our Goal</a></li>
-                            <li><a href="/audit" class="dropdown-item-adv"><i class="bi bi-clipboard-check me-2"></i>Audit</a></li>
-                        </ul>
-                    </div>
-                </div>
+                
+                <li class="nav-item dropdown mega-dropdown position-static">
+                    <a class="nav-link dropdown-toggle" href="#" id="megaMenu" role="button">
+                        Services
+                    </a>
+                    <div class="dropdown-menu mega-menu shadow-lg border-0 p-0" aria-labelledby="megaMenu">
+                        <div class="container py-4">
+                            <div class="row g-4">
+                                <!-- Column 1 -->
+                                <div class="col-lg-4">
+                                    <div class="bg-soft-primary rounded-4 p-3 h-100">
+                                        <h6 class="fw-bold text-primary mb-3 border-bottom pb-2"><i class="bi bi-code-slash me-2"></i>Solutions</h6>
+                                        <ul class="list-unstyled">
+                                            <li><a href="/history" class="dropdown-item-adv"><i class="bi bi-clock-history me-2"></i>Our History</a></li>
+                                            <li><a href="/goal" class="dropdown-item-adv"><i class="bi bi-bullseye me-2"></i>Our Goal</a></li>
+                                            <li><a href="/audit" class="dropdown-item-adv"><i class="bi bi-clipboard-check me-2"></i>Audit</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                <!-- Column 2 -->
-                <div class="col-lg-4">
-                    <div class="bg-soft-success rounded-4 p-3 h-100">
-                        <h6 class="fw-bold text-success mb-3 border-bottom pb-2"><i class="bi bi-briefcase me-2"></i>Advisory</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="/offering" class="dropdown-item-adv"><i class="bi bi-handshake me-2"></i>Offering</a></li>
-                            <li><a href="/case-study" class="dropdown-item-adv"><i class="bi bi-mortarboard me-2"></i>Case Study</a></li>
-                            <li><a href="#" class="dropdown-item-adv"><i class="bi bi-life-preserver me-2"></i>Support</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Column 3 -->
-                {{-- <div class="col-lg-4">
-                    <div class="bg-soft-danger rounded-4 p-3 h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <h6 class="fw-bold text-danger mb-3 border-bottom pb-2"><i class="bi bi-star-fill me-2"></i>Special Offer</h6>
-                            <p class="small text-dark mb-2">🎉 Save 20% on your first project.</p>
+                                <!-- Column 2 -->
+                                <div class="col-lg-4">
+                                    <div class="bg-soft-success rounded-4 p-3 h-100">
+                                        <h6 class="fw-bold text-success mb-3 border-bottom pb-2"><i class="bi bi-briefcase me-2"></i>Advisory</h6>
+                                        <ul class="list-unstyled">
+                                            <li><a href="/offering" class="dropdown-item-adv"><i class="bi bi-handshake me-2"></i>Offering</a></li>
+                                            <li><a href="/case-study" class="dropdown-item-adv"><i class="bi bi-mortarboard me-2"></i>Case Study</a></li>
+                                            <li><a href="#" class="dropdown-item-adv"><i class="bi bi-life-preserver me-2"></i>Support</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <a href="/promo" class="btn btn-gradient btn-sm mt-auto w-100 text-center">Claim Now</a>
                     </div>
-                </div> --}}
-            </div>
-        </div>
-    </div>
-</li>
-
-
-
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('message-from-management')}}">Our Message</a>
@@ -81,8 +65,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/cfcustomer/login">Portal</a>
                 </li>
-             
             </ul>
+            
             <div class="d-none d-lg-block ms-3">
                 <a href="/calculator" class="btn btn-dark rounded-pill px-4">
                     Calculator
@@ -94,7 +78,7 @@
             <div id="cart-dropdown" class="dropdown ms-3">
                 <a href="#" class="text-decoration-none cart-icon-wrapper" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <i class="bi bi-cart3 fs-3  action-cart" style="color: #6a11cb;"></i>
+                    <i class="bi bi-cart3 fs-3 action-cart" style="color: #6a11cb;"></i>
                     <span id="cart-count"
                         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">0</span>
                 </a>
@@ -129,29 +113,52 @@
                     </div>
                 </ul>
             </div>
-
         </div>
     </div>
-</nav> 
+</nav>
+
 <style>
-/* Mega dropdown - show on hover */
-.mega-dropdown:hover > .dropdown-menu {
+/* Mega dropdown - show on hover with delay */
+.mega-dropdown > .dropdown-menu {
     display: block;
-    animation: megaFadeIn 0.4s ease forwards;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease 0.2s, visibility 0s linear 0.3s, transform 0.3s ease 0.2s;
+    transform: translateY(10px);
 }
 
-@keyframes megaFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.mega-dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
 }
 
-/* Animate columns in mega menu (staggered fade) */
+/* Add invisible padding below the Services link */
+.mega-dropdown > a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: transparent;
+}
+
+/* Mega menu styling */
+.dropdown-menu.mega-menu {
+    left: 0;
+    right: 0;
+    top: 80%;
+    background: #fff;
+    border-top: 4px solid #6a11cb;
+    border-radius: 0 0 16px 16px;
+    z-index: 999;
+}
+
+/* Animate columns in mega menu */
 .mega-menu .col-lg-4 {
     opacity: 0;
     transform: translateY(20px);
@@ -164,9 +171,6 @@
 .mega-menu .col-lg-4:nth-child(2) {
     animation-delay: 0.2s;
 }
-.mega-menu .col-lg-4:nth-child(3) {
-    animation-delay: 0.3s;
-}
 
 @keyframes fadeInStagger {
     to {
@@ -175,18 +179,7 @@
     }
 }
 
-/* Mega menu styling */
-.dropdown-menu.mega-menu {
-    left: 0;
-    right: 0;
-    top:70%;
-    background: #fff;
-    border-top: 4px solid #6a11cb;
-    border-radius: 0 0 16px 16px;
-    z-index: 999;
-}
-
-/* Link hover effect - underline slide in */
+/* Link hover effect */
 .dropdown-item-adv {
     position: relative;
     display: inline-block;
@@ -219,45 +212,69 @@
     color: #6a11cb;
 }
 
-/* Gradient CTA button */
-.btn-gradient {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    color: white !important;
-    font-weight: 600;
-    border-radius: 25px;
-    padding: 8px 16px;
-    transition: all 0.3s ease;
+/* Cart dropdown positioning */
+#cart-dropdown {
+    position: relative;
+    z-index: 1000; /* Higher than mega menu */
 }
 
-.btn-gradient:hover {
-    background: linear-gradient(to right, #2575fc, #6a11cb);
+/* Responsive fixes */
+@media (max-width: 991.98px) {
+    .mega-dropdown > .dropdown-menu {
+        position: static !important;
+        display: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .mega-dropdown.show > .dropdown-menu {
+        display: block !important;
+    }
+    
+    .mega-menu .col-lg-4 {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
 
 /* Section colors */
 .bg-soft-primary { background-color: #f3f6ff; }
 .bg-soft-success { background-color: #e7f9f1; }
-.bg-soft-danger  { background-color: #fff0f0; }
-
-/* Responsive fix */
-@media (max-width: 991.98px) {
-    .mega-dropdown > .dropdown-menu {
-        position: static !important;
-    }
-    .mega-menu .col-lg-4 {
-        opacity: 1 !important;
-        transform: none !important;
-        animation: none !important;
-    }
-}
-
-
 </style>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const megaLink = document.querySelector('.mega-dropdown > a');
-        megaLink.addEventListener('click', function (e) {
-            if (window.innerWidth >= 992) e.preventDefault();
-        });
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Make mega menu work properly on mobile
+    const megaDropdown = document.querySelector('.mega-dropdown');
+    const megaLink = megaDropdown.querySelector('a');
+    
+    megaLink.addEventListener('click', function(e) {
+        if (window.innerWidth < 992) {
+            e.preventDefault();
+            megaDropdown.classList.toggle('show');
+        }
     });
+    
+    // Close mega menu when clicking elsewhere
+    document.addEventListener('click', function(e) {
+        if (!megaDropdown.contains(e.target)) {
+            megaDropdown.classList.remove('show');
+        }
+    });
+    
+    // Prevent cart from triggering mega menu hover
+    const cartIcon = document.querySelector('.cart-icon-wrapper');
+    
+    cartIcon.addEventListener('mouseenter', function() {
+        megaDropdown.classList.add('disable-hover');
+    });
+    
+    cartIcon.addEventListener('mouseleave', function() {
+        setTimeout(() => {
+            megaDropdown.classList.remove('disable-hover');
+        }, 300);
+    });
+});
 </script>
