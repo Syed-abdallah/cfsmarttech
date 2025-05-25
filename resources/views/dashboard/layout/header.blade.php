@@ -23,7 +23,7 @@
         <img src="{{ $logoUrl }}" 
              alt="{{ $altText }} Logo"
              height="60" 
-             width="90" 
+             width="80" 
              class="me-2" 
              style="margin-left: 30px">
 
