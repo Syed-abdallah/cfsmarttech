@@ -1,6 +1,4 @@
-@extends('dashboard.layout.layout')
 
-@section('content')
 <div class="card">
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -34,7 +32,7 @@
                     @foreach($sliders as $slider)
                     <tr>
                         <td>
-                            <img src="{{ asset('Uploads/sliders/'.$slider->image) }}" alt="{{ $slider->heading }}" style="max-width: 100px;">
+                            <img src="{{ asset('uploads/sliders/'.$slider->image) }}" alt="{{ $slider->heading }}" style="max-width: 100px;">
                         </td>
                         <td>{{ $slider->heading }}</td>
                         <td>{{ Str::limit($slider->paragraph, 50) }}</td>
