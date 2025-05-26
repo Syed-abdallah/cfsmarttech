@@ -60,7 +60,13 @@ public function store(Request $request)
     $data['customer_id'] = $customer->id;
     
     $address = CustomerAddress::create($data);
-    return redirect()->back()->with('success', 'Address created successfully.');
+        session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Address created successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
+    return redirect()->back();
     // return response()->json($address);
     // dd($request->all());
 }
@@ -105,7 +111,13 @@ public function store(Request $request)
         }
 
         $address->delete();
-return redirect()->back()->with();
+            session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Address deleted successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
+return redirect()->back();
         // return response()->json(['message' => 'Address deleted successfully.']);
     }
 
@@ -119,8 +131,14 @@ return redirect()->back()->with();
     
         $customer->addresses()->update(['is_default' => false]);
         $address->update(['is_default' => true]);
+            session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Default address updated successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
     
-        return back()->with('success', 'Default address updated.');
+        return back();
     }
     
     

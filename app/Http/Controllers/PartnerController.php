@@ -51,8 +51,14 @@ class PartnerController extends Controller
             'image' => $imageName, // Store only the filename
             'is_active' => $request->has('is_active')
         ]);
+               session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Partner added successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
 
-        return back()->with('success', 'Partner added successfully');
+        return back();
     }
 
     public function update(Request $request, Partner $partner)
@@ -72,7 +78,13 @@ class PartnerController extends Controller
         }
 
         $partner->update($data);
-        return back()->with('success', 'Partner updated successfully');
+                    session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Partner updated successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
+        return back();
     }
 
     public function destroy(Partner $partner)
@@ -83,12 +95,24 @@ class PartnerController extends Controller
         }
 
         $partner->delete();
-        return back()->with('success', 'Partner deleted successfully');
+                    session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Partner deleted successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
+        return back();
     }
 
     public function toggleStatus(Partner $partner)
     {
         $partner->update(['is_active' => !$partner->is_active]);
-        return back()->with('success', 'Status updated successfully');
+                    session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Status updated successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
+        return back();
     }
 }

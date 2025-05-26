@@ -39,17 +39,17 @@ class CommercialPriceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'size' => 'required|integer',
-            'price' => 'required|numeric',
-        ]);
+    // public function store(Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'size' => 'required|integer',
+    //         'price' => 'required|numeric',
+    //     ]);
 
-        CommercialPrice::create($validated);
+    //     CommercialPrice::create($validated);
 
-        return redirect()->route('cfadmin.commercial.index')->with('success', 'Price added successfully');
-    }
+    //     return redirect()->route('cfadmin.commercial.index')->with('success', 'Price added successfully');
+    // }
 
     /**
      * Display the specified resource.

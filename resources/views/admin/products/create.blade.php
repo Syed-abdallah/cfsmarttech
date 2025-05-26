@@ -54,7 +54,7 @@
             
             <div class="form-group mb-3">
                 <label for="image">Main Image</label>
-                <input type="file" class="form-control" id="image" name="image">
+                <input type="file" class="form-control" id="image" name="image" required>
             </div>
             
             <div class="form-group mb-3">

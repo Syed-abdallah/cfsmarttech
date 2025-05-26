@@ -118,8 +118,14 @@ class OrderController extends Controller
                     ->firstOrFail();
 
         $order->update(['status' => 'cancelled']);
+               session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Order has been cancelled successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
 
-        return redirect()->back()->with('success', 'Order has been cancelled successfully');
+        return redirect()->back();
     }
 
     /**

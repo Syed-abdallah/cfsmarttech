@@ -41,9 +41,9 @@ class ProductController extends Controller
     'sku' => 'required|string|unique:products,sku',
     'description' => 'nullable|string',
     'text' => 'nullable|string',
-    'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    'image' => 'image|mimes:jpeg,png,jpg,gif',
+    'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+    'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif',
 ]);
 
 $data = $request->except(['image', 'image1', 'image2']);
@@ -72,9 +72,14 @@ foreach (['image', 'image1', 'image2'] as $field) {
 // Save to database
 Product::create($data);
     
- 
+     session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Product created successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
     
-        return redirect()->route('cfadmin.products.index')->with('success', 'Product created successfully.');
+        return redirect()->route('cfadmin.products.index');
     }
 
     public function show(Product $product)
@@ -127,7 +132,14 @@ Product::create($data);
 
     $product->update($data);
 
-    return redirect()->route('cfadmin.products.index')->with('success', 'Product updated successfully.');
+        session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Product update successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
+
+    return redirect()->route('cfadmin.products.index');
 }
    public function destroy(Product $product)
 {
@@ -142,7 +154,12 @@ Product::create($data);
     }
 
     $product->delete();
-
-    return redirect()->route('cfadmin.products.index')->with('success', 'Product deleted successfully.');
+    session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Product delete successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
+    return redirect()->route('cfadmin.products.index');
 }
 }

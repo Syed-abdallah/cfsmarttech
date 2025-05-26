@@ -48,9 +48,14 @@ class FAQController extends Controller
             'question' => $request->input('question'),
             'answer' => $request->input('answer'),
         ]);
-    
+        session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'FAQ created successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
         // Redirect back with a success message
-        return redirect()->route('cfadmin.faqs.index')->with('success', 'FAQ created successfully.');
+        return redirect()->route('cfadmin.faqs.index');
     }
     
     public function edit($id)
@@ -78,15 +83,26 @@ class FAQController extends Controller
             'question' => $request->input('question'),
             'answer' => $request->input('answer'),
         ]);
-    
+           session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'FAQ updated successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
         // Redirect back to the FAQ index page with a success message
-        return redirect()->route('cfadmin.faqs.index')->with('success', 'FAQ updated successfully.');
+        return redirect()->route('cfadmin.faqs.index');
     }
     
     public function destroy($id)
     {
         $faq = Faq::findOrFail($id);
         $faq->delete();
-        return redirect()->back()->with('success', 'FAQ deleted successfully.');
+               session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'FAQ deleted successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
+        return redirect()->back();
     }
 }

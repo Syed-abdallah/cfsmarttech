@@ -40,9 +40,14 @@ class MarqueeController extends Controller
             'content' => $request->content,
             'is_active' => $request->boolean('is_active'), // Returns true/false properly
         ]);
-    
+           session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Announcement added successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
         return redirect()->route('cfadmin.marquees.index')
-            ->with('success', 'Marquee announcement added successfully.');
+           ;
     }
     
 
@@ -58,23 +63,39 @@ class MarqueeController extends Controller
         'content' => $request->content,
         'is_active' => $request->has('is_active') // This will return true if checkbox was checked
     ]);
-
+       session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Announcement updated successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
     return redirect()->route('cfadmin.marquees.index')
-        ->with('success', 'Marquee announcement updated successfully.');
+       ;
 }
     public function destroy(Marquee $marquee)
     {
         $marquee->delete();
-
+       session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Announcement deleted successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
         return redirect()->route('cfadmin.marquees.index')
-            ->with('success', 'Marquee announcement deleted successfully.');
+           ;
     }
 
     public function toggleStatus(Marquee $marquee)
     {
         $marquee->update(['is_active' => !$marquee->is_active]);
+               session()->flash('toast', [
+        'type' => 'success',
+        'message' => 'Announcement status updated successfully!',
+        'timer' => 9000,
+        'bar' => true,
+    ]);
 
-        return back()->with('success', 'Marquee status updated successfully.');
+        return back();
     }
 
 }
