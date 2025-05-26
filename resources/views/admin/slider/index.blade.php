@@ -119,7 +119,7 @@ no permission
                                                     @enderror
                                                     <small class="text-muted">Current image: {{ $slider->image }}</small>
                                                     <div class="mt-2">
-                                                        <img src="{{ asset('Uploads/sliders/'.$slider->image) }}" alt="Current Image" style="max-width: 40%;height: 150px;">
+                                                        <img src="{{ asset('uploads/sliders/'.$slider->image) }}" alt="Current Image" style="max-width: 40%;height: 150px;">
                                                     </div>
                                                 </div>
                                                 <div class="form-check form-switch">
