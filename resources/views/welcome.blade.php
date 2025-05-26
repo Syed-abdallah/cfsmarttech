@@ -860,7 +860,7 @@
                         <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
                             data-aos="fade-left" data-aos-delay="200">
                             <div style="flex: 0 0 auto;">
-                                <img src="{{ asset('frontend/images/Picture40.png') }}" alt="Icon"
+                                <img src="{{ asset('frontend/images/picture40.png') }}" alt="Icon"
                                     style="width: 50px;">
                             </div>
                             <div style="flex: 1; min-width: 250px; ">
@@ -877,7 +877,7 @@
                         <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
                             data-aos="fade-left" data-aos-delay="200">
                             <div style="flex: 0 0 auto;">
-                                <img src="{{ asset('frontend/images/Picture45.png') }}" alt="Icon"
+                                <img src="{{ asset('frontend/images/picture45.png') }}" alt="Icon"
                                     style="width: 50px;">
                             </div>
                             <div style="flex: 1; min-width: 250px; ">
@@ -892,7 +892,7 @@
                         <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
                             data-aos="fade-left" data-aos-delay="200">
                             <div style="flex: 0 0 auto;">
-                                <img src="{{ asset('frontend/images/Picture44.png') }}" alt="Icon"
+                                <img src="{{ asset('frontend/images/picture44.png') }}" alt="Icon"
                                     style="width: 50px;">
                             </div>
                             <div style="flex: 1; min-width: 250px; ">
@@ -905,7 +905,7 @@
                         <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
                             data-aos="fade-left" data-aos-delay="200">
                             <div style="flex: 0 0 auto;">
-                                <img src="{{ asset('frontend/images/Picture43.png') }}" alt="Icon"
+                                <img src="{{ asset('frontend/images/picture43.png') }}" alt="Icon"
                                     style="width: 50px;">
                             </div>
                             <div style="flex: 1; min-width: 250px; ">
@@ -919,7 +919,7 @@
                         <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
                             data-aos="fade-left" data-aos-delay="200">
                             <div style="flex: 0 0 auto;">
-                                <img src="{{ asset('frontend/images/Picture42.png') }}" alt="Icon"
+                                <img src="{{ asset('frontend/images/picture42.png') }}" alt="Icon"
                                     style="width: 50px;">
                             </div>
                             <div style="flex: 1; min-width: 250px; ">
@@ -933,7 +933,7 @@
                         <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;"
                             data-aos="fade-left" data-aos-delay="200">
                             <div style="flex: 0 0 auto;">
-                                <img src="{{ asset('frontend/images/Picture41.png') }}" alt="Icon"
+                                <img src="{{ asset('frontend/images/picture41.png') }}" alt="Icon"
                                     style="width: 50px;">
                             </div>
                             <div style="flex: 1; min-width: 250px; ">
