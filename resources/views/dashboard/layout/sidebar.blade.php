@@ -62,14 +62,14 @@
                 @endcanany
 
                 {{-- Permissions --}}
-                @can('view permission')
+                {{-- @can('view permission')
                 <li class="sidebar-item {{ request()->is('cfadmin/permissions*') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('cfadmin.permissions.index') }}">
                         <i data-feather="key" class="feather-icon"></i>
                         <span class="hide-menu">Permissions</span>
                     </a>
                 </li>
-                @endcan
+                @endcan --}}
 
                 {{-- Roles --}}
                 @can('view role')
