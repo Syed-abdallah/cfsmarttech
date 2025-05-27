@@ -1025,6 +1025,8 @@ async function deleteAddress(id) {
     const result = await response.json();
     if (result.message) {
         alert(result.message);
+                location.reload();
+
         loadAddresses();
     }
 }
