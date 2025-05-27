@@ -1048,7 +1048,7 @@ document.getElementById('address-form').addEventListener('submit', async functio
     const formData = new FormData(this);
     const id = formData.get('id');
     const method = id ? 'PUT' : 'POST';
-    const url = id ? `/cfcustomer/addresses/${id}` : '/cfcustomer/addresses';
+    const url = id ? `/customer/addresses/${id}` : '/customer/addresses';
 
     const response = await fetch(url, {
         method: method,
@@ -1072,7 +1072,7 @@ document.querySelectorAll('.set-default').forEach(btn => {
         const addressId = this.dataset.id;
 
         try {
-            const response = await fetch(`/customer/addresses/${addressId}/toggle-default`, {
+            const response = await fetch(`/cfcustomer/addresses/${addressId}/toggle-default`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
