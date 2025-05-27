@@ -10,10 +10,10 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('dashboard/assets/images/favicon.png')}}">
-     @php 
-    $web_name= \DB::table('site_settings')->first();                
+    @php 
+   $web_name= \DB::table('site_settings')->first();                
 @endphp
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/' . $web_name->image) }}">
 
 
 

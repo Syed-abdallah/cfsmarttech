@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @php 
-    $web_name= \DB::table('website_settings')->first();                
+    $web_name= \DB::table('site_settings')->first();                
 @endphp
 
 
