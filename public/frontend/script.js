@@ -1072,7 +1072,7 @@ document.querySelectorAll('.set-default').forEach(btn => {
         const addressId = this.dataset.id;
 
         try {
-            const response = await fetch(`/cfcustomer/addresses/${addressId}/toggle-default`, {
+            const response = await fetch(`/customer/addresses/${addressId}/toggle-default`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
