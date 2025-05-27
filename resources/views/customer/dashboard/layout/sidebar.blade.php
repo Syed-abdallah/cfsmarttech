@@ -42,8 +42,9 @@
                         <span class="hide-menu">Addresses</span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level base-level-line @if(request()->routeIs('customer.addresses.*')) show @endif">
-                        <li class="sidebar-item @if(request()->routeIs('customer.addresses.index')) active @endif">
-                            <a href="{{ route('customer.addresses.index') }}" class="sidebar-link">
+                        <li class="sidebar-item @if(request()->routeIs('cfcustomer.addresses.show')) active @endif">
+                            
+                            <a href="{{ route('cfcustomer.addresses.show') }}" class="sidebar-link">
                                 <span class="hide-menu">My Addresses</span>
                             </a>
                         </li>

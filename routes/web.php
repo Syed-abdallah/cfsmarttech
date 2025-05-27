@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth:customer'], 'prefix'=>'cfcustomer', 'as'=>'
 
 Route::get('/cfcustomer/dashboard', [CustomerDashboardController::class, 'index'])->name('cfcustomer.dashboard')->middleware('auth:customer');
 
-Route::middleware(['auth:customer'])->prefix('customer')->name('customer.')->group(function () {
+Route::middleware(['auth:customer'])->prefix('cfcustomer')->name('customer.')->group(function () {
     // Route::get('/form', [OrderController::class, 'create'])->name('customer.orders.index');
     Route::resource('addresses', CustomerAddressController::class)->except(['show']);
     Route::get('/showaddress', [CustomerAddressController::class, 'showaddress'])->name('cfcustomer.show');
