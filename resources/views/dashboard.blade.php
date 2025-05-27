@@ -230,7 +230,7 @@
                                 <span class="badge bg-success me-2">&nbsp;</span>
                                 <span>Cash on Delivery</span>
                             </div>
-                            <span class="fw-bold">{ number_format($codPayments, 2) }}</span>
+                            <span class="fw-bold">{{ number_format($codPayments, 2) }}</span>
                         </div>
                     </div>
                 </div>
