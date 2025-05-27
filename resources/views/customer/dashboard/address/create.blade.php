@@ -26,10 +26,15 @@
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-12">
+                <div class="col-md-3">
                     <label for="address_line_2" class="form-label">Address Line 2</label>
                     <input type="text" class="form-control" id="address_line_2" name="address_line_2" 
                            value="{{ old('address_line_2', $address->address_line_2 ?? '') }}">
+                </div>
+                <div class="col-md-3">
+                    <label for="Phone" class="form-label">Phone Number</label>
+                    <input type="number" class="form-control" id="phone" name="phone" 
+                           value="{{ old('phone', $address->phone ?? '') }}">
                 </div>
             </div>
 
