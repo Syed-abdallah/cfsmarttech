@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 use Barryvdh\DomPDF\Facade\Pdf;
 class AdminOrderController extends Controller
@@ -23,16 +24,24 @@ class AdminOrderController extends Controller
   
     }
 
-    public function index()
-    {
-       
-        $orders = Order::with(['items', 'customer'])
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(15);
-        
-        return view('admin.orders.index', compact('orders'));
+   public function index(Request $request)
+{
+    $startDate = $request->input('start_date')
+        ? Carbon::parse($request->input('start_date'))->startOfDay()
+        : Carbon::now()->subDays(30);
 
-    }
+    $endDate = $request->input('end_date')
+        ? Carbon::parse($request->input('end_date'))->endOfDay()
+        : Carbon::now();
+
+    $orders = Order::with(['items', 'customer'])
+        ->whereBetween('created_at', [$startDate, $endDate])
+        ->orderBy('created_at', 'desc')
+        ->paginate(15)
+        ->appends($request->only(['start_date', 'end_date'])); // keeps filters on pagination
+
+    return view('admin.orders.index', compact('orders'));
+}
 
     public function show($id)
     {
