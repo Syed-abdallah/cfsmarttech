@@ -65,7 +65,8 @@ Route::get('/cfcustomer/dashboard', [CustomerDashboardController::class, 'index'
 Route::middleware(['auth:customer'])->prefix('cfcustomer')->name('customer.')->group(function () {
     // Route::get('/form', [OrderController::class, 'create'])->name('customer.orders.index');
     Route::resource('addresses', CustomerAddressController::class)->except(['show']);
-    Route::get('/showaddress', [CustomerAddressController::class, 'showaddress'])->name('cfcustomer.show');
+    // Route::get('/showaddress', [CustomerAddressController::class, 'showaddress'])->name('cfcustomer.show');
+Route::get('/showaddress', [CustomerAddressController::class, 'showaddress'])->name('cfcustomer.show');
 
     Route::post('addresses/{address}/set-default', [CustomerAddressController::class, 'setDefault'])
     ->name('addresses.set-default');

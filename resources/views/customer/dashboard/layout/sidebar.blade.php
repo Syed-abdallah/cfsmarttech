@@ -41,13 +41,13 @@
                         <i data-feather="map-pin" class="feather-icon"></i>
                         <span class="hide-menu">Addresses</span>
                     </a>
-                    <ul aria-expanded="false" class="collapse first-level base-level-line @if(request()->routeIs('customer.addresses.*')) show @endif">
-                        <li class="sidebar-item @if(request()->routeIs('cfcustomer.addresses.show')) active @endif">
-                            
-                            <a href="{{ route('cfcustomer.addresses.show') }}" class="sidebar-link">
-                                <span class="hide-menu">My Addresses</span>
-                            </a>
-                        </li>
+<ul aria-expanded="false" class="collapse first-level base-level-line @if(request()->routeIs('cfcustomer.*')) show @endif">
+                     <li class="sidebar-item @if(request()->routeIs('cfcustomer.show')) active @endif">
+    <a href="{{ route('cfcustomer.show') }}" class="sidebar-link">
+        <span class="hide-menu">My Addresses</span>
+    </a>
+</li>
+
                         <li class="sidebar-item @if(request()->routeIs('customer.addresses.create')) active @endif">
                             <a href="{{ route('customer.addresses.create') }}" class="sidebar-link">
                                 <span class="hide-menu">Add New</span>
