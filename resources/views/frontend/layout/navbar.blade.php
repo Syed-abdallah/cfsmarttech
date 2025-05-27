@@ -168,7 +168,7 @@
     left: 0;
     right: 0;
     top: 95%;
-    /* background: #fff; */
+    background: #fff;
     border-top: 4px solid #6a11cb;
     border-radius: 0 0 16px 16px;
     z-index: 999;
