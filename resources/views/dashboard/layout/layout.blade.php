@@ -12,7 +12,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('dashboard/assets/images/favicon.png')}}">
      @php 
-    $web_name= \DB::table('website_settings')->first();                
+    $web_name= \DB::table('site_settings')->first();                
 @endphp
 
 
