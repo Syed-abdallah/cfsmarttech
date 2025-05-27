@@ -13,7 +13,7 @@
     @php 
    $web_name= \DB::table('site_settings')->first();                
 @endphp
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('uploads/' . $web_name->logo_path) }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset($web_name->logo_path) }}">
 
 
 
