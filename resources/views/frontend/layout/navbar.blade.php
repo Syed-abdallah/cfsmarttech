@@ -26,9 +26,9 @@
                 <img src="{{ $settings->logo_path }}" alt="" width="60px" height="60px" class="mx-auto d-block" style="margin-top: -13px; margin-bottom: -16px;">
                 @endif
             </a>
-            <a class="navbar-brand text-center" href="#">
+            {{-- <a class="navbar-brand text-center" href="#">
                 <span style="color: {{ $settings->name_color }};">{{ $settings->website_name }}</span>
-            </a>
+            </a> --}}
         </div>
 
         <!-- Navigation and Cart -->
