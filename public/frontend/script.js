@@ -992,7 +992,6 @@ async function loadAddresses() {
                 document.querySelectorAll('.address-card').forEach(card => card.classList.remove('selected'));
                 this.classList.add('selected');
                 updateCheckoutSummary();
-                loadAddresses();
             }
         });
     });
@@ -1009,28 +1008,68 @@ function addButtonHandlers() {
         });
     });
 
+    // document.querySelectorAll('.delete-address').forEach(btn => {
+    //     btn.addEventListener('click', async function (e) {
+    //         e.stopPropagation();
+    //         const addressId = this.dataset.id;
+    //         await deleteAddress(addressId);
+    //     });
+    // });
     document.querySelectorAll('.delete-address').forEach(btn => {
-        btn.addEventListener('click', async function (e) {
-            e.stopPropagation();
-            const addressId = this.dataset.id;
-            await deleteAddress(addressId);
-        });
+    btn.addEventListener('click', async function (e) {
+        e.stopPropagation();
+        const addressId = this.dataset.id;
+
+        // Confirm deletion (optional)
+        if (!confirm('Are you sure you want to delete this address?')) return;
+
+        const success = await deleteAddress(addressId); // Should return true on success
+        if (success) {
+            // Remove the entire card from the DOM
+            const addressCard = this.closest('.address-card');
+            if (addressCard) addressCard.remove();
+        }
     });
+});
+
 }
+
+// async function deleteAddress(id) {
+//     const response = await fetch(`/cfcustomer/addresses/${id}`, {
+//         method: 'DELETE',
+//         headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content }
+//     });
+//     const result = await response.json();
+//     if (result.message) {
+//         alert(result.message);
+//                 location.reload();
+
+//         loadAddresses();
+//     }
+// }
 
 async function deleteAddress(id) {
-    const response = await fetch(`/cfcustomer/addresses/${id}`, {
-        method: 'DELETE',
-        headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content }
-    });
-    const result = await response.json();
-    if (result.message) {
-        alert(result.message);
-                location.reload();
+    try {
+        const response = await fetch(`/cfcustomer/addresses/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                'Accept': 'application/json',
+            },
+        });
 
-        loadAddresses();
+        if (response.ok) {
+            return true;
+        } else {
+            console.error('Delete failed');
+            return false;
+        }
+    } catch (error) {
+        console.error('Error deleting address:', error);
+        return false;
     }
 }
+
 
 function getCountryName(code) {
     const countries = {
