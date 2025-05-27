@@ -765,165 +765,6 @@ function setupAddressManagement() {
     }
 }
 
-// Load sample addresses
-// function loadAddresses() {
-//     const addressCards = document.getElementById('address-cards');
-//     if (!addressCards) return;
-
-//     // In a real app, this would come from your backend
-//     const sampleAddresses = [
-//         {
-//             id: 1,
-//             fullName: "John Doe",
-//             phone: "+1 (123) 456-7890",
-//             line1: "123 Main St",
-//             line2: "Apt 4B",
-//             city: "New York",
-//             state: "NY",
-//             zip: "10001",
-//             country: "US",
-//             isDefault: true
-//         },
-//         {
-//             id: 2,
-//             fullName: "John Doe",
-//             phone: "+1 (123) 456-7890",
-//             line1: "456 Second Ave",
-//             line2: "",
-//             city: "Brooklyn",
-//             state: "NY",
-//             zip: "11201",
-//             country: "US",
-//             isDefault: false
-//         }
-//     ];
-
-//     // Clear existing addresses
-//     addressCards.innerHTML = '';
-
-//     // Add each address as a card
-//     sampleAddresses.forEach(address => {
-//         const addressCard = document.createElement('div');
-//         addressCard.className = `col-12 address-card ${address.isDefault ? 'selected' : ''}`;
-//         addressCard.dataset.id = address.id;
-//         addressCard.innerHTML = `
-//             <div class="d-flex justify-content-between align-items-start">
-//                 <div>
-//                     <h5 class="mb-2">${address.fullName}</h5>
-//                     <p class="mb-1 text-muted small">${address.line1}${address.line2 ? ', ' + address.line2 : ''}</p>
-//                     <p class="mb-1 text-muted small">${address.city}, ${address.state} ${address.zip}</p>
-//                     <p class="mb-1 text-muted small">${getCountryName(address.country)}</p>
-//                     <p class="mb-0 text-muted small">${address.phone}</p>
-//                 </div>
-//                 <div>
-//                     ${address.isDefault ? '<span class="badge default-badge">Default</span>' : ''}
-//                 </div>
-//             </div>
-//             <div class="mt-3 d-flex justify-content-end gap-2">
-//                 <button class="btn btn-sm btn-outline-secondary edit-address" data-id="${address.id}">
-//                     <i class="bi bi-pencil"></i> Edit
-//                 </button>
-//                 ${!address.isDefault ? `
-//                 <button class="btn btn-sm btn-outline-danger delete-address" data-id="${address.id}">
-//                     <i class="bi bi-trash"></i> Delete
-//                 </button>
-//                 ` : ''}
-//             </div>
-//         `;
-//         addressCards.appendChild(addressCard);
-
-//         // Add click handler to select address
-//         addressCard.addEventListener('click', function(e) {
-//             // Don't select if clicking edit/delete buttons
-//             if (!e.target.closest('.edit-address') && !e.target.closest('.delete-address')) {
-//                 document.querySelectorAll('.address-card').forEach(card => {
-//                     card.classList.remove('selected');
-//                 });
-//                 this.classList.add('selected');
-//                 updateCheckoutSummary();
-//             }
-//         });
-//     });
-
-//     // Add event listeners for edit/delete buttons
-//     document.querySelectorAll('.edit-address').forEach(btn => {
-//         btn.addEventListener('click', function(e) {
-//             e.stopPropagation();
-//             const addressId = parseInt(this.dataset.id);
-//             editAddress(addressId);
-//         });
-//     });
-
-//     document.querySelectorAll('.delete-address').forEach(btn => {
-//         btn.addEventListener('click', function(e) {
-//             e.stopPropagation();
-//             const addressId = parseInt(this.dataset.id);
-//             deleteAddress(addressId);
-//         });
-//     });
-// }
-
-
-
-
-
-
-
-
-// Get country name from code
-// function getCountryName(code) {
-//     const countries = {
-//         'US': 'United States',
-//         'CA': 'Canada',
-//         'UK': 'United Kingdom',
-//         'PK': 'Pakistan'
-//     };
-//     return countries[code] || code;
-// }
-
-// Edit an existing address
-// function editAddress(addressId) {
-//     // In a real app, you would fetch this from your backend
-//     const addressToEdit = {
-//         id: 1,
-//         fullName: "John Doe",
-//         phone: "+1 (123) 456-7890",
-//         line1: "123 Main St",
-//         line2: "Apt 4B",
-//         city: "New York",
-//         state: "NY",
-//         zip: "10001",
-//         country: "US",
-//         isDefault: true
-//     };
-
-//     // Populate form with address data
-//     document.getElementById('full-name').value = addressToEdit.fullName;
-//     document.getElementById('phone').value = addressToEdit.phone;
-//     document.getElementById('address-line1').value = addressToEdit.line1;
-//     document.getElementById('address-line2').value = addressToEdit.line2;
-//     document.getElementById('city').value = addressToEdit.city;
-//     document.getElementById('state').value = addressToEdit.state;
-//     document.getElementById('zip').value = addressToEdit.zip;
-//     document.getElementById('country').value = addressToEdit.country;
-//     document.getElementById('default-address').checked = addressToEdit.isDefault;
-
-//     // Set editing mode
-//     addressForm.dataset.editingId = addressId;
-//     newAddressForm.classList.remove('d-none');
-//     addAddressBtn.classList.add('d-none');
-// }
-
-// Delete an address
-// function deleteAddress(addressId) {
-//     // Confirm deletion
-//     if (confirm("Are you sure you want to delete this address?")) {
-//         showToast("Address deleted successfully", 'success');
-//         loadAddresses();
-//     }
-// }
-
-
 
 
 
@@ -1000,6 +841,7 @@ async function loadAddresses() {
 }
 
 function addButtonHandlers() {
+    // Edit button click handler
     document.querySelectorAll('.edit-address').forEach(btn => {
         btn.addEventListener('click', function (e) {
             e.stopPropagation();
@@ -1008,45 +850,31 @@ function addButtonHandlers() {
         });
     });
 
-    // document.querySelectorAll('.delete-address').forEach(btn => {
-    //     btn.addEventListener('click', async function (e) {
-    //         e.stopPropagation();
-    //         const addressId = this.dataset.id;
-    //         await deleteAddress(addressId);
-    //     });
-    // });
+    // Delete button click handler with confirmation
     document.querySelectorAll('.delete-address').forEach(btn => {
-    btn.addEventListener('click', async function (e) {
-        e.stopPropagation();
-        const addressId = this.dataset.id;
+        btn.addEventListener('click', async function (e) {
+            e.stopPropagation(); // Prevent the card click from triggering
+            const addressId = this.dataset.id;
 
-        // Confirm deletion (optional)
-        if (!confirm('Are you sure you want to delete this address?')) return;
+            // Confirmation dialog
+            const confirmed = confirm('Are you sure you want to delete this address?');
+            if (!confirmed) return;
 
-        const success = await deleteAddress(addressId); // Should return true on success
-        if (success) {
-            // Remove the entire card from the DOM
-            const addressCard = this.closest('.address-card');
-            if (addressCard) addressCard.remove();
-        }
+            // Call the delete API
+            const success = await deleteAddress(addressId);
+            if (success) {
+                const addressCard = this.closest('.address-card');
+                if (addressCard) addressCard.remove();
+                showToast("Address deleted successfully", 'success');
+            } else {
+                showToast("Failed to delete address", 'error');
+            }
+        });
     });
-});
-
 }
 
-// async function deleteAddress(id) {
-//     const response = await fetch(`/cfcustomer/addresses/${id}`, {
-//         method: 'DELETE',
-//         headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content }
-//     });
-//     const result = await response.json();
-//     if (result.message) {
-//         alert(result.message);
-//                 location.reload();
 
-//         loadAddresses();
-//     }
-// }
+
 
 async function deleteAddress(id) {
     try {
@@ -1168,33 +996,6 @@ function resetAddressForm() {
     }
 }
 
-// Process the order
-// function processOrder() {
-//     const placeOrderBtn = document.getElementById('place-order-btn');
-//     if (!placeOrderBtn) return;
-
-//     // Show loading state
-//     placeOrderBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing...';
-//     placeOrderBtn.disabled = true;
-
-//     // Simulate API call
-//     setTimeout(() => {
-//         // Success message
-//         showToast("Order placed successfully!", 'success');
-
-//         // Clear cart
-//         cart = {};
-//         currentStock = {};
-//         localStorage.removeItem('cart');
-//         localStorage.removeItem('stock');
-//         updateCartDisplay();
-
-//         // Reset button
-//         placeOrderBtn.innerHTML = '<i class="bi bi-shield-lock me-2"></i> Place Order Securely';
-//         placeOrderBtn.disabled = false;
-//     }, 2000);
-// }
-
 
 
 
@@ -1268,7 +1069,7 @@ async function processOrder() {
             localStorage.removeItem('stock');
             updateCartDisplay();
 
-          
+
 
             setTimeout(function () {
                 window.location.reload();
@@ -1323,7 +1124,7 @@ function showToast(message, type = 'success') {
         backgroundColor: colors[type],
         stopOnFocus: true,
         className: "toast-animated",
-           style: {
+        style: {
             borderRadius: '12px', // Larger border radius
             marginTop: '30px'    // Note: camelCase for CSS properties in JS
         },
@@ -1409,42 +1210,3 @@ document.getElementById('place-order-btn').addEventListener('click', async funct
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     const formState = {
-//         commercialPrices: {},
-//            roomPrices: {},
-    
-//         updatePrices(newPrices) {
-//             this.commercialPrices = { ...this.commercialPrices, ...newPrices };
-//                 this.roomPrices = { ...data.roomPrices };
-         
-//         }
-//     };
-
-//     // AJAX Call using jQuery
-//     $.ajax({
-//         url: '/prices', // Make sure this route returns JSON
-//         method: 'GET',
-//         success: function (data) {
-//             formState.updatePrices(data);
-//         },
-//         error: function (xhr, status, error) {
-//             console.error('Error fetching prices:', error);
-//         }
-//     });
-// });
