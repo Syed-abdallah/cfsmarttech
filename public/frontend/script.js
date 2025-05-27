@@ -1048,7 +1048,7 @@ document.getElementById('address-form').addEventListener('submit', async functio
     const formData = new FormData(this);
     const id = formData.get('id');
     const method = id ? 'PUT' : 'POST';
-    const url = id ? `/customer/addresses/${id}` : '/customer/addresses';
+    const url = id ? `/cfcustomer/addresses/${id}` : '/cfcustomer/addresses';
 
     const response = await fetch(url, {
         method: method,
