@@ -38,6 +38,7 @@ public function index()
     }
 public function store(Request $request)
 {
+    dd('test');
     $customer = auth('customer')->user();
     
     $data = $request->validate([
