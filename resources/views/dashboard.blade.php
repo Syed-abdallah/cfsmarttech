@@ -18,7 +18,7 @@
                             <i data-feather="dollar-sign" class="feather-lg"></i>
                         </div>
                         <div>
-                            <h3 class="mb-1">${{ number_format($totalRevenue, 2) }}</h3>
+                            <h3 class="mb-1">{{ number_format($totalRevenue, 2) }}</h3>
                             <h6 class="text-muted mb-0">Total Revenue</h6>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                             <i data-feather="calendar" class="feather-lg"></i>
                         </div>
                         <div>
-                            <h3 class="mb-1">${{ number_format($monthlyRevenue, 2) }}</h3>
+                            <h3 class="mb-1">{{ number_format($monthlyRevenue, 2) }}</h3>
                             <h6 class="text-muted mb-0">Monthly Revenue</h6>
                         </div>
                     </div>
@@ -216,21 +216,21 @@
                                 <span class="badge bg-primary me-2">&nbsp;</span>
                                 <span>Online Payments</span>
                             </div>
-                            <span class="fw-bold">${{ number_format($onlinePayments, 2) }}</span>
+                            <span class="fw-bold">{{ number_format($onlinePayments, 2) }}</span>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <div class="d-flex align-items-center">
                                 <span class="badge bg-danger me-2">&nbsp;</span>
                                 <span>Bank Transfers</span>
                             </div>
-                            <span class="fw-bold">${{ number_format($bankTransfers, 2) }}</span>
+                            <span class="fw-bold">{{ number_format($bankTransfers, 2) }}</span>
                         </div>
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="d-flex align-items-center">
                                 <span class="badge bg-success me-2">&nbsp;</span>
                                 <span>Cash on Delivery</span>
                             </div>
-                            <span class="fw-bold">${{ number_format($codPayments, 2) }}</span>
+                            <span class="fw-bold">{ number_format($codPayments, 2) }}</span>
                         </div>
                     </div>
                 </div>
