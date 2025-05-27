@@ -992,6 +992,7 @@ async function loadAddresses() {
                 document.querySelectorAll('.address-card').forEach(card => card.classList.remove('selected'));
                 this.classList.add('selected');
                 updateCheckoutSummary();
+                loadAddresses();
             }
         });
     });
@@ -1017,19 +1018,19 @@ function addButtonHandlers() {
     });
 }
 
-// async function deleteAddress(id) {
-//     const response = await fetch(`/cfcustomer/addresses/${id}`, {
-//         method: 'DELETE',
-//         headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content }
-//     });
-//     const result = await response.json();
-//     if (result.message) {
-//         alert(result.message);
-//                 location.reload();
+async function deleteAddress(id) {
+    const response = await fetch(`/cfcustomer/addresses/${id}`, {
+        method: 'DELETE',
+        headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content }
+    });
+    const result = await response.json();
+    if (result.message) {
+        alert(result.message);
+                location.reload();
 
-//         loadAddresses();
-//     }
-// }
+        loadAddresses();
+    }
+}
 
 function getCountryName(code) {
     const countries = {
