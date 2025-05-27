@@ -938,7 +938,7 @@ async function loadAddresses() {
     const addressCards = document.getElementById('address-cards');
     if (!addressCards) return;
 
-    const response = await fetch('/customer/addresses');
+    const response = await fetch('/cfcustomer/addresses');
     const addresses = await response.json();
 
     addressCards.innerHTML = '';
@@ -972,7 +972,7 @@ async function loadAddresses() {
             <button class="btn btn-sm btn-outline-danger delete-address" data-id="${address.id}">
                 <i class="bi bi-trash"></i> Delete
             </button>
-            <form action="/customer/addresses/${address.id}/set-default" method="POST" style="display:inline;">
+            <form action="/cfcustomer/addresses/${address.id}/set-default" method="POST" style="display:inline;">
                 <input type="hidden" name="_token" value="${document.querySelector('meta[name="csrf-token"]').content}">
                 <button type="submit" class="btn btn-sm btn-outline-primary">
                     <i class="bi bi-star"></i> Set Default
@@ -1018,7 +1018,7 @@ function addButtonHandlers() {
 }
 
 async function deleteAddress(id) {
-    const response = await fetch(`/customer/addresses/${id}`, {
+    const response = await fetch(`/cfcustomer/addresses/${id}`, {
         method: 'DELETE',
         headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content }
     });

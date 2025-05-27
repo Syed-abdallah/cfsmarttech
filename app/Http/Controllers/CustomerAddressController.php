@@ -52,7 +52,6 @@ public function store(Request $request)
         'is_default' => 'sometimes|boolean',
     ]);
     
-    dd('test');
     if (!empty($data['is_default'])) {
         $customer->addresses()->update(['is_default' => false]);
     }
