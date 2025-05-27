@@ -23,7 +23,7 @@
         <div class="d-none d-lg-flex justify-content-center align-items-center flex-column">
             <a class="navbar-brand" href="#">
                 @if($settings->logo_path)
-                <img src="{{ $settings->logo_path }}" alt="" width="60px" height="60px" class="mx-auto d-block" style="margin-top: -10px; margin-bottom: -14px;">
+                <img src="{{ $settings->logo_path }}" alt="" width="60px" height="60px" class="mx-auto d-block" style="margin-top: -10px; margin-bottom: -10px;">
                 @endif
             </a>
             {{-- <a class="navbar-brand text-center" href="#">
