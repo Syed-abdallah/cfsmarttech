@@ -84,7 +84,7 @@
 
     </style>
 
-        <div class="container my-5" >
+        <div class="container my-5" style="margin-top: 40px;">
             <h1 class="text-center mb-4" style="margin-top:150px">Frequently Asked Questions</h1>
 
 
