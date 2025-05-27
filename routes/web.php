@@ -18,7 +18,7 @@ use App\Http\Controllers\ReguserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SiteSettingsController;
 
-use App\Http\Controllers\FAQController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PriceController;
 
 
@@ -84,7 +84,7 @@ Route::group(['middleware' => ['auth:web'], 'prefix'=>'cfadmin', 'as'=>'cfadmin.
 
 
 
-    Route::resource('faqs', FAQController::class);
+    Route::resource('faqs', FaqController::class);
 
 
 
