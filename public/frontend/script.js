@@ -1059,6 +1059,10 @@ async function deleteAddress(id) {
         });
 
         if (response.ok) {
+            // Optionally wait a moment before refresh (e.g. show a toast)
+            setTimeout(() => {
+                location.reload(); // Refresh the page after successful deletion
+            }, 100); // Delay optional
             return true;
         } else {
             console.error('Delete failed');
@@ -1069,6 +1073,7 @@ async function deleteAddress(id) {
         return false;
     }
 }
+
 
 
 function getCountryName(code) {
