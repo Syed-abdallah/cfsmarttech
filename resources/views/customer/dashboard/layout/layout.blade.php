@@ -10,8 +10,14 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('dashboard/assets/images/favicon.png')}}">
-    <title>Freedash Template - The Ultimate Multipurpose admin template</title>
+   @php 
+   $web_name= \DB::table('site_settings')->first();                
+@endphp
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset($web_name->logo_path) }}">
+
+
+
+    <title style="color: {{ $web_name->name_color }};">{{ $web_name->website_name }}</title>
     <!-- This page plugin CSS -->
     <!-- <link href="{{asset('dashboard/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet"> -->
     <link rel="stylesheet" href="{{asset('dashboard/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
