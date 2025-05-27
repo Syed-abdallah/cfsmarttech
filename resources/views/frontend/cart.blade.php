@@ -119,7 +119,7 @@
                         <div class="card mb-4 border-0 shadow-sm">
                             <div class="card-body">
                                 <h5 class="card-title mb-4"><i class="bi bi-house-add me-2"></i> Add New Address</h5>
-                                <form action="{{ route('cfcustomer.addresses.store') }}" method="POST">
+                                <form action="{{ route('customer.addresses.store') }}" method="POST">
                                     @csrf
                                     <div class="row mb-3">
                                         <div class="col-md-6">
