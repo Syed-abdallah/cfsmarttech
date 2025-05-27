@@ -118,7 +118,7 @@ public function whyems(){
   public function faqs()
     {
         $faqs = Faq::all(); // Fetch disc golf data
-        return view('Frontend.faq', $this->getCommonData(['faqs' => $faqs]));
+        return view('frontend.faq', $this->getCommonData(['faqs' => $faqs]));
     }
 
 
