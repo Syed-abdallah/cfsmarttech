@@ -810,15 +810,15 @@ async function loadAddresses() {
         </button>
         ${!address.is_default
                 ? `
-            <button class="btn btn-sm btn-outline-danger delete-address" data-id="${address.id}">
-                <i class="bi bi-trash"></i> Delete
-            </button>
-            <form action="/cfcustomer/addresses/${address.id}/set-default" method="POST" style="display:inline;">
-                <input type="hidden" name="_token" value="${document.querySelector('meta[name="csrf-token"]').content}">
-                <button type="submit" class="btn btn-sm btn-outline-primary">
-                    <i class="bi bi-star"></i> Set Default
-                </button>
-            </form>
+            // <button class="btn btn-sm btn-outline-danger delete-address" data-id="${address.id}">
+            //     <i class="bi bi-trash"></i> Delete
+            // </button>
+            // <form action="/cfcustomer/addresses/${address.id}/set-default" method="POST" style="display:inline;">
+            //     <input type="hidden" name="_token" value="${document.querySelector('meta[name="csrf-token"]').content}">
+            //     <button type="submit" class="btn btn-sm btn-outline-primary">
+            //         <i class="bi bi-star"></i> Set Default
+            //     </button>
+            // </form>
             `
                 : ''}
     </div>
