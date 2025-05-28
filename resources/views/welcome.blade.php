@@ -730,39 +730,40 @@
                         </div>
                     </section>
                 </div>
-                
-                <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                    <div class="row">
-                        <div class="col-lg-12 mb-4">
-                            <img src="{{ asset('frontend/images/picture46.png') }}" alt="AI Human" style="z-index: 2;width:400px;height:220px">
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="position-relative rounded-circle shadow" style="width: 350px; height: 350px; background: radial-gradient(circle at center, #fff 35%, rgba(255,255,255,0) 70%); border: 8px solid rgba(200, 200, 200, 0.3);">
-                                <img src="{{ asset('frontend/images/picture39.png') }}" alt="AI Human" class="img-fluid rounded-circle w-100 h-100 object-fit-cover position-relative" style="z-index: 2;">
-                                <div class="position-absolute top-0 start-0 w-100 h-100 rounded-circle" style="z-index: 1; background: radial-gradient(ell
+
                 <!-- Image Column -->
-                <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                    <div class="row">
-                        <div class="col-lg-12 mb-4"> <img src="{{ asset('frontend/images/picture46.png') }}"
-                                alt="AI Human" style="z-index: 2;width:400px;height:220px"></div>
-                        <div class="col-lg-12">
-                            <div class="position-relative rounded-circle shadow"
-                                style="width: 350px; height: 350px; background: radial-gradient(circle at center, #fff 35%, rgba(255,255,255,0) 70%); border: 8px solid rgba(200, 200, 200, 0.3);">
+         <div class="col-lg-4 d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+        <!-- Top Image -->
+        <div class="col-12 mb-4 text-center">
+            <img src="{{ asset('frontend/images/picture46.png') }}"
+                 alt="AI Human"
+                 class="img-fluid"
+                 style="z-index: 2; max-width: 100%; height: auto;">
+        </div>
 
-                                <!-- Circular Image -->
-                                <img src="{{ asset('frontend/images/picture39.png') }}" alt="AI Human"
-                                    class="img-fluid rounded-circle w-100 h-100 object-fit-cover position-relative"
-                                    style="z-index: 2;">
+        <!-- Circular Image with Overlay -->
+        <div class="col-12 d-flex justify-content-center">
+            <div class="position-relative rounded-circle shadow"
+                 style="width: 100%; max-width: 350px; aspect-ratio: 1 / 1;
+                        background: radial-gradient(circle at center, #fff 35%, rgba(255,255,255,0) 70%);
+                        border: 8px solid rgba(200, 200, 200, 0.3);">
 
-                                <!-- Overlay Effect -->
-                                <div class="position-absolute top-0 start-0 w-100 h-100 rounded-circle"
-                                    style="z-index: 1; background: radial-gradient(ellipse at right, rgba(173, 216, 230, 0.3), transparent 70%);">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Circular Image -->
+                <img src="{{ asset('frontend/images/picture39.png') }}"
+                     alt="AI Human"
+                     class="img-fluid rounded-circle position-relative w-100 h-100 object-fit-cover"
+                     style="z-index: 2;">
 
+                <!-- Overlay -->
+                <div class="position-absolute top-0 start-0 w-100 h-100 rounded-circle"
+                     style="z-index: 1; background: radial-gradient(ellipse at right, rgba(173, 216, 230, 0.3), transparent 70%);">
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
             </div>
         </div>
