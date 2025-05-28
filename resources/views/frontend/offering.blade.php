@@ -73,7 +73,7 @@
             z-index: 1;
             pointer-events: none;
          "
-            data-aos="fade-left" data-aos-delay="200">
+            data-aos="fade-right" data-aos-delay="200">
 
 
 
@@ -94,7 +94,7 @@
             </div>
         </div>
 
-        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left"
+        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-right"
             data-aos-delay="200">
             <div style="flex: 0 0 auto;">
                 <img src="{{ asset('frontend/images/Picture20.png') }}" alt="Icon"
@@ -126,7 +126,7 @@ tripping, min. or max. threshold overrun, etc
             </div>
         </div>
 
-        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left"
+        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-right"
             data-aos-delay="400">
             <div style="flex: 0 0 auto;">
                 <img src="{{ asset('frontend/images/Picture22.png') }}" alt="Icon"
@@ -142,7 +142,7 @@ tripping, min. or max. threshold overrun, etc
                 </ul>
             </div>
         </div>
-        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left"
+        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-right"
             data-aos-delay="400">
             <div style="flex: 0 0 auto;">
                 <img src="{{ asset('frontend/images/Picture23.png') }}" alt="Icon"
