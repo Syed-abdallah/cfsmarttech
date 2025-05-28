@@ -252,7 +252,7 @@
             pointer-events: none;
          ">
 
-    <div style="padding: 2rem; border-radius: 0.5rem;">
+    {{-- <div style="padding: 2rem; border-radius: 0.5rem;">
         <blockquote style="margin: 0; text-align: center;">
             <p
                 style="margin: 0; font-size: 5.5rem; font-style: italic; color: #031e47; display: inline-block; position: relative;">
@@ -262,8 +262,30 @@
 
             </p>
         </blockquote>
-    </div>
+    </div> --}}
+<style>
+@media (max-width: 360px) {
+    .responsive-quote p {
+        font-size: 2rem !important;
+        padding: 1rem !important;
+    }
+}
+</style>
 
+<div class="responsive-quote" style="padding: 1.5rem; border-radius: 0.5rem;">
+    <blockquote style="margin: 0; text-align: center;">
+        <p style="margin: 0; 
+                  font-size: clamp(2.5rem, 8vw, 5.5rem); 
+                  font-style: italic; 
+                  color: #031e47; 
+                  display: inline-block; 
+                  position: relative;
+                  line-height: 1.2;">
+            "THE COMPLETE<br>
+            SOLUTION"
+        </p>
+    </blockquote>
+</div>
 
 
 
