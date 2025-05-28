@@ -2,7 +2,7 @@
     <div class="container flex-column">
         
         <!-- MOBILE VIEW: Toggler Left, Logo Right -->
-
+{{-- 
 <div class="d-flex w-100 align-items-center justify-content-between d-lg-none">
     <!-- Logo on the left -->
     <a class="navbar-brand" href="#">
@@ -16,7 +16,7 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-</div>
+</div> --}}
 
 
         <!-- DESKTOP VIEW: Centered Logo and Website Name -->
