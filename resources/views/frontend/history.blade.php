@@ -53,10 +53,10 @@
 
     <img src="{{ asset('frontend/images/dotted.png') }}" 
          alt="Decorative Background" 
-         style="position: absolute; right: 0; bottom: 550px; height: 220px; opacity: 0.1; z-index: 1; pointer-events: none;" data-aos="fade-left" data-aos-delay="100">
+         style="position: absolute; right: 0; bottom: 550px; height: 220px; opacity: 0.1; z-index: 1; pointer-events: none;" data-aos="fade-right" data-aos-delay="100">
 
     <!-- Founder Block -->
-    <div class="mt-5" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left" data-aos-delay="200">
+    <div class="mt-5" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-right" data-aos-delay="200">
         <div style="flex: 0 0 auto;">
             <img src="{{ asset('frontend/images/late.png') }}" alt="Founder" style="width: 150px;">
         </div>
@@ -80,7 +80,7 @@
     </div>
 
     <!-- Chairman Block -->
-    <div class="mb-5" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left" data-aos-delay="400">
+    <div class="mb-5" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-right" data-aos-delay="400">
         <div style="flex: 0 0 auto;">
             <img src="{{ asset('frontend/images/ziasaab.png') }}" alt="Chairman" style="width: 155px;">
         </div>
