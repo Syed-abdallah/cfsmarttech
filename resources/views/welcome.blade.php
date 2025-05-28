@@ -364,8 +364,7 @@
         }
     </style>
 
-    <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500"
-        data-bs-wrap="true">
+    <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500" data-bs-wrap="true">
         <!-- Dots -->
         <div class="carousel-indicators">
             @foreach ($slides as $key => $slide)
@@ -398,29 +397,28 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> 
 
-    <div class="responsive-quote" style="padding: 1.5rem; border-radius: 0.5rem;">
+ <div class="responsive-quote" style="padding: 1.5rem; border-radius: 0.5rem;">
         <blockquote style="margin: 0; text-align: center;">
-            <p
-                style="margin: 0; font-size: clamp(2.5rem, 8vw, 5.5rem); font-style: italic; color: #031e47; display: inline-block; position: relative; line-height: 1.2;">
+            <p style="margin: 0; font-size: clamp(2.5rem, 8vw, 5.5rem); font-style: italic; color: #031e47; display: inline-block; position: relative; line-height: 1.2;">
                 "THE COMPLETE<br>
                 SOLUTION"
             </p>
         </blockquote>
     </div>
 
-    <section id="smart-living-transform"
-        class="position-relative overflow-hidden py-6 py-lg-8 d-flex align-items-center justify-content-center text-center"
-        style="background: url('{{ asset('frontend/images/picture33.png') }}') no-repeat center center / cover;">
-
-        <!-- Optional content container inside -->
-        {{-- <div class="container text-white">
+ <section id="smart-living-transform" 
+         class="position-relative overflow-hidden py-6 py-lg-8 d-flex align-items-center justify-content-center text-center"
+         style="background: url('{{ asset('frontend/images/picture33.png') }}') no-repeat center center / cover;">
+    
+    <!-- Optional content container inside -->
+    {{-- <div class="container text-white">
         <h2 class="display-5 fw-bold">Smart Living Transformation</h2>
         <p class="lead">Enhancing life through intelligent design and technology</p>
     </div> --}}
 
-    </section>
+</section>
 
 
     <div class="video-section">
@@ -431,125 +429,112 @@
         <div class="video-container container-fluid"></div>
     </div>
 
-    <section class="bg-light d-flex flex-column align-items-center justify-content-center text-center py-5 px-3">
-        <h1 class="display-5 text-dark mb-4">WHAT WE ARE OFFERING</h1>
+<section class="bg-light d-flex flex-column align-items-center justify-content-center text-center py-5 px-3">
+    <h1 class="display-5 text-dark mb-4">WHAT WE ARE OFFERING</h1>
 
-        <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="2000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <h4 class="display-6 text-dark">METERING</h4>
+    <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <h4 class="display-6 text-dark">METERING</h4>
+            </div>
+            <div class="carousel-item">
+                <h4 class="display-6 text-dark">MEASUREMENT</h4>
+            </div>
+            <div class="carousel-item">
+                <h4 class="display-6 text-dark">SIGNALLING</h4>
+            </div>
+            <div class="carousel-item">
+                <h4 class="display-6 text-dark">CONTROL</h4>
+            </div>
+            <div class="carousel-item">
+                <h4 class="display-6 text-dark">SUPERVISION</h4>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<style>
+    @media (max-width: 768px) {
+    #heroCarousel h4 {
+        font-size: 1.5rem;
+    }
+
+    section h1 {
+        font-size: 2rem;
+    }
+}
+
+</style>
+
+    <img src="{{ asset('frontend/images/gear.png') }}" alt="audit" style="position: absolute; right: 0; top: 2550px; height: 500px; opacity: 0.1; z-index: 1; pointer-events: none;">
+
+ <section class="py-5" style="background-color: #ffffff;">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Column -->
+            <div class="col-12 col-md-6 mb-4 mb-md-0">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{{ asset('frontend/images/faq.png') }}" alt="FAQ" class="img-fluid" style="max-width: 150px; margin-right: 10px;">
                 </div>
-                <div class="carousel-item">
-                    <h4 class="display-6 text-dark">MEASUREMENT</h4>
-                </div>
-                <div class="carousel-item">
-                    <h4 class="display-6 text-dark">SIGNALLING</h4>
-                </div>
-                <div class="carousel-item">
-                    <h4 class="display-6 text-dark">CONTROL</h4>
-                </div>
-                <div class="carousel-item">
-                    <h4 class="display-6 text-dark">SUPERVISION</h4>
-                </div>
+
+                @php
+                    $questions = [
+                        "Are you concerned about high energy bills even after solar deployment. we come after it.",
+                        "Have you perform in energy audit and give you the complete health scorecard of the load with artificial intelligence tool.",
+                        "Do you want to be notified if the current month bill has exceeded the previous month.",
+                        "Do you want to be notified if your load has gone faulty and consuming much energy"
+                    ];
+                @endphp
+
+                @foreach ($questions as $question)
+                    <div class="d-flex mb-3">
+                        <span style="color: #ff2e8a; font-weight: bold; font-size: 35px; margin-right: 12px; display: inline-block; transform: rotate(-15deg); text-shadow: 1px 1px 2px rgba(0,0,0,0.15);">→</span>
+                        <p style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">{{ $question }}</p>
+                    </div>
+                @endforeach
             </div>
 
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </section>
-    <style>
-        @media (max-width: 768px) {
-            #heroCarousel h4 {
-                font-size: 1.5rem;
-            }
-
-            section h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
-
-    <img src="{{ asset('frontend/images/gear.png') }}" alt="audit"
-        style="position: absolute; right: 0; top: 2550px; height: 500px; opacity: 0.1; z-index: 1; pointer-events: none;">
-
-    <section class="py-5" style="background-color: #ffffff;">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Left Column -->
-                <div class="col-12 col-md-6 mb-4 mb-md-0">
-                    <div class="d-flex align-items-center mb-3">
-                        <img src="{{ asset('frontend/images/faq.png') }}" alt="FAQ" class="img-fluid"
-                            style="max-width: 150px; margin-right: 10px;">
-                    </div>
-
-                    @php
-                        $questions = [
-                            'Are you concerned about high energy bills even after solar deployment. we come after it.',
-                            'Have you perform in energy audit and give you the complete health scorecard of the load with artificial intelligence tool.',
-                            'Do you want to be notified if the current month bill has exceeded the previous month.',
-                            'Do you want to be notified if your load has gone faulty and consuming much energy',
-                        ];
-                    @endphp
-
-                    @foreach ($questions as $question)
-                        <div class="d-flex mb-3">
-                            <span
-                                style="color: #ff2e8a; font-weight: bold; font-size: 35px; margin-right: 12px; display: inline-block; transform: rotate(-15deg); text-shadow: 1px 1px 2px rgba(0,0,0,0.15);">→</span>
-                            <p style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
-                                {{ $question }}</p>
-                        </div>
-                    @endforeach
-                </div>
-
-                <!-- Right Column -->
-                <div class="col-12 col-md-6 text-center">
-                    <div
-                        style="background: linear-gradient(to right, #ffffff, #e0e0e0); padding: 40px 20px; border-radius: 10px; animation: floatUpDown 3s ease-in-out infinite alternate;">
-                        <h2
-                            style="margin: 0; font-weight: 600; font-style: italic; font-size: 28px; color: #2c3e50; line-height: 1.5;">
-                            DON'T WORRY<br>WE GOT YOU<br>COVERED
-                        </h2>
-                    </div>
+            <!-- Right Column -->
+            <div class="col-12 col-md-6 text-center">
+                <div style="background: linear-gradient(to right, #ffffff, #e0e0e0); padding: 40px 20px; border-radius: 10px; animation: floatUpDown 3s ease-in-out infinite alternate;">
+                    <h2 style="margin: 0; font-weight: 600; font-style: italic; font-size: 28px; color: #2c3e50; line-height: 1.5;">
+                        DON'T WORRY<br>WE GOT YOU<br>COVERED
+                    </h2>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Add this in your <style> or CSS file -->
-    <style>
-        @keyframes floatUpDown {
-            0% {
-                transform: translateY(0);
-            }
+<!-- Add this in your <style> or CSS file -->
+<style>
+@keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+</style>
 
-            100% {
-                transform: translateY(-10px);
-            }
-        }
-    </style>
-
-
+    
     <div style="position: relative;">
         <h5 class="section-heading">OUR PRODUCTS</h5>
-        <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration"
-            style="position: relative; z-index: 1; width: 100%; max-width: 500px; height: auto; margin-bottom: clamp(1.5rem, 5vw, 3.125rem); display: block;">
+        <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: 100%; max-width: 500px; height: auto; margin-bottom: clamp(1.5rem, 5vw, 3.125rem); display: block;">
     </div>
 
     <section id="products" style="margin-bottom: 10px; position: relative;">
         <div class="container-fluid" style="position: relative;">
             <div class="product-carousel" style="position: absolute; top: 450px; left: 0; right: 0; z-index: 10;">
                 @foreach ($products as $index => $product)
-                    <div class="product-card {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}"
-                        data-hero-img="{{ asset('uploads/products/' . $product->image) }}">
-                        <a href="{{ route('product.show', $product->id) }}" class="title-link"
-                            style="text-decoration: none; color: inherit;">
+                    <div class="product-card {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}" data-hero-img="{{ asset('uploads/products/' . $product->image) }}">
+                        <a href="{{ route('product.show', $product->id) }}" class="title-link" style="text-decoration: none; color: inherit;">
                             <div class="title">
                                 {{ $product->name }} <i class="bi bi-arrow-right-circle fs-3 extrahide"></i>
                             </div>
@@ -563,12 +548,8 @@
             </div>
 
             <div id="hero" class="hero-image" style="position: relative; z-index: 1;">
-                <img id="hero-img"
-                    src="{{ count($products) > 0 ? asset('uploads/products/' . $products[0]->image) : 'https://via.placeholder.com/800x300?text=No+Products' }}"
-                    alt="Featured product" width="100%" height="600px"
-                    style="filter: blur(0px); transition: filter 0.3s ease;">
-                <h1 id="hero-text"
-                    style="position: absolute; bottom: 20px; left: 20px; color: white; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                <img id="hero-img" src="{{ count($products) > 0 ? asset('uploads/products/' . $products[0]->image) : 'https://via.placeholder.com/800x300?text=No+Products' }}" alt="Featured product" width="100%" height="600px" style="filter: blur(0px); transition: filter 0.3s ease;">
+                <h1 id="hero-text" style="position: absolute; bottom: 20px; left: 20px; color: white; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
                     {{ count($products) > 0 ? $products[0]->name : 'No Products' }}
                 </h1>
             </div>
@@ -577,22 +558,19 @@
 
     <div style="position: relative;">
         <h5 class="section-heading">SCHEMATICS</h5>
-        <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration"
-            style="position: relative; z-index: 1; width: 100%; max-width: 500px; height: auto; margin-bottom: clamp(1.5rem, 5vw, 3.125rem); display: block;">
+        <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: 100%; max-width: 500px; height: auto; margin-bottom: clamp(1.5rem, 5vw, 3.125rem); display: block;">
     </div>
-
+    
     <section class="container my-5">
         <div class="row">
             <div class="col-md-12 col-lg-6">
                 <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                    <img src="{{ asset('frontend/images/p1.png') }}" alt="Energy consumption notification content"
-                        class="img-fluid" style="width: 100%; height: auto; display: block;">
+                    <img src="{{ asset('frontend/images/p1.png') }}" alt="Energy consumption notification content" class="img-fluid" style="width: 100%; height: auto; display: block;">
                 </div>
             </div>
             <div class="col-md-12 col-lg-6">
                 <div class="card" style="border: none; border-radius: 25px; overflow: hidden;">
-                    <img src="{{ asset('frontend/images/picture36.png') }}" alt="Energy consumption notification content"
-                        class="img-fluid" style="width: 100%; height: auto; display: block;">
+                    <img src="{{ asset('frontend/images/picture36.png') }}" alt="Energy consumption notification content" class="img-fluid" style="width: 100%; height: auto; display: block;">
                 </div>
             </div>
         </div>
@@ -602,8 +580,7 @@
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="card" style="border: none; border-radius: 48px; overflow: hidden;">
-                    <img src="{{ asset('frontend/images/picture37.png') }}" alt="Energy consumption notification content"
-                        class="img-fluid" style="width: 100%; height: auto; display: block;">
+                    <img src="{{ asset('frontend/images/picture37.png') }}" alt="Energy consumption notification content" class="img-fluid" style="width: 100%; height: auto; display: block;">
                 </div>
             </div>
         </div>
@@ -611,14 +588,12 @@
 
     <div style="position: relative;">
         <h5 class="section-heading">HOW EMS IS BETTER THAN SOLAR</h5>
-        <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration"
-            style="position: relative; z-index: 1; width: min(100%, 500px); max-width: 100%; height: auto; padding-bottom: clamp(20px, 10vw, 80px); display: block; margin: 0 auto;">
+        <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: min(100%, 500px); max-width: 100%; height: auto; padding-bottom: clamp(20px, 10vw, 80px); display: block; margin: 0 auto;">
     </div>
 
     <section class="container border rounded shadow">
         <div class="row">
-            <div class="col-2 d-flex flex-column align-items-center justify-content-center bg-primary text-white fw-bold text-center"
-                style="writing-mode: vertical-lr; padding: 10px; font-size: 0.9rem;">
+            <div class="col-2 d-flex flex-column align-items-center justify-content-center bg-primary text-white fw-bold text-center" style="writing-mode: vertical-lr; padding: 10px; font-size: 0.9rem;">
                 MAIN FEATURE<br>COMPARISON
             </div>
             <div class="col-5 bg-info text-white fw-bold text-center py-3 position-relative">
@@ -643,8 +618,7 @@
 
         <div class="row border">
             <div class="col-2 fw-bold text-center py-2 bg-light">CONTROL</div>
-            <div class="col-5 py-2 blue">Turning on and off the load to control the loads which can reduce the overall
-                bill.</div>
+            <div class="col-5 py-2 blue">Turning on and off the load to control the loads which can reduce the overall bill.</div>
             <div class="col-5 py-2 red">Does not have a control feature which can reduce the overall bill.</div>
         </div>
 
@@ -656,22 +630,19 @@
 
         <div class="row border">
             <div class="col-2 fw-bold text-center py-2 bg-light">MONITOR BILLS</div>
-            <div class="col-5 py-2 blue">Customised per unit rate tariff and the complete projected bills analysis compared
-                to the previous month.</div>
+            <div class="col-5 py-2 blue">Customised per unit rate tariff and the complete projected bills analysis compared to the previous month.</div>
             <div class="col-5 py-2 red">Gives an insight of the ongoing energy consumption however cannot forecast.</div>
         </div>
 
         <div class="row border">
             <div class="col-2 fw-bold text-center py-2 bg-light">USER FRIENDLY DASHBOARD</div>
-            <div class="col-5 py-2 blue">User customized app with built-in tariff rates to calculate the projected energy
-                bills.</div>
+            <div class="col-5 py-2 blue">User customized app with built-in tariff rates to calculate the projected energy bills.</div>
             <div class="col-5 py-2 red">Default standard app without tariff customised tariff rates.</div>
         </div>
 
         <div class="row border">
             <div class="col-2 fw-bold text-center py-2 bg-light">DEPENDENCY ON WEATHER</div>
-            <div class="col-5 py-2 blue">No dependency on weather and added advantage if integrated with solar to predict
-                weather forecasts and expected output.</div>
+            <div class="col-5 py-2 blue">No dependency on weather and added advantage if integrated with solar to predict weather forecasts and expected output.</div>
             <div class="col-5 py-2 red">Depends on weather for greater benefits.</div>
         </div>
 
@@ -686,8 +657,7 @@
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="card" style="border: none; border-radius: 48px; overflow: hidden;">
-                    <img src="{{ asset('frontend/images/picture38.png') }}" alt="Energy consumption notification content"
-                        class="img-fluid" style="width: 100%; height: auto; display: block;">
+                    <img src="{{ asset('frontend/images/picture38.png') }}" alt="Energy consumption notification content" class="img-fluid" style="width: 100%; height: auto; display: block;">
                 </div>
             </div>
         </div>
@@ -703,158 +673,104 @@
 
 
 
-    <section class="bg-white py-5">
+<section class="bg-white py-5">
 
-        <div class="container">
-            <div class="row">
+    <div class="container">
+  <div class="row"></div>
 
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-10">
+                <p class="fs-5">
+                    Artificial Intelligence (AI) plays a transformative role in Energy Management Systems (EMS), enhancing efficiency, reliability, and sustainability. Here are some key ways AI is utilized in EMS in the CF app:
+                </p>
+            </div>
+        </div>
 
-                <div class="col-lg-8">
-                    <div class="row justify-content-center mb-4">
-                        <div class="col-lg-10">
-                            <p class="fs-5">
-                                Artificial Intelligence (AI) plays a transformative role in Energy Management Systems (EMS),
-                                enhancing efficiency, reliability, and sustainability. Here are some key ways AI is utilized
-                                in EMS in the CF app:
-                            </p>
-                        </div>
-                    </div>
+        <!-- Feature: Predictive Maintenance -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
+                <img src="{{ asset('frontend/images/picture40.png') }}" alt="Icon" style="width: 50px;">
+            </div>
+            <div class="col">
+                <h5 class="fw-bold">Predictive Maintenance</h5>
+                <p>
+                    AI algorithms analyze data from various sensors and equipment to predict potential failures before they occur. This helps in scheduling maintenance activities proactively, reducing downtime and extending the lifespan of equipment.
+                </p>
+            </div>
+        </div>
 
-                    <!-- Feature: Predictive Maintenance -->
-                    <div class="row align-items-start mb-4">
-                        <div class="col-auto">
-                            <img src="{{ asset('frontend/images/picture40.png') }}" alt="Icon" style="width: 50px;">
-                        </div>
-                        <div class="col">
-                            <h5 class="fw-bold">Predictive Maintenance</h5>
-                            <p>
-                                AI algorithms analyze data from various sensors and equipment to predict potential failures
-                                before they occur. This helps in scheduling maintenance activities proactively, reducing
-                                downtime and extending the lifespan of equipment.
-                            </p>
-                        </div>
-                    </div>
+        <!-- Feature: Load Forecasting -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
+                <img src="{{ asset('frontend/images/picture45.png') }}" alt="Icon" style="width: 50px;">
+            </div>
+            <div class="col">
+                <h5 class="fw-bold">Load Forecasting</h5>
+                <p>
+                    AI models predict future energy demand based on historical data, weather conditions, and other factors. Accurate load forecasting helps in better planning and resource allocation.
+                </p>
+            </div>
+        </div>
 
-                    <!-- Feature: Load Forecasting -->
-                    <div class="row align-items-start mb-4">
-                        <div class="col-auto">
-                            <img src="{{ asset('frontend/images/picture45.png') }}" alt="Icon" style="width: 50px;">
-                        </div>
-                        <div class="col">
-                            <h5 class="fw-bold">Load Forecasting</h5>
-                            <p>
-                                AI models predict future energy demand based on historical data, weather conditions, and
-                                other factors. Accurate load forecasting helps in better planning and resource allocation.
-                            </p>
-                        </div>
-                    </div>
+        <!-- Feature: Fault Detection -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
+                <img src="{{ asset('frontend/images/picture44.png') }}" alt="Icon" style="width: 50px;">
+            </div>
+            <div class="col">
+                <h5 class="fw-bold">Fault Detection and Diagnostics</h5>
+                <p>
+                    AI systems can detect anomalies in the energy system and diagnose issues quickly. This improves response times and minimizes the impact of faults on the overall system.
+                </p>
+            </div>
+        </div>
 
-                    <!-- Feature: Fault Detection -->
-                    <div class="row align-items-start mb-4">
-                        <div class="col-auto">
-                            <img src="{{ asset('frontend/images/picture44.png') }}" alt="Icon" style="width: 50px;">
-                        </div>
-                        <div class="col">
-                            <h5 class="fw-bold">Fault Detection and Diagnostics</h5>
-                            <p>
-                                AI systems can detect anomalies in the energy system and diagnose issues quickly. This
-                                improves response times and minimizes the impact of faults on the overall system.
-                            </p>
-                        </div>
-                    </div>
+        <!-- Feature: Renewable Integration -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
+                <img src="{{ asset('frontend/images/picture43.png') }}" alt="Icon" style="width: 50px;">
+            </div>
+            <div class="col">
+                <h5 class="fw-bold">Integration of Renewable Energy</h5>
+                <p>
+                    AI helps in managing the variability of renewable energy sources like solar and wind. By predicting generation patterns and optimizing storage, AI ensures a stable and reliable energy supply.
+                </p>
+            </div>
+        </div>
 
-                    <!-- Feature: Renewable Integration -->
-                    <div class="row align-items-start mb-4">
-                        <div class="col-auto">
-                            <img src="{{ asset('frontend/images/picture43.png') }}" alt="Icon" style="width: 50px;">
-                        </div>
-                        <div class="col">
-                            <h5 class="fw-bold">Integration of Renewable Energy</h5>
-                            <p>
-                                AI helps in managing the variability of renewable energy sources like solar and wind. By
-                                predicting generation patterns and optimizing storage, AI ensures a stable and reliable
-                                energy supply.
-                            </p>
-                        </div>
-                    </div>
+        <!-- Feature: Decision-Making -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
+                <img src="{{ asset('frontend/images/picture42.png') }}" alt="Icon" style="width: 50px;">
+            </div>
+            <div class="col">
+                <h5 class="fw-bold">Enhanced Decision-Making</h5>
+                <p>
+                    AI provides decision-makers with actionable insights and recommendations based on data analysis. This leads to more informed and effective decisions regarding energy management.
+                </p>
+            </div>
+        </div>
 
-                    <!-- Feature: Decision-Making -->
-                    <div class="row align-items-start mb-4">
-                        <div class="col-auto">
-                            <img src="{{ asset('frontend/images/picture42.png') }}" alt="Icon" style="width: 50px;">
-                        </div>
-                        <div class="col">
-                            <h5 class="fw-bold">Enhanced Decision-Making</h5>
-                            <p>
-                                AI provides decision-makers with actionable insights and recommendations based on data
-                                analysis. This leads to more informed and effective decisions regarding energy management.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Feature: Customer Engagement -->
-                    <div class="row align-items-start mb-4">
-                        <div class="col-auto">
-                            <img src="{{ asset('frontend/images/picture41.png') }}" alt="Icon" style="width: 50px;">
-                        </div>
-                        <div class="col">
-                            <h5 class="fw-bold">Customer Engagement</h5>
-                            <p>
-                                AI-driven apps and dashboards provide users with real-time information about their energy
-                                usage, encouraging energy-saving behaviors and promoting sustainability.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                <div class="row justify-content-center text-center">
-    <!-- Top Image (Responsive) -->
-    <div class="col-12 mb-4">
-        <img src="{{ asset('frontend/images/picture46.png') }}" alt="AI Human"
-             class="img-fluid" style="max-width: 400px; height: auto; z-index: 2;">
-    </div>
-
-    <!-- Circular Profile with Overlay -->
-    <div class="col-12 d-flex justify-content-center">
-        <div class="position-relative rounded-circle shadow"
-             style="
-                 width: 100%;
-                 max-width: 350px;
-                 aspect-ratio: 1 / 1;
-                 background: radial-gradient(circle at center, #fff 35%, rgba(255,255,255,0) 70%);
-                 border: 8px solid rgba(200, 200, 200, 0.3);
-             ">
-             
-            <!-- Main Image -->
-            <img src="{{ asset('frontend/images/picture39.png') }}" alt="AI Human"
-                 class="img-fluid rounded-circle w-100 h-100 position-relative"
-                 style="object-fit: cover; z-index: 2;">
-
-            <!-- Soft Overlay -->
-            <div class="position-absolute top-0 start-0 w-100 h-100 rounded-circle"
-                 style="
-                     z-index: 1;
-                     background: radial-gradient(ellipse at right, rgba(173, 216, 230, 0.3), transparent 70%);
-                 ">
+        <!-- Feature: Customer Engagement -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
+                <img src="{{ asset('frontend/images/picture41.png') }}" alt="Icon" style="width: 50px;">
+            </div>
+            <div class="col">
+                <h5 class="fw-bold">Customer Engagement</h5>
+                <p>
+                    AI-driven apps and dashboards provide users with real-time information about their energy usage, encouraging energy-saving behaviors and promoting sustainability.
+                </p>
             </div>
         </div>
     </div>
-</div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-    </section>
+</section>
 
 
 
 
 
-
+    
 
 
 
@@ -913,8 +829,7 @@
                     <div class="text-center mt-3 px-3">
                         <div class="d-inline-block px-4 py-2"
                             style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #0d6efd;">
-                            <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2"
-                                    style="color: #0d6efd;"></i>Control
+                            <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #0d6efd;"></i>Control
                                 The Load</h5>
                         </div>
                     </div>
@@ -966,6 +881,7 @@
                 <div class="logo-carousel">
                     <div class="logo-track">
                         @foreach ($partners as $partner)
+                            
                             <img src="{{ asset('uploads/partners/' . $partner->image) }}" alt="Current Image">
                         @endforeach
                         <!-- Duplicates for seamless loop -->
@@ -1098,9 +1014,9 @@
             width: 90%;
             padding-bottom: 200%;
             /* background: #f1f1f1;
-                    border-radius: 40px;
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-                    border: 10px solid #1e293b; */
+                border-radius: 40px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                border: 10px solid #1e293b; */
         }
 
         .iphone-mockup .screen {
@@ -1122,16 +1038,16 @@
         }
 
         /*
-                .iphone-mockup .home-button {
-                    position: absolute;
-                    bottom: 15px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 100px;
-                    height: 5px;
-                    background: #1e293b;
-                    border-radius: 5px;
-                } */
+            .iphone-mockup .home-button {
+                position: absolute;
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 5px;
+                background: #1e293b;
+                border-radius: 5px;
+            } */
 
         /* Floating Devices Animation */
         .floating-devices {
@@ -1244,22 +1160,21 @@
     </section>
 
     <!-- Video Modal -->
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content bg-transparent border-0">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close btn-close-white" onclick="closeVideoModal()"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-0">
-                    <video id="modalVideo" class="w-100" controls autoplay>
-                        <source src="{{ asset('frontend/images/landscape.mp4') }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+   <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close btn-close-white" onclick="closeVideoModal()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <video id="modalVideo" class="w-100" controls autoplay>
+                    <source src="{{asset('frontend/images/landscape.mp4')}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </div>
+</div> 
     <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content bg-transparent border-0">
