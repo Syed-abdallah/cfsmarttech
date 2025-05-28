@@ -167,7 +167,7 @@
 .dropdown-menu.mega-menu {
     left: 0;
     right: 0;
-    top: 95%;
+    top: 80%;
     background: #fff;
     border-top: 4px solid #6a11cb;
     border-radius: 0 0 16px 16px;
