@@ -91,14 +91,17 @@
                 transform: scaleX(0);
                 opacity: 1;
             }
+
             80% {
                 transform: scaleX(1);
                 opacity: 1;
             }
+
             80.01% {
                 transform: scaleX(1);
                 opacity: 0;
             }
+
             100% {
                 transform: scaleX(1);
                 opacity: 0;
@@ -195,6 +198,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -319,10 +323,12 @@
                 transform: scale(0.95);
                 opacity: 0.75;
             }
+
             70% {
                 transform: scale(1.3);
                 opacity: 0;
             }
+
             100% {
                 transform: scale(0.95);
                 opacity: 0;
@@ -342,6 +348,7 @@
             0% {
                 transform: translateY(0px);
             }
+
             100% {
                 transform: translateY(-10px);
             }
@@ -357,7 +364,7 @@
         }
     </style>
 
-    <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500" data-bs-wrap="true">
+    {{-- <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500" data-bs-wrap="true">
         <!-- Dots -->
         <div class="carousel-indicators">
             @foreach ($slides as $key => $slide)
@@ -390,30 +397,30 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> --}}
 
-    <div class="responsive-quote" style="padding: 1.5rem; border-radius: 0.5rem;">
+    {{-- <div class="responsive-quote" style="padding: 1.5rem; border-radius: 0.5rem;">
         <blockquote style="margin: 0; text-align: center;">
             <p style="margin: 0; font-size: clamp(2.5rem, 8vw, 5.5rem); font-style: italic; color: #031e47; display: inline-block; position: relative; line-height: 1.2;">
                 "THE COMPLETE<br>
                 SOLUTION"
             </p>
         </blockquote>
-    </div>
+    </div> --}}
 
-    <section id="smart-living-transform" class="position-relative overflow-hidden py-6 py-lg-8"
+    {{-- <section id="smart-living-transform" class="position-relative overflow-hidden py-6 py-lg-8"
         style="background: url('frontend/images/picture33.png') no-repeat center center; background-size: cover;">
-    </section>
+    </section> --}}
 
-    <div class="video-section">
+    {{-- <div class="video-section">
         <video autoplay muted loop playsinline>
             <source src="frontend/images/video3.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="video-container container-fluid"></div>
-    </div>
+    </div> --}}
 
-    <section style="background-color: #f9fbfd; height: 65vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    {{-- <section style="background-color: #f9fbfd; height: 65vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <h1 class="display-4 text-dark mb-1 mt-3">WHAT WE ARE OFFERING</h1>
         <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="2000">
             <div class="carousel-inner text-center">
@@ -442,11 +449,11 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </section>
+    </section> --}}
 
-    <img src="{{ asset('frontend/images/gear.png') }}" alt="audit" style="position: absolute; right: 0; top: 2550px; height: 500px; opacity: 0.1; z-index: 1; pointer-events: none;">
+    {{-- <img src="{{ asset('frontend/images/gear.png') }}" alt="audit" style="position: absolute; right: 0; top: 2550px; height: 500px; opacity: 0.1; z-index: 1; pointer-events: none;"> --}}
 
-    <section style="padding: 50px 0; background: #ffffff;">
+    {{-- <section style="padding: 50px 0; background: #ffffff;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -494,14 +501,14 @@
                 </div>
             </div>
         </div>
-    </section>
-
+    </section> --}}
+    {{-- 
     <div style="position: relative;">
         <h5 class="section-heading">OUR PRODUCTS</h5>
         <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: 100%; max-width: 500px; height: auto; margin-bottom: clamp(1.5rem, 5vw, 3.125rem); display: block;">
-    </div>
+    </div> --}}
 
-    <section id="products" style="margin-bottom: 10px; position: relative;">
+    {{-- <section id="products" style="margin-bottom: 10px; position: relative;">
         <div class="container-fluid" style="position: relative;">
             <div class="product-carousel" style="position: absolute; top: 450px; left: 0; right: 0; z-index: 10;">
                 @foreach ($products as $index => $product)
@@ -526,13 +533,13 @@
                 </h1>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <div style="position: relative;">
+    {{-- <div style="position: relative;">
         <h5 class="section-heading">SCHEMATICS</h5>
         <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: 100%; max-width: 500px; height: auto; margin-bottom: clamp(1.5rem, 5vw, 3.125rem); display: block;">
-    </div>
-
+    </div> --}}
+    {{-- 
     <section class="container my-5">
         <div class="row">
             <div class="col-md-12 col-lg-6">
@@ -546,9 +553,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section class="container my-5">
+    {{-- <section class="container my-5">
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="card" style="border: none; border-radius: 48px; overflow: hidden;">
@@ -556,14 +563,14 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <div style="position: relative;">
+    {{-- <div style="position: relative;">
         <h5 class="section-heading">HOW EMS IS BETTER THAN SOLAR</h5>
         <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: min(100%, 500px); max-width: 100%; height: auto; padding-bottom: clamp(20px, 10vw, 80px); display: block; margin: 0 auto;">
-    </div>
+    </div> --}}
 
-    <section class="container border rounded shadow">
+    {{-- <section class="container border rounded shadow">
         <div class="row">
             <div class="col-2 d-flex flex-column align-items-center justify-content-center bg-primary text-white fw-bold text-center" style="writing-mode: vertical-lr; padding: 10px; font-size: 0.9rem;">
                 MAIN FEATURE<br>COMPARISON
@@ -623,9 +630,9 @@
             <div class="col-5 py-2 blue">Predictive analysis of each load health score.</div>
             <div class="col-5 py-2 red">No Predictive analysis of each load.</div>
         </div>
-    </section>
+    </section> --}}
 
-    <section class="container my-5">
+    {{-- <section class="container my-5">
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="card" style="border: none; border-radius: 48px; overflow: hidden;">
@@ -633,15 +640,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <div style="position: relative;">
+    {{-- <div style="position: relative;">
         <h5 style="text-transform: uppercase; font-weight: 800; margin: clamp(0.5rem, 2vw, 1rem) 0 clamp(5px, 1vw, 10px) clamp(0.5rem, 2vw, 1rem); padding-top: clamp(10px, 2vw, 20px); position: relative; z-index: 2; font-size: clamp(1.5rem, 6vw, 2.3rem); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.2;">
             AI IN EMS
         </h5>
         <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: min(100%, 500px); max-width: 100%; height: auto; padding-bottom: clamp(10px, 2vw, 20px); display: block; margin-left: clamp(0.5rem, 2vw, 1rem);">
-    </div>
-
+    </div> --}}
+    {{-- 
     <section class="bg-white">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -733,114 +740,107 @@
 
                 <!-- Image Column -->
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                    {{-- <div class="row">
-                        <div class="col-lg-12 mb-4"> <img src="{{ asset('frontend/images/picture46.png') }}"
-                                alt="AI Human" style="z-index: 2;width:400px;height:220px"></div>
-                        <div class="col-lg-12">
-                            <div class="position-relative rounded-circle shadow"
-                                style="width: 350px; height: 350px; background: radial-gradient(circle at center, #fff 35%, rgba(255,255,255,0) 70%); border: 8px solid rgba(200, 200, 200, 0.3);">
+           
 
-                                <!-- Circular Image -->
-                                <img src="{{ asset('frontend/images/picture39.png') }}" alt="AI Human"
-                                    class="img-fluid rounded-circle w-100 h-100 object-fit-cover position-relative"
-                                    style="z-index: 2;">
+                </div>
 
-                                <!-- Overlay Effect -->
-                                <div class="position-absolute top-0 start-0 w-100 h-100 rounded-circle"
-                                    style="z-index: 1; background: radial-gradient(ellipse at right, rgba(173, 216, 230, 0.3), transparent 70%);">
-                                </div>
-                            </div>
+            </div>
+        </div>
+    </section> --}}
+
+
+
+
+    {{-- <section class="container my-5">
+        <div class="row">
+            <div class="col-md-12 col-lg-4 mb-4">
+                <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/capture.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                    <div class="text-center mt-3 px-3">
+                        <div class="d-inline-block px-4 py-2"
+                            style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #0d6efd;">
+                            <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #0d6efd;"></i>All
+                                Load Dashboard</h5>
                         </div>
-                    </div> --}}
-
+                    </div>
                 </div>
-
+            </div>
+            <div class="col-md-12 col-lg-4 mb-4">
+                <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/capture1.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                    <div class="text-center mt-3 px-3">
+                        <div class="d-inline-block px-4 py-2"
+                            style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #fd7e14;">
+                            <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #fd7e14;"></i>Live
+                                Dashboard</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4 mb-4">
+                <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/capture3.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                    <div class="text-center mt-3 px-3">
+                        <div class="d-inline-block px-4 py-2"
+                            style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #20c997;">
+                            <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2"
+                                    style="color: #20c997;"></i>Detailed Data (One Load)</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
-
-
+{{-- 
     <section class="container my-5">
-    <div class="row">
-        <div class="col-md-12 col-lg-4 mb-4">
-            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                <img src="{{ asset('frontend/images/capture.png') }}" alt="Energy consumption notification content"
-                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
-                <div class="text-center mt-3 px-3">
-                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #0d6efd;">
-                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #0d6efd;"></i>All Load Dashboard</h5>
+        <div class="row">
+            <div class="col-md-12 col-lg-4 mb-4">
+                <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/capture4.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                    <div class="text-center mt-3 px-3">
+                        <div class="d-inline-block px-4 py-2"
+                            style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #0d6efd;">
+                            <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #0d6efd;"></i>Control
+                                The Load</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4 mb-4">
+                <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/capture5.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                    <div class="text-center mt-3 px-3">
+                        <div class="d-inline-block px-4 py-2"
+                            style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #fd7e14;">
+                            <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #fd7e14;"></i>Edit
+                                Values To Switch Off Load Automatically</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4 mb-4">
+                <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
+                    <img src="{{ asset('frontend/images/capture6.png') }}" alt="Energy consumption notification content"
+                        class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
+                    <div class="text-center mt-3 px-3">
+                        <div class="d-inline-block px-4 py-2"
+                            style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #20c997;">
+                            <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #20c997;"></i>
+                                break up of load
+                            </h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-12 col-lg-4 mb-4">
-            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                <img src="{{ asset('frontend/images/capture1.png') }}" alt="Energy consumption notification content"
-                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
-                <div class="text-center mt-3 px-3">
-                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #fd7e14;">
-                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #fd7e14;"></i>Live Dashboard</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-lg-4 mb-4">
-            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                <img src="{{ asset('frontend/images/capture3.png') }}" alt="Energy consumption notification content"
-                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
-                <div class="text-center mt-3 px-3">
-                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #20c997;">
-                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #20c997;"></i>Detailed Data (One Load)</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-   <section class="container my-5">
-    <div class="row">
-        <div class="col-md-12 col-lg-4 mb-4">
-            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                <img src="{{ asset('frontend/images/capture4.png') }}" alt="Energy consumption notification content"
-                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
-                <div class="text-center mt-3 px-3">
-                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #0d6efd;">
-                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #0d6efd;"></i>Control The Load</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-lg-4 mb-4">
-            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                <img src="{{ asset('frontend/images/capture5.png') }}" alt="Energy consumption notification content"
-                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
-                <div class="text-center mt-3 px-3">
-                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #fd7e14;">
-                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #fd7e14;"></i>Edit Values To Switch Off Load Automatically</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-lg-4 mb-4">
-            <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
-                <img src="{{ asset('frontend/images/capture6.png') }}" alt="Energy consumption notification content"
-                    class="img-fluid" style="width: 73%; height: 480px; display: block; margin: 0 auto;">
-                <div class="text-center mt-3 px-3">
-                    <div class="d-inline-block px-4 py-2" style="background: #f8f9fa; border-radius: 20px; border-left: 4px solid #20c997;">
-                        <h5 class="m-0 text-muted"><i class="fas fa-quote-left me-2" style="color: #20c997;"></i> 
-break up of load
-</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section> --}}
 
 
 
@@ -849,7 +849,7 @@ break up of load
 
 
 
-    <div class="container-fluid py-5 position-relative">
+    {{-- <div class="container-fluid py-5 position-relative">
         <div class="row">
             <div class="col-lg-2 d-flex align-items-center justify-content-center">
                 <h5 class="text-center mb-4">Trusted by<br>renowned brands</h5>
@@ -858,7 +858,7 @@ break up of load
                 <div class="logo-carousel">
                     <div class="logo-track">
                         @foreach ($partners as $partner)
-                            {{-- <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"> --}}
+                            
                             <img src="{{ asset('uploads/partners/' . $partner->image) }}" alt="Current Image">
                         @endforeach
                         <!-- Duplicates for seamless loop -->
@@ -869,7 +869,7 @@ break up of load
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 
@@ -883,7 +883,7 @@ break up of load
 
 
 
-
+{{-- 
     <section id="smart-living-transform" class="position-relative overflow-hidden py-6 py-lg-8">
         <!-- Glass Morphism Overlay -->
         <div class="glass-overlay position-absolute w-100 h-100 top-0 start-0"></div>
@@ -940,9 +940,9 @@ break up of load
             <div class="device thermostat" style="--delay: 1s;"></div>
             <div class="device camera" style="--delay: 2s;"></div>
         </div>
-    </section>
+    </section> --}}
 
-    <style>
+    {{-- <style>
         /* Section Base Styling */
         #smart-living-transform {
             min-height: 90vh;
@@ -987,13 +987,13 @@ break up of load
         /* iPhone Mockup */
         .iphone-mockup {
             position: relative;
-margin-top: 32px;
+            margin-top: 32px;
             width: 90%;
             padding-bottom: 200%;
             /* background: #f1f1f1;
-            border-radius: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 10px solid #1e293b; */
+                border-radius: 40px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                border: 10px solid #1e293b; */
         }
 
         .iphone-mockup .screen {
@@ -1013,17 +1013,18 @@ margin-top: 32px;
             background-size: cover;
             background-position: center;
         }
-/* 
-        .iphone-mockup .home-button {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background: #1e293b;
-            border-radius: 5px;
-        } */
+
+        /*
+            .iphone-mockup .home-button {
+                position: absolute;
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 5px;
+                background: #1e293b;
+                border-radius: 5px;
+            } */
 
         /* Floating Devices Animation */
         .floating-devices {
@@ -1080,64 +1081,63 @@ margin-top: 32px;
                 margin-top: 3rem;
             }
         }
-    </style>
+    </style> --}}
 
 
 
 
 
-<section class="py-6 py-lg-7  mb-5 mt-4">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Video Column with Accent Decoration -->
-            <div class="col-lg-6 mb-5 mb-lg-0 position-relative pe-lg-4">
-                <!-- Decorative Accent Box -->
-                <div class="position-absolute top-0 start-0 bg-warning opacity-10"
-                    style="width: 93%; height: 98%; z-index: 1; transform: translate(-14px, 30px); border-radius: 12px;">
+    {{-- <section class="py-6 py-lg-7  mb-5 mt-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Video Column with Accent Decoration -->
+                <div class="col-lg-6 mb-5 mb-lg-0 position-relative pe-lg-4">
+                    <!-- Decorative Accent Box -->
+                    <div class="position-absolute top-0 start-0 bg-warning opacity-10"
+                        style="width: 93%; height: 98%; z-index: 1; transform: translate(-14px, 30px); border-radius: 12px;">
+                    </div>
+                    <!-- Video Container with Shadow and Border -->
+                    <div class="position-relative rounded-3 overflow-hidden shadow-lg"
+                        style="z-index: 1; border: 8px solid white;">
+                        <video id="promoVideo" class="w-100"
+                            poster="https://placehold.co/600x400?text=CF+Smart+Technology" style="display: block;">
+                            <source src="{{ asset('frontend/images/landscape.mp4') }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <!-- Play Button with Pulse Animation -->
+                        <button
+                            class="btn btn-warning rounded-circle position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center shadow"
+                            style="width: 80px; height: 80px; z-index: 3; border: none;" onclick="showVideoModal()">
+                            <i class="bi bi-play-fill fs-3 text-white" style="margin-left: 4px;"></i>
+                            <span
+                                class="position-absolute top-0 start-0 w-100 h-100 rounded-circle bg-warning opacity-75 animate-pulse"
+                                style="z-index: -1;"></span>
+                        </button>
+                    </div>
                 </div>
-                <!-- Video Container with Shadow and Border -->
-                <div class="position-relative rounded-3 overflow-hidden shadow-lg"
-                    style="z-index: 1; border: 8px solid white;">
-                    <video id="promoVideo" class="w-100"
-                        poster="https://placehold.co/600x400?text=CF+Smart+Technology" style="display: block;">
-                        <source src="{{asset('frontend/images/landscape.mp4')}}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
 
-                    <!-- Play Button with Pulse Animation -->
-                    <button
-                        class="btn btn-warning rounded-circle position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center shadow"
-                        style="width: 80px; height: 80px; z-index: 3; border: none;"
-                        onclick="showVideoModal()">
-                        <i class="bi bi-play-fill fs-3 text-white" style="margin-left: 4px;"></i>
-                        <span
-                            class="position-absolute top-0 start-0 w-100 h-100 rounded-circle bg-warning opacity-75 animate-pulse"
-                            style="z-index: -1;"></span>
-                    </button>
-                </div>
-            </div>
+                <!-- Content Column -->
+                <div class="col-lg-6 ps-lg-5 mt-5 mb-5">
+                    <h3 class="fw-bold mb-3">Leading the Renewable Energy Revolution</h3>
+                    <div class="pe-lg-5">
+                        <p class="text-muted mb-4 fs-lg">
+                            CF offers a comprehensive range of products and services designed to tackle the energy crisis
+                            head-on:
+                            Energy Management: Optimize energy consumption with our advanced energy management systems that
+                            provide real-time monitoring, analytics, and control.
+                            Sustainable Development: Partner with us to develop sustainable infrastructure projects that
+                            balance economic growth with environmental stewardship.
+                        </p>
+                    </div>
 
-            <!-- Content Column -->
-            <div class="col-lg-6 ps-lg-5 mt-5 mb-5">
-                <h3 class="fw-bold mb-3">Leading the Renewable Energy Revolution</h3>
-                <div class="pe-lg-5">
-                    <p class="text-muted mb-4 fs-lg">
-                        CF offers a comprehensive range of products and services designed to tackle the energy crisis
-                        head-on:
-                        Energy Management: Optimize energy consumption with our advanced energy management systems that
-                        provide real-time monitoring, analytics, and control.
-                        Sustainable Development: Partner with us to develop sustainable infrastructure projects that
-                        balance economic growth with environmental stewardship.
-                    </p>
                 </div>
-           
             </div>
         </div>
-    </div>
-</section>
+    </section> --}}
 
-<!-- Video Modal -->
-{{-- <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <!-- Video Modal -->
+    {{-- <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content bg-transparent border-0">
             <div class="modal-header border-0">
@@ -1152,85 +1152,88 @@ margin-top: 32px;
         </div>
     </div>
 </div> --}}
-<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content bg-transparent border-0">
-            <div class="modal-header border-0">
-                <button type="button" class="btn-close btn-close-white" onclick="closeVideoModal()" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-0">
-                @if(isset($settings) && $settings->video_url)
-                    @if(str_contains($settings->video_url, 'youtube.com') || str_contains($settings->video_url, 'youtu.be'))
-                        <!-- YouTube Embed -->
-                        <div class="ratio ratio-16x9">
-                            <iframe src="{{ $settings->video_url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
+    {{-- <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close btn-close-white" onclick="closeVideoModal()"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    @if (isset($settings) && $settings->video_url)
+                        @if (str_contains($settings->video_url, 'youtube.com') || str_contains($settings->video_url, 'youtu.be'))
+                            <!-- YouTube Embed -->
+                            <div class="ratio ratio-16x9">
+                                <iframe src="{{ $settings->video_url }}" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        @else
+                            <!-- Regular Video -->
+                            <video id="modalVideo" class="w-100" controls autoplay>
+                                <source src="{{ $settings->video_url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        @endif
                     @else
-                        <!-- Regular Video -->
-                        <video id="modalVideo" class="w-100" controls autoplay>
-                            <source src="{{ $settings->video_url }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <div class="alert alert-info">No video URL has been set in settings.</div>
                     @endif
-                @else
-                    <div class="alert alert-info">No video URL has been set in settings.</div>
-                @endif
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<style>
-    .animate-pulse {
-        animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-        0% {
-            transform: scale(0.95);
-            opacity: 0.75;
+    </div> --}}
+    {{-- <style>
+        .animate-pulse {
+            animation: pulse 2s infinite;
         }
 
-        70% {
-            transform: scale(1.3);
-            opacity: 0;
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.75;
+            }
+
+            70% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(0.95);
+                opacity: 0;
+            }
         }
 
-        100% {
-            transform: scale(0.95);
-            opacity: 0;
+        /* Custom modal styling */
+        .modal-content {
+            background: transparent;
         }
-    }
-    
-    /* Custom modal styling */
-    .modal-content {
-        background: transparent;
-    }
-    
-    .btn-close-white {
-        filter: invert(1) grayscale(90%) brightness(200%);
-    }
-</style>
 
-<script>
-    function showVideoModal() {
-        const modal = new bootstrap.Modal(document.getElementById('videoModal'));
-        modal.show();
-        document.getElementById('modalVideo').play();
-    }
-    
-    function closeVideoModal() {
-        const modal = bootstrap.Modal.getInstance(document.getElementById('videoModal'));
-        document.getElementById('modalVideo').pause();
-        modal.hide();
-    }
-    
-    // Close modal when clicking outside the video
-    document.getElementById('videoModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeVideoModal();
+        .btn-close-white {
+            filter: invert(1) grayscale(90%) brightness(200%);
         }
-    });
-</script>
+    </style> --}}
+
+    {{-- <script>
+        function showVideoModal() {
+            const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+            modal.show();
+            document.getElementById('modalVideo').play();
+        }
+
+        function closeVideoModal() {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('videoModal'));
+            document.getElementById('modalVideo').pause();
+            modal.hide();
+        }
+
+        // Close modal when clicking outside the video
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+    </script> --}}
 
 
 
@@ -1242,7 +1245,7 @@ margin-top: 32px;
 
 
 
-    <script>
+    {{-- <script>
         /* Scroll observer */
         window.addEventListener('scroll', function() {
             document.querySelectorAll('.zoom-scroll').forEach(function(el) {
@@ -1252,5 +1255,5 @@ margin-top: 32px;
                 }
             });
         });
-    </script>
+    </script> --}}
 @endsection
