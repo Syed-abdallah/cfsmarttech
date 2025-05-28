@@ -240,7 +240,7 @@
     ONE STOP SOLUTION
 </h5> --}}
 
-    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; ">
+    {{-- <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; "> --}}
 
     {{-- <img src="{{ asset('frontend/images/picture34.png') }}" alt="audit"
         style="
