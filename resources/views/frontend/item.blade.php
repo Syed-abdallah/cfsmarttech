@@ -41,74 +41,78 @@
     </div>
 
     <!-- Additional Images -->
-    <div class="container my-5">
-     
-       <div class="row g-3">
- 
-        <div class="col-md-4">
-            <img src="{{ asset('uploads/products/' . $product->image1) }}" alt="Product image 1"
-                class="img-fluid rounded shadow w-100" style="height: 250px; object-fit: cover;">
-        </div>
+<div class="container my-5">
+    <div class="row g-3">
 
-   
-        <div class="col-md-4">
-            <img src="{{ asset('uploads/products/' . $product->image2) }}" alt="Product image 2"
-                class="img-fluid rounded shadow w-100" style="height: 250px; object-fit: cover;">
-        </div>
-  
+        @if ($product->image1)
+            <div class="col-md-4">
+                <img src="{{ asset('uploads/products/' . $product->image1) }}" alt="Product image 1"
+                    class="img-fluid rounded shadow w-100" style="height: 250px; object-fit: cover;">
+            </div>
+        @endif
 
-        <div class="col-md-4">
-            <img src="{{ asset('uploads/products/' . $product->image1) }}" alt="Product image 3"
-                class="img-fluid rounded shadow w-100" style="height: 250px; object-fit: cover;">
-        </div>
+        @if ($product->image2)
+            <div class="col-md-4">
+                <img src="{{ asset('uploads/products/' . $product->image2) }}" alt="Product image 2"
+                    class="img-fluid rounded shadow w-100" style="height: 250px; object-fit: cover;">
+            </div>
+        @endif
 
- 
-        <div class="col-md-6">
-            <img src="{{ asset('uploads/products/' . $product->image2) }}" alt="Product image 4"
-                class="img-fluid rounded shadow w-100" style="height: 300px; object-fit: cover;">
-        </div>
+        @if ($product->image3)
+            <div class="col-md-4">
+                <img src="{{ asset('uploads/products/' . $product->image3) }}" alt="Product image 3"
+                    class="img-fluid rounded shadow w-100" style="height: 250px; object-fit: cover;">
+            </div>
+        @endif
 
-        <div class="col-md-6">
-            <img src="{{ asset('uploads/products/' . $product->image1) }}" alt="Product image 5"
-                class="img-fluid rounded shadow w-100" style="height: 300px; object-fit: cover;">
-        </div>
+        @if ($product->image4)
+            <div class="col-md-6">
+                <img src="{{ asset('uploads/products/' . $product->image4) }}" alt="Product image 4"
+                    class="img-fluid rounded shadow w-100" style="height: 300px; object-fit: cover;">
+            </div>
+        @endif
 
-</div>
+        @if ($product->image5)
+            <div class="col-md-6">
+                <img src="{{ asset('uploads/products/' . $product->image5) }}" alt="Product image 5"
+                    class="img-fluid rounded shadow w-100" style="height: 300px; object-fit: cover;">
+            </div>
+        @endif
 
     </div>
+</div>
+
     <!-- Product Details Section -->
     <style>
         .product-text img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 1rem;
-}
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 1rem;
+        }
 
-.product-text table {
-    width: 100%;
-    overflow-x: auto;
-    display: block;
-}
+        .product-text table {
+            width: 100%;
+            overflow-x: auto;
+            display: block;
+        }
 
-.product-text {
-    word-wrap: break-word;
-}
-
+        .product-text {
+            word-wrap: break-word;
+        }
     </style>
-  <div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-10 col-lg-8">
-            <div class="mb-4">
-                <h5 class="text-primary mb-3 fw-semibold d-flex align-items-center">
-                    <i class="bi bi-file-text me-2"></i> Product Details
-                </h5>
-                <div class="product-text">
-                    {!! $product->text !!}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="mb-4">
+                    <h5 class="text-primary mb-3 fw-semibold d-flex align-items-center">
+                        <i class="bi bi-file-text me-2"></i> Product Details
+                    </h5>
+                    <div class="product-text">
+                        {!! $product->text !!}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 @endsection
