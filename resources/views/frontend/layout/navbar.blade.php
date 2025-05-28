@@ -3,7 +3,7 @@
         
         <!-- MOBILE VIEW: Toggler Left, Logo Right -->
 
-<div class="d-flex w-100 align-items-center justify-content-between d-lg-none">
+{{-- <div class="d-flex w-100 align-items-center justify-content-between d-lg-none">
     <!-- Logo on the left -->
     <a class="navbar-brand" href="#">
         @if($settings->logo_path)
@@ -16,8 +16,63 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-</div>
+</div> --}}
 
+<!-- MOBILE VIEW: Toggler Left, Logo Right -->
+<div class="d-flex w-100 align-items-center justify-content-between d-lg-none">
+    <!-- Logo on the left -->
+    <a class="navbar-brand" href="#">
+        @if($settings->logo_path)
+        <img src="{{ $settings->logo_path }}" alt="" width="60px" height="60px" style="margin-top: -10px; margin-bottom: -10px;">
+        @endif
+    </a>
+
+    <!-- Cart Icon and Toggler on the right -->
+    <div class="d-flex align-items-center">
+        <!-- Cart Icon (Mobile) -->
+        <div class="position-relative me-3 d-lg-none">
+            <a href="#" class="text-decoration-none cart-icon-wrapper" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-cart3 fs-4 action-cart" style="color: #6a11cb;"></i>
+                <span id="mobile-cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">0</span>
+            </a>
+        </div>
+        
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+<style>
+    /* Mobile Cart Icon Styling */
+@media (max-width: 991.98px) {
+    /* Adjust cart icon position */
+    .navbar-custom .cart-icon-wrapper {
+        display: inline-block;
+        position: relative;
+    }
+    
+    /* Make cart badge smaller on mobile */
+    #mobile-cart-count {
+        font-size: 0.6rem;
+        padding: 0.25em 0.4em;
+    }
+    
+    /* Adjust dropdown position for mobile */
+    #cart-dropdown-menu {
+        position: absolute;
+        right: 0;
+        left: auto;
+        margin-top: 0.5rem;
+    }
+    
+    /* Ensure cart dropdown stays on top */
+    .dropdown-menu {
+        z-index: 1050;
+    }
+}
+</style>
 
         <!-- DESKTOP VIEW: Centered Logo and Website Name -->
         <div class="d-none d-lg-flex justify-content-center align-items-center flex-column">
