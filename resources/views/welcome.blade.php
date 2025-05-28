@@ -497,21 +497,34 @@
 
 
 
-    <h5
-        style="
-    text-transform: uppercase;
-    font-weight: 1000;
-    margin: 3rem 0 10px 20px;
-    position: relative;
-    z-index: 2;
-    font-size: 1.5em;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-">
+<div style="position: relative;">
+    <h5 style="
+        text-transform: uppercase;
+        font-weight: 800; /* Slightly reduced for better mobile display */
+        margin: clamp(1rem, 5vw, 3rem) 0 10px clamp(0.5rem, 3vw, 20px);
+        position: relative;
+        z-index: 2;
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.3;
+    ">
         OUR PRODUCTS
     </h5>
 
-    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration"
-        style="position: relative; z-index: 1; margin-bottom:50px ">
+    <img 
+        src="{{ asset('frontend/images/cir.png') }}" 
+        alt="decoration"
+        style="
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin-bottom: clamp(1.5rem, 5vw, 3.125rem);
+            display: block;
+        "
+    >
+</div>
 
 
 
@@ -603,20 +616,34 @@
 
 
 
+<div style="position: relative;">
+    <h5 style="
+        text-transform: uppercase;
+        font-weight: 800; /* Slightly reduced for better mobile display */
+        margin: clamp(1rem, 5vw, 3rem) 0 10px clamp(0.5rem, 3vw, 20px);
+        position: relative;
+        z-index: 2;
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.3;
+    ">
+        SCHEMATICS
+    </h5>
 
-    <h5
+    <img 
+        src="{{ asset('frontend/images/cir.png') }}" 
+        alt="decoration"
         style="
-    text-transform: uppercase;
-    font-weight: 1000;
-    margin: 5rem 0 10px 40px;
-    position: relative;
-    z-index: 2;
-    font-size: 1.5em;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-">
-        SCHEMATICS </h5>
-
-    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; ">
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin-bottom: clamp(1.5rem, 5vw, 3.125rem);
+            display: block;
+        "
+    >
+</div>
 
 
 
