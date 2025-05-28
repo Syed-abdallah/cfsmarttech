@@ -36,7 +36,7 @@
         font-weight: bold;
         font-family:'Courier New', Courier, monospace;
     ">
-     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-size: 2rem; text-align: center;">
+     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-size: 6rem; text-align: center;">
   <div style="min-width: 100px;">Our</div>
   <div style="min-width: 100px;">History</div>
 </div>
@@ -56,7 +56,7 @@
          style="position: absolute; right: 0; bottom: 550px; height: 220px; opacity: 0.1; z-index: 1; pointer-events: none;" data-aos="fade-left" data-aos-delay="100">
 
     <!-- Founder Block -->
-    <div class="mt-5" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-right" data-aos-delay="200">
+    <div class="mt-5" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left" data-aos-delay="200">
         <div style="flex: 0 0 auto;">
             <img src="{{ asset('frontend/images/late.png') }}" alt="Founder" style="width: 150px;">
         </div>
