@@ -673,10 +673,10 @@
 
 
 
-<section class="bg-white py-5">
+{{-- <section class="bg-white py-5">
 
     <div class="container">
-  <div class="row"></div>
+
 
         <div class="row justify-content-center mb-4">
             <div class="col-lg-10">
@@ -764,9 +764,122 @@
             </div>
         </div>
     </div>
+</section> --}}
+
+
+<section class="bg-white py-5">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-10">
+                <p class="fs-5">
+                    Artificial Intelligence (AI) plays a transformative role in Energy Management Systems (EMS), enhancing efficiency, reliability, and sustainability. Here are some key ways AI is utilized in EMS in the CF app:
+                </p>
+            </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="row">
+            <!-- Main Content (col-lg-8) -->
+            <div class="col-lg-8">
+                <!-- Predictive Maintenance -->
+                <div class="row align-items-start mb-4">
+                    <div class="col-auto">
+                        <img src="{{ asset('frontend/images/picture40.png') }}" alt="Icon" style="width: 50px;">
+                    </div>
+                    <div class="col">
+                        <h5 class="fw-bold">Predictive Maintenance</h5>
+                        <p>
+                            AI algorithms analyze data from various sensors and equipment to predict potential failures before they occur. This helps in scheduling maintenance activities proactively, reducing downtime and extending the lifespan of equipment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Load Forecasting -->
+                <div class="row align-items-start mb-4">
+                    <div class="col-auto">
+                        <img src="{{ asset('frontend/images/picture45.png') }}" alt="Icon" style="width: 50px;">
+                    </div>
+                    <div class="col">
+                        <h5 class="fw-bold">Load Forecasting</h5>
+                        <p>
+                            AI models predict future energy demand based on historical data, weather conditions, and other factors. Accurate load forecasting helps in better planning and resource allocation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fault Detection -->
+                <div class="row align-items-start mb-4">
+                    <div class="col-auto">
+                        <img src="{{ asset('frontend/images/picture44.png') }}" alt="Icon" style="width: 50px;">
+                    </div>
+                    <div class="col">
+                        <h5 class="fw-bold">Fault Detection and Diagnostics</h5>
+                        <p>
+                            AI systems can detect anomalies in the energy system and diagnose issues quickly. This improves response times and minimizes the impact of faults on the overall system.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Renewable Integration -->
+                <div class="row align-items-start mb-4">
+                    <div class="col-auto">
+                        <img src="{{ asset('frontend/images/picture43.png') }}" alt="Icon" style="width: 50px;">
+                    </div>
+                    <div class="col">
+                        <h5 class="fw-bold">Integration of Renewable Energy</h5>
+                        <p>
+                            AI helps in managing the variability of renewable energy sources like solar and wind. By predicting generation patterns and optimizing storage, AI ensures a stable and reliable energy supply.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Enhanced Decision-Making -->
+                <div class="row align-items-start mb-4">
+                    <div class="col-auto">
+                        <img src="{{ asset('frontend/images/picture42.png') }}" alt="Icon" style="width: 50px;">
+                    </div>
+                    <div class="col">
+                        <h5 class="fw-bold">Enhanced Decision-Making</h5>
+                        <p>
+                            AI provides decision-makers with actionable insights and recommendations based on data analysis. This leads to more informed and effective decisions regarding energy management.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Customer Engagement -->
+                <div class="row align-items-start mb-4">
+                    <div class="col-auto">
+                        <img src="{{ asset('frontend/images/picture41.png') }}" alt="Icon" style="width: 50px;">
+                    </div>
+                    <div class="col">
+                        <h5 class="fw-bold">Customer Engagement</h5>
+                        <p>
+                            AI-driven apps and dashboards provide users with real-time information about their energy usage, encouraging energy-saving behaviors and promoting sustainability.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar (col-lg-4) -->
+            <div class="col-lg-4">
+                <!-- Example Sidebar Content -->
+                <div class="bg-light p-4 rounded">
+                    <h5 class="fw-bold mb-3">AI in EMS Summary</h5>
+                    <ul class="list-unstyled">
+                        <li>✔ Predictive Maintenance</li>
+                        <li>✔ Load Forecasting</li>
+                        <li>✔ Fault Detection</li>
+                        <li>✔ Renewable Integration</li>
+                        <li>✔ Decision-Making Support</li>
+                        <li>✔ Customer Engagement</li>
+                    </ul>
+                    <p class="mt-3">AI transforms how we manage energy by offering intelligent automation, prediction, and optimization at every level.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-
-
 
 
 
