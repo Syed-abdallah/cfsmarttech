@@ -226,18 +226,19 @@
 
 
 
-    <h5
-        style="
+<h5 style="
     text-transform: uppercase;
-    font-weight: 1000;
-    margin: 3rem 0 10px 40px;
+    font-weight: 800; /* Adjusted for better mobile rendering */
+    margin: clamp(1.5rem, 5vw, 3rem) 0 0.625rem clamp(1rem, 5vw, 2.5rem);
     position: relative;
     z-index: 2;
-    font-size: 1.5em;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
 ">
-        One Stop Solution
-    </h5>
+    ONE STOP SOLUTION
+</h5>
 
     <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; ">
 
