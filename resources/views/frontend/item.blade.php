@@ -42,16 +42,7 @@
 
     <!-- Additional Images -->
     <div class="container my-5">
-        {{-- <div class="row">
-        <div class="col-md-6  ">
-            <img src="{{ asset('uploads/products/' . $product->image1) }}" alt="First image" 
-                 class="img-fluid rounded shadow hover-zoom">
-        </div>
-        <div class="col-md-6">
-            <img src="{{ asset('uploads/products/' . $product->image2) }}" alt="Second image" 
-                 class="img-fluid rounded shadow hover-zoom">
-        </div>
-    </div> --}}
+     
        <div class="row g-3">
  
         <div class="col-md-4">
@@ -86,19 +77,38 @@
 
     </div>
     <!-- Product Details Section -->
-    <div class="container mt-5">
-        <div class="mb-4">
-            <h5 class="text-primary mb-3 fw-semibold">
-                <i class="bi bi-file-text me-2"></i> Product Details
-            </h5>
-            {!! $product->text !!}
-            {{-- <div class="bg-light p-4 rounded-3" style="background-color: #f8f9fa!important;">
-            <textarea id="productText" 
-                      class="form-control bg-transparent p-3 border-0 shadow-none summernote-editor" 
-                      rows="8" 
-                      style="resize: none; font-size: 1rem; line-height: 1.6; min-height: 200px;">
-            </textarea>
-        </div> --}}
+    <style>
+        .product-text img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.product-text table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+.product-text {
+    word-wrap: break-word;
+}
+
+    </style>
+  <div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="mb-4">
+                <h5 class="text-primary mb-3 fw-semibold d-flex align-items-center">
+                    <i class="bi bi-file-text me-2"></i> Product Details
+                </h5>
+                <div class="product-text">
+                    {!! $product->text !!}
+                </div>
+            </div>
         </div>
     </div>
+</div>
+
 @endsection
