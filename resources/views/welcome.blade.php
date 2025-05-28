@@ -364,7 +364,7 @@
         }
     </style>
 
-    {{-- <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500" data-bs-wrap="true">
+    <div id="carouselExampleRide" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500" data-bs-wrap="true">
         <!-- Dots -->
         <div class="carousel-indicators">
             @foreach ($slides as $key => $slide)
@@ -397,118 +397,139 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div> --}}
+    </div> 
 
-    {{-- <div class="responsive-quote" style="padding: 1.5rem; border-radius: 0.5rem;">
+ <div class="responsive-quote" style="padding: 1.5rem; border-radius: 0.5rem;">
         <blockquote style="margin: 0; text-align: center;">
             <p style="margin: 0; font-size: clamp(2.5rem, 8vw, 5.5rem); font-style: italic; color: #031e47; display: inline-block; position: relative; line-height: 1.2;">
                 "THE COMPLETE<br>
                 SOLUTION"
             </p>
         </blockquote>
+    </div>
+
+ <section id="smart-living-transform" 
+         class="position-relative overflow-hidden py-6 py-lg-8 d-flex align-items-center justify-content-center text-center"
+         style="background: url('{{ asset('frontend/images/picture33.png') }}') no-repeat center center / cover;">
+    
+    <!-- Optional content container inside -->
+    {{-- <div class="container text-white">
+        <h2 class="display-5 fw-bold">Smart Living Transformation</h2>
+        <p class="lead">Enhancing life through intelligent design and technology</p>
     </div> --}}
 
-    {{-- <section id="smart-living-transform" class="position-relative overflow-hidden py-6 py-lg-8"
-        style="background: url('frontend/images/picture33.png') no-repeat center center; background-size: cover;">
-    </section> --}}
+</section>
 
-    {{-- <div class="video-section">
+
+    <div class="video-section">
         <video autoplay muted loop playsinline>
             <source src="frontend/images/video3.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="video-container container-fluid"></div>
-    </div> --}}
+    </div>
 
-    {{-- <section style="background-color: #f9fbfd; height: 65vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h1 class="display-4 text-dark mb-1 mt-3">WHAT WE ARE OFFERING</h1>
-        <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="2000">
-            <div class="carousel-inner text-center">
-                <div class="carousel-item active">
-                    <h4 class="display-4 text-dark">METERING</h4>
-                </div>
-                <div class="carousel-item">
-                    <h4 class="display-4 text-dark">MEASUREMENT</h4>
-                </div>
-                <div class="carousel-item">
-                    <h4 class="display-4 text-dark">SIGNALLING</h4>
-                </div>
-                <div class="carousel-item">
-                    <h4 class="display-4 text-dark">CONTROL</h4>
-                </div>
-                <div class="carousel-item">
-                    <h4 class="display-4 text-dark">SUPERVISION</h4>
-                </div>
+<section class="bg-light d-flex flex-column align-items-center justify-content-center text-center py-5 px-3">
+    <h1 class="display-5 text-dark mb-4">WHAT WE ARE OFFERING</h1>
+
+    <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <h4 class="display-6 text-dark">METERING</h4>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </section> --}}
-
-    {{-- <img src="{{ asset('frontend/images/gear.png') }}" alt="audit" style="position: absolute; right: 0; top: 2550px; height: 500px; opacity: 0.1; z-index: 1; pointer-events: none;"> --}}
-
-    {{-- <section style="padding: 50px 0; background: #ffffff;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                        <img src="{{ asset('frontend/images/faq.png') }}" alt="FAQ" style="width: 150px; margin-right: 10px;">
-                    </div>
-
-                    <div style="margin-bottom: 15px; display: flex;">
-                        <span style="color: #ff2e8a; font-weight: bold; font-size: 35px; margin-right: 12px; display: inline-block; transform: rotate(-15deg); text-shadow: 1px 1px 2px rgba(0,0,0,0.15); transition: transform 0.3s ease;">→</span>
-                        <p class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
-                            Are you concerned about high energy bills even after solar deployment. we come after it.
-                        </p>
-                    </div>
-
-                    <div style="margin-bottom: 15px; display: flex;">
-                        <span style="color: #ff2e8a; font-weight: bold; font-size: 35px; margin-right: 12px; display: inline-block; transform: rotate(-15deg); text-shadow: 1px 1px 2px rgba(0,0,0,0.15); transition: transform 0.3s ease;">→</span>
-                        <p class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
-                            Have you perform in energy audit and give you the complete health scorecard of the load with artificial intelligence tool.
-                        </p>
-                    </div>
-
-                    <div style="margin-bottom: 15px; display: flex;">
-                        <span style="color: #ff2e8a; font-weight: bold; font-size: 35px; margin-right: 12px; display: inline-block; transform: rotate(-15deg); text-shadow: 1px 1px 2px rgba(0,0,0,0.15); transition: transform 0.3s ease;">→</span>
-                        <p class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
-                            Do you want to be notified if the current month bill has exceeded the previous month.
-                        </p>
-                    </div>
-
-                    <div style="display: flex;">
-                        <span style="color: #ff2e8a; font-weight: bold; font-size: 35px; margin-right: 12px; display: inline-block; transform: rotate(-15deg); text-shadow: 1px 1px 2px rgba(0,0,0,0.15); transition: transform 0.3s ease;">→</span>
-                        <p class="zoom-scroll" style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">
-                            Do you want to be notified if your load has gone faulty and consuming much energy
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 text-center">
-                    <div style="background: linear-gradient(to right, #ffffff, #e0e0e0); padding: 40px 20px; border-radius: 10px; animation: floatUpDown 3s ease-in-out infinite alternate;">
-                        <h2 class="zoom-scroll" style="margin: 0; font-weight: 600; font-style: italic; font-size: 28px; color: #2c3e50; line-height: 1.5;">
-                            DON'T WORRY<br>
-                            WE GOT YOU<br>
-                            COVERED
-                        </h2>
-                    </div>
-                </div>
+            <div class="carousel-item">
+                <h4 class="display-6 text-dark">MEASUREMENT</h4>
+            </div>
+            <div class="carousel-item">
+                <h4 class="display-6 text-dark">SIGNALLING</h4>
+            </div>
+            <div class="carousel-item">
+                <h4 class="display-6 text-dark">CONTROL</h4>
+            </div>
+            <div class="carousel-item">
+                <h4 class="display-6 text-dark">SUPERVISION</h4>
             </div>
         </div>
-    </section> --}}
-    {{-- 
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<style>
+    @media (max-width: 768px) {
+    #heroCarousel h4 {
+        font-size: 1.5rem;
+    }
+
+    section h1 {
+        font-size: 2rem;
+    }
+}
+
+</style>
+
+    <img src="{{ asset('frontend/images/gear.png') }}" alt="audit" style="position: absolute; right: 0; top: 2550px; height: 500px; opacity: 0.1; z-index: 1; pointer-events: none;">
+
+ <section class="py-5" style="background-color: #ffffff;">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Column -->
+            <div class="col-12 col-md-6 mb-4 mb-md-0">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{{ asset('frontend/images/faq.png') }}" alt="FAQ" class="img-fluid" style="max-width: 150px; margin-right: 10px;">
+                </div>
+
+                @php
+                    $questions = [
+                        "Are you concerned about high energy bills even after solar deployment. we come after it.",
+                        "Have you perform in energy audit and give you the complete health scorecard of the load with artificial intelligence tool.",
+                        "Do you want to be notified if the current month bill has exceeded the previous month.",
+                        "Do you want to be notified if your load has gone faulty and consuming much energy"
+                    ];
+                @endphp
+
+                @foreach ($questions as $question)
+                    <div class="d-flex mb-3">
+                        <span style="color: #ff2e8a; font-weight: bold; font-size: 35px; margin-right: 12px; display: inline-block; transform: rotate(-15deg); text-shadow: 1px 1px 2px rgba(0,0,0,0.15);">→</span>
+                        <p style="margin: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">{{ $question }}</p>
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-12 col-md-6 text-center">
+                <div style="background: linear-gradient(to right, #ffffff, #e0e0e0); padding: 40px 20px; border-radius: 10px; animation: floatUpDown 3s ease-in-out infinite alternate;">
+                    <h2 style="margin: 0; font-weight: 600; font-style: italic; font-size: 28px; color: #2c3e50; line-height: 1.5;">
+                        DON'T WORRY<br>WE GOT YOU<br>COVERED
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add this in your <style> or CSS file -->
+<style>
+@keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+</style>
+
+    
     <div style="position: relative;">
         <h5 class="section-heading">OUR PRODUCTS</h5>
         <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: 100%; max-width: 500px; height: auto; margin-bottom: clamp(1.5rem, 5vw, 3.125rem); display: block;">
-    </div> --}}
+    </div>
 
-    {{-- <section id="products" style="margin-bottom: 10px; position: relative;">
+    <section id="products" style="margin-bottom: 10px; position: relative;">
         <div class="container-fluid" style="position: relative;">
             <div class="product-carousel" style="position: absolute; top: 450px; left: 0; right: 0; z-index: 10;">
                 @foreach ($products as $index => $product)
@@ -533,13 +554,13 @@
                 </h1>
             </div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <div style="position: relative;">
+    <div style="position: relative;">
         <h5 class="section-heading">SCHEMATICS</h5>
         <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: 100%; max-width: 500px; height: auto; margin-bottom: clamp(1.5rem, 5vw, 3.125rem); display: block;">
-    </div> --}}
-    {{-- 
+    </div>
+    
     <section class="container my-5">
         <div class="row">
             <div class="col-md-12 col-lg-6">
@@ -553,9 +574,9 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <section class="container my-5">
+    <section class="container my-5">
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="card" style="border: none; border-radius: 48px; overflow: hidden;">
@@ -563,14 +584,14 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <div style="position: relative;">
+    <div style="position: relative;">
         <h5 class="section-heading">HOW EMS IS BETTER THAN SOLAR</h5>
         <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: min(100%, 500px); max-width: 100%; height: auto; padding-bottom: clamp(20px, 10vw, 80px); display: block; margin: 0 auto;">
-    </div> --}}
+    </div>
 
-    {{-- <section class="container border rounded shadow">
+    <section class="container border rounded shadow">
         <div class="row">
             <div class="col-2 d-flex flex-column align-items-center justify-content-center bg-primary text-white fw-bold text-center" style="writing-mode: vertical-lr; padding: 10px; font-size: 0.9rem;">
                 MAIN FEATURE<br>COMPARISON
@@ -630,9 +651,9 @@
             <div class="col-5 py-2 blue">Predictive analysis of each load health score.</div>
             <div class="col-5 py-2 red">No Predictive analysis of each load.</div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <section class="container my-5">
+    <section class="container my-5">
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="card" style="border: none; border-radius: 48px; overflow: hidden;">
@@ -640,14 +661,18 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <div style="position: relative;">
+    <div style="position: relative;">
         <h5 style="text-transform: uppercase; font-weight: 800; margin: clamp(0.5rem, 2vw, 1rem) 0 clamp(5px, 1vw, 10px) clamp(0.5rem, 2vw, 1rem); padding-top: clamp(10px, 2vw, 20px); position: relative; z-index: 2; font-size: clamp(1.5rem, 6vw, 2.3rem); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.2;">
             AI IN EMS
         </h5>
         <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: min(100%, 500px); max-width: 100%; height: auto; padding-bottom: clamp(10px, 2vw, 20px); display: block; margin-left: clamp(0.5rem, 2vw, 1rem);">
-    </div> --}}
+    </div>
+
+
+
+
     {{-- 
     <section class="bg-white">
         <div class="container-fluid">
@@ -749,9 +774,74 @@
     </section> --}}
 
 
+<section class="bg-white py-5">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-start">
+            <!-- Content Column -->
+            <div class="col-12 col-lg-8">
+                <div class="px-3 px-md-5" data-aos="fade-up" style="position: relative; display: flex; flex-direction: column; gap: 60px;">
+
+                    <!-- Decorative Background Images -->
+                    <img src="{{ asset('frontend/images/bgimage1.png') }}" alt="Decorative Background" 
+                         class="position-absolute" 
+                         style="left: 0; bottom: 0; height: 200px; opacity: 0.1; z-index: 1; pointer-events: none;"
+                         data-aos="fade-right" data-aos-delay="100">
+
+                    <img src="{{ asset('frontend/images/dotted.png') }}" alt="Decorative Dots" 
+                         class="position-absolute" 
+                         style="left: 0; bottom: 1060px; height: 220px; opacity: 0.1; z-index: 1; pointer-events: none;"
+                         data-aos="fade-left" data-aos-delay="200">
+
+                    <!-- Intro Paragraph -->
+                    <div class="mt-5" data-aos="fade-right" data-aos-delay="100">
+                        <p style="font-size: 1rem; max-width: 1000px;">
+                            <strong>Artificial Intelligence (AI)</strong> plays a transformative role in Energy Management Systems (EMS), enhancing efficiency, reliability, and sustainability. Here are some key ways AI is utilized in EMS in the CF app:
+                        </p>
+                    </div>
+
+                    <!-- Content Blocks -->
+                    @php
+                        $features = [
+                            ['img' => 'picture40.png', 'title' => 'Predictive Maintenance', 'desc' => 'AI algorithms analyze data from various sensors and equipment to predict potential failures before they occur. This helps in scheduling maintenance activities proactively, reducing downtime and extending the lifespan of equipment.'],
+                            ['img' => 'picture45.png', 'title' => 'Load Forecasting', 'desc' => 'AI models predict future energy demand based on historical data, weather conditions, and other factors. Accurate load forecasting helps in better planning and resource allocation.'],
+                            ['img' => 'picture44.png', 'title' => 'Fault Detection and Diagnostics', 'desc' => 'AI systems can detect anomalies in the energy system and diagnose issues quickly. This improves response times and minimizes the impact of faults on the overall system.'],
+                            ['img' => 'picture43.png', 'title' => 'Integration of Renewable Energy', 'desc' => 'AI helps in managing the variability of renewable energy sources like solar and wind. By predicting generation patterns and optimizing storage, AI ensures a stable and reliable energy supply.'],
+                            ['img' => 'picture42.png', 'title' => 'Enhanced Decision-Making', 'desc' => 'AI provides decision-makers with actionable insights and recommendations based on data analysis. This leads to more informed and effective decisions regarding energy management.'],
+                            ['img' => 'picture41.png', 'title' => 'Customer Engagement', 'desc' => 'AI-driven apps and dashboards provide users with real-time information about their energy usage, encouraging energy-saving behaviors and promoting sustainability.'],
+                        ];
+                    @endphp
+
+                    @foreach ($features as $feature)
+                    <div class="d-flex flex-wrap align-items-center gap-3" data-aos="fade-left" data-aos-delay="200">
+                        <div style="flex: 0 0 auto;">
+                            <img src="{{ asset('frontend/images/' . $feature['img']) }}" alt="Icon" style="width: 50px;">
+                        </div>
+                        <div style="flex: 1; min-width: 250px;">
+                            <h4 class="fw-bold">{{ $feature['title'] }}</h4>
+                            <p>{{ $feature['desc'] }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+
+                </div>
+            </div>
+
+            <!-- Right Column Placeholder -->
+            <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center mt-4 mt-lg-0">
+                <!-- Optional Image or Graphic Can Go Here -->
+            </div>
+        </div>
+    </div>
+</section>
 
 
-    {{-- <section class="container my-5">
+
+
+
+
+
+
+    <section class="container my-5">
         <div class="row">
             <div class="col-md-12 col-lg-4 mb-4">
                 <div class="card" style="border: none; border-radius: 12px; overflow: hidden;">
@@ -793,10 +883,10 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
 
-{{-- 
+
     <section class="container my-5">
         <div class="row">
             <div class="col-md-12 col-lg-4 mb-4">
@@ -840,7 +930,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
 
 
@@ -849,7 +939,7 @@
 
 
 
-    {{-- <div class="container-fluid py-5 position-relative">
+    <div class="container-fluid py-5 position-relative">
         <div class="row">
             <div class="col-lg-2 d-flex align-items-center justify-content-center">
                 <h5 class="text-center mb-4">Trusted by<br>renowned brands</h5>
@@ -869,7 +959,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
 
 
@@ -883,7 +973,7 @@
 
 
 
-{{-- 
+
     <section id="smart-living-transform" class="position-relative overflow-hidden py-6 py-lg-8">
         <!-- Glass Morphism Overlay -->
         <div class="glass-overlay position-absolute w-100 h-100 top-0 start-0"></div>
@@ -940,9 +1030,9 @@
             <div class="device thermostat" style="--delay: 1s;"></div>
             <div class="device camera" style="--delay: 2s;"></div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <style>
+    <style>
         /* Section Base Styling */
         #smart-living-transform {
             min-height: 90vh;
@@ -1081,13 +1171,13 @@
                 margin-top: 3rem;
             }
         }
-    </style> --}}
+    </style>
 
 
 
 
 
-    {{-- <section class="py-6 py-lg-7  mb-5 mt-4">
+    <section class="py-6 py-lg-7  mb-5 mt-4">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Video Column with Accent Decoration -->
@@ -1134,10 +1224,10 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
     <!-- Video Modal -->
-    {{-- <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+   <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content bg-transparent border-0">
             <div class="modal-header border-0">
@@ -1151,8 +1241,8 @@
             </div>
         </div>
     </div>
-</div> --}}
-    {{-- <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+</div> 
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content bg-transparent border-0">
                 <div class="modal-header border-0">
@@ -1181,8 +1271,8 @@
                 </div>
             </div>
         </div>
-    </div> --}}
-    {{-- <style>
+    </div>
+    <style>
         .animate-pulse {
             animation: pulse 2s infinite;
         }
@@ -1212,9 +1302,9 @@
         .btn-close-white {
             filter: invert(1) grayscale(90%) brightness(200%);
         }
-    </style> --}}
+    </style>
 
-    {{-- <script>
+    <script>
         function showVideoModal() {
             const modal = new bootstrap.Modal(document.getElementById('videoModal'));
             modal.show();
@@ -1233,7 +1323,7 @@
                 closeVideoModal();
             }
         });
-    </script> --}}
+    </script>
 
 
 
@@ -1245,7 +1335,7 @@
 
 
 
-    {{-- <script>
+    <script>
         /* Scroll observer */
         window.addEventListener('scroll', function() {
             document.querySelectorAll('.zoom-scroll').forEach(function(el) {
@@ -1255,5 +1345,5 @@
                 }
             });
         });
-    </script> --}}
+    </script>
 @endsection
