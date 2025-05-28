@@ -242,7 +242,7 @@
 
     <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; ">
 
-    <img src="{{ asset('frontend/images/picture34.png') }}" alt="audit"
+    {{-- <img src="{{ asset('frontend/images/picture34.png') }}" alt="audit"
         style="
             position: absolute;
             right: 0;
@@ -251,7 +251,7 @@
             /* opacity: 0.1; */
             z-index: 1;
             pointer-events: none;
-         ">
+         "> --}}
 
     {{-- <div style="padding: 2rem; border-radius: 0.5rem;">
         <blockquote style="margin: 0; text-align: center;">
