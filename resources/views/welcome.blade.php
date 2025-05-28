@@ -663,12 +663,12 @@
         </div>
     </section>
 
-    <div style="position: relative;">
+    {{-- <div style="position: relative;">
         <h5 style="text-transform: uppercase; font-weight: 800; margin: clamp(0.5rem, 2vw, 1rem) 0 clamp(5px, 1vw, 10px) clamp(0.5rem, 2vw, 1rem); padding-top: clamp(10px, 2vw, 20px); position: relative; z-index: 2; font-size: clamp(1.5rem, 6vw, 2.3rem); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.2;">
             AI IN EMS
         </h5>
         <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; width: min(100%, 500px); max-width: 100%; height: auto; padding-bottom: clamp(10px, 2vw, 20px); display: block; margin-left: clamp(0.5rem, 2vw, 1rem);">
-    </div>
+    </div> --}}
 
 
 
@@ -689,7 +689,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left" data-aos-delay="200">
+                        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left" data-aos-delay="200">
                             <div style="flex: 0 0 auto;">
                                 <img src="{{ asset('frontend/images/picture40.png') }}" alt="Icon" style="width: 50px;">
                             </div>
@@ -701,7 +701,7 @@
                             </div>
                         </div>
                         
-                        <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left" data-aos-delay="200">
+                         {{-- <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left" data-aos-delay="200">
                             <div style="flex: 0 0 auto;">
                                 <img src="{{ asset('frontend/images/picture45.png') }}" alt="Icon" style="width: 50px;">
                             </div>
