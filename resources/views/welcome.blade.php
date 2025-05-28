@@ -774,70 +774,11 @@
     </section> --}}
 
 
-<section class="bg-white py-5">
-    <div class="container-fluid">
-        <div class="row justify-content-center align-items-start">
-            <!-- Content Column -->
-            <div class="col-12 col-lg-8">
-                <div class="px-3 px-md-5" data-aos="fade-up" style="position: relative; display: flex; flex-direction: column; gap: 60px;">
-
-                    <!-- Decorative Background Images -->
-                    <img src="{{ asset('frontend/images/bgimage1.png') }}" alt="Decorative Background" 
-                         class="position-absolute" 
-                         style="left: 0; bottom: 0; height: 200px; opacity: 0.1; z-index: 1; pointer-events: none;"
-                         data-aos="fade-right" data-aos-delay="100">
-
-                    <img src="{{ asset('frontend/images/dotted.png') }}" alt="Decorative Dots" 
-                         class="position-absolute" 
-                         style="left: 0; bottom: 1060px; height: 220px; opacity: 0.1; z-index: 1; pointer-events: none;"
-                         data-aos="fade-left" data-aos-delay="200">
-
-                    <!-- Intro Paragraph -->
-                    <div class="mt-5" data-aos="fade-right" data-aos-delay="100">
-                        <p style="font-size: 1rem; max-width: 1000px;">
-                            <strong>Artificial Intelligence (AI)</strong> plays a transformative role in Energy Management Systems (EMS), enhancing efficiency, reliability, and sustainability. Here are some key ways AI is utilized in EMS in the CF app:
-                        </p>
-                    </div>
-
-                    <!-- Content Blocks -->
-                    @php
-                        $features = [
-                            ['img' => 'picture40.png', 'title' => 'Predictive Maintenance', 'desc' => 'AI algorithms analyze data from various sensors and equipment to predict potential failures before they occur. This helps in scheduling maintenance activities proactively, reducing downtime and extending the lifespan of equipment.'],
-                            ['img' => 'picture45.png', 'title' => 'Load Forecasting', 'desc' => 'AI models predict future energy demand based on historical data, weather conditions, and other factors. Accurate load forecasting helps in better planning and resource allocation.'],
-                            ['img' => 'picture44.png', 'title' => 'Fault Detection and Diagnostics', 'desc' => 'AI systems can detect anomalies in the energy system and diagnose issues quickly. This improves response times and minimizes the impact of faults on the overall system.'],
-                            ['img' => 'picture43.png', 'title' => 'Integration of Renewable Energy', 'desc' => 'AI helps in managing the variability of renewable energy sources like solar and wind. By predicting generation patterns and optimizing storage, AI ensures a stable and reliable energy supply.'],
-                            ['img' => 'picture42.png', 'title' => 'Enhanced Decision-Making', 'desc' => 'AI provides decision-makers with actionable insights and recommendations based on data analysis. This leads to more informed and effective decisions regarding energy management.'],
-                            ['img' => 'picture41.png', 'title' => 'Customer Engagement', 'desc' => 'AI-driven apps and dashboards provide users with real-time information about their energy usage, encouraging energy-saving behaviors and promoting sustainability.'],
-                        ];
-                    @endphp
-
-                    @foreach ($features as $feature)
-                    <div class="d-flex flex-wrap align-items-center gap-3" data-aos="fade-left" data-aos-delay="200">
-                        <div style="flex: 0 0 auto;">
-                            <img src="{{ asset('frontend/images/' . $feature['img']) }}" alt="Icon" style="width: 50px;">
-                        </div>
-                        <div style="flex: 1; min-width: 250px;">
-                            <h4 class="fw-bold">{{ $feature['title'] }}</h4>
-                            <p>{{ $feature['desc'] }}</p>
-                        </div>
-                    </div>
-                    @endforeach
-
-                </div>
-            </div>
-
-            <!-- Right Column Placeholder -->
-            <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center mt-4 mt-lg-0">
-                <!-- Optional Image or Graphic Can Go Here -->
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
 
-
+    
 
 
 
