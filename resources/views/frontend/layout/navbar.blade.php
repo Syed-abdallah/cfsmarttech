@@ -142,7 +142,7 @@
 /* For dark mode compatibility */
 @media (prefers-color-scheme: dark) {
     .navbar-custom {
-          background-color: rgba(204, 203, 203, 0.8) !important;
+          background-color: rgba(219, 219, 219, 0.8) !important;
     }
 }
 /* Logo and brand positioning */
