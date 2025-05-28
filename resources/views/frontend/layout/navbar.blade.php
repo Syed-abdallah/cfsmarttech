@@ -127,6 +127,24 @@
 </nav>
 
 <style>
+
+    .navbar-custom {
+    /* Frosted glass effect */
+    background-color: rgba(250, 250, 250, 0.8) !important;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    
+    /* Remove if you don't want the slight white tint */
+    /* Or adjust the alpha value (0.8) to make more/less transparent */
+}
+
+/* For dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+    .navbar-custom {
+        background-color: rgba(30, 30, 30, 0.8) !important;
+    }
+}
 /* Logo and brand positioning */
 .navbar-custom .container.flex-column {
     display: flex;
