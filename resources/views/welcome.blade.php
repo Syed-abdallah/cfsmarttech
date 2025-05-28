@@ -774,6 +774,59 @@
     </section> --}}
 
 
+<section class="bg-white">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <section data-aos="fade-up" class="px-3 px-md-5 py-4 d-flex flex-column gap-5 position-relative">
+                    <img src="{{ asset('frontend/images/bgimage1.png') }}" alt="Decorative Background2"
+                         class="position-absolute start-0 bottom-0 opacity-10 z-1 pointer-events-none d-none d-md-block"
+                         style="height: 200px;" data-aos="fade-right" data-aos-delay="100">
+                    <img src="{{ asset('frontend/images/dotted.png') }}" alt="Decorative Background3"
+                         class="position-absolute start-0 d-none d-md-block"
+                         style="bottom: 1060px; height: 220px; opacity: 0.1; z-index: 1; pointer-events: none;"
+                         data-aos="fade-left" data-aos-delay="200">
+
+                    <div class="mt-4 d-flex flex-wrap align-items-center gap-3" data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex-grow-1 px-2">
+                            <p>
+                                Artificial Intelligence (AI) plays a transformative role in Energy Management Systems (EMS), enhancing efficiency, reliability, and sustainability. Here are some key ways AI is utilized in EMS in CF app.
+                            </p>
+                        </div>
+                    </div>
+
+                    @php
+                        $features = [
+                            ['img' => 'picture40.png', 'title' => 'Predictive Maintenance', 'desc' => 'AI algorithms analyze data from various sensors and equipment to predict potential failures before they occur. This helps in scheduling maintenance activities proactively, reducing downtime and extending the lifespan of equipment.'],
+                            ['img' => 'picture45.png', 'title' => 'Load Forecasting', 'desc' => 'AI models predict future energy demand based on historical data, weather conditions, and other factors. Accurate load forecasting helps in better planning and resource allocation.'],
+                            ['img' => 'picture44.png', 'title' => 'Fault Detection and Diagnostics', 'desc' => 'AI systems can detect anomalies in the energy system and diagnose issues quickly. This improves response times and minimizes the impact of faults on the overall system.'],
+                            ['img' => 'picture43.png', 'title' => 'Integration of Renewable Energy', 'desc' => 'AI helps in managing the variability of renewable energy sources like solar and wind. By predicting generation patterns and optimizing storage, AI ensures a stable and reliable energy supply.'],
+                            ['img' => 'picture42.png', 'title' => 'Enhanced Decision-Making', 'desc' => 'AI provides decision-makers with actionable insights and recommendations based on data analysis. This leads to more informed and effective decisions regarding energy management.'],
+                            ['img' => 'picture41.png', 'title' => 'Customer Engagement', 'desc' => 'AI-driven apps and dashboards provide users with real-time information about their energy usage, encouraging energy-saving behaviors and promoting sustainability.'],
+                        ];
+                    @endphp
+
+                    @foreach($features as $feature)
+                        <div class="d-flex flex-wrap align-items-center gap-3 mt-3" data-aos="fade-left" data-aos-delay="200">
+                            <div class="flex-shrink-0">
+                                <img src="{{ asset('frontend/images/' . $feature['img']) }}" alt="Icon" class="img-fluid" style="width: 50px;">
+                            </div>
+                            <div class="flex-grow-1" style="min-width: 250px;">
+                                <h4 class="fw-bold">{{ $feature['title'] }}</h4>
+                                <p>{{ $feature['desc'] }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </section>
+            </div>
+
+            <!-- Optional Image Column -->
+            <div class="col-lg-4 d-none d-lg-flex justify-content-center align-items-center">
+                {{-- You can add a relevant image or content here for large screens --}}
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
