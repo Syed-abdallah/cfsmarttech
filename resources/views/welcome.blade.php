@@ -226,7 +226,7 @@
 
 
 
-<h5 style="
+{{-- <h5 style="
     text-transform: uppercase;
     font-weight: 800; /* Adjusted for better mobile rendering */
     margin: clamp(1.5rem, 5vw, 3rem) 0 0.625rem clamp(1rem, 5vw, 2.5rem);
@@ -238,7 +238,7 @@
     letter-spacing: 0.5px;
 ">
     ONE STOP SOLUTION
-</h5>
+</h5> --}}
 
     <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration" style="position: relative; z-index: 1; ">
 
