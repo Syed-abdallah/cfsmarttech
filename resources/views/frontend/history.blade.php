@@ -20,26 +20,34 @@
 </style>
 
 <!-- Hero Section -->
-<section data-aos="fade-in" style="background-color: rgb(249, 251, 253); height: 85vh; position: relative; overflow: hidden;">
-    <img src="{{ asset('frontend/images/hisback.jpg') }}" 
-         alt="Smart Products" 
-         style="height: 85vh; width: 100%; object-fit: cover;" data-aos="zoom-out">
+<section data-aos="fade-in" class="position-relative overflow-hidden" style="background-color: rgb(249, 251, 253); height: 85vh;">
+    <img 
+        src="{{ asset('frontend/images/hisback.jpg') }}" 
+        alt="Smart Products" 
+        class="w-100 h-100 object-fit-cover" 
+        data-aos="zoom-out"
+        style="object-fit: cover;"
+    >
 
-    <div data-aos="fade-up" data-aos-delay="200"
-         style="
-        position: absolute;
-        bottom: 20px;
-        left: 30px;
-        color: rgb(255, 255, 255);
-        font-size: 5.2rem;
-        line-height: 1.1;
-        font-weight: bold;
-        font-family:'Courier New', Courier, monospace;
-    ">
-        <div>Our</div>
-        <div>History</div>
+    <div 
+        data-aos="fade-up" 
+        data-aos-delay="200"
+        class="position-absolute text-white fw-bold"
+        style="
+            bottom: 5%;
+            left: 5%;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.1;
+        "
+    >
+        <div class="display-3 d-none d-md-block">Our</div>
+        <div class="display-3 d-none d-md-block">History</div>
+        
+        <div class="h2 d-block d-md-none">Our</div>
+        <div class="h2 d-block d-md-none">History</div>
     </div>
 </section>
+
 
 <!-- History Section with Decorative Image -->
 <section data-aos="fade-up" style="background-color: #f9fbfd; padding: 50px 10%; display: flex; flex-direction: column; gap: 60px; position: relative;">
