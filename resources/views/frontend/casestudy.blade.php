@@ -53,7 +53,7 @@
             opacity: 0.1;
             z-index: 1;
             pointer-events: none;
-            " data-aos="fade-left" data-aos-delay="200">
+            " data-aos="fade-right" data-aos-delay="200">
 
 <img src="{{ asset('frontend/images/giff.gif') }}" 
 alt="Decorative Background1" 
@@ -82,7 +82,7 @@ UNION Automobile wants to monitor and minimize their Energy Consumption which is
         </div>
     </div>
 
-    <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-left" data-aos-delay="200">
+    <div class="mt-3" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;" data-aos="fade-right" data-aos-delay="200">
         <div style="flex: 0 0 auto;">
             <img src="{{ asset('frontend/images/Picture29.png') }}" alt="Icon" style="width: 100px; margin-right:30px">
         </div>
