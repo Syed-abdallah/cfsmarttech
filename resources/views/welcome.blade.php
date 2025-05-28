@@ -671,22 +671,35 @@
     </section>
 
 
+<div style="position: relative;">
+    <h5 style="
+        text-transform: uppercase;
+        font-weight: 800; /* Slightly reduced for better mobile rendering */
+        margin: clamp(1rem, 5vw, 3rem) 0 10px clamp(1rem, 5vw, 2.5rem);
+        padding-top: clamp(10px, 2vw, 20px);
+        position: relative;
+        z-index: 2;
+        font-size: clamp(1rem, 4vw, 1.3em);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ">
+        HOW EMS IS BETTER THAN SOLAR
+    </h5>
 
-    <h5
+    <img 
+        src="{{ asset('frontend/images/cir.png') }}" 
+        alt="decoration"
         style="
-    text-transform: uppercase;
-    font-weight: 1000;
-    margin: 3rem 0 10px 40px;
-    padding-top :20px;
-    position: relative;
-    z-index: 2;
-    font-size: 1.3em;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-">
-        HOW EMS IS BETTER THEN SOLAR </h5>
-
-    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration"
-        style="position: relative; z-index: 1; width:500px;   padding-bottom :80px; ">
+            position: relative;
+            z-index: 1;
+            width: min(100%, 500px);
+            max-width: 100%;
+            height: auto;
+            padding-bottom: clamp(20px, 10vw, 80px);
+            display: block;
+            margin: 0 auto;
+        "
+    >
+</div>
 
 
 
@@ -802,21 +815,36 @@
 
 
 
-    <h5
-        style="
-    text-transform: uppercase;
-    font-weight: 1000;
-    margin: 1rem 0 10px 10px;
-    padding-top :20px;
-    position: relative;
-    z-index: 2;
-    font-size: 2.3em;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-">
-        AI IN EMS </h5>
+    <div style="position: relative;">
+    <h5 style="
+        text-transform: uppercase;
+        font-weight: 800; /* Adjusted for better mobile rendering */
+        margin: clamp(0.5rem, 2vw, 1rem) 0 clamp(5px, 1vw, 10px) clamp(0.5rem, 2vw, 1rem);
+        padding-top: clamp(10px, 2vw, 20px);
+        position: relative;
+        z-index: 2;
+        font-size: clamp(1.5rem, 6vw, 2.3rem); /* Responsive font scaling */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.2; /* Better spacing for mobile */
+    ">
+        AI IN EMS
+    </h5>
 
-    <img src="{{ asset('frontend/images/cir.png') }}" alt="decoration"
-        style="position: relative; z-index: 1; width:500px;   padding-bottom :20px; ">
+    <img 
+        src="{{ asset('frontend/images/cir.png') }}" 
+        alt="decoration"
+        style="
+            position: relative;
+            z-index: 1;
+            width: min(100%, 500px); /* Never exceed 500px but scale down */
+            max-width: 100%;
+            height: auto;
+            padding-bottom: clamp(10px, 2vw, 20px);
+            display: block;
+            margin-left: clamp(0.5rem, 2vw, 1rem); /* Match heading indentation */
+        "
+    >
+</div>
 
 
 
