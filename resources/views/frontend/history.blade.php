@@ -36,7 +36,7 @@
         font-weight: bold;
         font-family:'Courier New', Courier, monospace;
     ">
-     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-size: 4rem; text-align: center;">
+     <div style="display: flex; flex-wrap: wrap; gap: 10px; font-size: 4rem; ">
   <div style="min-width: 100px;">Our</div>
   <div style="min-width: 100px;">History</div>
 </div>
