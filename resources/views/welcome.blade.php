@@ -773,104 +773,97 @@
         </div>
     </section>  --}}
 
-
 <section class="bg-white py-5">
-    <div class="container position-relative">
-        <!-- Decorative Backgrounds -->
-        <img src="{{ asset('frontend/images/bgimage1.png') }}" alt="Decorative" 
-             class="position-absolute start-0 bottom-0" 
-             style="height: 200px; opacity: 0.1; z-index: 1; pointer-events: none;">
-             
-        <img src="{{ asset('frontend/images/dotted.png') }}" alt="Decorative" 
-             class="position-absolute start-0" 
-             style="bottom: 1060px; height: 220px; opacity: 0.1; z-index: 1; pointer-events: none;">
-
-        <!-- Introduction -->
-        <div data-aos="fade-up" class="mb-5">
-            <p class="fs-5">
-                Artificial Intelligence (AI) plays a transformative role in Energy Management Systems (EMS), enhancing efficiency, reliability, and sustainability. Here are some key ways AI is utilized in EMS in the CF app:
-            </p>
+    <div class="container">
+        <!-- Intro Text -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-10">
+                <p class="fs-5">
+                    Artificial Intelligence (AI) plays a transformative role in Energy Management Systems (EMS), enhancing efficiency, reliability, and sustainability. Here are some key ways AI is utilized in EMS in the CF app:
+                </p>
+            </div>
         </div>
 
-        <!-- Feature 1 -->
-        <div class="d-flex flex-wrap align-items-start mb-4" data-aos="fade-left" data-aos-delay="100">
-            <div class="me-3 mb-2">
+        <!-- Feature: Predictive Maintenance -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
                 <img src="{{ asset('frontend/images/picture40.png') }}" alt="Icon" style="width: 50px;">
             </div>
-            <div class="flex-grow-1">
+            <div class="col">
                 <h5 class="fw-bold">Predictive Maintenance</h5>
-                <p class="mb-0">
+                <p>
                     AI algorithms analyze data from various sensors and equipment to predict potential failures before they occur. This helps in scheduling maintenance activities proactively, reducing downtime and extending the lifespan of equipment.
                 </p>
             </div>
         </div>
 
-        <!-- Feature 2 -->
-        <div class="d-flex flex-wrap align-items-start mb-4" data-aos="fade-left" data-aos-delay="200">
-            <div class="me-3 mb-2">
+        <!-- Feature: Load Forecasting -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
                 <img src="{{ asset('frontend/images/picture45.png') }}" alt="Icon" style="width: 50px;">
             </div>
-            <div class="flex-grow-1">
+            <div class="col">
                 <h5 class="fw-bold">Load Forecasting</h5>
-                <p class="mb-0">
+                <p>
                     AI models predict future energy demand based on historical data, weather conditions, and other factors. Accurate load forecasting helps in better planning and resource allocation.
                 </p>
             </div>
         </div>
 
-        <!-- Feature 3 -->
-        <div class="d-flex flex-wrap align-items-start mb-4" data-aos="fade-left" data-aos-delay="300">
-            <div class="me-3 mb-2">
+        <!-- Feature: Fault Detection -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
                 <img src="{{ asset('frontend/images/picture44.png') }}" alt="Icon" style="width: 50px;">
             </div>
-            <div class="flex-grow-1">
+            <div class="col">
                 <h5 class="fw-bold">Fault Detection and Diagnostics</h5>
-                <p class="mb-0">
+                <p>
                     AI systems can detect anomalies in the energy system and diagnose issues quickly. This improves response times and minimizes the impact of faults on the overall system.
                 </p>
             </div>
         </div>
 
-        <!-- Feature 4 -->
-        <div class="d-flex flex-wrap align-items-start mb-4" data-aos="fade-left" data-aos-delay="400">
-            <div class="me-3 mb-2">
+        <!-- Feature: Renewable Integration -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
                 <img src="{{ asset('frontend/images/picture43.png') }}" alt="Icon" style="width: 50px;">
             </div>
-            <div class="flex-grow-1">
+            <div class="col">
                 <h5 class="fw-bold">Integration of Renewable Energy</h5>
-                <p class="mb-0">
+                <p>
                     AI helps in managing the variability of renewable energy sources like solar and wind. By predicting generation patterns and optimizing storage, AI ensures a stable and reliable energy supply.
                 </p>
             </div>
         </div>
 
-        <!-- Feature 5 -->
-        <div class="d-flex flex-wrap align-items-start mb-4" data-aos="fade-left" data-aos-delay="500">
-            <div class="me-3 mb-2">
+        <!-- Feature: Decision-Making -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
                 <img src="{{ asset('frontend/images/picture42.png') }}" alt="Icon" style="width: 50px;">
             </div>
-            <div class="flex-grow-1">
+            <div class="col">
                 <h5 class="fw-bold">Enhanced Decision-Making</h5>
-                <p class="mb-0">
+                <p>
                     AI provides decision-makers with actionable insights and recommendations based on data analysis. This leads to more informed and effective decisions regarding energy management.
                 </p>
             </div>
         </div>
 
-        <!-- Feature 6 -->
-        <div class="d-flex flex-wrap align-items-start mb-4" data-aos="fade-left" data-aos-delay="600">
-            <div class="me-3 mb-2">
+        <!-- Feature: Customer Engagement -->
+        <div class="row align-items-start mb-4">
+            <div class="col-auto">
                 <img src="{{ asset('frontend/images/picture41.png') }}" alt="Icon" style="width: 50px;">
             </div>
-            <div class="flex-grow-1">
+            <div class="col">
                 <h5 class="fw-bold">Customer Engagement</h5>
-                <p class="mb-0">
+                <p>
                     AI-driven apps and dashboards provide users with real-time information about their energy usage, encouraging energy-saving behaviors and promoting sustainability.
                 </p>
             </div>
         </div>
     </div>
 </section>
+
 
 
 
