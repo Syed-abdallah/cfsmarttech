@@ -796,7 +796,7 @@
                 </div>
 
                 <!-- Features -->
-                @php
+                {{-- @php
                     $features = [
                         ['img' => 'picture40.png', 'title' => 'Predictive Maintenance', 'desc' => 'AI algorithms analyze data from various sensors and equipment to predict potential failures before they occur. This helps in scheduling maintenance activities proactively, reducing downtime and extending the lifespan of equipment.'],
                         ['img' => 'picture45.png', 'title' => 'Load Forecasting', 'desc' => 'AI models predict future energy demand based on historical data, weather conditions, and other factors. Accurate load forecasting helps in better planning and resource allocation.'],
@@ -817,7 +817,7 @@
                             <p class="mb-0">{{ $feature['desc'] }}</p>
                         </div>
                     </div>
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
     </div>
