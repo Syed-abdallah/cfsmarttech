@@ -163,7 +163,7 @@
     }
     body { overflow-x: hidden; }
      #cart-dropdown .dropdown-menu {
-    right: -70px !important;
+    right: -73px !important;
   }
   }
 
