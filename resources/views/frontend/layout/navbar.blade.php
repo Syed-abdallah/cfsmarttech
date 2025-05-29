@@ -12,10 +12,10 @@
       </a>
     </div>
 
-    {{-- MAIN ROW: mobile logo + toggler + collapse(nav+links) + cart --}}
+    {{-- MAIN ROW: mobile logo + cart + toggler + collapse(nav+links) --}}
     <div class="d-flex align-items-center w-100">
       {{-- 1) MOBILE‐ONLY logo on left --}}
-      <a class="navbar-brand d-lg-none me-auto" href="#">
+      <a class="navbar-brand d-lg-none order-1 me-auto" href="#">
         @if($settings->logo_path)
           <img src="{{ $settings->logo_path }}"
                alt="Logo" width="60" height="60"
@@ -23,15 +23,58 @@
         @endif
       </a>
 
-      {{-- 2) MOBILE‐ONLY toggler --}}
-      <button class="navbar-toggler d-lg-none" type="button"
+      {{-- 2) MOBILE & DESKTOP cart --}}
+      <div id="cart-dropdown"
+           class="dropdown order-2 order-lg-2 ms-lg-3">
+        <a href="#"
+           class="text-decoration-none cart-icon-wrapper position-relative"
+           data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-cart3 fs-3 action-cart" style="color: #6a11cb;"></i>
+          <span id="cart-count"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
+            0
+          </span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end p-0" style="min-width: 300px;">
+          <li class="cart-header p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="mb-0"><i class="bi bi-cart3 me-2"></i>Your Shopping Cart</h6>
+              <span id="cart-summary" class="badge bg-light text-dark">0 items</span>
+            </div>
+          </li>
+          <li id="cart-empty" class="text-center py-5">
+            <i class="bi bi-cart-x empty-cart-icon"></i>
+            <p class="text-muted mb-2">Your cart feels lonely</p>
+            <a href="/products" class="btn btn-sm btn-outline-primary">Explore Products</a>
+          </li>
+          <div id="cart-items" class="d-none">
+            <div id="cart-items-container"></div>
+            <li class="cart-footer p-3">
+              <div class="d-flex justify-content-between mb-4">
+                <strong>Subtotal:</strong><strong id="cart-total">$0.00</strong>
+              </div>
+              <div class="d-grid gap-2">
+                <a href="/add_to_cart" class="btn btn-primary">
+                  <i class="bi bi-cart-check me-2"></i>View Cart
+                </a>
+                <a href="/checkout" class="btn btn-success">
+                  <i class="bi bi-credit-card me-2"></i>Secure Checkout
+                </a>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+
+      {{-- 3) MOBILE‐ONLY toggler on the right --}}
+      <button class="navbar-toggler d-lg-none order-3" type="button"
               data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false"
               aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      {{-- 3) COLLAPSIBLE NAV LINKS (hidden on mobile, grows on desktop) --}}
+      {{-- 4) COLLAPSIBLE NAV LINKS (centered on desktop) --}}
       <div class="collapse navbar-collapse justify-content-center order-lg-1"
            id="navbarNav">
         <ul class="navbar-nav">
@@ -107,48 +150,6 @@
           </li>
         </ul>
       </div>
-
-      {{-- 4) CART: always visible, but on desktop it sits to the right of the nav --}}
-      <div id="cart-dropdown"
-           class="dropdown order-lg-1">
-        <a href="#" class="text-decoration-none cart-icon-wrapper position-relative"
-           data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-cart3 fs-3 action-cart" style="color: #6a11cb;"></i>
-          <span id="cart-count"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
-            0
-          </span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end p-0" style="min-width: 340px;">
-          <li class="cart-header p-3">
-            <div class="d-flex justify-content-between align-items-center">
-              <h6 class="mb-0"><i class="bi bi-cart3 me-2"></i>Your Shopping Cart</h6>
-              <span id="cart-summary" class="badge bg-light text-dark">0 items</span>
-            </div>
-          </li>
-          <li id="cart-empty" class="text-center py-5">
-            <i class="bi bi-cart-x empty-cart-icon"></i>
-            <p class="text-muted mb-2">Your cart feels lonely</p>
-            <a href="/products" class="btn btn-sm btn-outline-primary">Explore Products</a>
-          </li>
-          <div id="cart-items" class="d-none">
-            <div id="cart-items-container"></div>
-            <li class="cart-footer p-3">
-              <div class="d-flex justify-content-between mb-4">
-                <strong>Subtotal:</strong><strong id="cart-total">$0.00</strong>
-              </div>
-              <div class="d-grid gap-2">
-                <a href="/add_to_cart" class="btn btn-primary">
-                  <i class="bi bi-cart-check me-2"></i>View Cart
-                </a>
-                <a href="/checkout" class="btn btn-success">
-                  <i class="bi bi-credit-card me-2"></i>Secure Checkout
-                </a>
-              </div>
-            </li>
-          </div>
-        </ul>
-      </div>
     </div>
   </div>
 </nav>
@@ -156,7 +157,10 @@
 <style>
   /* Mobile tweaks (≤991.98px) */
   @media (max-width: 991.98px) {
-    .navbar-custom { padding: 1,5 1rem;    min-height: 80px;        }
+    .navbar-custom {
+      padding: 1.5rem 1rem;   /* taller */
+      min-height: 80px;
+    }
     body { overflow-x: hidden; }
   }
 
@@ -172,8 +176,8 @@
     }
   }
 
-  /* Mega‐menu hover & animation (unchanged) */
-  .mega-dropdown>.dropdown-menu {
+  /* Mega‐menu hover & animation */
+  .mega-dropdown > .dropdown-menu {
     display: block;
     opacity: 0;
     visibility: hidden;
@@ -184,19 +188,17 @@
       transform 0.3s ease 0.2s;
     transform: translateY(10px);
   }
-  .mega-dropdown:hover>.dropdown-menu {
+  .mega-dropdown:hover > .dropdown-menu {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
     transition-delay: 0s;
   }
-  .mega-dropdown>a::after {
+  .mega-dropdown > a::after {
     content: '';
-    position: absolute;
-    bottom: -5px; left: 0;
-    width: 100%; height: 10px;
-    background: transparent;
+    position: absolute; bottom: -5px; left: 0;
+    width: 100%; height: 10px; background: transparent;
   }
   .dropdown-menu.mega-menu {
     left: 0; right: 0; top: 80%;
@@ -233,14 +235,13 @@
 
   /* Mobile mega‐menu adjustments */
   @media (max-width: 991.98px) {
-    .mega-dropdown>.dropdown-menu {
+    .mega-dropdown > .dropdown-menu {
       position: static !important;
       display: none !important;
-      opacity: 1 !important;
-      transform: none !important;
+      opacity: 1 !important; transform: none !important;
       transition: none !important;
     }
-    .mega-dropdown.show>.dropdown-menu { display: block !important; }
+    .mega-dropdown.show > .dropdown-menu { display: block !important; }
     .mega-menu .col-lg-4 {
       animation: none !important; opacity: 1 !important; transform: none !important;
     }
@@ -262,12 +263,14 @@
         megaDropdown.classList.toggle('show');
       }
     });
-    // Close on outside click
+
+    // Close mega‐menu when clicking outside
     document.addEventListener('click', function(e) {
       if (!megaDropdown.contains(e.target)) {
         megaDropdown.classList.remove('show');
       }
     });
+
     // Prevent cart hover from opening mega‐menu
     const cartIcon = document.querySelector('.cart-icon-wrapper');
     cartIcon.addEventListener('mouseenter', () =>

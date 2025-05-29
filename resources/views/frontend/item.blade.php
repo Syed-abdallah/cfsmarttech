@@ -32,7 +32,7 @@
         <div class="d-flex justify-content-center mt-5">
             @if ($product->quantity > 0)
                 <button class="add-to-cart" data-id="{{ $product->id }}" data-name="{{ $product->name }}"
-                    data-price="{{ $product->price }}" data-image="{{ asset('storage/' . $product->image) }}"
+                    data-price="{{ $product->price }}" data-image="{{ asset('uploads/products/' . $product->image) }}"
                     data-stock="{{ $product->quantity }}">
                     <span class="box">Add to Cart</span>
                 </button>

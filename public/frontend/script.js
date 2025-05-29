@@ -232,6 +232,7 @@ function setupAddToCartButtons() {
             const product = {
                 id: this.dataset.id,
                 name: this.dataset.name,
+                  image: this.dataset.image,
                 price: parseFloat(this.dataset.price),
                 image: this.dataset.image,
                 stock: parseInt(this.dataset.stock),
