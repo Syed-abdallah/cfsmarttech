@@ -35,7 +35,7 @@
             0
           </span>
         </a>
-        <ul class="dropdown-menu dropdown-menu-end p-0" style="min-width: 300px;">
+        <ul class="dropdown-menu dropdown-menu-end p-0" style="min-width: 350px;">
           <li class="cart-header p-3">
             <div class="d-flex justify-content-between align-items-center">
               <h6 class="mb-0"><i class="bi bi-cart3 me-2"></i>Your Shopping Cart</h6>
@@ -162,6 +162,9 @@
       min-height: 80px;
     }
     body { overflow-x: hidden; }
+     #cart-dropdown .dropdown-menu {
+    right: -20px !important;
+  }
   }
 
   .navbar-custom {
